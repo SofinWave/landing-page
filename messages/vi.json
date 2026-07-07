@@ -40,5 +40,16 @@
       { "icon": "gauge", "title": "Hiệu năng & mở rộng", "description": "Đo lường, tối ưu và tái kiến trúc cho tải tăng trưởng." },
       { "icon": "shield", "title": "Bảo trì & vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live." }
     ]
+  },
+  "process": {
+    "title": "Cách chúng tôi triển khai",
+    "subtitle": "Lộ trình bài bản từ ý tưởng đến hệ thống chạy thật.",
+    "steps": [
+      { "title": "Khảo sát", "description": "Xác định mục tiêu, ràng buộc và tiêu chí thành công trước khi viết code." },
+      { "title": "Thiết kế", "description": "Kiến trúc, giao diện và kế hoạch triển khai để bạn duyệt." },
+      { "title": "Xây dựng", "description": "Phát triển lặp với kiểm thử, demo và checkpoint thường xuyên." },
+      { "title": "Triển khai", "description": "Phát hành tự động, lặp lại được vào môi trường của bạn." },
+      { "title": "Vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi ra mắt." }
+    ]
   }
 }

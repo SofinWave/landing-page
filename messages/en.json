@@ -40,5 +40,16 @@
       { "icon": "gauge", "title": "Performance & scale", "description": "Profiling, optimization, and re-architecture for growing workloads." },
       { "icon": "shield", "title": "Maintenance & operations", "description": "Monitoring, support, and continuous improvement after go-live." }
     ]
+  },
+  "process": {
+    "title": "How we deliver",
+    "subtitle": "A methodical path from idea to a system in production.",
+    "steps": [
+      { "title": "Discovery", "description": "We map goals, constraints, and success metrics before writing code." },
+      { "title": "Design", "description": "Architecture, interfaces, and a delivery plan you can review and approve." },
+      { "title": "Build", "description": "Iterative development with tests, demos, and frequent checkpoints." },
+      { "title": "Deploy", "description": "Automated, repeatable releases into your environment." },
+      { "title": "Operate", "description": "Monitoring, support, and continuous improvement after launch." }
+    ]
   }
 }
