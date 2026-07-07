@@ -51,5 +51,35 @@
       { "title": "Triển khai", "description": "Phát hành tự động, lặp lại được vào môi trường của bạn." },
       { "title": "Vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi ra mắt." }
     ]
+  },
+  "caseStudies": {
+    "title": "Dự án tiêu biểu",
+    "subtitle": "Hệ thống thật, kết quả thật.",
+    "problemLabel": "Vấn đề",
+    "solutionLabel": "Giải pháp",
+    "items": [
+      {
+        "client": "Acme Corp",
+        "problem": "Hệ thống monolith cũ không chịu nổi tải mùa cao điểm, mỗi lần phát hành mất hàng tuần.",
+        "solution": "Tái kiến trúc thành các service module với CI/CD tự động và observability.",
+        "results": [
+          { "label": "Thời gian deploy", "value": "-95%" },
+          { "label": "Sức chứa đỉnh", "value": "8x" },
+          { "label": "Sự cố", "value": "-60%" }
+        ],
+        "tags": ["Kiến trúc", "DevOps", "Node.js"]
+      },
+      {
+        "client": "Globex",
+        "problem": "Các công cụ rời rạc khiến phải nhập liệu thủ công và báo cáo trễ.",
+        "solution": "Xây lớp tích hợp hợp nhất ERP, CRM và thanh toán theo thời gian thực.",
+        "results": [
+          { "label": "Việc thủ công", "value": "-80%" },
+          { "label": "Độ trễ báo cáo", "value": "Thời gian thực" },
+          { "label": "Go-live", "value": "10 tuần" }
+        ],
+        "tags": ["Tích hợp", "TypeScript", "PostgreSQL"]
+      }
+    ]
   }
 }

@@ -51,5 +51,35 @@
       { "title": "Deploy", "description": "Automated, repeatable releases into your environment." },
       { "title": "Operate", "description": "Monitoring, support, and continuous improvement after launch." }
     ]
+  },
+  "caseStudies": {
+    "title": "Selected work",
+    "subtitle": "Real systems, real outcomes.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "items": [
+      {
+        "client": "Acme Corp",
+        "problem": "A legacy monolith couldn't handle seasonal traffic and releases took weeks.",
+        "solution": "We re-architected to modular services with automated CI/CD and observability.",
+        "results": [
+          { "label": "Deploy time", "value": "-95%" },
+          { "label": "Peak capacity", "value": "8x" },
+          { "label": "Incidents", "value": "-60%" }
+        ],
+        "tags": ["Architecture", "DevOps", "Node.js"]
+      },
+      {
+        "client": "Globex",
+        "problem": "Disconnected tools meant manual data entry and reporting delays.",
+        "solution": "We built an integration layer unifying ERP, CRM, and payments in real time.",
+        "results": [
+          { "label": "Manual work", "value": "-80%" },
+          { "label": "Report latency", "value": "Real-time" },
+          { "label": "Go-live", "value": "10 weeks" }
+        ],
+        "tags": ["Integration", "TypeScript", "PostgreSQL"]
+      }
+    ]
   }
 }
