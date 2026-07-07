@@ -106,5 +106,14 @@
         "company": "Globex"
       }
     ]
+  },
+  "team": {
+    "title": "Who we are",
+    "about": "kingnnt.org is a focused team of senior engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team.",
+    "members": [
+      { "name": "King Nguyen", "role": "Principal Consultant" },
+      { "name": "Team Member", "role": "Lead Engineer" },
+      { "name": "Team Member", "role": "Solutions Architect" }
+    ]
   }
 }
