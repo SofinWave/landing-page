@@ -89,5 +89,22 @@
     "domainsLabel": "Domains",
     "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
     "domains": ["Fintech", "E-commerce", "Logistics", "SaaS platforms", "Enterprise ERP"]
+  },
+  "testimonials": {
+    "title": "What clients say",
+    "items": [
+      {
+        "quote": "They understood our system faster than teams we'd worked with for years, and shipped ahead of schedule.",
+        "author": "Jane Doe",
+        "role": "CTO",
+        "company": "Acme Corp"
+      },
+      {
+        "quote": "Clear communication, disciplined delivery. The integration just worked on day one.",
+        "author": "John Smith",
+        "role": "Head of Engineering",
+        "company": "Globex"
+      }
+    ]
   }
 }

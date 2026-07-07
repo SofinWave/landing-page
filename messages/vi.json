@@ -89,5 +89,22 @@
     "domainsLabel": "Lĩnh vực",
     "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
     "domains": ["Fintech", "Thương mại điện tử", "Logistics", "Nền tảng SaaS", "ERP doanh nghiệp"]
+  },
+  "testimonials": {
+    "title": "Khách hàng nói gì",
+    "items": [
+      {
+        "quote": "Họ hiểu hệ thống của chúng tôi nhanh hơn cả những đội đã làm nhiều năm, và bàn giao sớm hơn kế hoạch.",
+        "author": "Jane Doe",
+        "role": "CTO",
+        "company": "Acme Corp"
+      },
+      {
+        "quote": "Giao tiếp rõ ràng, triển khai kỷ luật. Phần tích hợp chạy đúng ngay ngày đầu tiên.",
+        "author": "John Smith",
+        "role": "Head of Engineering",
+        "company": "Globex"
+      }
+    ]
   }
 }
