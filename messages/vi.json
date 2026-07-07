@@ -7,5 +7,15 @@
     "language": "Ngôn ngữ",
     "english": "English",
     "vietnamese": "Tiếng Việt"
+  },
+  "header": {
+    "brand": "kingnnt.org",
+    "services": "Dịch vụ",
+    "process": "Quy trình",
+    "work": "Dự án",
+    "contact": "Liên hệ",
+    "cta": "Đặt lịch tư vấn",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu"
   }
 }
