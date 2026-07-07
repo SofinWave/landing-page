@@ -81,5 +81,13 @@
         "tags": ["Integration", "TypeScript", "PostgreSQL"]
       }
     ]
+  },
+  "tech": {
+    "title": "Technology & domains",
+    "subtitle": "Depth where it matters, pragmatic everywhere else.",
+    "technologiesLabel": "Technologies",
+    "domainsLabel": "Domains",
+    "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
+    "domains": ["Fintech", "E-commerce", "Logistics", "SaaS platforms", "Enterprise ERP"]
   }
 }

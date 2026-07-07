@@ -81,5 +81,13 @@
         "tags": ["Tích hợp", "TypeScript", "PostgreSQL"]
       }
     ]
+  },
+  "tech": {
+    "title": "Công nghệ & lĩnh vực",
+    "subtitle": "Chuyên sâu ở nơi cần, thực dụng ở mọi nơi khác.",
+    "technologiesLabel": "Công nghệ",
+    "domainsLabel": "Lĩnh vực",
+    "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
+    "domains": ["Fintech", "Thương mại điện tử", "Logistics", "Nền tảng SaaS", "ERP doanh nghiệp"]
   }
 }
