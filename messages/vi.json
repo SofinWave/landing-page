@@ -24,5 +24,9 @@
     "subtitle": "kingnnt.org đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
     "ctaPrimary": "Đặt lịch tư vấn",
     "ctaSecondary": "Xem dự án"
+  },
+  "logos": {
+    "title": "Được tin dùng bởi các đội xây dựng phần mềm nghiêm túc",
+    "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
   }
 }

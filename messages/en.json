@@ -24,5 +24,9 @@
     "subtitle": "kingnnt.org partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "View case studies"
+  },
+  "logos": {
+    "title": "Trusted by teams building serious software",
+    "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
   }
 }
