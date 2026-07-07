@@ -135,5 +135,11 @@
     "sending": "Sending…",
     "success": "Thanks — we'll be in touch shortly.",
     "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "brand": "kingnnt.org",
+    "tagline": "Software consulting & implementation.",
+    "email": "hello@kingnnt.org",
+    "rights": "All rights reserved."
   }
 }

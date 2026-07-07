@@ -135,5 +135,11 @@
     "sending": "Đang gửi…",
     "success": "Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.",
     "error": "Có lỗi xảy ra. Vui lòng thử lại."
+  },
+  "footer": {
+    "brand": "kingnnt.org",
+    "tagline": "Tư vấn & triển khai phần mềm.",
+    "email": "hello@kingnnt.org",
+    "rights": "Bảo lưu mọi quyền."
   }
 }
