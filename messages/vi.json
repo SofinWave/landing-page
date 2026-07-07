@@ -2,5 +2,10 @@
   "metadata": {
     "title": "kingnnt.org — Tư vấn & Triển khai Hệ thống Phần mềm",
     "description": "kingnnt.org đồng hành cùng doanh nghiệp thiết kế và triển khai hệ thống phần mềm đáng tin cậy — từ tư vấn kiến trúc đến bàn giao trọn gói."
+  },
+  "nav": {
+    "language": "Ngôn ngữ",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
   }
 }
