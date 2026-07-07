@@ -17,5 +17,12 @@
     "cta": "Book a consultation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Software consulting & implementation",
+    "title": "We ship the systems your business runs on",
+    "subtitle": "kingnnt.org partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "View case studies"
   }
 }

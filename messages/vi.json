@@ -17,5 +17,12 @@
     "cta": "Đặt lịch tư vấn",
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu"
+  },
+  "hero": {
+    "eyebrow": "Tư vấn & triển khai phần mềm",
+    "title": "Xây dựng hệ thống doanh nghiệp bạn vận hành mỗi ngày",
+    "subtitle": "kingnnt.org đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
+    "ctaPrimary": "Đặt lịch tư vấn",
+    "ctaSecondary": "Xem dự án"
   }
 }
