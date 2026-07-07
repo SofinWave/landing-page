@@ -28,5 +28,17 @@
   "logos": {
     "title": "Trusted by teams building serious software",
     "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
+  },
+  "services": {
+    "title": "What we do",
+    "subtitle": "End-to-end capability across the software delivery lifecycle.",
+    "items": [
+      { "icon": "compass", "title": "Architecture consulting", "description": "System design, tech due diligence, and roadmaps that de-risk delivery." },
+      { "icon": "server", "title": "System implementation", "description": "We stand up the platforms, services, and infrastructure your product runs on." },
+      { "icon": "code", "title": "Custom software development", "description": "Web, mobile, and backend engineering tailored to your business rules." },
+      { "icon": "plug", "title": "Integration", "description": "Connect ERPs, payment, and third-party systems into one reliable flow." },
+      { "icon": "gauge", "title": "Performance & scale", "description": "Profiling, optimization, and re-architecture for growing workloads." },
+      { "icon": "shield", "title": "Maintenance & operations", "description": "Monitoring, support, and continuous improvement after go-live." }
+    ]
   }
 }

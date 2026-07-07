@@ -28,5 +28,17 @@
   "logos": {
     "title": "Được tin dùng bởi các đội xây dựng phần mềm nghiêm túc",
     "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
+  },
+  "services": {
+    "title": "Chúng tôi làm gì",
+    "subtitle": "Năng lực trọn vòng đời phát triển phần mềm.",
+    "items": [
+      { "icon": "compass", "title": "Tư vấn kiến trúc", "description": "Thiết kế hệ thống, thẩm định công nghệ và lộ trình giảm rủi ro triển khai." },
+      { "icon": "server", "title": "Triển khai hệ thống", "description": "Dựng nền tảng, dịch vụ và hạ tầng cho sản phẩm của bạn vận hành." },
+      { "icon": "code", "title": "Phát triển phần mềm", "description": "Web, mobile và backend theo đúng nghiệp vụ doanh nghiệp." },
+      { "icon": "plug", "title": "Tích hợp hệ thống", "description": "Kết nối ERP, thanh toán và hệ thống bên thứ ba thành một luồng tin cậy." },
+      { "icon": "gauge", "title": "Hiệu năng & mở rộng", "description": "Đo lường, tối ưu và tái kiến trúc cho tải tăng trưởng." },
+      { "icon": "shield", "title": "Bảo trì & vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live." }
+    ]
   }
 }
