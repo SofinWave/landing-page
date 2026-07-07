@@ -115,5 +115,14 @@
       { "name": "Team Member", "role": "Lead Engineer" },
       { "name": "Team Member", "role": "Solutions Architect" }
     ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      { "question": "How do engagements start?", "answer": "With a short discovery call to understand your goals, followed by a written proposal and plan." },
+      { "question": "Do you work with existing teams?", "answer": "Yes. We frequently embed with in-house teams and hand off cleanly with documentation." },
+      { "question": "How is pricing structured?", "answer": "Fixed-scope for well-defined projects, or time-and-materials for evolving work. We agree it up front." },
+      { "question": "What about security and IP?", "answer": "You own all code and IP. We follow least-privilege access and can sign an NDA before we start." }
+    ]
   }
 }

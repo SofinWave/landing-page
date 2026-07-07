@@ -115,5 +115,14 @@
       { "name": "Thành viên", "role": "Kỹ sư trưởng" },
       { "name": "Thành viên", "role": "Kiến trúc sư giải pháp" }
     ]
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      { "question": "Hợp tác bắt đầu như thế nào?", "answer": "Bằng một buổi khảo sát ngắn để hiểu mục tiêu, sau đó là đề xuất và kế hoạch bằng văn bản." },
+      { "question": "Có làm việc cùng đội hiện có không?", "answer": "Có. Chúng tôi thường phối hợp với đội nội bộ và bàn giao gọn gàng kèm tài liệu." },
+      { "question": "Cách tính chi phí ra sao?", "answer": "Cố định theo phạm vi cho dự án rõ ràng, hoặc theo thời gian cho công việc thay đổi. Thống nhất trước khi bắt đầu." },
+      { "question": "Bảo mật và sở hữu trí tuệ thì sao?", "answer": "Bạn sở hữu toàn bộ code và IP. Chúng tôi áp dụng quyền truy cập tối thiểu và có thể ký NDA trước." }
+    ]
   }
 }
