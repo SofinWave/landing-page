@@ -124,5 +124,16 @@
       { "question": "How is pricing structured?", "answer": "Fixed-scope for well-defined projects, or time-and-materials for evolving work. We agree it up front." },
       { "question": "What about security and IP?", "answer": "You own all code and IP. We follow least-privilege access and can sign an NDA before we start." }
     ]
+  },
+  "contact": {
+    "title": "Let's talk about your system",
+    "subtitle": "Tell us what you're building. We'll reply within one business day.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Thanks — we'll be in touch shortly.",
+    "error": "Something went wrong. Please try again."
   }
 }

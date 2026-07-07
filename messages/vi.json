@@ -124,5 +124,16 @@
       { "question": "Cách tính chi phí ra sao?", "answer": "Cố định theo phạm vi cho dự án rõ ràng, hoặc theo thời gian cho công việc thay đổi. Thống nhất trước khi bắt đầu." },
       { "question": "Bảo mật và sở hữu trí tuệ thì sao?", "answer": "Bạn sở hữu toàn bộ code và IP. Chúng tôi áp dụng quyền truy cập tối thiểu và có thể ký NDA trước." }
     ]
+  },
+  "contact": {
+    "title": "Cùng trao đổi về hệ thống của bạn",
+    "subtitle": "Hãy cho chúng tôi biết bạn đang xây gì. Chúng tôi phản hồi trong một ngày làm việc.",
+    "name": "Họ tên",
+    "email": "Email",
+    "message": "Nội dung",
+    "submit": "Gửi tin nhắn",
+    "sending": "Đang gửi…",
+    "success": "Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.",
+    "error": "Có lỗi xảy ra. Vui lòng thử lại."
   }
 }
