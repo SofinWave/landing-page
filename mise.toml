@@ -1,0 +1,66 @@
+# mise tasks — replaces the old Makefile.
+# Run with `mise run <task>`, e.g. `mise run local:up` or `mise run prod:up`.
+#
+# Task names are prefixed by environment: local:* (development) and prod:*.
+# They wrap Docker Compose using the override pattern:
+#   docker-compose.yml           base (shared) config
+#   docker-compose.override.yml  local overrides, auto-loaded by `docker compose`
+#   docker-compose.prod.yml      prod overrides, passed explicitly for prod:* tasks
+
+# ─── local (development) ──────────────────────────────────────────────
+[tasks."local:up"]
+description = "Start local dev containers (detached)"
+run = "docker compose up -d"
+
+[tasks."local:restart"]
+description = "Rebuild and restart local dev containers"
+run = "docker compose up -d --build"
+
+[tasks."local:down"]
+description = "Stop and remove local dev containers"
+run = "docker compose down"
+
+[tasks."local:rm"]
+description = "Remove local containers, locally-built images and volumes"
+run = "docker compose down --rmi local -v"
+
+[tasks."local:start"]
+description = "Start existing (stopped) local dev containers"
+run = "docker compose start"
+
+[tasks."local:stop"]
+description = "Stop local dev containers without removing them"
+run = "docker compose stop"
+
+[tasks."local:connect"]
+description = "Open a bash shell inside the local node container"
+run = "docker compose exec -it node bash"
+
+[tasks."local:dev"]
+description = "Run the Next.js dev server inside the local node container"
+run = "docker compose exec -it node yarn dev"
+
+# ─── prod (production) ────────────────────────────────────────────────
+[tasks."prod:up"]
+description = "Start production containers (detached)"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
+
+[tasks."prod:restart"]
+description = "Rebuild and restart production containers"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build"
+
+[tasks."prod:down"]
+description = "Stop and remove production containers"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml down"
+
+[tasks."prod:rm"]
+description = "Remove production containers, locally-built images and volumes"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml down --rmi local -v"
+
+[tasks."prod:start"]
+description = "Start existing (stopped) production containers"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml start"
+
+[tasks."prod:stop"]
+description = "Stop production containers without removing them"
+run = "docker compose -f docker-compose.yml -f docker-compose.prod.yml stop"
