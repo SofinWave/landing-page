@@ -17,7 +17,8 @@ export function ContactForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const res = await submitContact({
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
@@ -25,7 +26,7 @@ export function ContactForm() {
     });
     if (res.ok) {
       setStatus("success");
-      e.currentTarget.reset();
+      formEl.reset();
     } else {
       setStatus("error");
     }
