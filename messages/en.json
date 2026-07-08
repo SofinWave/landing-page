@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "kingnnt.org — Software Consulting & Implementation",
+    "description": "kingnnt.org helps businesses design and implement reliable software systems — from architecture consulting to full delivery."
+  },
+  "nav": {
+    "language": "Language",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+  "header": {
+    "brand": "kingnnt.org",
+    "services": "Services",
+    "process": "Process",
+    "work": "Case studies",
+    "contact": "Contact",
+    "cta": "Book a consultation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Software consulting & implementation",
+    "title": "We ship the systems your business runs on",
+    "subtitle": "kingnnt.org partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "View case studies"
+  },
+  "logos": {
+    "title": "Trusted by teams building serious software",
+    "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
+  },
+  "services": {
+    "title": "What we do",
+    "subtitle": "End-to-end capability across the software delivery lifecycle.",
+    "items": [
+      { "icon": "compass", "title": "Architecture consulting", "description": "System design, tech due diligence, and roadmaps that de-risk delivery." },
+      { "icon": "server", "title": "System implementation", "description": "We stand up the platforms, services, and infrastructure your product runs on." },
+      { "icon": "code", "title": "Custom software development", "description": "Web, mobile, and backend engineering tailored to your business rules." },
+      { "icon": "plug", "title": "Integration", "description": "Connect ERPs, payment, and third-party systems into one reliable flow." },
+      { "icon": "gauge", "title": "Performance & scale", "description": "Profiling, optimization, and re-architecture for growing workloads." },
+      { "icon": "shield", "title": "Maintenance & operations", "description": "Monitoring, support, and continuous improvement after go-live." }
+    ]
+  },
+  "process": {
+    "title": "How we deliver",
+    "subtitle": "A methodical path from idea to a system in production.",
+    "steps": [
+      { "title": "Discovery", "description": "We map goals, constraints, and success metrics before writing code." },
+      { "title": "Design", "description": "Architecture, interfaces, and a delivery plan you can review and approve." },
+      { "title": "Build", "description": "Iterative development with tests, demos, and frequent checkpoints." },
+      { "title": "Deploy", "description": "Automated, repeatable releases into your environment." },
+      { "title": "Operate", "description": "Monitoring, support, and continuous improvement after launch." }
+    ]
+  },
+  "caseStudies": {
+    "title": "Selected work",
+    "subtitle": "Real systems, real outcomes.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "items": [
+      {
+        "client": "Acme Corp",
+        "problem": "A legacy monolith couldn't handle seasonal traffic and releases took weeks.",
+        "solution": "We re-architected to modular services with automated CI/CD and observability.",
+        "results": [
+          { "label": "Deploy time", "value": "-95%" },
+          { "label": "Peak capacity", "value": "8x" },
+          { "label": "Incidents", "value": "-60%" }
+        ],
+        "tags": ["Architecture", "DevOps", "Node.js"]
+      },
+      {
+        "client": "Globex",
+        "problem": "Disconnected tools meant manual data entry and reporting delays.",
+        "solution": "We built an integration layer unifying ERP, CRM, and payments in real time.",
+        "results": [
+          { "label": "Manual work", "value": "-80%" },
+          { "label": "Report latency", "value": "Real-time" },
+          { "label": "Go-live", "value": "10 weeks" }
+        ],
+        "tags": ["Integration", "TypeScript", "PostgreSQL"]
+      }
+    ]
+  },
+  "tech": {
+    "title": "Technology & domains",
+    "subtitle": "Depth where it matters, pragmatic everywhere else.",
+    "technologiesLabel": "Technologies",
+    "domainsLabel": "Domains",
+    "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
+    "domains": ["Fintech", "E-commerce", "Logistics", "SaaS platforms", "Enterprise ERP"]
+  },
+  "testimonials": {
+    "title": "What clients say",
+    "items": [
+      {
+        "quote": "They understood our system faster than teams we'd worked with for years, and shipped ahead of schedule.",
+        "author": "Jane Doe",
+        "role": "CTO",
+        "company": "Acme Corp"
+      },
+      {
+        "quote": "Clear communication, disciplined delivery. The integration just worked on day one.",
+        "author": "John Smith",
+        "role": "Head of Engineering",
+        "company": "Globex"
+      }
+    ]
+  },
+  "team": {
+    "title": "Who we are",
+    "about": "kingnnt.org is a focused team of senior engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team.",
+    "members": [
+      { "name": "King Nguyen", "role": "Principal Consultant" },
+      { "name": "Team Member", "role": "Lead Engineer" },
+      { "name": "Team Member", "role": "Solutions Architect" }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      { "question": "How do engagements start?", "answer": "With a short discovery call to understand your goals, followed by a written proposal and plan." },
+      { "question": "Do you work with existing teams?", "answer": "Yes. We frequently embed with in-house teams and hand off cleanly with documentation." },
+      { "question": "How is pricing structured?", "answer": "Fixed-scope for well-defined projects, or time-and-materials for evolving work. We agree it up front." },
+      { "question": "What about security and IP?", "answer": "You own all code and IP. We follow least-privilege access and can sign an NDA before we start." }
+    ]
+  },
+  "contact": {
+    "title": "Let's talk about your system",
+    "subtitle": "Tell us what you're building. We'll reply within one business day.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Thanks — we'll be in touch shortly.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "brand": "kingnnt.org",
+    "tagline": "Software consulting & implementation.",
+    "email": "hello@kingnnt.org",
+    "rights": "All rights reserved."
+  }
+}

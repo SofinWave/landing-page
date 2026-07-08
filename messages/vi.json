@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "kingnnt.org — Tư vấn & Triển khai Hệ thống Phần mềm",
+    "description": "kingnnt.org đồng hành cùng doanh nghiệp thiết kế và triển khai hệ thống phần mềm đáng tin cậy — từ tư vấn kiến trúc đến bàn giao trọn gói."
+  },
+  "nav": {
+    "language": "Ngôn ngữ",
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+  "header": {
+    "brand": "kingnnt.org",
+    "services": "Dịch vụ",
+    "process": "Quy trình",
+    "work": "Dự án",
+    "contact": "Liên hệ",
+    "cta": "Đặt lịch tư vấn",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu"
+  },
+  "hero": {
+    "eyebrow": "Tư vấn & triển khai phần mềm",
+    "title": "Xây dựng hệ thống doanh nghiệp bạn vận hành mỗi ngày",
+    "subtitle": "kingnnt.org đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
+    "ctaPrimary": "Đặt lịch tư vấn",
+    "ctaSecondary": "Xem dự án"
+  },
+  "logos": {
+    "title": "Được tin dùng bởi các đội xây dựng phần mềm nghiêm túc",
+    "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
+  },
+  "services": {
+    "title": "Chúng tôi làm gì",
+    "subtitle": "Năng lực trọn vòng đời phát triển phần mềm.",
+    "items": [
+      { "icon": "compass", "title": "Tư vấn kiến trúc", "description": "Thiết kế hệ thống, thẩm định công nghệ và lộ trình giảm rủi ro triển khai." },
+      { "icon": "server", "title": "Triển khai hệ thống", "description": "Dựng nền tảng, dịch vụ và hạ tầng cho sản phẩm của bạn vận hành." },
+      { "icon": "code", "title": "Phát triển phần mềm", "description": "Web, mobile và backend theo đúng nghiệp vụ doanh nghiệp." },
+      { "icon": "plug", "title": "Tích hợp hệ thống", "description": "Kết nối ERP, thanh toán và hệ thống bên thứ ba thành một luồng tin cậy." },
+      { "icon": "gauge", "title": "Hiệu năng & mở rộng", "description": "Đo lường, tối ưu và tái kiến trúc cho tải tăng trưởng." },
+      { "icon": "shield", "title": "Bảo trì & vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live." }
+    ]
+  },
+  "process": {
+    "title": "Cách chúng tôi triển khai",
+    "subtitle": "Lộ trình bài bản từ ý tưởng đến hệ thống chạy thật.",
+    "steps": [
+      { "title": "Khảo sát", "description": "Xác định mục tiêu, ràng buộc và tiêu chí thành công trước khi viết code." },
+      { "title": "Thiết kế", "description": "Kiến trúc, giao diện và kế hoạch triển khai để bạn duyệt." },
+      { "title": "Xây dựng", "description": "Phát triển lặp với kiểm thử, demo và checkpoint thường xuyên." },
+      { "title": "Triển khai", "description": "Phát hành tự động, lặp lại được vào môi trường của bạn." },
+      { "title": "Vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi ra mắt." }
+    ]
+  },
+  "caseStudies": {
+    "title": "Dự án tiêu biểu",
+    "subtitle": "Hệ thống thật, kết quả thật.",
+    "problemLabel": "Vấn đề",
+    "solutionLabel": "Giải pháp",
+    "items": [
+      {
+        "client": "Acme Corp",
+        "problem": "Hệ thống monolith cũ không chịu nổi tải mùa cao điểm, mỗi lần phát hành mất hàng tuần.",
+        "solution": "Tái kiến trúc thành các service module với CI/CD tự động và observability.",
+        "results": [
+          { "label": "Thời gian deploy", "value": "-95%" },
+          { "label": "Sức chứa đỉnh", "value": "8x" },
+          { "label": "Sự cố", "value": "-60%" }
+        ],
+        "tags": ["Kiến trúc", "DevOps", "Node.js"]
+      },
+      {
+        "client": "Globex",
+        "problem": "Các công cụ rời rạc khiến phải nhập liệu thủ công và báo cáo trễ.",
+        "solution": "Xây lớp tích hợp hợp nhất ERP, CRM và thanh toán theo thời gian thực.",
+        "results": [
+          { "label": "Việc thủ công", "value": "-80%" },
+          { "label": "Độ trễ báo cáo", "value": "Thời gian thực" },
+          { "label": "Go-live", "value": "10 tuần" }
+        ],
+        "tags": ["Tích hợp", "TypeScript", "PostgreSQL"]
+      }
+    ]
+  },
+  "tech": {
+    "title": "Công nghệ & lĩnh vực",
+    "subtitle": "Chuyên sâu ở nơi cần, thực dụng ở mọi nơi khác.",
+    "technologiesLabel": "Công nghệ",
+    "domainsLabel": "Lĩnh vực",
+    "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
+    "domains": ["Fintech", "Thương mại điện tử", "Logistics", "Nền tảng SaaS", "ERP doanh nghiệp"]
+  },
+  "testimonials": {
+    "title": "Khách hàng nói gì",
+    "items": [
+      {
+        "quote": "Họ hiểu hệ thống của chúng tôi nhanh hơn cả những đội đã làm nhiều năm, và bàn giao sớm hơn kế hoạch.",
+        "author": "Jane Doe",
+        "role": "CTO",
+        "company": "Acme Corp"
+      },
+      {
+        "quote": "Giao tiếp rõ ràng, triển khai kỷ luật. Phần tích hợp chạy đúng ngay ngày đầu tiên.",
+        "author": "John Smith",
+        "role": "Head of Engineering",
+        "company": "Globex"
+      }
+    ]
+  },
+  "team": {
+    "title": "Chúng tôi là ai",
+    "about": "kingnnt.org là đội ngũ kỹ sư và chuyên gia tư vấn cấp cao đã bàn giao nhiều hệ thống production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như một phần trong đội của bạn.",
+    "members": [
+      { "name": "King Nguyen", "role": "Chuyên gia tư vấn chính" },
+      { "name": "Thành viên", "role": "Kỹ sư trưởng" },
+      { "name": "Thành viên", "role": "Kiến trúc sư giải pháp" }
+    ]
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      { "question": "Hợp tác bắt đầu như thế nào?", "answer": "Bằng một buổi khảo sát ngắn để hiểu mục tiêu, sau đó là đề xuất và kế hoạch bằng văn bản." },
+      { "question": "Có làm việc cùng đội hiện có không?", "answer": "Có. Chúng tôi thường phối hợp với đội nội bộ và bàn giao gọn gàng kèm tài liệu." },
+      { "question": "Cách tính chi phí ra sao?", "answer": "Cố định theo phạm vi cho dự án rõ ràng, hoặc theo thời gian cho công việc thay đổi. Thống nhất trước khi bắt đầu." },
+      { "question": "Bảo mật và sở hữu trí tuệ thì sao?", "answer": "Bạn sở hữu toàn bộ code và IP. Chúng tôi áp dụng quyền truy cập tối thiểu và có thể ký NDA trước." }
+    ]
+  },
+  "contact": {
+    "title": "Cùng trao đổi về hệ thống của bạn",
+    "subtitle": "Hãy cho chúng tôi biết bạn đang xây gì. Chúng tôi phản hồi trong một ngày làm việc.",
+    "name": "Họ tên",
+    "email": "Email",
+    "message": "Nội dung",
+    "submit": "Gửi tin nhắn",
+    "sending": "Đang gửi…",
+    "success": "Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.",
+    "error": "Có lỗi xảy ra. Vui lòng thử lại."
+  },
+  "footer": {
+    "brand": "kingnnt.org",
+    "tagline": "Tư vấn & triển khai phần mềm.",
+    "email": "hello@kingnnt.org",
+    "rights": "Bảo lưu mọi quyền."
+  }
+}
