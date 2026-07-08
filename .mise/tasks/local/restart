@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Rebuild and restart local dev containers"
+set -euo pipefail
+docker compose up -d --build

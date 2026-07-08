@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Start existing (stopped) production containers"
+set -euo pipefail
+export COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
+docker compose start

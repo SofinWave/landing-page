@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Rebuild and restart production containers"
+set -euo pipefail
+export COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
+docker compose up -d --build

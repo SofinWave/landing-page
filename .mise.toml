@@ -1,0 +1,14 @@
+# mise configuration.
+#
+# Tasks are defined as file tasks under `.mise/tasks/`, namespaced by
+# environment via subfolders:
+#   .mise/tasks/local/*  -> local:*   (development)
+#   .mise/tasks/prod/*   -> prod:*     (production)
+#
+# List them with `mise tasks ls`; run with `mise run <task>`, e.g.
+# `mise run local:up` or `mise run prod:up`.
+#
+# They wrap Docker Compose using the override pattern:
+#   docker-compose.yml           base (shared) config
+#   docker-compose.override.yml  local overrides, auto-loaded by `docker compose`
+#   docker-compose.prod.yml      prod overrides (prod:* tasks set COMPOSE_FILE)
