@@ -1,0 +1,12 @@
+# Production overrides.
+# NOT auto-loaded — applied explicitly by the prod:* mise tasks via
+# `docker compose -f docker-compose.yml -f docker-compose.prod.yml ...`,
+# which deliberately excludes docker-compose.override.yml.
+services:
+  node:
+    container_name: ${APP_NAME}_prod_node
+    hostname: ${APP_NAME}_prod_node
+    build:
+      dockerfile: .docker/production/node/Dockerfile
+    env_file:
+      - .env
