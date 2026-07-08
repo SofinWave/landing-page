@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { contactSchema, submitContact } from "@/app/actions/contact";
+import { contactSchema } from "@/app/actions/contact.schema";
+import { submitContact } from "@/app/actions/contact";
 
 describe("contact action", () => {
   it("rejects an invalid email", () => {
