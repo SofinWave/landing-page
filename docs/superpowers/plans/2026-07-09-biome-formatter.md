@@ -114,7 +114,7 @@ The final `"scripts"` block should read:
   "lint": "eslint .",
   "lint:fix": "eslint . --fix",
   "format": "biome format --write",
-  "format:check": "biome format --check",
+  "format:check": "biome format",
   "prepare": "husky",
   "test": "vitest run",
   "test:watch": "vitest"
@@ -293,9 +293,9 @@ Notes:
 
 Run:
 ```bash
-pnpm exec biome format --check .github/workflows/lint-format.yml 2>/dev/null; echo "exit: $?"
+pnpm exec biome format .github/workflows/lint-format.yml 2>/dev/null; echo "exit: $?"
 ```
-Expected: Biome reports it is already formatted (exit 0) or skips it as unknown. (YAML is not in Biome's formatter scope, so it may report `ignoreUnknown` skip — either is fine; the goal is no crash.) The key check is that the YAML is syntactically valid.
+Expected: Biome skips the file as unknown (YAML is not in Biome's formatter scope — `ignoreUnknown` is on) and prints exit 0. The goal is no crash. The key check is that the YAML is syntactically valid, covered by the parse check below.
 
 Optionally verify YAML parses:
 ```bash

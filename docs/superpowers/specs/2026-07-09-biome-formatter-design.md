@@ -113,7 +113,7 @@ Giữ nguyên `lint` / `lint:fix` (ESLint), thêm:
 ### 4d. `package.json` devDependencies
 
 Thêm:
-- `@biomejs/biome`: `^2.5.2` (stable mới nhất tính đến 2026-07-09)
+- `@biomejs/biome`: `2.5.2` (exact pin, stable mới nhất tính đến 2026-07-09 — formatters should be exact-pinned so local & CI output match)
 
 ### 4e. GitHub Actions workflow (file mới)
 
