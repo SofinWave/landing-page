@@ -4,7 +4,12 @@ import { Section } from "@/components/section";
 type Member = { name: string; role: string };
 
 function initials(name: string) {
-  return name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+  return name
+    .split(" ")
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
 }
 
 export function Team() {
@@ -18,7 +23,10 @@ export function Team() {
       </div>
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         {members.map((m, i) => (
-          <div key={`${m.name}-${i}`} className="flex items-center gap-4 rounded-lg border border-border bg-card p-4">
+          <div
+            key={`${m.name}-${i}`}
+            className="flex items-center gap-4 rounded-lg border border-border bg-card p-4"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary">
               {initials(m.name)}
             </div>

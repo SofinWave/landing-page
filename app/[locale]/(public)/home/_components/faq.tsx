@@ -16,7 +16,9 @@ export function Faq() {
   const items = t.raw("items") as FaqItem[];
   return (
     <Section className="max-w-3xl">
-      <h2 className="mb-10 text-center text-3xl font-bold tracking-tight md:text-4xl">{t("title")}</h2>
+      <h2 className="mb-10 text-center text-3xl font-bold tracking-tight md:text-4xl">
+        {t("title")}
+      </h2>
       <Accordion type="single" collapsible className="w-full">
         {items.map((item, i) => (
           <AccordionItem key={item.question} value={`item-${i}`}>

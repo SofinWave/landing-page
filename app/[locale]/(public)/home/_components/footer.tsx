@@ -9,7 +9,10 @@ export function SiteFooter() {
           <div className="font-semibold">{t("brand")}</div>
           <div className="text-sm text-muted-foreground">{t("tagline")}</div>
         </div>
-        <a href={`mailto:${t("email")}`} className="text-sm text-muted-foreground hover:text-foreground">
+        <a
+          href={`mailto:${t("email")}`}
+          className="text-sm text-muted-foreground hover:text-foreground"
+        >
           {t("email")}
         </a>
         <div className="text-sm text-muted-foreground">

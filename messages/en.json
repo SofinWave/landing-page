@@ -33,23 +33,59 @@
     "title": "What we do",
     "subtitle": "End-to-end capability across the software delivery lifecycle.",
     "items": [
-      { "icon": "compass", "title": "Architecture consulting", "description": "System design, tech due diligence, and roadmaps that de-risk delivery." },
-      { "icon": "server", "title": "System implementation", "description": "We stand up the platforms, services, and infrastructure your product runs on." },
-      { "icon": "code", "title": "Custom software development", "description": "Web, mobile, and backend engineering tailored to your business rules." },
-      { "icon": "plug", "title": "Integration", "description": "Connect ERPs, payment, and third-party systems into one reliable flow." },
-      { "icon": "gauge", "title": "Performance & scale", "description": "Profiling, optimization, and re-architecture for growing workloads." },
-      { "icon": "shield", "title": "Maintenance & operations", "description": "Monitoring, support, and continuous improvement after go-live." }
+      {
+        "icon": "compass",
+        "title": "Architecture consulting",
+        "description": "System design, tech due diligence, and roadmaps that de-risk delivery."
+      },
+      {
+        "icon": "server",
+        "title": "System implementation",
+        "description": "We stand up the platforms, services, and infrastructure your product runs on."
+      },
+      {
+        "icon": "code",
+        "title": "Custom software development",
+        "description": "Web, mobile, and backend engineering tailored to your business rules."
+      },
+      {
+        "icon": "plug",
+        "title": "Integration",
+        "description": "Connect ERPs, payment, and third-party systems into one reliable flow."
+      },
+      {
+        "icon": "gauge",
+        "title": "Performance & scale",
+        "description": "Profiling, optimization, and re-architecture for growing workloads."
+      },
+      {
+        "icon": "shield",
+        "title": "Maintenance & operations",
+        "description": "Monitoring, support, and continuous improvement after go-live."
+      }
     ]
   },
   "process": {
     "title": "How we deliver",
     "subtitle": "A methodical path from idea to a system in production.",
     "steps": [
-      { "title": "Discovery", "description": "We map goals, constraints, and success metrics before writing code." },
-      { "title": "Design", "description": "Architecture, interfaces, and a delivery plan you can review and approve." },
-      { "title": "Build", "description": "Iterative development with tests, demos, and frequent checkpoints." },
+      {
+        "title": "Discovery",
+        "description": "We map goals, constraints, and success metrics before writing code."
+      },
+      {
+        "title": "Design",
+        "description": "Architecture, interfaces, and a delivery plan you can review and approve."
+      },
+      {
+        "title": "Build",
+        "description": "Iterative development with tests, demos, and frequent checkpoints."
+      },
       { "title": "Deploy", "description": "Automated, repeatable releases into your environment." },
-      { "title": "Operate", "description": "Monitoring, support, and continuous improvement after launch." }
+      {
+        "title": "Operate",
+        "description": "Monitoring, support, and continuous improvement after launch."
+      }
     ]
   },
   "caseStudies": {
@@ -87,7 +123,16 @@
     "subtitle": "Depth where it matters, pragmatic everywhere else.",
     "technologiesLabel": "Technologies",
     "domainsLabel": "Domains",
-    "technologies": ["TypeScript", "Node.js", "React / Next.js", "Python", "Go", "PostgreSQL", "Kubernetes", "AWS"],
+    "technologies": [
+      "TypeScript",
+      "Node.js",
+      "React / Next.js",
+      "Python",
+      "Go",
+      "PostgreSQL",
+      "Kubernetes",
+      "AWS"
+    ],
     "domains": ["Fintech", "E-commerce", "Logistics", "SaaS platforms", "Enterprise ERP"]
   },
   "testimonials": {
@@ -119,10 +164,22 @@
   "faq": {
     "title": "Frequently asked questions",
     "items": [
-      { "question": "How do engagements start?", "answer": "With a short discovery call to understand your goals, followed by a written proposal and plan." },
-      { "question": "Do you work with existing teams?", "answer": "Yes. We frequently embed with in-house teams and hand off cleanly with documentation." },
-      { "question": "How is pricing structured?", "answer": "Fixed-scope for well-defined projects, or time-and-materials for evolving work. We agree it up front." },
-      { "question": "What about security and IP?", "answer": "You own all code and IP. We follow least-privilege access and can sign an NDA before we start." }
+      {
+        "question": "How do engagements start?",
+        "answer": "With a short discovery call to understand your goals, followed by a written proposal and plan."
+      },
+      {
+        "question": "Do you work with existing teams?",
+        "answer": "Yes. We frequently embed with in-house teams and hand off cleanly with documentation."
+      },
+      {
+        "question": "How is pricing structured?",
+        "answer": "Fixed-scope for well-defined projects, or time-and-materials for evolving work. We agree it up front."
+      },
+      {
+        "question": "What about security and IP?",
+        "answer": "You own all code and IP. We follow least-privilege access and can sign an NDA before we start."
+      }
     ]
   },
   "contact": {
