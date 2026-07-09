@@ -1,0 +1,38 @@
+# kingnnt.org
+
+> kingnnt.org is a software consulting and implementation firm. We partner with businesses from architecture to delivery — designing, building, and operating reliable software systems that scale. We serve clients in Vietnam and worldwide, in both English and Vietnamese.
+
+## What we do
+
+- **Architecture consulting** — System design, tech due diligence, and roadmaps that de-risk delivery.
+- **System implementation** — We stand up the platforms, services, and infrastructure your product runs on.
+- **Custom software development** — Web, mobile, and backend engineering tailored to your business rules.
+- **Integration** — Connect ERPs, payment, and third-party systems into one reliable flow.
+- **Performance & scale** — Profiling, optimization, and re-architecture for growing workloads.
+- **Maintenance & operations** — Monitoring, support, and continuous improvement after go-live.
+
+## How we deliver
+
+1. **Discovery** — Map goals, constraints, and success metrics before writing code.
+2. **Design** — Architecture, interfaces, and a delivery plan you can review and approve.
+3. **Build** — Iterative development with tests, demos, and frequent checkpoints.
+4. **Deploy** — Automated, repeatable releases into your environment.
+5. **Operate** — Monitoring, support, and continuous improvement after launch.
+
+## Technologies & domains
+
+- **Technologies:** TypeScript, Node.js, React / Next.js, Python, Go, PostgreSQL, Kubernetes, AWS.
+- **Domains:** Fintech, E-commerce, Logistics, SaaS platforms, Enterprise ERP.
+
+## FAQ
+
+- **How do engagements start?** With a short discovery call to understand your goals, followed by a written proposal and plan.
+- **Do you work with existing teams?** Yes. We frequently embed with in-house teams and hand off cleanly with documentation.
+- **How is pricing structured?** Fixed-scope for well-defined projects, or time-and-materials for evolving work. Agreed up front.
+- **What about security and IP?** You own all code and IP. We follow least-privilege access and can sign an NDA before we start.
+
+## Contact
+
+- Website: https://kingnnt.org
+- Email: hello@kingnnt.org
+- Languages: English (https://kingnnt.org/en), Vietnamese (https://kingnnt.org/vi)

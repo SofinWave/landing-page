@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { StructuredData } from "@/components/structured-data";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "./_components/hero";
 import { LogoStrip } from "./_components/logo-strip";
@@ -22,6 +23,7 @@ export default async function HomePage({
 
   return (
     <div className="flex min-h-screen flex-col">
+      <StructuredData locale={locale} />
       <SiteHeader />
       <main className="flex-1">
         <Hero />
