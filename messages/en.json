@@ -199,6 +199,9 @@
     "tagline": "Software consulting & implementation.",
     "status": "All systems operational",
     "email": "hello@kingnnt.org",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "navigate": "Navigate",
+    "connect": "Connect",
+    "builtWith": "Built with Next.js & TypeScript"
   }
 }

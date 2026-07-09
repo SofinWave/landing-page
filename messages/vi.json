@@ -202,6 +202,9 @@
     "tagline": "Tư vấn & triển khai phần mềm.",
     "status": "Hệ thống đang vận hành",
     "email": "hello@kingnnt.org",
-    "rights": "Bảo lưu mọi quyền."
+    "rights": "Bảo lưu mọi quyền.",
+    "navigate": "Điều hướng",
+    "connect": "Kết nối",
+    "builtWith": "Xây dựng với Next.js & TypeScript"
   }
 }
