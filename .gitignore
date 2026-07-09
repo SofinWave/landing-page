@@ -46,7 +46,4 @@ next-env.d.ts
 
 # serena
 /.serena/
-
-# superpowers: track the folder, but never commit the brainstorm session token/port
-.superpowers/brainstorm/.last-token
-.superpowers/brainstorm/.last-port
+.superpowers/
