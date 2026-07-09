@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Compass, Server, Code, Plug, Gauge, Shield, type LucideIcon } from "lucide-react";
 import { Section } from "@/components/section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HudCard } from "@/components/hud-card";
 import { Reveal } from "@/components/reveal";
 
