@@ -100,8 +100,10 @@ In `package.json`, add these two entries to the `"scripts"` object (keep all exi
 
 ```jsonc
 "format": "biome format --write",
-"format:check": "biome format --check"
+"format:check": "biome format"
 ```
+
+> **Biome v2 note:** The `--check` flag was removed in Biome 2.x. Read-only check mode is `biome format` (exits non-zero on unformatted files); writing is `biome format --write`.
 
 The final `"scripts"` block should read:
 ```jsonc

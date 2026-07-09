@@ -87,8 +87,10 @@ Giữ nguyên `lint` / `lint:fix` (ESLint), thêm:
 
 ```jsonc
 "format": "biome format --write",
-"format:check": "biome format --check"
+"format:check": "biome format"
 ```
+
+> **Note (Biome v2):** The `--check` flag was removed in Biome 2.x. The read-only check mode is invoked with bare `biome format` (non-zero exit on unformatted files), and writing is done with `biome format --write`.
 
 ### 4c. Cập nhật `.lintstagedrc.json`
 
