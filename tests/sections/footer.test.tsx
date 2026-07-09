@@ -17,4 +17,13 @@ describe("SiteFooter", () => {
       "mailto:hello@kingnnt.org",
     );
   });
+
+  it("renders the system status line", () => {
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <SiteFooter />
+      </NextIntlClientProvider>,
+    );
+    expect(screen.getByText("All systems operational")).toBeInTheDocument();
+  });
 });
