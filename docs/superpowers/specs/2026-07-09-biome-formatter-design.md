@@ -71,6 +71,9 @@ Hai lớp tooling tách bạch:
   "json": {
     "formatter": { "trailingCommas": "none" }
   },
+  "css": {
+    "parser": { "tailwindDirectives": true }
+  },
   "linter": { "enabled": false }
 }
 ```
@@ -80,6 +83,7 @@ Hai lớp tooling tách bạch:
 - `linter.enabled: false` → đảm bảo chỉ Biome formatter chạy, không xung đột ESLint.
 - `useIgnoreFile: true` → Biome tự respect `.gitignore`, không format `node_modules`, `.next`, ...
 - `lineWidth: 100` → chuẩn phổ biến.
+- `css.parser.tailwindDirectives: true` → project dùng Tailwind CSS v4; without this, Biome rejects Tailwind at-rules (`@theme`, `@custom-variant`, `@apply`) in `app/globals.css`.
 
 ### 4b. Scripts mới trong `package.json`
 
