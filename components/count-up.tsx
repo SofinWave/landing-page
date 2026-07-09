@@ -21,7 +21,7 @@ export function CountUp({
 }) {
   const reduced = useReducedMotion();
   const { ref, inView } = useInView<HTMLSpanElement>();
-  const [value, setValue] = useState(to);
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
     if (reduced) {
@@ -30,7 +30,6 @@ export function CountUp({
       return;
     }
     if (!inView) {
-      setValue(0);
       return;
     }
     let raf = 0;
