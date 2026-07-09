@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "format": "biome format --write",
+    "format:check": "biome format",
     "prepare": "husky",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -28,6 +30,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.2",
     "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.2.0",
     "@commitlint/types": "^19",
