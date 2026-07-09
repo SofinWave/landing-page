@@ -1,0 +1,73 @@
+# Review package: 5c0263a..HEAD
+
+## Commits
+5a499fc feat(ui): support numbered SectionLabel in Section
+
+## Files changed
+ components/section.tsx            | 10 ++++++++++
+ tests/components/section.test.tsx | 15 +++++++++++++++
+ 2 files changed, 25 insertions(+)
+
+## Diff
+diff --git a/components/section.tsx b/components/section.tsx
+index a8622f4..2508ad8 100644
+--- a/components/section.tsx
++++ b/components/section.tsx
+@@ -1,17 +1,27 @@
+ import { cn } from "@/lib/utils";
++import { SectionLabel } from "@/components/section-label";
+ 
+ export function Section({
+   id,
+   className,
+   children,
++  index,
++  label,
+ }: {
+   id?: string;
+   className?: string;
+   children: React.ReactNode;
++  index?: number;
++  label?: string;
+ }) {
+   return (
+     <section id={id} className={cn("container mx-auto px-4 py-16 md:py-24", className)}>
++      {index != null && label ? (
++        <div className="mb-6 flex justify-center">
++          <SectionLabel index={index} name={label} />
++        </div>
++      ) : null}
+       {children}
+     </section>
+   );
+ }
+diff --git a/tests/components/section.test.tsx b/tests/components/section.test.tsx
+index 4519b63..d27a0d8 100644
+--- a/tests/components/section.test.tsx
++++ b/tests/components/section.test.tsx
+@@ -6,10 +6,25 @@ describe("Section", () => {
+   it("renders children and applies id", () => {
+     render(
+       <Section id="about">
+         <p>hello</p>
+       </Section>,
+     );
+     expect(screen.getByText("hello")).toBeInTheDocument();
+     expect(document.getElementById("about")).not.toBeNull();
+   });
+ });
++
++describe("Section label", () => {
++  it("renders a SectionLabel when index and label are provided", () => {
++    render(
++      <Section index={3} label="Process">
++        body
++      </Section>,
++    );
++    // SectionLabel renders as three separate spans: "03", "/", "PROCESS"
++    // Assert each part separately since they're in different elements
++    expect(screen.getByText("03")).toBeInTheDocument();
++    expect(screen.getByText("PROCESS")).toBeInTheDocument();
++    expect(screen.getByText("body")).toBeInTheDocument();
++  });
++});

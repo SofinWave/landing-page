@@ -1,0 +1,81 @@
+<h2>Màu nhấn cho chất "AI" (nền tối)</h2>
+<p class="subtitle">Mỗi thẻ là một mini-Hero thật. Nhìn cái nào "đúng vibe" nhất cho một studio tư vấn phần mềm? Bấm để chọn.</p>
+
+<style>
+  .swatch-hero{
+    border-radius:14px;padding:26px 22px;position:relative;overflow:hidden;
+    background:#0a0e17;border:1px solid rgba(255,255,255,.08);min-height:210px;
+  }
+  .swatch-hero .glow{position:absolute;width:220px;height:220px;border-radius:50%;
+    filter:blur(60px);opacity:.55;top:-70px;right:-40px;pointer-events:none;}
+  .swatch-hero .eyebrow{font:600 10px/1 ui-monospace,monospace;letter-spacing:.18em;
+    text-transform:uppercase;color:#8b93a7;margin-bottom:12px;position:relative;}
+  .swatch-hero h4{font-size:22px;line-height:1.15;font-weight:800;margin:0 0 10px;
+    letter-spacing:-.02em;position:relative;color:#eef1f6;}
+  .swatch-hero p{font-size:12px;color:#9aa3b5;margin:0 0 16px;position:relative;}
+  .swatch-hero .btn{display:inline-block;font-size:12px;font-weight:600;padding:8px 14px;
+    border-radius:9px;color:#04070d;position:relative;}
+  .swatch-hero .dots{position:relative;margin-top:14px;display:flex;gap:6px;}
+  .swatch-hero .dots i{width:26px;height:6px;border-radius:3px;display:block;opacity:.9;}
+</style>
+
+<div class="cards">
+  <div class="card" data-choice="cyan" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;background:none;">
+      <div class="swatch-hero">
+        <div class="glow" style="background:#22d3ee;"></div>
+        <div class="eyebrow">// SOFTWARE CONSULTING</div>
+        <h4 style="background:linear-gradient(90deg,#67e8f9,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;">Systems built to endure.</h4>
+        <p>Architecture, delivery, DevOps.</p>
+        <span class="btn" style="background:linear-gradient(90deg,#22d3ee,#3b82f6);">Book a call</span>
+        <div class="dots"><i style="background:#22d3ee;"></i><i style="background:#38bdf8;"></i><i style="background:#3b82f6;"></i></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>A · Electric Cyan / Blue</h3><p>Kinh điển "AI/tech". Mát, sạch, đáng tin. An toàn nhất cho B2B.</p></div>
+  </div>
+
+  <div class="card" data-choice="violet" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;background:none;">
+      <div class="swatch-hero">
+        <div class="glow" style="background:#8b5cf6;"></div>
+        <div class="eyebrow">// SOFTWARE CONSULTING</div>
+        <h4 style="background:linear-gradient(90deg,#c4b5fd,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent;">Systems built to endure.</h4>
+        <p>Architecture, delivery, DevOps.</p>
+        <span class="btn" style="background:linear-gradient(90deg,#a78bfa,#6366f1);color:#fff;">Book a call</span>
+        <div class="dots"><i style="background:#8b5cf6;"></i><i style="background:#7c7cf0;"></i><i style="background:#6366f1;"></i></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B · Violet / Indigo</h3><p>Chất "AI product" cao cấp kiểu Linear. Sang, hiện đại, hơi táo bạo.</p></div>
+  </div>
+
+  <div class="card" data-choice="emerald" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;background:none;">
+      <div class="swatch-hero">
+        <div class="glow" style="background:#10b981;"></div>
+        <div class="eyebrow">// SYSTEM ONLINE</div>
+        <h4 style="background:linear-gradient(90deg,#6ee7b7,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent;">Systems built to endure.</h4>
+        <p>Architecture, delivery, DevOps.</p>
+        <span class="btn" style="background:linear-gradient(90deg,#34d399,#10b981);">Book a call</span>
+        <div class="dots"><i style="background:#34d399;"></i><i style="background:#10b981;"></i><i style="background:#059669;"></i></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>C · Emerald / Terminal</h3><p>Vibe "robot/terminal — system online". Kỹ thuật, khác biệt, hơi kén.</p></div>
+  </div>
+
+  <div class="card" data-choice="fusion" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;background:none;">
+      <div class="swatch-hero">
+        <div class="glow" style="background:#22d3ee;"></div>
+        <div class="glow" style="background:#a855f7;top:auto;right:auto;bottom:-70px;left:-40px;"></div>
+        <div class="eyebrow">// SOFTWARE CONSULTING</div>
+        <h4 style="background:linear-gradient(90deg,#67e8f9,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent;">Systems built to endure.</h4>
+        <p>Architecture, delivery, DevOps.</p>
+        <span class="btn" style="background:linear-gradient(90deg,#22d3ee,#a855f7);color:#fff;">Book a call</span>
+        <div class="dots"><i style="background:#22d3ee;"></i><i style="background:#7da2f0;"></i><i style="background:#a855f7;"></i></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>D · Cyan → Violet (generative)</h3><p>Gradient đa sắc kiểu "mesh/AI sinh ảnh". Nổi bật nhất, dễ thành đặc trưng thương hiệu.</p></div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:18px;">Gợi ý của tôi: <b>A (Cyan/Blue)</b> nếu ưu tiên độ tin cậy B2B, hoặc <b>D (Cyan→Violet)</b> nếu muốn "chất AI" nổi bật và dễ nhận diện thương hiệu.</p>

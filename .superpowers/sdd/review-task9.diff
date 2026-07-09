@@ -1,0 +1,145 @@
+# Review: Task 9 (2999be2..HEAD)
+
+## Commits
+604dee5 feat(home): add services section
+
+## Files
+ .../(public)/home/_components/services.tsx         | 44 ++++++++++++++++++++++
+ messages/en.json                                   | 12 ++++++
+ messages/vi.json                                   | 12 ++++++
+ tests/sections/services.test.tsx                   | 18 +++++++++
+ 4 files changed, 86 insertions(+)
+
+## Diff
+diff --git a/app/[locale]/(public)/home/_components/services.tsx b/app/[locale]/(public)/home/_components/services.tsx
+new file mode 100644
+index 0000000..2d1fc90
+--- /dev/null
++++ b/app/[locale]/(public)/home/_components/services.tsx
+@@ -0,0 +1,44 @@
++import { useTranslations } from "next-intl";
++import { Compass, Server, Code, Plug, Gauge, Shield, type LucideIcon } from "lucide-react";
++import { Section } from "@/components/section";
++import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
++
++const ICONS: Record<string, LucideIcon> = {
++  compass: Compass,
++  server: Server,
++  code: Code,
++  plug: Plug,
++  gauge: Gauge,
++  shield: Shield,
++};
++
++type ServiceItem = { icon: string; title: string; description: string };
++
++export function Services() {
++  const t = useTranslations("services");
++  const items = t.raw("items") as ServiceItem[];
++  return (
++    <Section id="services">
++      <div className="mx-auto mb-12 max-w-2xl text-center">
++        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("title")}</h2>
++        <p className="mt-3 text-muted-foreground">{t("subtitle")}</p>
++      </div>
++      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
++        {items.map((item) => {
++          const Icon = ICONS[item.icon] ?? Compass;
++          return (
++            <Card key={item.title} className="h-full">
++              <CardHeader>
++                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
++                  <Icon className="h-5 w-5" />
++                </div>
++                <CardTitle className="text-xl">{item.title}</CardTitle>
++              </CardHeader>
++              <CardContent className="text-muted-foreground">{item.description}</CardContent>
++            </Card>
++          );
++        })}
++      </div>
++    </Section>
++  );
++}
+diff --git a/messages/en.json b/messages/en.json
+index 97de569..a2433b6 100644
+--- a/messages/en.json
++++ b/messages/en.json
+@@ -21,12 +21,24 @@
+   "hero": {
+     "eyebrow": "Software consulting & implementation",
+     "title": "We ship the systems your business runs on",
+     "subtitle": "kingnnt.org partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
+     "ctaPrimary": "Book a consultation",
+     "ctaSecondary": "View case studies"
+   },
+   "logos": {
+     "title": "Trusted by teams building serious software",
+     "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
++  },
++  "services": {
++    "title": "What we do",
++    "subtitle": "End-to-end capability across the software delivery lifecycle.",
++    "items": [
++      { "icon": "compass", "title": "Architecture consulting", "description": "System design, tech due diligence, and roadmaps that de-risk delivery." },
++      { "icon": "server", "title": "System implementation", "description": "We stand up the platforms, services, and infrastructure your product runs on." },
++      { "icon": "code", "title": "Custom software development", "description": "Web, mobile, and backend engineering tailored to your business rules." },
++      { "icon": "plug", "title": "Integration", "description": "Connect ERPs, payment, and third-party systems into one reliable flow." },
++      { "icon": "gauge", "title": "Performance & scale", "description": "Profiling, optimization, and re-architecture for growing workloads." },
++      { "icon": "shield", "title": "Maintenance & operations", "description": "Monitoring, support, and continuous improvement after go-live." }
++    ]
+   }
+ }
+diff --git a/messages/vi.json b/messages/vi.json
+index 6f11cea..4c38ad6 100644
+--- a/messages/vi.json
++++ b/messages/vi.json
+@@ -21,12 +21,24 @@
+   "hero": {
+     "eyebrow": "Tư vấn & triển khai phần mềm",
+     "title": "Xây dựng hệ thống doanh nghiệp bạn vận hành mỗi ngày",
+     "subtitle": "kingnnt.org đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
+     "ctaPrimary": "Đặt lịch tư vấn",
+     "ctaSecondary": "Xem dự án"
+   },
+   "logos": {
+     "title": "Được tin dùng bởi các đội xây dựng phần mềm nghiêm túc",
+     "items": ["Acme Corp", "Globex", "Initech", "Umbrella", "Hooli", "Stark Industries"]
++  },
++  "services": {
++    "title": "Chúng tôi làm gì",
++    "subtitle": "Năng lực trọn vòng đời phát triển phần mềm.",
++    "items": [
++      { "icon": "compass", "title": "Tư vấn kiến trúc", "description": "Thiết kế hệ thống, thẩm định công nghệ và lộ trình giảm rủi ro triển khai." },
++      { "icon": "server", "title": "Triển khai hệ thống", "description": "Dựng nền tảng, dịch vụ và hạ tầng cho sản phẩm của bạn vận hành." },
++      { "icon": "code", "title": "Phát triển phần mềm", "description": "Web, mobile và backend theo đúng nghiệp vụ doanh nghiệp." },
++      { "icon": "plug", "title": "Tích hợp hệ thống", "description": "Kết nối ERP, thanh toán và hệ thống bên thứ ba thành một luồng tin cậy." },
++      { "icon": "gauge", "title": "Hiệu năng & mở rộng", "description": "Đo lường, tối ưu và tái kiến trúc cho tải tăng trưởng." },
++      { "icon": "shield", "title": "Bảo trì & vận hành", "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live." }
++    ]
+   }
+ }
+diff --git a/tests/sections/services.test.tsx b/tests/sections/services.test.tsx
+new file mode 100644
+index 0000000..b0615fa
+--- /dev/null
++++ b/tests/sections/services.test.tsx
+@@ -0,0 +1,18 @@
++import { describe, it, expect } from "vitest";
++import { render, screen } from "@testing-library/react";
++import { NextIntlClientProvider } from "next-intl";
++import en from "@/messages/en.json";
++import { Services } from "@/app/[locale]/(public)/home/_components/services";
++
++describe("Services", () => {
++  it("renders heading and all service cards", () => {
++    render(
++      <NextIntlClientProvider locale="en" messages={en}>
++        <Services />
++      </NextIntlClientProvider>,
++    );
++    expect(screen.getByRole("heading", { level: 2, name: "What we do" })).toBeInTheDocument();
++    expect(screen.getByText("Architecture consulting")).toBeInTheDocument();
++    expect(screen.getByText("Maintenance & operations")).toBeInTheDocument();
++  });
++});

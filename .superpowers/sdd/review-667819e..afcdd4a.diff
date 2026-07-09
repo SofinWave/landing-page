@@ -1,0 +1,133 @@
+# Review package: 667819e..HEAD
+
+## Commits
+afcdd4a feat(home): mono faq numbering and console-style contact form
+
+## Files changed
+ .../(public)/home/_components/contact-form.tsx     | 27 +++++++++++++++++-----
+ app/[locale]/(public)/home/_components/faq.tsx     | 11 +++++++--
+ tests/sections/contact-form.test.tsx               |  2 +-
+ 3 files changed, 31 insertions(+), 9 deletions(-)
+
+## Diff
+diff --git a/app/[locale]/(public)/home/_components/contact-form.tsx b/app/[locale]/(public)/home/_components/contact-form.tsx
+index 1af87d2..74fd7de 100644
+--- a/app/[locale]/(public)/home/_components/contact-form.tsx
++++ b/app/[locale]/(public)/home/_components/contact-form.tsx
+@@ -28,29 +28,44 @@ export function ContactForm() {
+       setStatus("success");
+       formEl.reset();
+     } else {
+       setStatus("error");
+     }
+   }
+ 
+   return (
+     <form onSubmit={onSubmit} className="mx-auto max-w-xl space-y-4">
+       <div className="space-y-2">
+-        <Label htmlFor="name">{t("name")}</Label>
++        <Label htmlFor="name" className="font-mono text-xs uppercase tracking-wider">
++          {t("name")}
++        </Label>
+         <Input id="name" name="name" required />
+       </div>
+       <div className="space-y-2">
+-        <Label htmlFor="email">{t("email")}</Label>
++        <Label htmlFor="email" className="font-mono text-xs uppercase tracking-wider">
++          {t("email")}
++        </Label>
+         <Input id="email" name="email" type="email" required />
+       </div>
+       <div className="space-y-2">
+-        <Label htmlFor="message">{t("message")}</Label>
++        <Label htmlFor="message" className="font-mono text-xs uppercase tracking-wider">
++          {t("message")}
++        </Label>
+         <Textarea id="message" name="message" rows={5} required />
+       </div>
+-      <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>
++      <Button
++        type="submit"
++        size="lg"
++        className="w-full bg-accent-gradient text-primary-foreground"
++        disabled={status === "sending"}
++      >
+         {status === "sending" ? t("sending") : t("submit")}
+       </Button>
+-      {status === "success" && <p className="text-sm text-primary">{t("success")}</p>}
+-      {status === "error" && <p className="text-sm text-destructive">{t("error")}</p>}
++      {status === "success" && (
++        <p className="font-mono text-sm text-primary">{`> ${t("success")}`}</p>
++      )}
++      {status === "error" && (
++        <p className="font-mono text-sm text-destructive">{`> ${t("error")}`}</p>
++      )}
+     </form>
+   );
+ }
+diff --git a/app/[locale]/(public)/home/_components/faq.tsx b/app/[locale]/(public)/home/_components/faq.tsx
+index dc30107..6318d5a 100644
+--- a/app/[locale]/(public)/home/_components/faq.tsx
++++ b/app/[locale]/(public)/home/_components/faq.tsx
+@@ -8,25 +8,32 @@ import {
+   AccordionItem,
+   AccordionTrigger,
+ } from "@/components/ui/accordion";
+ 
+ type FaqItem = { question: string; answer: string };
+ 
+ export function Faq() {
+   const t = useTranslations("faq");
+   const items = t.raw("items") as FaqItem[];
+   return (
+-    <Section className="max-w-3xl">
++    <Section className="max-w-3xl" index={7} label="FAQ">
+       <h2 className="mb-10 text-center text-3xl font-bold tracking-tight md:text-4xl">
+         {t("title")}
+       </h2>
+       <Accordion type="single" collapsible className="w-full">
+         {items.map((item, i) => (
+           <AccordionItem key={item.question} value={`item-${i}`}>
+-            <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
++            <AccordionTrigger className="text-left">
++              <span className="flex items-center gap-3">
++                <span className="font-mono text-xs text-primary">
++                  {String(i + 1).padStart(2, "0")}
++                </span>
++                {item.question}
++              </span>
++            </AccordionTrigger>
+             <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>
+           </AccordionItem>
+         ))}
+       </Accordion>
+     </Section>
+   );
+ }
+diff --git a/tests/sections/contact-form.test.tsx b/tests/sections/contact-form.test.tsx
+index 84c8e18..1403e0f 100644
+--- a/tests/sections/contact-form.test.tsx
++++ b/tests/sections/contact-form.test.tsx
+@@ -22,21 +22,21 @@ describe("ContactForm", () => {
+     const nameInput = screen.getByLabelText("Name") as HTMLInputElement;
+     const emailInput = screen.getByLabelText("Email") as HTMLInputElement;
+     const messageInput = screen.getByLabelText("Message") as HTMLTextAreaElement;
+ 
+     await user.type(nameInput, "Ann");
+     await user.type(emailInput, "a@b.com");
+     await user.type(messageInput, "hello there friend");
+ 
+     await user.click(screen.getByText("Send message"));
+ 
+-    expect(await screen.findByText("Thanks — we'll be in touch shortly.")).toBeInTheDocument();
++    expect(await screen.findByText("> Thanks — we'll be in touch shortly.")).toBeInTheDocument();
+ 
+     await waitFor(() => {
+       expect(nameInput.value).toBe("");
+       expect(emailInput.value).toBe("");
+       expect(messageInput.value).toBe("");
+     });
+ 
+     expect(submitContact).toHaveBeenCalledWith({
+       name: "Ann",
+       email: "a@b.com",

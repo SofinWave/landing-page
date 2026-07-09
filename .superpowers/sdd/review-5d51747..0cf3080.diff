@@ -1,0 +1,59 @@
+# Review package: 5d51747..HEAD
+
+## Commits
+0cf3080 feat(ui): add SectionLabel primitive
+
+## Files changed
+ components/section-label.tsx            | 24 ++++++++++++++++++++++++
+ tests/components/section-label.test.tsx | 12 ++++++++++++
+ 2 files changed, 36 insertions(+)
+
+## Diff
+diff --git a/components/section-label.tsx b/components/section-label.tsx
+new file mode 100644
+index 0000000..2646407
+--- /dev/null
++++ b/components/section-label.tsx
+@@ -0,0 +1,24 @@
++import { cn } from "@/lib/utils";
++
++export function SectionLabel({
++  index,
++  name,
++  className,
++}: {
++  index: number;
++  name: string;
++  className?: string;
++}) {
++  return (
++    <span
++      className={cn(
++        "inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground",
++        className,
++      )}
++    >
++      <span className="text-primary">{String(index).padStart(2, "0")}</span>
++      <span aria-hidden>/</span>
++      <span>{name.toUpperCase()}</span>
++    </span>
++  );
++}
+diff --git a/tests/components/section-label.test.tsx b/tests/components/section-label.test.tsx
+new file mode 100644
+index 0000000..88b0060
+--- /dev/null
++++ b/tests/components/section-label.test.tsx
+@@ -0,0 +1,12 @@
++import { render, screen } from "@testing-library/react";
++import { describe, it, expect } from "vitest";
++import { SectionLabel } from "@/components/section-label";
++
++describe("SectionLabel", () => {
++  it("renders zero-padded index and uppercased name", () => {
++    const { container } = render(<SectionLabel index={2} name="Services" />);
++    const span = container.querySelector("span");
++    expect(span?.textContent).toContain("02");
++    expect(span?.textContent).toContain("SERVICES");
++  });
++});

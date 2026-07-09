@@ -1,0 +1,85 @@
+# Review package: 6662fea..HEAD
+
+## Commits
+83584fd feat(ui): add Reveal primitive
+
+## Files changed
+ components/reveal.tsx            | 32 ++++++++++++++++++++++++++++++++
+ tests/components/reveal.test.tsx | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
+
+## Diff
+diff --git a/components/reveal.tsx b/components/reveal.tsx
+new file mode 100644
+index 0000000..bbdf491
+--- /dev/null
++++ b/components/reveal.tsx
+@@ -0,0 +1,32 @@
++"use client";
++
++import type { ReactNode } from "react";
++import { useInView, useReducedMotion } from "@/lib/hooks";
++import { cn } from "@/lib/utils";
++
++export function Reveal({
++  children,
++  className,
++  delay = 0,
++}: {
++  children: ReactNode;
++  className?: string;
++  delay?: number;
++}) {
++  const reduced = useReducedMotion();
++  const { ref, inView } = useInView<HTMLDivElement>();
++  const shown = reduced || inView;
++  return (
++    <div
++      ref={ref}
++      style={{ transitionDelay: shown ? `${delay}ms` : undefined }}
++      className={cn(
++        "transition-all duration-700 ease-out motion-reduce:transition-none",
++        shown ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
++        className,
++      )}
++    >
++      {children}
++    </div>
++  );
++}
+diff --git a/tests/components/reveal.test.tsx b/tests/components/reveal.test.tsx
+new file mode 100644
+index 0000000..758b557
+--- /dev/null
++++ b/tests/components/reveal.test.tsx
+@@ -0,0 +1,30 @@
++import { render, screen } from "@testing-library/react";
++import { describe, it, expect, beforeEach, vi } from "vitest";
++import { Reveal } from "@/components/reveal";
++
++beforeEach(() => {
++  vi.stubGlobal(
++    "matchMedia",
++    vi.fn().mockReturnValue({
++      matches: false,
++      addEventListener: vi.fn(),
++      removeEventListener: vi.fn(),
++    }),
++  );
++  // @ts-expect-error test stub
++  window.IntersectionObserver = class {
++    observe() {}
++    disconnect() {}
++  };
++});
++
++describe("Reveal", () => {
++  it("always renders children", () => {
++    render(
++      <Reveal>
++        <p>hello</p>
++      </Reveal>,
++    );
++    expect(screen.getByText("hello")).toBeInTheDocument();
++  });
++});

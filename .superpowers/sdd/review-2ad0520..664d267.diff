@@ -1,0 +1,104 @@
+# Review package: 2ad0520..HEAD
+
+## Commits
+664d267 feat(ui): add CountUp primitive
+
+## Files changed
+ components/count-up.tsx            | 55 ++++++++++++++++++++++++++++++++++++++
+ tests/components/count-up.test.tsx | 26 ++++++++++++++++++
+ 2 files changed, 81 insertions(+)
+
+## Diff
+diff --git a/components/count-up.tsx b/components/count-up.tsx
+new file mode 100644
+index 0000000..1727fe9
+--- /dev/null
++++ b/components/count-up.tsx
+@@ -0,0 +1,55 @@
++"use client";
++
++import { useEffect, useState } from "react";
++import { useInView, useReducedMotion } from "@/lib/hooks";
++import { cn } from "@/lib/utils";
++
++export function CountUp({
++  to,
++  prefix = "",
++  suffix = "",
++  decimals = 0,
++  duration = 1600,
++  className,
++}: {
++  to: number;
++  prefix?: string;
++  suffix?: string;
++  decimals?: number;
++  duration?: number;
++  className?: string;
++}) {
++  const reduced = useReducedMotion();
++  const { ref, inView } = useInView<HTMLSpanElement>();
++  const [value, setValue] = useState(to);
++
++  useEffect(() => {
++    if (reduced) {
++      // eslint-disable-next-line react-hooks/set-state-in-effect
++      setValue(to);
++      return;
++    }
++    if (!inView) {
++      setValue(0);
++      return;
++    }
++    let raf = 0;
++    let start = 0;
++    const tick = (t: number) => {
++      if (!start) start = t;
++      const p = Math.min((t - start) / duration, 1);
++      setValue(to * (1 - (1 - p) ** 3));
++      if (p < 1) raf = requestAnimationFrame(tick);
++    };
++    raf = requestAnimationFrame(tick);
++    return () => cancelAnimationFrame(raf);
++  }, [inView, reduced, to, duration]);
++
++  return (
++    <span ref={ref} className={cn("font-mono tabular-nums", className)}>
++      {prefix}
++      {value.toFixed(decimals)}
++      {suffix}
++    </span>
++  );
++}
+diff --git a/tests/components/count-up.test.tsx b/tests/components/count-up.test.tsx
+new file mode 100644
+index 0000000..d640794
+--- /dev/null
++++ b/tests/components/count-up.test.tsx
+@@ -0,0 +1,26 @@
++import { render, screen } from "@testing-library/react";
++import { describe, it, expect, beforeEach, vi } from "vitest";
++import { CountUp } from "@/components/count-up";
++
++beforeEach(() => {
++  vi.stubGlobal(
++    "matchMedia",
++    vi.fn().mockReturnValue({
++      matches: true,
++      addEventListener: vi.fn(),
++      removeEventListener: vi.fn(),
++    }),
++  );
++  // @ts-expect-error test stub
++  window.IntersectionObserver = class {
++    observe() {}
++    disconnect() {}
++  };
++});
++
++describe("CountUp", () => {
++  it("renders the final value under reduced motion", () => {
++    render(<CountUp to={99} suffix="%" />);
++    expect(screen.getByText("99%")).toBeInTheDocument();
++  });
++});

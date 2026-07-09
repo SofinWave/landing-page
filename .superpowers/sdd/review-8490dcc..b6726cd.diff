@@ -1,0 +1,150 @@
+# Review package: 8490dcc..HEAD
+
+## Commits
+b6726cd feat(home): terminal panel with typed text for tech stack
+
+## Files changed
+ .../(public)/home/_components/tech-stack.tsx       | 25 +++++++++++++--
+ components/typed-text.tsx                          | 36 ++++++++++++++++++++++
+ tests/components/typed-text.test.tsx               | 27 ++++++++++++++++
+ 3 files changed, 86 insertions(+), 2 deletions(-)
+
+## Diff
+diff --git a/app/[locale]/(public)/home/_components/tech-stack.tsx b/app/[locale]/(public)/home/_components/tech-stack.tsx
+index 323c554..6fb04d1 100644
+--- a/app/[locale]/(public)/home/_components/tech-stack.tsx
++++ b/app/[locale]/(public)/home/_components/tech-stack.tsx
+@@ -1,35 +1,56 @@
+ import { useTranslations } from "next-intl";
+ import { Section } from "@/components/section";
++import { TypedText } from "@/components/typed-text";
+ 
+ function Chips({ items }: { items: string[] }) {
+   return (
+     <div className="flex flex-wrap gap-2">
+       {items.map((item) => (
+-        <span key={item} className="rounded-md border border-border bg-card px-3 py-1.5 text-sm">
++        <span
++          key={item}
++          className="rounded-md border border-border bg-card px-3 py-1.5 text-sm transition-colors hover:border-primary hover:text-primary"
++        >
+           {item}
+         </span>
+       ))}
+     </div>
+   );
+ }
+ 
+ export function TechStack() {
+   const t = useTranslations("tech");
+   const technologies = t.raw("technologies") as string[];
+   const domains = t.raw("domains") as string[];
+   return (
+-    <Section>
++    <Section index={4} label="Tech Stack">
+       <div className="mx-auto mb-12 max-w-2xl text-center">
+         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("title")}</h2>
+         <p className="mt-3 text-muted-foreground">{t("subtitle")}</p>
+       </div>
++      <div className="mx-auto mb-10 max-w-2xl overflow-hidden rounded-lg border border-border bg-card/80">
++        <div className="flex gap-1.5 border-b border-border px-4 py-2.5">
++          <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
++          <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
++          <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
++        </div>
++        <div className="px-4 py-4">
++          <TypedText
++            lines={[
++              "$ deploy --env prod",
++              "✓ build passed · 42s",
++              "✓ tests 218/218",
++              "✓ uptime 99.98%",
++            ]}
++          />
++        </div>
++      </div>
+       <div className="grid gap-8 md:grid-cols-2">
+         <div>
+           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+             {t("technologiesLabel")}
+           </h3>
+           <Chips items={technologies} />
+         </div>
+         <div>
+           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+             {t("domainsLabel")}
+diff --git a/components/typed-text.tsx b/components/typed-text.tsx
+new file mode 100644
+index 0000000..83d3325
+--- /dev/null
++++ b/components/typed-text.tsx
+@@ -0,0 +1,36 @@
++"use client";
++
++import { useEffect, useState } from "react";
++import { useInView, useReducedMotion } from "@/lib/hooks";
++import { cn } from "@/lib/utils";
++
++export function TypedText({ lines, className }: { lines: string[]; className?: string }) {
++  const reduced = useReducedMotion();
++  const { ref, inView } = useInView<HTMLDivElement>();
++  const [count, setCount] = useState(reduced ? lines.length : 0);
++
++  useEffect(() => {
++    if (reduced || !inView) {
++      // eslint-disable-next-line react-hooks/set-state-in-effect
++      if (reduced) setCount(lines.length);
++      return;
++    }
++    let i = 0;
++    const id = setInterval(() => {
++      i += 1;
++      setCount(i);
++      if (i >= lines.length) clearInterval(id);
++    }, 550);
++    return () => clearInterval(id);
++  }, [inView, reduced, lines.length]);
++
++  return (
++    <div ref={ref} className={cn("font-mono text-sm leading-relaxed", className)}>
++      {lines.slice(0, Math.max(count, reduced ? lines.length : count)).map((line, i) => (
++        <div key={line} className={i === 0 ? "text-primary" : "text-muted-foreground"}>
++          {line}
++        </div>
++      ))}
++    </div>
++  );
++}
+diff --git a/tests/components/typed-text.test.tsx b/tests/components/typed-text.test.tsx
+new file mode 100644
+index 0000000..bf0efa1
+--- /dev/null
++++ b/tests/components/typed-text.test.tsx
+@@ -0,0 +1,27 @@
++import { render, screen } from "@testing-library/react";
++import { describe, it, expect, beforeEach, vi } from "vitest";
++import { TypedText } from "@/components/typed-text";
++
++beforeEach(() => {
++  vi.stubGlobal(
++    "matchMedia",
++    vi.fn().mockReturnValue({
++      matches: true,
++      addEventListener: vi.fn(),
++      removeEventListener: vi.fn(),
++    }),
++  );
++  // @ts-expect-error test stub
++  window.IntersectionObserver = class {
++    observe() {}
++    disconnect() {}
++  };
++});
++
++describe("TypedText", () => {
++  it("renders all lines fully under reduced motion", () => {
++    render(<TypedText lines={["$ deploy --env prod", "✓ build passed"]} />);
++    expect(screen.getByText("$ deploy --env prod")).toBeInTheDocument();
++    expect(screen.getByText("✓ build passed")).toBeInTheDocument();
++  });
++});
