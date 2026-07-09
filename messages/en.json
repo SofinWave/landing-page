@@ -16,7 +16,8 @@
     "contact": "Contact",
     "cta": "Book a consultation",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "status": "Available for work"
   },
   "hero": {
     "eyebrow": "Software consulting & implementation",
@@ -196,7 +197,10 @@
   "footer": {
     "brand": "kingnnt.org",
     "tagline": "Software consulting & implementation.",
+    "status": "All systems operational",
     "email": "hello@kingnnt.org",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "navigate": "Navigate",
+    "connect": "Connect"
   }
 }

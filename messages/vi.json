@@ -16,7 +16,8 @@
     "contact": "Liên hệ",
     "cta": "Đặt lịch tư vấn",
     "openMenu": "Mở menu",
-    "closeMenu": "Đóng menu"
+    "closeMenu": "Đóng menu",
+    "status": "Đang nhận dự án"
   },
   "hero": {
     "eyebrow": "Tư vấn & triển khai phần mềm",
@@ -199,7 +200,10 @@
   "footer": {
     "brand": "kingnnt.org",
     "tagline": "Tư vấn & triển khai phần mềm.",
+    "status": "Hệ thống đang vận hành",
     "email": "hello@kingnnt.org",
-    "rights": "Bảo lưu mọi quyền."
+    "rights": "Bảo lưu mọi quyền.",
+    "navigate": "Điều hướng",
+    "connect": "Kết nối"
   }
 }

@@ -35,22 +35,37 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="mx-auto max-w-xl space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name">{t("name")}</Label>
+        <Label htmlFor="name" className="font-mono text-xs uppercase tracking-wider">
+          {t("name")}
+        </Label>
         <Input id="name" name="name" required />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">{t("email")}</Label>
+        <Label htmlFor="email" className="font-mono text-xs uppercase tracking-wider">
+          {t("email")}
+        </Label>
         <Input id="email" name="email" type="email" required />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message">{t("message")}</Label>
+        <Label htmlFor="message" className="font-mono text-xs uppercase tracking-wider">
+          {t("message")}
+        </Label>
         <Textarea id="message" name="message" rows={5} required />
       </div>
-      <Button type="submit" size="lg" className="w-full" disabled={status === "sending"}>
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full bg-accent-gradient text-primary-foreground"
+        disabled={status === "sending"}
+      >
         {status === "sending" ? t("sending") : t("submit")}
       </Button>
-      {status === "success" && <p className="text-sm text-primary">{t("success")}</p>}
-      {status === "error" && <p className="text-sm text-destructive">{t("error")}</p>}
+      {status === "success" && (
+        <p className="font-mono text-sm text-primary">{`> ${t("success")}`}</p>
+      )}
+      {status === "error" && (
+        <p className="font-mono text-sm text-destructive">{`> ${t("error")}`}</p>
+      )}
     </form>
   );
 }

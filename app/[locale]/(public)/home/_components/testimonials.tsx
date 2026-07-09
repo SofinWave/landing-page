@@ -1,7 +1,9 @@
 import { useTranslations } from "next-intl";
 import { Quote } from "lucide-react";
 import { Section } from "@/components/section";
-import { Card, CardContent } from "@/components/ui/card";
+import { HudCard } from "@/components/hud-card";
+import { CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/reveal";
 
 type Testimonial = { quote: string; author: string; role: string; company: string };
 
@@ -15,16 +17,18 @@ export function Testimonials() {
       </h2>
       <div className="grid gap-6 md:grid-cols-2">
         {items.map((item) => (
-          <Card key={item.author}>
-            <CardContent className="pt-6">
-              <Quote className="mb-4 h-8 w-8 text-primary/40" />
-              <blockquote className="text-lg">{item.quote}</blockquote>
-              <footer className="mt-4 text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">{item.author}</span> — {item.role},{" "}
-                {item.company}
-              </footer>
-            </CardContent>
-          </Card>
+          <HudCard key={item.author}>
+            <Reveal>
+              <CardContent className="pt-6">
+                <Quote className="mb-4 h-8 w-8 text-primary/50" />
+                <blockquote className="text-lg">{item.quote}</blockquote>
+                <footer className="mt-4 text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">{item.author}</span> — {item.role}
+                  , {item.company}
+                </footer>
+              </CardContent>
+            </Reveal>
+          </HudCard>
         ))}
       </div>
     </Section>

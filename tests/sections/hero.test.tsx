@@ -17,4 +17,13 @@ describe("Hero", () => {
     expect(screen.getByText("Book a consultation")).toBeInTheDocument();
     expect(screen.getByText("View case studies")).toBeInTheDocument();
   });
+
+  it("renders the eyebrow in monospace style", () => {
+    const { container } = render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <Hero />
+      </NextIntlClientProvider>,
+    );
+    expect(container.querySelector(".font-mono")).not.toBeNull();
+  });
 });

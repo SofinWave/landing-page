@@ -29,7 +29,7 @@ describe("ContactForm", () => {
 
     await user.click(screen.getByText("Send message"));
 
-    expect(await screen.findByText("Thanks — we'll be in touch shortly.")).toBeInTheDocument();
+    expect(await screen.findByText("> Thanks — we'll be in touch shortly.")).toBeInTheDocument();
 
     await waitFor(() => {
       expect(nameInput.value).toBe("");

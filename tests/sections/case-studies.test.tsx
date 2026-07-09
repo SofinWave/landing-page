@@ -15,4 +15,14 @@ describe("CaseStudies", () => {
     expect(screen.getAllByText("Problem").length).toBeGreaterThan(0);
     expect(screen.getByText("8x")).toBeInTheDocument();
   });
+
+  it("renders non-numeric metric values as raw text without a trailing CountUp digit", () => {
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <CaseStudies />
+      </NextIntlClientProvider>,
+    );
+    expect(screen.getByText("Real-time")).toBeInTheDocument();
+    expect(screen.queryByText(/Real-time0/)).toBeNull();
+  });
 });
