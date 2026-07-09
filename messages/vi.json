@@ -204,7 +204,6 @@
     "email": "hello@kingnnt.org",
     "rights": "Bảo lưu mọi quyền.",
     "navigate": "Điều hướng",
-    "connect": "Kết nối",
-    "builtWith": "Xây dựng với Next.js & TypeScript"
+    "connect": "Kết nối"
   }
 }

@@ -97,13 +97,9 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 font-mono text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-12 border-t border-border/60 pt-6 font-mono text-xs text-muted-foreground">
           <span>
             © 2026 {t("brand")}. {t("rights")}
-          </span>
-          <span className="inline-flex items-center gap-2 text-muted-foreground/70">
-            <span className="text-primary">{"</>"}</span>
-            {t("builtWith")}
           </span>
         </div>
       </div>
