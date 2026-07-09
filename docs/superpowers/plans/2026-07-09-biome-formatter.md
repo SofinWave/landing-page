@@ -23,7 +23,7 @@
 | `biome.json` | Create | Root config: formatter settings, file scope, linter disabled |
 | `package.json` | Modify | Add `format` / `format:check` scripts; add `@biomejs/biome` devDependency |
 | `.lintstagedrc.json` | Modify | Run Biome format (all files) + ESLint fix (ts/tsx) on staged files |
-| `.github/workflows/lint-format.yml` | Create | CI guard: `format:check` + `lint` on PR/push to `main` |
+| `.github/workflows/lint-format.yml` | Create | CI guard: `format:check` + `lint` on PR/push to `develop` |
 
 No source files are hand-edited; Task 3 runs `pnpm format` to auto-reformat the existing codebase.
 
@@ -261,9 +261,9 @@ name: Lint & Format
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop]
   push:
-    branches: [main]
+    branches: [develop]
 
 permissions:
   contents: read
@@ -309,7 +309,7 @@ Expected: `YAML OK` or `js-yaml not installed — visual review only`. Do a care
 git add .github/workflows/lint-format.yml
 git commit -m "ci: add lint & format check workflow
 
-Run biome format:check and eslint on PRs and pushes to main. Pins
+Run biome format:check and eslint on PRs and pushes to develop. Pins
 Node to 22.15.0 to match the Docker runtime. Uses pnpm with caching."
 ```
 
@@ -358,7 +358,7 @@ git commit -m "chore: remove biome probe"
 
 - [ ] **Step 4: Verify CI triggers (manual, on push)**
 
-Push the branch and open a PR against `main`. Observe the **Lint & Format** workflow run and pass. (If you cannot push/PR from this environment, note this step as deferred and confirm the workflow file is committed and syntactically valid from Task 4 Step 3.)
+Push the branch and open a PR against `develop`. Observe the **Lint & Format** workflow run and pass. (If you cannot push/PR from this environment, note this step as deferred and confirm the workflow file is committed and syntactically valid from Task 4 Step 3.)
 
 - [ ] **Step 5: Final clean-state confirmation**
 

@@ -124,9 +124,9 @@ name: Lint & Format
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop]
   push:
-    branches: [main]
+    branches: [develop]
 
 permissions:
   contents: read
@@ -150,7 +150,7 @@ jobs:
 **Lý do:**
 - `node-version-file: .mise.toml` → sync Node version với mise (repo đang dùng mise).
 - Thứ tự: `format:check` (Biome) trước, `lint` (ESLint) sau — cùng thứ tự local.
-- Trigger trên PR vào `main` và push `main` — không chạy thừa.
+- Trigger trên PR vào `develop` và push `develop` (repo dùng git-flow, `develop` là default branch) — không chạy thừa.
 
 ## 5. Data flow / Thực thi
 
