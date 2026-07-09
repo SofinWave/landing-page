@@ -12,9 +12,7 @@ export function Hero() {
         <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
           <span className="text-gradient">{t("title")}</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          {t("subtitle")}
-        </p>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{t("subtitle")}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild size="lg">
             <a href="#contact">{t("ctaPrimary")}</a>

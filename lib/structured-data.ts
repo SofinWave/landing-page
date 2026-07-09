@@ -1,10 +1,4 @@
-import {
-  SITE_EMAIL,
-  SITE_NAME,
-  SITE_SAME_AS,
-  SITE_URL,
-  localeUrl,
-} from "@/lib/site";
+import { SITE_EMAIL, SITE_NAME, SITE_SAME_AS, SITE_URL, localeUrl } from "@/lib/site";
 
 interface ServiceItem {
   title: string;

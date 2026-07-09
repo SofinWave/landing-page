@@ -9,7 +9,11 @@ describe("contact action", () => {
   });
 
   it("accepts a valid submission", async () => {
-    const res = await submitContact({ name: "Ann", email: "a@b.com", message: "hello there friend" });
+    const res = await submitContact({
+      name: "Ann",
+      email: "a@b.com",
+      message: "hello there friend",
+    });
     expect(res.ok).toBe(true);
   });
 

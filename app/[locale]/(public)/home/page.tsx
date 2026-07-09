@@ -13,11 +13,7 @@ import { Faq } from "./_components/faq";
 import { Contact } from "./_components/contact";
 import { SiteFooter } from "./_components/footer";
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 

@@ -1,9 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  faqSchema,
-  organizationSchema,
-  websiteSchema,
-} from "@/lib/structured-data";
+import { faqSchema, organizationSchema, websiteSchema } from "@/lib/structured-data";
 import en from "@/messages/en.json";
 
 const services = en.services.items;
@@ -27,9 +23,7 @@ describe("organizationSchema", () => {
 
   it("lists every service in the offer catalog", () => {
     expect(org.hasOfferCatalog.itemListElement).toHaveLength(services.length);
-    expect(org.hasOfferCatalog.itemListElement[0].itemOffered.name).toBe(
-      services[0].title,
-    );
+    expect(org.hasOfferCatalog.itemListElement[0].itemOffered.name).toBe(services[0].title);
   });
 
   it("declares expertise and areas served", () => {

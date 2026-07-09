@@ -1,9 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import {
-  faqSchema,
-  organizationSchema,
-  websiteSchema,
-} from "@/lib/structured-data";
+import { faqSchema, organizationSchema, websiteSchema } from "@/lib/structured-data";
 
 /**
  * Injects JSON-LD (Organization, WebSite, FAQPage) into the page for search

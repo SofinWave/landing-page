@@ -4,9 +4,10 @@ import { LocaleSupport } from "@/enums";
  * Canonical site URL. Override per environment with NEXT_PUBLIC_SITE_URL
  * (no trailing slash), e.g. https://kingnnt.org.
  */
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingnnt.org"
-).replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingnnt.org").replace(
+  /\/$/,
+  "",
+);
 
 export const SITE_NAME = "kingnnt.org";
 
@@ -44,9 +45,7 @@ export const SITE_KEYWORDS: Record<string, string[]> = {
 };
 
 /** Social / canonical profiles surfaced in structured data (sameAs). */
-export const SITE_SAME_AS: string[] = [
-  "https://github.com/kingnnt",
-];
+export const SITE_SAME_AS: string[] = ["https://github.com/kingnnt"];
 
 export const SITE_EMAIL = "hello@kingnnt.org";
 

@@ -56,9 +56,7 @@ export async function generateMetadata({
       description,
       url,
       locale: OG_LOCALE[locale],
-      alternateLocale: routing.locales
-        .filter((l) => l !== locale)
-        .map((l) => OG_LOCALE[l]),
+      alternateLocale: routing.locales.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
       images: [{ url: "/icon.png", width: 500, height: 500, alt: SITE_NAME }],
     },
     twitter: {
@@ -95,7 +93,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>

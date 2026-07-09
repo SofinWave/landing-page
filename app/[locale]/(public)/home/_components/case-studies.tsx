@@ -26,7 +26,10 @@ export function CaseStudies() {
               <CardTitle className="text-2xl">{c.client}</CardTitle>
               <div className="flex flex-wrap gap-2 pt-2">
                 {c.tags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+                  <span
+                    key={tag}
+                    className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                  >
                     {tag}
                   </span>
                 ))}
