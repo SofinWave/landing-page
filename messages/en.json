@@ -16,7 +16,8 @@
     "contact": "Contact",
     "cta": "Book a consultation",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "status": "Available for work"
   },
   "hero": {
     "eyebrow": "Software consulting & implementation",

@@ -32,4 +32,9 @@ describe("SiteHeader", () => {
     await userEvent.click(toggle);
     expect(screen.getByRole("button", { name: /close menu/i })).toBeInTheDocument();
   });
+
+  it("shows the availability status", () => {
+    renderHeader();
+    expect(screen.getByText("Available for work")).toBeInTheDocument();
+  });
 });

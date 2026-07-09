@@ -31,7 +31,7 @@ export function SiteHeader() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground"
+              className="font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground"
             >
               {l.label}
             </a>
@@ -39,6 +39,10 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <span className="mr-2 hidden items-center gap-2 font-mono text-xs text-muted-foreground lg:inline-flex">
+            <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--accent-glow)]" />
+            {t("status")}
+          </span>
           <LanguageSwitcher />
           <ModeToggle />
           <Button asChild>
