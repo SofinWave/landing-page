@@ -15,7 +15,7 @@ serves plain HTTP.
 [Cloudflare Tunnel / upstream proxy]   ← external, not in this compose
               │ http
               ▼
-   caddy  :80   published to host as ${CADDY_HTTP_PORT:-80}
+   caddy  :8003 published to host as ${CADDY_HTTP_PORT:-8003}
               │ reverse_proxy over network_app (internal bridge)
               ▼
    node   :3000  NOT published — only reachable via Caddy
@@ -36,13 +36,24 @@ New `rpi` environment mirrors the existing `prod` override pattern
 | `.docker/rpi/node/Dockerfile` | Multi-stage standalone build (deps → build → slim runtime) |
 | `.docker/rpi/caddy/Caddyfile` | `:80` reverse proxy + compression |
 | `docker-compose.rpi.yml` | Override: `node` (rpi image, no ports, healthcheck) + new `caddy` service |
-| `.mise/tasks/rpi/{up,down,start,stop,restart,rm,logs}` | Mirror `prod/*`, `COMPOSE_FILE=docker-compose.yml:docker-compose.rpi.yml` |
+| `.mise/tasks/rpi/{up,down,start,stop,restart,rm,logs}` | Mirror `prod/*`, `COMPOSE_FILE=docker-compose.yml:docker-compose.rpi.yml`, load `.env.rpi` when present |
+| `.env.rpi.example` | Committed template for the gitignored `.env.rpi` |
 
 ### Changed files
 
 - `next.config.ts` — add `output: "standalone"` (required for the slim runtime
   image; inert for local dev and Vercel).
-- `.env` — add `CADDY_HTTP_PORT=80`.
+
+### Config / env
+
+- `APP_NAME` is **not** read by the app — it only named containers via compose
+  interpolation. The rpi containers use **static names**
+  (`kingnnt-dot-org_rpi_{node,caddy}`), so rpi needs no `APP_NAME`.
+- Caddy's host port defaults to **8003** (`${CADDY_HTTP_PORT:-8003}`).
+- rpi-specific config lives in `.env.rpi` (gitignored via `.env*`; template in
+  `.env.rpi.example`). It's **optional**: the node service loads it with
+  `required: false`, and the `rpi:*` tasks pass `--env-file .env.rpi` only when
+  the file exists. The base `.env` stays dev-only.
 
 ## Node image (`.docker/rpi/node/Dockerfile`)
 

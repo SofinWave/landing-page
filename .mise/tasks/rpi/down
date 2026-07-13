@@ -2,4 +2,5 @@
 #MISE description="Stop and remove Raspberry Pi containers"
 set -euo pipefail
 export COMPOSE_FILE="docker-compose.yml:docker-compose.rpi.yml"
-docker compose down
+[[ -f .env.rpi ]] && ENV_FILE="--env-file .env.rpi" || ENV_FILE=""
+docker compose ${ENV_FILE} down

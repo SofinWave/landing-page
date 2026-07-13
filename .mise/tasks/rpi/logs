@@ -2,4 +2,5 @@
 #MISE description="Follow logs from the Raspberry Pi containers"
 set -euo pipefail
 export COMPOSE_FILE="docker-compose.yml:docker-compose.rpi.yml"
-docker compose logs -f
+[[ -f .env.rpi ]] && ENV_FILE="--env-file .env.rpi" || ENV_FILE=""
+docker compose ${ENV_FILE} logs -f
