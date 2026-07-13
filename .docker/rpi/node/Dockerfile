@@ -11,9 +11,12 @@ RUN corepack enable
 WORKDIR /app
 
 # ── deps: install with a frozen lockfile ─────────────────────────────
+# --ignore-scripts skips the package's own `prepare` (husky, which needs a .git
+# that isn't in the build context) and dependency build scripts (not needed:
+# sharp ships prebuilt arm64 binaries via optionalDependencies).
 FROM base AS deps
 COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
 
 # ── build: compile the standalone server ─────────────────────────────
 FROM base AS build
