@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Start Raspberry Pi containers (detached)"
+set -euo pipefail
+export COMPOSE_FILE="docker-compose.yml:docker-compose.rpi.yml"
+docker compose up -d --build

@@ -1,0 +1,7 @@
+# Reverse proxy in front of the Next.js app.
+# Plain HTTP on :80 — public TLS is terminated upstream (Cloudflare Tunnel /
+# another proxy), which forwards to this Caddy.
+:80 {
+	encode zstd gzip
+	reverse_proxy node:3000
+}

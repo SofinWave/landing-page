@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Remove Raspberry Pi containers, locally-built images and volumes"
+set -euo pipefail
+export COMPOSE_FILE="docker-compose.yml:docker-compose.rpi.yml"
+docker compose down --rmi local -v

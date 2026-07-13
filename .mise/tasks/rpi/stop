@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Stop Raspberry Pi containers without removing them"
+set -euo pipefail
+export COMPOSE_FILE="docker-compose.yml:docker-compose.rpi.yml"
+docker compose stop

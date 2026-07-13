@@ -1,0 +1,38 @@
+# Raspberry Pi (arm64) overrides.
+# NOT auto-loaded — applied explicitly by the rpi:* mise tasks via
+# `docker compose -f docker-compose.yml -f docker-compose.rpi.yml ...`,
+# which deliberately excludes docker-compose.override.yml.
+#
+# Topology:  upstream proxy (Cloudflare Tunnel) -> caddy:80 -> node:3000
+# Only Caddy is published to the host; node is internal-only.
+services:
+  node:
+    container_name: ${APP_NAME}_rpi_node
+    hostname: ${APP_NAME}_rpi_node
+    build:
+      dockerfile: .docker/rpi/node/Dockerfile
+    env_file:
+      - .env
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: ${APP_NAME}_rpi_caddy
+    hostname: ${APP_NAME}_rpi_caddy
+    restart: unless-stopped
+    depends_on:
+      node:
+        condition: service_healthy
+    ports:
+      - "${CADDY_HTTP_PORT:-80}:80"
+    volumes:
+      - ./.docker/rpi/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - network_app
+
+volumes:
+  caddy_data:
+  caddy_config:
