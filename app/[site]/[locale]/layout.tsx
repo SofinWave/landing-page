@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_KEYWORDS, siteUrl } from "@/lib/site";
@@ -81,6 +82,8 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
+        {/* No-ops outside Vercel, so local and Docker builds are unaffected. */}
+        <Analytics />
       </body>
     </html>
   );

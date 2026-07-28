@@ -8,13 +8,20 @@ const intlMiddleware = createMiddleware(routing);
 /**
  * Root-level files whose content differs per site. They carry no locale prefix,
  * so they are rewritten straight into the site-scoped handlers under `/s/`.
+ *
+ * Public path → handler segment. The two only differ for the sitemap: a route
+ * directory named `sitemap.xml` makes Next classify `/s/[site]/sitemap.xml` as
+ * a *static metadata file*, and the deployment adapter skips those when
+ * building its output map. A statically prerendered dynamic route then has no
+ * parent output and the build dies with `Invariant: failed to find source
+ * route` — on Vercel only, since the adapter never runs in a local build.
  */
-const SITE_SCOPED_FILES = new Set([
-  "/sitemap.xml",
-  "/robots.txt",
-  "/llms.txt",
-  "/llms-full.txt",
-  "/manifest.webmanifest",
+const SITE_SCOPED_FILES = new Map([
+  ["/sitemap.xml", "/sitemap-xml"],
+  ["/robots.txt", "/robots.txt"],
+  ["/llms.txt", "/llms.txt"],
+  ["/llms-full.txt", "/llms-full.txt"],
+  ["/manifest.webmanifest", "/manifest.webmanifest"],
 ]);
 
 /**
@@ -31,9 +38,10 @@ export default function proxy(request: NextRequest) {
   const site = resolveSite(request.headers.get("host"));
   const { pathname } = request.nextUrl;
 
-  if (SITE_SCOPED_FILES.has(pathname)) {
+  const scopedFile = SITE_SCOPED_FILES.get(pathname);
+  if (scopedFile) {
     const url = new URL(request.nextUrl);
-    url.pathname = `/s/${site.id}${pathname}`;
+    url.pathname = `/s/${site.id}${scopedFile}`;
     return NextResponse.rewrite(url);
   }
 

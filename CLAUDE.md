@@ -86,7 +86,15 @@ page would force dynamic rendering instead.
 
 Root-level files whose content differs per site (`sitemap.xml`, `robots.txt`,
 `llms.txt`, `llms-full.txt`, `manifest.webmanifest`) are rewritten to route
-handlers under `app/s/[site]/`.
+handlers under `app/s/[site]/`. `proxy.ts` holds the public-path → handler map;
+the handler directory is named after the public file **except** the sitemap,
+which lives at `app/s/[site]/sitemap-xml/`. A directory literally named
+`sitemap.xml` makes Next classify the route as a static metadata file, and the
+deployment adapter skips those when building its output map — a statically
+prerendered dynamic route then has no parent output and the build dies with
+`Invariant: failed to find source route`. The adapter only runs on Vercel, so a
+local `pnpm build` passes regardless; `tests/seo/route-conventions.test.ts`
+guards it instead. Never name a dynamic route directory after a metadata file.
 
 - `enums/site.enum.ts` — the four `SiteId`s.
 - `lib/sites.ts` — per-site config: hostname, brand name, message namespaces,
@@ -152,6 +160,13 @@ The landing page lives at `/{locale}/home`; `/{locale}` only redirects there, so
 **Never emit `Review`/`AggregateRating`** until the testimonials are real — see
 `docs/CONTENT-TODO.md`. Placeholder team names are filtered out of `Person`
 schema for the same reason.
+
+### Analytics
+
+`@vercel/analytics`'s `<Analytics />` sits in `app/[site]/[locale]/layout.tsx`,
+which is the root layout for all four sites. It is inert off Vercel, so local
+and Docker builds are unaffected. Page views must be enabled per project in the
+Vercel dashboard; all four hostnames report into the one project.
 
 ### Brand assets
 
