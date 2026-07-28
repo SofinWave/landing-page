@@ -122,4 +122,26 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
       ).toBeDefined();
     }
   });
+
+  it.each(Object.keys(catalogs))("resolves every section link to a page in %s", (locale) => {
+    const pages = catalogs[locale][config.contentNamespace] as Record<
+      string,
+      Record<string, unknown>
+    >;
+
+    for (const [key, page] of Object.entries(pages)) {
+      if (typeof page !== "object" || page === null) continue;
+      const sections = (page as { sections?: unknown }).sections;
+      if (!Array.isArray(sections)) continue;
+
+      for (const section of sections as { links?: { href: string; label: string }[] }[]) {
+        for (const link of section.links ?? []) {
+          expect(
+            findRoute(siteId, link.href.replace(/^\//, "")),
+            `${key} link ${link.href}`,
+          ).toBeDefined();
+        }
+      }
+    }
+  });
 });
