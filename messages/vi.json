@@ -160,9 +160,9 @@
     "title": "Chúng tôi là ai",
     "about": "SofinWave là đội ngũ kỹ sư và chuyên gia tư vấn cấp cao đã bàn giao nhiều hệ thống production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như một phần trong đội của bạn.",
     "members": [
-      { "name": "King Nguyen", "role": "Chuyên gia tư vấn chính" },
-      { "name": "Thành viên", "role": "Kỹ sư trưởng" },
-      { "name": "Thành viên", "role": "Kiến trúc sư giải pháp" }
+      { "name": "Jesse", "role": "Chuyên gia tư vấn chính" },
+      { "name": "Alex", "role": "Kỹ sư trưởng" },
+      { "name": "Brian", "role": "Kiến trúc sư giải pháp" }
     ]
   },
   "faq": {

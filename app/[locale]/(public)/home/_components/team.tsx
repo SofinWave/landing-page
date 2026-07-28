@@ -1,8 +1,16 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Section } from "@/components/section";
 import { Reveal } from "@/components/reveal";
 
 type Member = { name: string; role: string };
+
+/** Portraits are locale-independent, so they pair with `team.members` by order. */
+const PHOTOS = [
+  "/images/members/jesse.png",
+  "/images/members/anonymous-1.png",
+  "/images/members/anonymous-2.png",
+];
 
 function initials(name: string) {
   return name
@@ -29,9 +37,19 @@ export function Team() {
               key={`${m.name}-${i}`}
               className="hud-corners relative overflow-hidden flex items-center gap-4 rounded-lg border border-border bg-card p-4"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary">
-                {initials(m.name)}
-              </div>
+              {PHOTOS[i] ? (
+                <Image
+                  src={PHOTOS[i]}
+                  alt={m.name}
+                  width={128}
+                  height={128}
+                  className="h-14 w-14 shrink-0 rounded-full object-cover ring-1 ring-border"
+                />
+              ) : (
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary">
+                  {initials(m.name)}
+                </div>
+              )}
               <div>
                 <div className="font-semibold">{m.name}</div>
                 <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
