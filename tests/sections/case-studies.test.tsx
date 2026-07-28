@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
-import { CaseStudies } from "@/app/[locale]/(public)/home/_components/case-studies";
+import { CaseStudies } from "@/app/[site]/[locale]/(public)/home/_components/case-studies";
 
 describe("CaseStudies", () => {
   it("renders cases with problem, solution, and result metrics", () => {

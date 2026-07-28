@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, serviceSchema, webPageSchema } from "@/lib/structured-data";
-import { CONTENT_ROUTES, HOME_PATH } from "@/lib/routes";
+import { HOME_PATH, contentRoutesFor } from "@/lib/routes";
+import { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
 
 describe("pageMetadata", () => {
@@ -64,7 +65,7 @@ describe("webPageSchema", () => {
 
 describe("breadcrumbSchema", () => {
   it("emits a positioned trail matching the route hierarchy", () => {
-    const node = breadcrumbSchema("en", "services/dedicated-team", (r) => r.key);
+    const node = breadcrumbSchema("en", "services/dedicated-team", (r) => r.key, SiteId.Tech);
 
     expect(node.itemListElement.map((i) => i.position)).toEqual([1, 2, 3]);
     expect(node.itemListElement.map((i) => i.item)).toEqual([
@@ -90,7 +91,42 @@ describe("serviceSchema", () => {
   });
 
   it("covers every service route", () => {
-    const serviceRoutes = CONTENT_ROUTES.filter((r) => r.path.startsWith("services/"));
+    const serviceRoutes = contentRoutesFor(SiteId.Tech).filter((r) =>
+      r.path.startsWith("services/"),
+    );
     expect(serviceRoutes.length).toBeGreaterThan(0);
+  });
+});
+
+describe("per-site metadata", () => {
+  it("canonicalises each site to its own origin", () => {
+    const media = pageMetadata({
+      locale: "en",
+      path: "about",
+      title: "t",
+      description: "d",
+      site: SiteId.Media,
+    });
+    expect(media.alternates?.canonical).toBe("https://media.sofinwave.org/en/about");
+
+    const finance = pageMetadata({
+      locale: "vi",
+      path: "disclaimer",
+      title: "t",
+      description: "d",
+      site: SiteId.Finance,
+    });
+    expect(finance.alternates?.canonical).toBe("https://finance.sofinwave.org/vi/disclaimer");
+  });
+
+  it("points each site's social card at its own origin", () => {
+    const meta = pageMetadata({
+      locale: "en",
+      path: HOME_PATH,
+      title: "t",
+      description: "d",
+      site: SiteId.Academy,
+    });
+    expect(meta.twitter?.images).toEqual(["https://academy.sofinwave.org/en/opengraph-image"]);
   });
 });

@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { SITE_NAME } from "@/lib/site";
+import { ALL_SITES, DEFAULT_SITE, isSiteId, siteConfig } from "@/lib/sites";
 
 /**
- * Default social card for every route under `/[locale]`.
+ * Default social card for every route of every site.
  *
  * Replaces the old 500x500 `/icon.png`, which was letterboxed by every platform
  * that honours `summary_large_image`. Colours mirror the brand tokens in
@@ -12,7 +12,7 @@ import { SITE_NAME } from "@/lib/site";
  */
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = SITE_NAME;
+export const alt = DEFAULT_SITE.name;
 
 const BACKGROUND = "#080E16";
 const FOREGROUND = "#FAFAFA";
@@ -20,12 +20,17 @@ const ACCENT_FROM = "#29D1E8";
 const ACCENT_TO = "#3082F6";
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return ALL_SITES.flatMap((site) => routing.locales.map((locale) => ({ site: site.id, locale })));
 }
 
-export default async function OpengraphImage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata" });
+export default async function OpengraphImage({
+  params,
+}: {
+  params: Promise<{ site: string; locale: string }>;
+}) {
+  const { site, locale } = await params;
+  const config = siteConfig(isSiteId(site) ? site : DEFAULT_SITE.id);
+  const t = await getTranslations({ locale, namespace: config.metaNamespace });
 
   return new ImageResponse(
     <div
@@ -61,7 +66,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ loc
           }}
         />
         <div style={{ color: FOREGROUND, fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>
-          {SITE_NAME}
+          {config.name}
         </div>
       </div>
 
@@ -84,7 +89,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ loc
 
       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
         <div style={{ width: 40, height: 4, background: ACCENT_FROM }} />
-        <div style={{ color: "#64748B", fontSize: 26 }}>sofinwave.org</div>
+        <div style={{ color: "#64748B", fontSize: 26 }}>{config.host}</div>
       </div>
     </div>,
     size,

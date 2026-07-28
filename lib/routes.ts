@@ -1,9 +1,11 @@
+import { SiteId } from "@/enums";
+
 /**
- * Single source of truth for every public route.
+ * Single source of truth for every public route, per site.
  *
- * Navigation, the sitemap, breadcrumbs, and the generated llms.txt all read from
+ * Navigation, sitemaps, breadcrumbs, and the generated llms.txt all read from
  * this registry, so they cannot drift apart. Adding a page means adding an entry
- * here plus its copy under the `pages` namespace in both message catalogs.
+ * here plus its copy under that site's content namespace in both catalogs.
  */
 
 export type ChangeFrequency = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly";
@@ -11,7 +13,7 @@ export type ChangeFrequency = "always" | "hourly" | "daily" | "weekly" | "monthl
 export interface RouteDef {
   /** Path after the locale prefix, without leading or trailing slashes. */
   path: string;
-  /** Key under the `pages` message namespace holding this route's copy. */
+  /** Key under the site's content message namespace holding this route's copy. */
   key: string;
   /** Parent route path, used to build breadcrumb trails. */
   parent?: string;
@@ -19,11 +21,13 @@ export interface RouteDef {
   changeFrequency: ChangeFrequency;
 }
 
-/** The landing page. Kept at `/{locale}/home`; `/{locale}` redirects here. */
+/** Landing page path, shared by every site. `/{locale}` redirects here. */
 export const HOME_PATH = "home";
 
-export const ROUTES: readonly RouteDef[] = [
-  { path: HOME_PATH, key: "home", priority: 1, changeFrequency: "monthly" },
+const home: RouteDef = { path: HOME_PATH, key: "home", priority: 1, changeFrequency: "monthly" };
+
+const TECH_ROUTES: readonly RouteDef[] = [
+  home,
 
   {
     path: "vietnam-software-outsourcing",
@@ -31,6 +35,13 @@ export const ROUTES: readonly RouteDef[] = [
     parent: HOME_PATH,
     priority: 0.9,
     changeFrequency: "monthly",
+  },
+  {
+    path: "ventures",
+    key: "ventures",
+    parent: HOME_PATH,
+    priority: 0.6,
+    changeFrequency: "yearly",
   },
 
   {
@@ -83,6 +94,31 @@ export const ROUTES: readonly RouteDef[] = [
     changeFrequency: "monthly",
   },
 
+  // AI delivery. Distinct pages because "build us an AI feature", "connect an
+  // LLM to our data", and "automate this workflow with agents" are different
+  // purchases with different queries behind them.
+  {
+    path: "services/ai-implementation",
+    key: "aiImplementation",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/llm-integration",
+    key: "llmIntegration",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/ai-agents",
+    key: "aiAgents",
+    parent: "services",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+
   {
     path: "engagement-models",
     key: "engagementModels",
@@ -115,26 +151,66 @@ export const ROUTES: readonly RouteDef[] = [
 
   { path: "about", key: "about", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
   { path: "contact", key: "contact", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
-] as const;
+];
 
-/** Every route except the landing page — i.e. those rendered by the content shell. */
-export const CONTENT_ROUTES = ROUTES.filter((r) => r.path !== HOME_PATH);
+const MEDIA_ROUTES: readonly RouteDef[] = [
+  home,
+  { path: "about", key: "about", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+  { path: "contact", key: "contact", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+];
 
-export function findRoute(path: string): RouteDef | undefined {
-  return ROUTES.find((r) => r.path === path);
+const FINANCE_ROUTES: readonly RouteDef[] = [
+  home,
+  { path: "about", key: "about", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+  { path: "contact", key: "contact", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+  // Not optional. Investing content is YMYL, and the scope of what this site
+  // does and does not offer has to be stated somewhere linkable.
+  {
+    path: "disclaimer",
+    key: "disclaimer",
+    parent: HOME_PATH,
+    priority: 0.5,
+    changeFrequency: "yearly",
+  },
+];
+
+const ACADEMY_ROUTES: readonly RouteDef[] = [
+  home,
+  { path: "about", key: "about", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+  { path: "contact", key: "contact", parent: HOME_PATH, priority: 0.6, changeFrequency: "yearly" },
+];
+
+export const ROUTES_BY_SITE: Record<SiteId, readonly RouteDef[]> = {
+  [SiteId.Tech]: TECH_ROUTES,
+  [SiteId.Media]: MEDIA_ROUTES,
+  [SiteId.Finance]: FINANCE_ROUTES,
+  [SiteId.Academy]: ACADEMY_ROUTES,
+};
+
+export function routesFor(site: SiteId): readonly RouteDef[] {
+  return ROUTES_BY_SITE[site];
+}
+
+/** Every route of a site except its landing page — those the content shell renders. */
+export function contentRoutesFor(site: SiteId): RouteDef[] {
+  return routesFor(site).filter((r) => r.path !== HOME_PATH);
+}
+
+export function findRoute(site: SiteId, path: string): RouteDef | undefined {
+  return routesFor(site).find((r) => r.path === path);
 }
 
 /**
  * Breadcrumb trail for a route, ordered root-first and including the route
- * itself. Returns just the route when it has no parent chain.
+ * itself. Returns an empty trail when the path is not a route of that site.
  */
-export function breadcrumbTrail(path: string): RouteDef[] {
+export function breadcrumbTrail(site: SiteId, path: string): RouteDef[] {
   const trail: RouteDef[] = [];
-  let current = findRoute(path);
+  let current = findRoute(site, path);
 
   while (current) {
     trail.unshift(current);
-    current = current.parent ? findRoute(current.parent) : undefined;
+    current = current.parent ? findRoute(site, current.parent) : undefined;
   }
 
   return trail;

@@ -8,30 +8,30 @@ import { ModeToggle } from "@/components/mode-togger";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Logo } from "@/components/logo";
 import { Link } from "@/i18n/navigation";
+import type { SiteId } from "@/enums";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
 
 /**
- * Real routes rather than home-page anchors: these links have to resolve from
- * every page, and they are how crawlers reach the service and pillar pages.
+ * Navigation comes from the site registry rather than home-page anchors: these
+ * links have to resolve from every page, and they are how crawlers reach the
+ * service and pillar pages.
  */
-const NAV = [
-  { href: "/services", key: "services" },
-  { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
-  { href: "/engagement-models", key: "engagementModels" },
-  { href: "/about", key: "about" },
-] as const;
-
-export function SiteHeader() {
+export function SiteHeader({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
+  const config = siteConfig(site);
   const t = useTranslations("header");
-  const tPages = useTranslations("pages");
+  const tPages = useTranslations(config.contentNamespace);
   const [open, setOpen] = useState(false);
 
-  const links = NAV.map((item) => ({ href: item.href, label: tPages(`${item.key}.navLabel`) }));
+  const links = config.nav.map((item) => ({
+    href: item.href,
+    label: tPages(`${item.key}.navLabel`),
+  }));
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/home" aria-label={t("brand")}>
-          <Logo label={t("brand")} priority />
+        <Link href="/home" aria-label={config.name}>
+          <Logo label={config.name} priority />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

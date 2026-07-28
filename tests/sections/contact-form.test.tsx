@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
-import { ContactForm } from "@/app/[locale]/(public)/home/_components/contact-form";
+import { ContactForm } from "@/app/[site]/[locale]/(public)/home/_components/contact-form";
 import { submitContact } from "@/app/actions/contact";
 
 vi.mock("@/app/actions/contact", () => ({

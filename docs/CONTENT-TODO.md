@@ -111,7 +111,28 @@ If you add any — engineer headcount, IT graduate numbers, industry growth — 
 the source and year inline. Prefer government or major-analyst sources over
 vendor blogs, which mostly cite each other.
 
-## 8. Off-site work the code cannot do
+## 8. Investment advisory licence (blocks one specific thing)
+
+**Where:** `lib/sites.ts` → the finance site's `schemaType`, and
+`messages/*.json` → `financePages`
+
+The finance site is written strictly as published knowledge and tooling. It
+states plainly, on the home page, the about page, the contact page, and a
+dedicated `/disclaimer` route, that SofinWave is not a licensed investment
+adviser and does not advise, manage money, or accept client capital.
+
+That wording is deliberate and should not be softened while it is true. If you
+obtain an advisory licence:
+
+- Update `/disclaimer` first — it is the page everything else points at.
+- The `schemaType` can then become `FinancialService`, and the licence number
+  belongs in the Organization node and the footer. A licence number is a strong
+  E-E-A-T signal for YMYL content.
+- Only then can the site describe advisory services.
+
+Until that happens, no page should imply advice is on offer.
+
+## 9. Off-site work the code cannot do
 
 Not in this repository, but these determine how much of the above pays off:
 
@@ -120,3 +141,21 @@ Not in this repository, but these determine how much of the above pays off:
 - Clutch and GoodFirms profiles.
 - Backlinks. For outsourcing this is the hardest and most decisive factor, and
   no amount of on-page work substitutes for it.
+- DNS: `media`, `finance`, and `academy` subdomains must be routed to the same
+  Cloudflare Tunnel as the apex. See `.env.rpi.example`.
+
+## 10. Content depth for the three new sites
+
+`media`, `finance`, and `academy` currently ship a landing page, an about page,
+and a contact page each (plus `/disclaimer` on finance). That is enough to be a
+real site rather than a placeholder, but not enough to rank.
+
+Each needs its own topic cluster before it competes — service or course pages,
+and eventually published work. The tech site's structure under `/services` is
+the pattern to follow.
+
+One caution on the academy site: **K-12 tutoring is the hardest of everything
+here to rank.** Vietnamese K-12 search is dominated by very large free-content
+sites, and competing head-on will not work. A narrow angle — a specific grade
+band, a specific subject, or the bilingual/technical angle the rest of the group
+already has — is far more likely to succeed than broad coverage.

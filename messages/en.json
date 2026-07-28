@@ -1094,6 +1094,661 @@
         "body": "Write to us directly and we will pick it up the same way. The form below reaches the same place.",
         "button": "Book a consultation"
       }
+    },
+    "aiImplementation": {
+      "navLabel": "AI systems",
+      "title": "AI System Implementation",
+      "metaTitle": "AI Implementation Consulting & Development",
+      "metaDescription": "Take an AI idea from prototype to a production system with evaluation, monitoring, and cost control. AI implementation consulting and engineering from Vietnam.",
+      "lede": "AI implementation is the work between a demo that impresses and a system you can put in front of customers. The model is rarely the hard part. The hard parts are evaluation you can trust, latency and cost that survive real traffic, and behaviour that stays acceptable when users do things nobody anticipated. We build AI systems the same way we build any production system: with tests, monitoring, and a rollback path.",
+      "sections": [
+        {
+          "heading": "Why AI prototypes stall before production",
+          "body": "Most teams get to a convincing demo quickly and then stop. The reasons are consistent, and none of them are about model choice.",
+          "bullets": [
+            "No evaluation set, so nobody can tell whether a change made things better or worse.",
+            "Costs that were trivial in testing become the largest line item at real volume.",
+            "Latency that is fine for one user is unacceptable when requests queue.",
+            "No plan for the cases where the model is confidently wrong.",
+            "Nothing logged, so failures cannot be reproduced or explained to a customer."
+          ]
+        },
+        {
+          "heading": "What we build first",
+          "body": "Before adding capability, we make the system measurable. Otherwise every later change is a guess.",
+          "bullets": [
+            "An evaluation set drawn from your real data, with the failure cases included.",
+            "Automated scoring in CI, so a prompt or model change is a measurable event.",
+            "Tracing on every call: inputs, outputs, latency, tokens, and cost per request.",
+            "A guardrail layer for the outputs that must never reach a user unchecked."
+          ]
+        },
+        {
+          "heading": "Choosing the smallest thing that works",
+          "body": "Fine-tuning, retrieval, agents, and a bigger model are four different answers to four different problems, and they are routinely applied to the wrong one. Retrieval fixes missing knowledge. Fine-tuning fixes format and tone. Agents fix multi-step workflows. A bigger model fixes reasoning depth, at a cost. We diagnose which you actually have before building, because the expensive option is often solving a problem you do not have."
+        },
+        {
+          "heading": "Keeping it affordable at volume",
+          "body": "AI cost scales with usage in a way most software does not, and a system that is profitable at a thousand requests a day can be ruinous at a hundred thousand. We design for that from the start.",
+          "bullets": [
+            "Caching for the requests that repeat, which is usually more of them than expected.",
+            "Routing cheap requests to small models and reserving large ones for hard cases.",
+            "Prompt and context trimming, measured rather than assumed.",
+            "Cost dashboards per feature, so an expensive path is visible before the invoice."
+          ]
+        },
+        {
+          "heading": "When we will tell you not to use AI",
+          "body": "Plenty of problems presented as AI problems are search problems, rules problems, or data-quality problems, and solving them conventionally is cheaper, faster, and more predictable. If that is what we find, we will say so. A recommendation engine that is a well-tuned query beats one that hallucinates, and it costs a fraction to run."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do we need our own model?",
+          "answer": "Almost never. Most production systems use a hosted model with retrieval and good prompting. Training or fine-tuning your own is worth it for narrow, high-volume, format-sensitive tasks — and it is a much larger commitment. We will tell you which case you are in before you spend on it."
+        },
+        {
+          "question": "How do you stop it producing wrong answers?",
+          "answer": "You cannot eliminate it, so the system has to handle it. That means grounding answers in your data with citations, validating structured outputs against a schema, gating high-risk actions behind human confirmation, and logging enough to explain any specific answer afterwards."
+        },
+        {
+          "question": "Can this run on our own infrastructure?",
+          "answer": "Yes, where the data requires it. Self-hosting open-weight models trades API cost for operational cost and lower ceiling on capability. That trade is worth making for some data-sensitive workloads and not for others — we will be concrete about which."
+        },
+        {
+          "question": "How do you measure whether it is good enough?",
+          "answer": "Against an evaluation set built from your data with agreed pass criteria, before launch. \"It seems better\" is not a release criterion, and without a baseline nobody can tell whether the next change helped."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "llmIntegration": {
+      "navLabel": "LLM integration",
+      "title": "LLM Integration & RAG",
+      "metaTitle": "LLM Integration and RAG Development Services",
+      "metaDescription": "Connect a language model to your own data and product — retrieval-augmented generation, structured outputs, and evaluation built for production rather than demos.",
+      "lede": "LLM integration means connecting a language model to your data and your product so it answers from what you actually know rather than what it was trained on. In practice that is retrieval-augmented generation: find the right context, give it to the model, and cite where the answer came from. Most of the engineering effort goes into retrieval quality, not into the model call.",
+      "sections": [
+        {
+          "heading": "Retrieval is where RAG succeeds or fails",
+          "body": "If the right passage is not retrieved, no model can answer correctly. Teams typically discover this after blaming the model for months.",
+          "bullets": [
+            "Chunking that respects document structure rather than cutting at a fixed length.",
+            "Hybrid search — keyword alongside vectors, because exact terms still matter.",
+            "Reranking the candidate set before it reaches the model's context.",
+            "Retrieval measured on its own: was the right passage in the top results at all?"
+          ]
+        },
+        {
+          "heading": "Making outputs safe to use programmatically",
+          "body": "A model that returns prose is fine for a chat window and useless as an input to the rest of your system. When the output feeds code, it needs to be structured and validated.",
+          "bullets": [
+            "Schema-constrained outputs, validated before anything downstream consumes them.",
+            "Explicit handling for the model declining or returning nothing usable.",
+            "Citations back to source documents, so a user can check the claim.",
+            "Deterministic fallbacks when the confident answer is not good enough to ship."
+          ]
+        },
+        {
+          "heading": "Keeping the index current",
+          "body": "A retrieval system quietly decays as the underlying documents change. We build the ingestion pipeline as a first-class part of the system — incremental updates, deletion handling, and a way to tell how stale the index is — because a confidently wrong answer sourced from a deleted document is worse than no answer."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is RAG in plain terms?",
+          "answer": "Retrieval-augmented generation: before answering, the system searches your documents for relevant passages and includes them in the model's context. The model then answers from that material and cites it, instead of relying on what it memorised during training."
+        },
+        {
+          "question": "Can it answer from our private data without that data training the model?",
+          "answer": "Yes. Retrieval puts your data into the request, not into the model's weights. Whether the provider retains request data depends on the provider and plan, which is a contract question we can help you check before you commit."
+        },
+        {
+          "question": "Which vector database should we use?",
+          "answer": "For most workloads, PostgreSQL with pgvector is sufficient and avoids adding a component to operate. Dedicated vector databases start to earn their place at large scale or with demanding filtering. We would rather add one when your numbers justify it."
+        },
+        {
+          "question": "How do we know retrieval is working?",
+          "answer": "By measuring it separately from generation. We build a set of questions with known correct sources and track whether those sources appear in the retrieved results. That number tells you where to invest — most of the time it is retrieval, not the model."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "aiAgents": {
+      "navLabel": "AI agents",
+      "title": "AI Agent Development",
+      "metaTitle": "AI Agent Development & Workflow Automation",
+      "metaDescription": "Agentic systems that carry out multi-step work against your tools, with permissions, audit trails, and a human in the loop where it matters.",
+      "lede": "An AI agent is a system that decides which steps to take and calls your tools to take them, rather than producing text for a person to act on. That makes it useful for multi-step work and risky in exactly the same measure — an agent with write access can do real damage quickly. We build agents with narrow permissions, full audit trails, and human confirmation on anything expensive or irreversible.",
+      "sections": [
+        {
+          "heading": "Where agents genuinely earn their place",
+          "body": "Agents suit work with a clear goal, several steps, and tolerance for a retry. They suit high-volume, zero-tolerance transaction processing far less.",
+          "bullets": [
+            "Triage and routing: read an incoming item, classify it, act or escalate.",
+            "Research and summarisation across several internal systems.",
+            "Multi-step back-office work that currently means a person copying between tools.",
+            "Drafting that a human reviews and approves before anything is sent."
+          ]
+        },
+        {
+          "heading": "Permissions and blast radius",
+          "body": "The design question is not what the agent can do when it works, but what it can do when it is wrong. We answer that before building anything.",
+          "bullets": [
+            "Least-privilege tool access — read-only by default, write granted case by case.",
+            "Explicit human confirmation for spending, sending, or deleting.",
+            "Rate and budget limits per run, so a loop cannot become an invoice.",
+            "A full trace of every step, so any action can be explained afterwards."
+          ]
+        },
+        {
+          "heading": "Making agents testable",
+          "body": "An agent that behaves differently every run is not something you can maintain. We pin down what can be pinned: deterministic tools with their own tests, recorded traces replayed as regression cases, and evaluation over whole runs rather than single responses. Without that, every change is a gamble and nobody will trust the system enough to widen its permissions."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How is an agent different from a chatbot?",
+          "answer": "A chatbot produces text for a person to act on. An agent takes the actions itself by calling tools — querying a database, opening a ticket, sending a message. That difference is why permissions and audit trails matter far more than they do for a chat interface."
+        },
+        {
+          "question": "What if the agent does something wrong?",
+          "answer": "Assume it will, and design so the consequences are bounded. Irreversible and expensive actions sit behind human confirmation, tool access is minimal, and every step is logged in enough detail to reconstruct and reverse what happened."
+        },
+        {
+          "question": "Can it work with our existing tools?",
+          "answer": "Yes — agents act through whatever APIs you already have. Where a system has no API, the same file, queue, or database routes we use for conventional integration apply."
+        },
+        {
+          "question": "Is this worth doing yet?",
+          "answer": "For bounded, reviewable work, often yes. For unattended, high-stakes, high-volume processing, usually not yet. We would rather tell you that than build something you have to turn off in a month."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "ventures": {
+      "navLabel": "Ventures",
+      "title": "SofinWave Ventures",
+      "metaTitle": "SofinWave Ventures — Our Four Businesses",
+      "metaDescription": "SofinWave operates four businesses: software consulting and AI implementation, media and content production, investing knowledge and tooling, and education.",
+      "lede": "SofinWave is four businesses sharing one team and one set of engineering standards. Software consulting is the core and pays for the rest. The other three grew out of work we were already doing for ourselves — producing content, building our own investing tools, and teaching. Each runs on its own site because they serve different people and should be judged separately.",
+      "sections": [
+        {
+          "heading": "Software consulting & AI implementation",
+          "body": "The core business, at sofinwave.org. Offshore teams, dedicated teams, and staff augmentation for companies in the US, Europe, and Asia — plus AI implementation for teams trying to get a prototype into production. This is where most of our people are."
+        },
+        {
+          "heading": "Media & content production",
+          "body": "At media.sofinwave.org. Video production and content built around products, with affiliate distribution. It started as our own marketing and became a service once the process was repeatable."
+        },
+        {
+          "heading": "Investing knowledge & tooling",
+          "body": "At finance.sofinwave.org. Notes on our own investing process, and the tools we built to support it. This is published knowledge, not advice — we are not licensed to advise, we do not manage anyone's money, and the site says so plainly."
+        },
+        {
+          "heading": "Education",
+          "body": "At academy.sofinwave.org. Teaching across the areas we work in — engineering, investing, and content production — and general schooling. Much of it is the material we wrote to train our own people."
+        },
+        {
+          "heading": "Why separate sites",
+          "body": "Because they are separate businesses with separate audiences, and because mixing them would serve all four badly. Someone evaluating us for an engineering contract should not have to wade through investing notes, and search engines judge focused sites more favourably than diffuse ones. Shared brand, shared standards, separate front doors."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Is this one company or several?",
+          "answer": "One team operating four lines of work, each with its own site. Contracts, invoicing, and who you deal with are unaffected by which site brought you here."
+        },
+        {
+          "question": "Does the software team also work on the other businesses?",
+          "answer": "The people overlap, which is why the tooling and standards are consistent. Client engagements are staffed and scheduled independently of internal projects."
+        },
+        {
+          "question": "Which one should I contact?",
+          "answer": "Whichever matches what you need — each site has its own contact page, and they all reach the same inbox. If you are unsure, start at sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    }
+  },
+  "mediaMetadata": {
+    "title": "SofinWave Media — Product Video & Content Production",
+    "description": "SofinWave Media produces product video and written content built to sell, with affiliate distribution. Run by the engineering team behind SofinWave.",
+    "ogHeadline": "Content that sells the product",
+    "ogSubline": "Product video, written content, and affiliate distribution."
+  },
+  "mediaPages": {
+    "breadcrumbLabel": "Breadcrumb",
+    "faqHeading": "Frequently asked questions",
+    "home": {
+      "navLabel": "Home",
+      "title": "Product Video & Content Production",
+      "metaTitle": "SofinWave Media — Product Video & Content Production",
+      "metaDescription": "Product video and written content built to convert, with affiliate distribution. Produced by the engineering team behind SofinWave.",
+      "lede": "SofinWave Media makes video and written content about products, and distributes it through affiliate channels. It started as our own marketing — we were already filming and writing about the tools we used — and became a service once the process was repeatable. What makes it different from a generic production shop is that we understand the products technically, so the content explains what the thing actually does.",
+      "sections": [
+        {
+          "heading": "What we produce",
+          "body": "Everything is built around a product and a specific viewer decision, not around a content calendar.",
+          "bullets": [
+            "Product videos: demonstrations, walkthroughs, and comparisons.",
+            "Written reviews and buying guides with the detail a technical buyer wants.",
+            "Short-form cuts adapted per platform rather than reposted unchanged.",
+            "Landing-page copy and assets that match what the content promised."
+          ]
+        },
+        {
+          "heading": "How affiliate work is handled",
+          "body": "Affiliate revenue only survives if the audience trusts the recommendation, which means the incentive has to be visible and the assessment has to be honest.",
+          "bullets": [
+            "Affiliate relationships disclosed on every piece that carries one.",
+            "We say what a product is bad at. Content that never criticises stops being read.",
+            "We turn down products we would not use, because one bad recommendation costs more than the commission."
+          ]
+        },
+        {
+          "heading": "Why an engineering team does this",
+          "body": "Most product content is written by people who have not used the product beyond the marketing page. We build software for a living, so when we review a developer tool, an integration, or a platform, we have run it. That is the entire advantage, and it does not transfer to categories we know nothing about — which is why we stay near technology and tooling."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do you work with brands directly?",
+          "answer": "Yes, on production and on distribution. Terms depend on whether the work is a straight production contract or an affiliate arrangement — tell us which you are after and we will be specific."
+        },
+        {
+          "question": "Will you say positive things about our product?",
+          "answer": "We will say accurate things about it. If we cannot recommend it honestly, we will decline the work rather than publish something that costs us the audience."
+        },
+        {
+          "question": "What categories do you cover?",
+          "answer": "Mainly technology, developer tooling, and business software — the areas we actually use. We are not a general review channel and would be worse than useless outside that."
+        }
+      ],
+      "cta": {
+        "title": "Talk to us about a product",
+        "body": "Tell us what the product is and who it is for. If we are a fit, we will say how we would approach it.",
+        "button": "Get in touch"
+      }
+    },
+    "about": {
+      "navLabel": "About",
+      "title": "About SofinWave Media",
+      "metaTitle": "About SofinWave Media",
+      "metaDescription": "SofinWave Media is the content arm of SofinWave, a software consulting team in Vietnam. We produce product video and written content, and distribute through affiliate channels.",
+      "lede": "SofinWave Media is the content arm of SofinWave, a software consulting team based in Vietnam. We started making content about the tools we used at work, kept doing it because it was useful, and turned it into a business once the process was repeatable.",
+      "sections": [
+        {
+          "heading": "How we decide what to cover",
+          "body": "We cover things we use or would plausibly use. That constraint is what makes the content worth reading, and it means we turn down more work than we take."
+        },
+        {
+          "heading": "Disclosure",
+          "body": "Some of our content carries affiliate links, which means we may earn a commission if you buy through them. That is disclosed on the content itself, it never changes what we say about a product, and we do not accept payment for a positive assessment."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Who is behind this?",
+          "answer": "The same team as sofinwave.org — engineers and consultants who build software as the main business. See the ventures page there for how the four businesses relate."
+        },
+        {
+          "question": "How do you make money?",
+          "answer": "Production contracts and affiliate commissions. Both are disclosed on the work they apply to."
+        }
+      ],
+      "cta": {
+        "title": "Work with us",
+        "body": "Production, distribution, or both. Tell us what you have in mind.",
+        "button": "Get in touch"
+      }
+    },
+    "contact": {
+      "navLabel": "Contact",
+      "title": "Contact",
+      "metaTitle": "Contact SofinWave Media",
+      "metaDescription": "Get in touch about product video, content production, or an affiliate arrangement. We reply within one business day.",
+      "lede": "Tell us about the product and who it is for. If it is something we can cover honestly, we will say how we would approach it and what it would cost. We reply within one business day.",
+      "sections": [
+        {
+          "heading": "What to include",
+          "body": "A link to the product, who the buyer is, and what you want the viewer to do after watching. That is usually enough for a first answer."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How quickly will you reply?",
+          "answer": "Within one business day. We are at UTC+7."
+        },
+        {
+          "question": "Do you take on products outside technology?",
+          "answer": "Rarely. Our advantage is that we actually use what we cover, and that disappears outside our own field."
+        }
+      ],
+      "cta": {
+        "title": "Prefer email?",
+        "body": "Write to us directly — the form below reaches the same place.",
+        "button": "Get in touch"
+      }
+    }
+  },
+  "financeMetadata": {
+    "title": "SofinWave Finance — Investing Notes & Tools",
+    "description": "Notes on our own investing process and the tools we built to support it. Published knowledge, not investment advice. SofinWave is not a licensed investment adviser.",
+    "ogHeadline": "How we think about investing",
+    "ogSubline": "Our own notes and tools. Not advice — we are not licensed to give it."
+  },
+  "financePages": {
+    "breadcrumbLabel": "Breadcrumb",
+    "faqHeading": "Frequently asked questions",
+    "home": {
+      "navLabel": "Home",
+      "title": "Investing Notes & Tools",
+      "metaTitle": "SofinWave Finance — Investing Notes & Tools",
+      "metaDescription": "Notes on our own investing process and the tools we built to support it. General information only — SofinWave is not a licensed investment adviser.",
+      "lede": "This site is where we write down how we invest our own money, and publish the tools we built to support it. It is a record of a process, not a recommendation. SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only.",
+      "sections": [
+        {
+          "heading": "What this site is",
+          "body": "A working notebook, published. We write things down to think more clearly and to be able to check later whether our reasoning held up.",
+          "bullets": [
+            "How we frame decisions, and the checklists we run before acting.",
+            "Post-mortems on our own decisions, including the ones that went badly.",
+            "Tools we built for our own analysis, and what they do and do not tell you.",
+            "Notes on data sources, and where they mislead."
+          ]
+        },
+        {
+          "heading": "What this site is not",
+          "body": "It is not advice, and it is not a signal service. SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only. We do not manage money for anyone, we do not sell recommendations, and nothing here accounts for your circumstances, obligations, or risk tolerance — none of which we know."
+        },
+        {
+          "heading": "Why an engineering team writes about investing",
+          "body": "For the same reason we write about anything: we build tools for the problems we have. Most published investing content is either marketing for a product or a signal service with no track record. We would rather show the process, including where it failed, and let you judge it. If that is useful to you, good. If you want advice, speak to someone licensed to give it."
+        },
+        {
+          "heading": "On the tools",
+          "body": "The tools here are the ones we built for ourselves — screeners, trackers, and analysis scripts. They compute things; they do not decide anything. Any tool that outputs a number invites you to trust the number more than it deserves, and we try to document the assumptions rather than hide them behind an interface."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do you offer investment advice?",
+          "answer": "No. SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only. If you want advice tailored to your situation, consult a licensed adviser in your jurisdiction."
+        },
+        {
+          "question": "Do you manage money for clients?",
+          "answer": "No. We do not manage, pool, or accept anyone's capital, and we are not licensed to."
+        },
+        {
+          "question": "Can I copy what you do?",
+          "answer": "You can read what we do and why. Whether it suits you depends on your circumstances, time horizon, and tolerance for loss — which we know nothing about. Past results, ours included, do not predict future ones."
+        },
+        {
+          "question": "Why publish this at all?",
+          "answer": "Writing forces clarity, and publishing forces honesty about the decisions that went wrong. The archive is more useful to us than to anyone else; it is public because there is no reason for it not to be."
+        }
+      ],
+      "cta": {
+        "title": "Read the disclaimer",
+        "body": "Before using anything here, read what this site does and does not claim to be.",
+        "button": "Get in touch"
+      }
+    },
+    "disclaimer": {
+      "navLabel": "Disclaimer",
+      "title": "Disclaimer",
+      "metaTitle": "Disclaimer — SofinWave Finance",
+      "metaDescription": "SofinWave is not a licensed investment adviser. Content on this site is general information about our own process and is not investment advice.",
+      "lede": "SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only. Read this page before relying on anything else here.",
+      "sections": [
+        {
+          "heading": "No advice, no recommendation",
+          "body": "Nothing on this site is a recommendation to buy, sell, or hold any asset. Content describes decisions we made with our own money, for our own reasons, under our own circumstances. It is not tailored to you and cannot be — we do not know your finances, obligations, tax position, time horizon, or tolerance for loss."
+        },
+        {
+          "heading": "Not licensed",
+          "body": "SofinWave holds no investment advisory, portfolio management, or brokerage licence in any jurisdiction. We do not manage, pool, or accept client capital. If you want advice on your situation, consult an adviser licensed where you live."
+        },
+        {
+          "heading": "No guarantees, and real risk of loss",
+          "body": "Investing carries risk, including the loss of the entire amount invested. Past performance — ours or anyone's — does not predict future results. Any figures, models, or tool outputs on this site rest on assumptions that may be wrong, and are provided without any warranty as to accuracy or completeness."
+        },
+        {
+          "heading": "Positions and conflicts",
+          "body": "We may hold positions in assets discussed here, and those positions may change at any time without the content being updated. Where we have a material interest or commercial relationship relevant to a piece, we disclose it on that piece."
+        },
+        {
+          "heading": "Your decisions are yours",
+          "body": "You are responsible for your own investment decisions and for verifying anything here before acting on it. SofinWave accepts no liability for any loss arising from use of this site, to the fullest extent permitted by law."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Does this change if I contact you?",
+          "answer": "No. Correspondence with us is not advice either, and we will not give personal recommendations. If a conversation strays there, we will point you to a licensed adviser."
+        },
+        {
+          "question": "Do you plan to become licensed?",
+          "answer": "If that changes, this page changes with it and will say so explicitly. Until then, treat everything here as general information."
+        }
+      ],
+      "cta": {
+        "title": "Questions about this?",
+        "body": "If anything here is unclear, ask — we would rather answer than have you assume.",
+        "button": "Get in touch"
+      }
+    },
+    "about": {
+      "navLabel": "About",
+      "title": "About SofinWave Finance",
+      "metaTitle": "About SofinWave Finance",
+      "metaDescription": "SofinWave Finance is where the SofinWave engineering team publishes notes on its own investing process and the tools built to support it.",
+      "lede": "SofinWave Finance is where the SofinWave team writes down how it invests its own money. It is part of SofinWave, a software consulting team based in Vietnam. SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only.",
+      "sections": [
+        {
+          "heading": "Who writes this",
+          "body": "The same engineers who run the software business. We are not financial professionals, and we do not present ourselves as any. What we bring is a habit of writing systems down, testing assumptions, and recording what happened."
+        },
+        {
+          "heading": "How we handle being wrong",
+          "body": "Publicly. Decisions that went badly stay up with a note on what the reasoning missed. An investing archive that only records the wins is worthless, and we would not believe anyone else's either."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Are you financial professionals?",
+          "answer": "No. We are software engineers who invest, writing about our own process. Nothing here should be read as professional advice."
+        },
+        {
+          "question": "How does this relate to the other SofinWave sites?",
+          "answer": "Same team, separate businesses. See the ventures page on sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Get in touch",
+        "body": "Questions about the process or the tools are welcome. Requests for advice are not something we can answer.",
+        "button": "Get in touch"
+      }
+    },
+    "contact": {
+      "navLabel": "Contact",
+      "title": "Contact",
+      "metaTitle": "Contact SofinWave Finance",
+      "metaDescription": "Get in touch about the notes or the tools on SofinWave Finance. We cannot answer requests for investment advice.",
+      "lede": "Questions about the process, the tools, or the data sources are welcome. We cannot answer requests for investment advice or personal recommendations. SofinWave is not a licensed investment adviser and does not provide investment advice, portfolio management, or brokerage services. Everything here describes our own process and is published for general information only.",
+      "sections": [
+        {
+          "heading": "What we can help with",
+          "body": "How a tool works, where a number comes from, what assumption a model rests on, or an error you spotted. Corrections are especially welcome."
+        },
+        {
+          "heading": "What we will decline",
+          "body": "Anything of the form \"what should I buy\" or \"is this a good investment for me\". Not because we are being unhelpful, but because answering would be giving advice we are not licensed to give."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How quickly will you reply?",
+          "answer": "Within one business day, usually. We are at UTC+7."
+        },
+        {
+          "question": "Can you look at my portfolio?",
+          "answer": "No. That would be advice, and we are not licensed to provide it."
+        }
+      ],
+      "cta": {
+        "title": "Prefer email?",
+        "body": "Write to us directly — the form below reaches the same place.",
+        "button": "Get in touch"
+      }
+    }
+  },
+  "academyMetadata": {
+    "title": "SofinWave Academy — Engineering, Investing & School Tutoring",
+    "description": "Courses and tutoring from SofinWave: software engineering and AI, investing literacy, content production, and school subjects for grades 1-12.",
+    "ogHeadline": "Learn from people who do the work",
+    "ogSubline": "Engineering, AI, investing literacy, content production, and school tutoring."
+  },
+  "academyPages": {
+    "breadcrumbLabel": "Breadcrumb",
+    "faqHeading": "Frequently asked questions",
+    "home": {
+      "navLabel": "Home",
+      "title": "SofinWave Academy",
+      "metaTitle": "SofinWave Academy — Engineering, Investing & School Tutoring",
+      "metaDescription": "Courses and tutoring in software engineering and AI, investing literacy, content production, and school subjects for grades 1-12.",
+      "lede": "SofinWave Academy teaches what our team does for a living, plus school tutoring for grades 1 to 12. The engineering material started as our internal onboarding — the documents we wrote to bring new engineers up to speed — and the rest grew from the same habit of writing things down properly. Small groups, working examples, and instructors who still do the work.",
+      "sections": [
+        {
+          "heading": "What we teach",
+          "body": "Four areas, taught by people who practise them rather than by career instructors.",
+          "bullets": [
+            "Software engineering: TypeScript, backend systems, architecture, and testing.",
+            "AI in practice: building and evaluating LLM applications rather than theory.",
+            "Investing literacy: how to read a company and think about risk. Not advice.",
+            "Content production: filming, editing, and writing that holds attention.",
+            "School subjects, grades 1-12: maths, sciences, and English."
+          ]
+        },
+        {
+          "heading": "How the classes run",
+          "body": "Small groups, with real work rather than lectures. Every session ends with something the student has built, solved, or written.",
+          "bullets": [
+            "Small cohorts, so questions get answered when they are asked.",
+            "Projects and exercises drawn from problems we have actually faced.",
+            "Recorded sessions and written material to review afterwards.",
+            "Taught in Vietnamese or English."
+          ]
+        },
+        {
+          "heading": "On the investing courses",
+          "body": "These teach how to read financial statements, understand risk, and think about valuation. They are financial education, not investment advice — we are not licensed advisers, we will not tell anyone what to buy, and no course outcome should be read as a promise of returns."
+        },
+        {
+          "heading": "On school tutoring",
+          "body": "For grades 1 to 12 we teach maths, sciences, and English, and we are honest about the scope: this is small-group tutoring built around understanding rather than a full curriculum replacement, and it works best alongside school rather than instead of it."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Who teaches the courses?",
+          "answer": "Practising engineers and consultants from SofinWave. The people teaching the engineering material are the same people writing production code that week."
+        },
+        {
+          "question": "What languages are classes in?",
+          "answer": "Vietnamese or English, depending on the cohort. Written material is generally provided in both."
+        },
+        {
+          "question": "Do the investing courses tell me what to buy?",
+          "answer": "No. They teach how to analyse and how to think about risk. We are not licensed to give investment advice and will not do so in a classroom either."
+        },
+        {
+          "question": "Do you teach beginners?",
+          "answer": "Yes, for most subjects. Where a course assumes prior knowledge, the prerequisites are stated up front rather than discovered in week three."
+        }
+      ],
+      "cta": {
+        "title": "Ask about a course",
+        "body": "Tell us what you want to learn and where you are starting from, and we will say whether we have something that fits.",
+        "button": "Get in touch"
+      }
+    },
+    "about": {
+      "navLabel": "About",
+      "title": "About SofinWave Academy",
+      "metaTitle": "About SofinWave Academy",
+      "metaDescription": "SofinWave Academy is the teaching arm of SofinWave, a software consulting team in Vietnam. Instructors are practitioners, and much of the material began as internal training.",
+      "lede": "SofinWave Academy is the teaching arm of SofinWave, a software consulting team based in Vietnam. Most of the engineering material began as the documents we wrote to train our own new hires, which is also why it is unusually concrete.",
+      "sections": [
+        {
+          "heading": "Practitioners, not career instructors",
+          "body": "Everyone who teaches here works in the field they teach. That has a cost — we run fewer cohorts than a dedicated school would — and a benefit, which is that the examples are current and the answers to \"does this happen in real projects\" are first-hand."
+        },
+        {
+          "heading": "What we do not claim",
+          "body": "We are not an accredited institution and do not issue recognised qualifications. What you get is the material, the practice, and access to people who do the work. If you need formal accreditation, we are not it, and we would rather say so now."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do you issue certificates?",
+          "answer": "We can confirm completion, but we are not an accredited body and any certificate carries no formal recognition. Judge the courses on the material, not on a document."
+        },
+        {
+          "question": "How does this relate to the other SofinWave sites?",
+          "answer": "Same team, separate businesses. See the ventures page on sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Ask about a course",
+        "body": "Tell us what you want to learn and we will say whether we can help.",
+        "button": "Get in touch"
+      }
+    },
+    "contact": {
+      "navLabel": "Contact",
+      "title": "Contact",
+      "metaTitle": "Contact SofinWave Academy",
+      "metaDescription": "Ask about courses, tutoring, schedules, or whether a course fits your level. We reply within one business day.",
+      "lede": "Tell us what you want to learn and where you are starting from. If we have something that fits we will say so, and if we do not we will say that instead of enrolling you in the nearest thing. We reply within one business day.",
+      "sections": [
+        {
+          "heading": "Useful things to include",
+          "body": "The subject, your current level, whether you prefer Vietnamese or English, and what you want to be able to do afterwards. For school tutoring, the grade and the subject."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How quickly will you reply?",
+          "answer": "Within one business day. We are at UTC+7."
+        },
+        {
+          "question": "Can we arrange a trial session?",
+          "answer": "Ask — for most courses that is reasonable, and it tells both sides more than a description can."
+        }
+      ],
+      "cta": {
+        "title": "Prefer email?",
+        "body": "Write to us directly — the form below reaches the same place.",
+        "button": "Get in touch"
+      }
     }
   }
 }

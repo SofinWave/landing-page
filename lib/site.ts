@@ -1,16 +1,30 @@
-import { LocaleSupport } from "@/enums";
+import { LocaleSupport, SiteId } from "@/enums";
 import { HOME_PATH } from "@/lib/routes";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
 
 /**
- * Canonical site URL. Override per environment with NEXT_PUBLIC_SITE_URL
- * (no trailing slash), e.g. https://sofinwave.org.
+ * Protocol used to build absolute URLs. Override with NEXT_PUBLIC_SITE_PROTOCOL
+ * for a non-TLS preview environment.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sofinwave.org").replace(
-  /\/$/,
-  "",
-);
+const PROTOCOL = process.env.NEXT_PUBLIC_SITE_PROTOCOL ?? "https";
 
-export const SITE_NAME = "SofinWave";
+/**
+ * Canonical URL of the apex site.
+ *
+ * Kept for the tech site's existing callers; per-site URLs come from
+ * {@link siteUrl}, which reads the hostname out of the site registry.
+ */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? `${PROTOCOL}://${DEFAULT_SITE.host}`
+).replace(/\/$/, "");
+
+export const SITE_NAME = DEFAULT_SITE.name;
+
+/** Absolute origin for a site, e.g. `https://media.sofinwave.org`. */
+export function siteUrl(site: SiteId): string {
+  if (site === DEFAULT_SITE.id) return SITE_URL;
+  return `${PROTOCOL}://${siteConfig(site).host}`;
+}
 
 /** BCP-47 tags used for Open Graph locale + hreflang. */
 export const OG_LOCALE: Record<string, string> = {
@@ -23,31 +37,31 @@ export const SITE_KEYWORDS: Record<string, string[]> = {
   [LocaleSupport.EN]: [
     "software outsourcing Vietnam",
     "offshore software development",
+    "AI implementation consulting",
+    "LLM integration services",
     "dedicated development team",
     "IT staff augmentation",
     "custom software development",
-    "offshore development center",
     "hire developers Vietnam",
     "software outsourcing company",
     "system integration",
     "DevOps outsourcing",
     "Next.js",
     "TypeScript",
-    "fintech software development",
   ],
   [LocaleSupport.VI]: [
     "thuê ngoài phát triển phần mềm",
     "gia công phần mềm",
+    "triển khai hệ thống AI",
+    "tích hợp LLM",
     "công ty gia công phần mềm",
     "thuê đội ngũ lập trình",
     "phát triển phần mềm theo yêu cầu",
     "tăng cường nhân sự IT",
-    "trung tâm phát triển offshore",
     "tích hợp hệ thống",
     "DevOps",
     "Next.js",
     "TypeScript",
-    "phần mềm fintech",
   ],
 };
 
@@ -57,35 +71,28 @@ export const SITE_SAME_AS: string[] = ["https://github.com/SofinWave"];
 export const SITE_EMAIL = "Work.KingNNT@gmail.com";
 
 /**
- * Absolute URL for a locale-prefixed path.
+ * Absolute URL for a locale-prefixed path on a site.
  *
- * `path` is the segment after the locale, without leading/trailing slashes.
+ * `path` is the segment after the locale, without leading or trailing slashes.
  * Omitting it yields the locale root, which only ever redirects — link to a real
- * page (see {@link canonicalUrl}) rather than relying on that hop.
+ * page rather than relying on that hop.
  */
-export function pageUrl(locale: string, path = ""): string {
+export function pageUrl(locale: string, path = "", site: SiteId = DEFAULT_SITE.id): string {
+  const origin = siteUrl(site);
   const clean = path.replace(/^\/+|\/+$/g, "");
-  return clean ? `${SITE_URL}/${locale}/${clean}` : `${SITE_URL}/${locale}`;
+  return clean ? `${origin}/${locale}/${clean}` : `${origin}/${locale}`;
 }
 
-/**
- * Canonical URL for a page. The landing page lives at `/{locale}/home` — the
- * locale root `/{locale}` redirects there, so it must never be used as a
- * canonical or hreflang target.
- */
-export function canonicalUrl(locale: string, path: string): string {
-  return pageUrl(locale, path);
-}
-
-/** Absolute URL for a locale's landing page. */
-export function localeUrl(locale: string): string {
-  return pageUrl(locale, HOME_PATH);
+/** Absolute URL for a site's landing page. */
+export function localeUrl(locale: string, site: SiteId = DEFAULT_SITE.id): string {
+  return pageUrl(locale, HOME_PATH, site);
 }
 
 /** hreflang alternates map (locale -> absolute URL) for a given path. */
 export function languageAlternates(
   locales: readonly string[],
   path: string = HOME_PATH,
+  site: SiteId = DEFAULT_SITE.id,
 ): Record<string, string> {
-  return Object.fromEntries(locales.map((l) => [l, pageUrl(l, path)]));
+  return Object.fromEntries(locales.map((l) => [l, pageUrl(l, path, site)]));
 }

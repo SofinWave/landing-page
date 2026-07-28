@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
-import { Testimonials } from "@/app/[locale]/(public)/home/_components/testimonials";
+import { Testimonials } from "@/app/[site]/[locale]/(public)/home/_components/testimonials";
 
 describe("Testimonials", () => {
   it("renders quotes with attribution", () => {

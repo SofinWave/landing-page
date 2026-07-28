@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
 import viMessages from "@/messages/vi.json";
-import { LogoStrip } from "@/app/[locale]/(public)/home/_components/logo-strip";
+import { LogoStrip } from "@/app/[site]/[locale]/(public)/home/_components/logo-strip";
 
 describe("LogoStrip", () => {
   it("renders every client name from the catalog", () => {

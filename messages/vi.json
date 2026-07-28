@@ -1099,6 +1099,661 @@
         "body": "Hãy viết thẳng cho chúng tôi, cách nào cũng đến cùng một nơi. Biểu mẫu bên dưới cũng gửi về đúng địa chỉ đó.",
         "button": "Đặt lịch tư vấn"
       }
+    },
+    "aiImplementation": {
+      "navLabel": "Hệ thống AI",
+      "title": "Triển khai hệ thống AI",
+      "metaTitle": "Tư vấn và triển khai hệ thống AI",
+      "metaDescription": "Đưa một ý tưởng AI từ bản thử nghiệm lên hệ thống chạy thật, kèm đánh giá, giám sát và kiểm soát chi phí. Tư vấn và triển khai AI từ Việt Nam.",
+      "lede": "Triển khai AI là phần việc nằm giữa một bản demo gây ấn tượng và một hệ thống bạn dám đưa tới khách hàng. Mô hình hiếm khi là phần khó. Phần khó là bộ đánh giá đáng tin, độ trễ và chi phí trụ được với lưu lượng thật, và hành vi vẫn chấp nhận được khi người dùng làm những điều không ai lường trước. Chúng tôi xây hệ thống AI đúng như xây mọi hệ thống production khác: có kiểm thử, có giám sát, và có đường quay lui.",
+      "sections": [
+        {
+          "heading": "Vì sao bản thử nghiệm AI mắc kẹt trước production",
+          "body": "Phần lớn đội ngũ đạt tới một bản demo thuyết phục rất nhanh rồi dừng lại. Lý do lặp đi lặp lại, và không lý do nào liên quan tới việc chọn mô hình.",
+          "bullets": [
+            "Không có bộ đánh giá, nên không ai biết một thay đổi làm tốt lên hay tệ đi.",
+            "Chi phí vốn không đáng kể lúc thử nghiệm trở thành khoản lớn nhất ở lưu lượng thật.",
+            "Độ trễ ổn với một người dùng trở nên không chấp nhận được khi request xếp hàng.",
+            "Không có phương án cho những trường hợp mô hình sai một cách rất tự tin.",
+            "Không ghi lại gì, nên lỗi không tái hiện được và không giải thích được với khách hàng."
+          ]
+        },
+        {
+          "heading": "Chúng tôi xây gì trước tiên",
+          "body": "Trước khi thêm năng lực, chúng tôi làm cho hệ thống đo được. Nếu không, mọi thay đổi sau đó đều là phỏng đoán.",
+          "bullets": [
+            "Bộ đánh giá lấy từ dữ liệu thật của bạn, bao gồm cả các ca lỗi.",
+            "Chấm điểm tự động trong CI, để mỗi thay đổi prompt hay mô hình là một sự kiện đo được.",
+            "Trace trên mọi lời gọi: đầu vào, đầu ra, độ trễ, số token và chi phí từng request.",
+            "Một lớp chắn cho những đầu ra tuyệt đối không được tới người dùng mà chưa kiểm tra."
+          ]
+        },
+        {
+          "heading": "Chọn phương án nhỏ nhất mà vẫn giải quyết được",
+          "body": "Fine-tuning, retrieval, agent, và mô hình lớn hơn là bốn câu trả lời cho bốn vấn đề khác nhau, và thường xuyên bị áp dụng nhầm chỗ. Retrieval khắc phục việc thiếu kiến thức. Fine-tuning khắc phục định dạng và giọng văn. Agent khắc phục quy trình nhiều bước. Mô hình lớn hơn khắc phục độ sâu suy luận, kèm chi phí. Chúng tôi chẩn đoán bạn đang gặp vấn đề nào trước khi xây, vì phương án đắt tiền thường đang giải quyết một vấn đề bạn không có."
+        },
+        {
+          "heading": "Giữ chi phí chịu được ở quy mô lớn",
+          "body": "Chi phí AI tăng theo mức sử dụng theo cách mà phần lớn phần mềm khác không có, và một hệ thống có lãi ở mức nghìn request mỗi ngày có thể phá sản ở mức trăm nghìn. Chúng tôi thiết kế cho điều đó ngay từ đầu.",
+          "bullets": [
+            "Cache cho những request lặp lại — thường nhiều hơn mức người ta tưởng.",
+            "Định tuyến request đơn giản sang mô hình nhỏ, dành mô hình lớn cho ca khó.",
+            "Cắt gọn prompt và ngữ cảnh, dựa trên đo đạc chứ không phải phỏng đoán.",
+            "Bảng theo dõi chi phí theo từng tính năng, để đường tốn kém lộ ra trước khi có hóa đơn."
+          ]
+        },
+        {
+          "heading": "Khi nào chúng tôi khuyên bạn đừng dùng AI",
+          "body": "Rất nhiều bài toán được trình bày như bài toán AI thực chất là bài toán tìm kiếm, bài toán quy tắc, hoặc bài toán chất lượng dữ liệu, và giải theo cách thông thường thì rẻ hơn, nhanh hơn, dễ đoán hơn. Nếu chúng tôi thấy vậy, chúng tôi sẽ nói. Một hệ gợi ý là truy vấn được tinh chỉnh tốt vẫn hơn một hệ gợi ý bịa ra kết quả, và chi phí vận hành chỉ bằng một phần nhỏ."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Chúng tôi có cần mô hình riêng không?",
+          "answer": "Gần như không bao giờ. Phần lớn hệ thống production dùng mô hình được lưu trữ sẵn, kết hợp retrieval và prompt tốt. Việc tự huấn luyện hoặc fine-tune chỉ đáng với các tác vụ hẹp, lưu lượng lớn, nhạy về định dạng — và đó là cam kết lớn hơn nhiều. Chúng tôi sẽ nói bạn thuộc trường hợp nào trước khi bạn chi tiền."
+        },
+        {
+          "question": "Làm sao ngăn nó đưa ra câu trả lời sai?",
+          "answer": "Không thể loại bỏ hoàn toàn, nên hệ thống phải xử lý được điều đó. Nghĩa là neo câu trả lời vào dữ liệu của bạn kèm trích dẫn, kiểm tra đầu ra có cấu trúc theo schema, chặn các hành động rủi ro cao sau bước xác nhận của con người, và ghi log đủ để giải thích lại bất kỳ câu trả lời cụ thể nào."
+        },
+        {
+          "question": "Có chạy được trên hạ tầng của chúng tôi không?",
+          "answer": "Có, khi dữ liệu đòi hỏi vậy. Tự vận hành mô hình mã nguồn mở là đánh đổi chi phí API lấy chi phí vận hành và trần năng lực thấp hơn. Đánh đổi đó đáng với một số khối dữ liệu nhạy cảm và không đáng với số khác — chúng tôi sẽ nói cụ thể trường hợp nào."
+        },
+        {
+          "question": "Đo thế nào là đủ tốt?",
+          "answer": "Đo trên bộ đánh giá xây từ dữ liệu của bạn với tiêu chí đạt đã thống nhất, trước khi ra mắt. \"Có vẻ tốt hơn\" không phải tiêu chí phát hành, và không có mốc gốc thì không ai biết thay đổi kế tiếp có giúp ích hay không."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "llmIntegration": {
+      "navLabel": "Tích hợp LLM",
+      "title": "Tích hợp LLM & RAG",
+      "metaTitle": "Dịch vụ tích hợp LLM và phát triển RAG",
+      "metaDescription": "Kết nối mô hình ngôn ngữ với dữ liệu và sản phẩm của bạn — sinh có truy hồi (RAG), đầu ra có cấu trúc, và đánh giá xây cho production chứ không phải cho demo.",
+      "lede": "Tích hợp LLM là kết nối một mô hình ngôn ngữ với dữ liệu và sản phẩm của bạn, để nó trả lời dựa trên những gì bạn thực sự biết thay vì những gì nó được huấn luyện. Trên thực tế đó là sinh có truy hồi (RAG): tìm đúng ngữ cảnh, đưa cho mô hình, và trích dẫn nguồn của câu trả lời. Phần lớn công sức kỹ thuật nằm ở chất lượng truy hồi, không phải ở lời gọi mô hình.",
+      "sections": [
+        {
+          "heading": "Truy hồi là nơi RAG thành hay bại",
+          "body": "Nếu đoạn văn đúng không được truy hồi ra, không mô hình nào trả lời đúng được. Các đội thường phát hiện điều này sau nhiều tháng đổ lỗi cho mô hình.",
+          "bullets": [
+            "Chia đoạn tôn trọng cấu trúc tài liệu thay vì cắt theo độ dài cố định.",
+            "Tìm kiếm lai — từ khóa song song với vector, vì thuật ngữ chính xác vẫn quan trọng.",
+            "Xếp hạng lại tập ứng viên trước khi đưa vào ngữ cảnh của mô hình.",
+            "Đo riêng phần truy hồi: đoạn đúng có nằm trong kết quả đầu bảng hay không?"
+          ]
+        },
+        {
+          "heading": "Làm cho đầu ra dùng được trong chương trình",
+          "body": "Một mô hình trả về văn xuôi thì ổn cho cửa sổ chat và vô dụng khi làm đầu vào cho phần còn lại của hệ thống. Khi đầu ra chảy vào mã nguồn, nó cần có cấu trúc và được kiểm tra.",
+          "bullets": [
+            "Đầu ra ràng buộc theo schema, được kiểm tra trước khi bất cứ thành phần nào tiêu thụ.",
+            "Xử lý tường minh khi mô hình từ chối hoặc trả về thứ không dùng được.",
+            "Trích dẫn ngược về tài liệu nguồn, để người dùng kiểm chứng được.",
+            "Phương án dự phòng tất định khi câu trả lời tự tin vẫn chưa đủ tốt để phát hành."
+          ]
+        },
+        {
+          "heading": "Giữ chỉ mục luôn cập nhật",
+          "body": "Một hệ thống truy hồi âm thầm xuống cấp khi tài liệu nền thay đổi. Chúng tôi xây đường ống nạp dữ liệu như một thành phần chính thức của hệ thống — cập nhật tăng dần, xử lý xóa, và cách biết chỉ mục đang cũ tới đâu — vì một câu trả lời sai đầy tự tin lấy từ tài liệu đã bị xóa còn tệ hơn là không trả lời."
+        }
+      ],
+      "faq": [
+        {
+          "question": "RAG là gì, nói đơn giản?",
+          "answer": "Sinh có truy hồi: trước khi trả lời, hệ thống tìm trong tài liệu của bạn những đoạn liên quan và đưa vào ngữ cảnh của mô hình. Mô hình trả lời dựa trên tài liệu đó và trích dẫn nguồn, thay vì dựa vào những gì nó ghi nhớ lúc huấn luyện."
+        },
+        {
+          "question": "Nó trả lời từ dữ liệu riêng mà không dùng dữ liệu đó huấn luyện mô hình chứ?",
+          "answer": "Đúng vậy. Truy hồi đưa dữ liệu của bạn vào request, không đưa vào trọng số mô hình. Việc nhà cung cấp có lưu dữ liệu request hay không tùy nhà cung cấp và gói dịch vụ — đó là vấn đề hợp đồng và chúng tôi giúp bạn kiểm tra trước khi cam kết."
+        },
+        {
+          "question": "Nên dùng cơ sở dữ liệu vector nào?",
+          "answer": "Với phần lớn khối lượng công việc, PostgreSQL kèm pgvector là đủ và tránh phải vận hành thêm một thành phần. Các cơ sở dữ liệu vector chuyên dụng bắt đầu xứng đáng ở quy mô lớn hoặc khi cần lọc phức tạp. Chúng tôi muốn thêm nó khi con số của bạn biện minh được."
+        },
+        {
+          "question": "Làm sao biết truy hồi đang hoạt động tốt?",
+          "answer": "Bằng cách đo nó tách khỏi phần sinh câu trả lời. Chúng tôi xây một tập câu hỏi có nguồn đúng đã biết, rồi theo dõi xem các nguồn đó có xuất hiện trong kết quả truy hồi không. Con số đó cho biết nên đầu tư vào đâu — phần lớn thời gian là truy hồi, không phải mô hình."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "aiAgents": {
+      "navLabel": "AI agent",
+      "title": "Phát triển AI agent",
+      "metaTitle": "Phát triển AI agent và tự động hóa quy trình",
+      "metaDescription": "Hệ thống agent thực hiện công việc nhiều bước trên công cụ của bạn, kèm phân quyền, dấu vết kiểm toán, và có con người xác nhận ở những chỗ quan trọng.",
+      "lede": "AI agent là hệ thống tự quyết định các bước cần làm và gọi công cụ của bạn để thực hiện, thay vì sinh ra văn bản để con người hành động theo. Điều đó khiến nó hữu ích cho công việc nhiều bước và rủi ro đúng ở mức tương đương — một agent có quyền ghi có thể gây thiệt hại thật rất nhanh. Chúng tôi xây agent với quyền hạn hẹp, dấu vết kiểm toán đầy đủ, và bước xác nhận của con người trước mọi hành động tốn kém hoặc không thể hoàn tác.",
+      "sections": [
+        {
+          "heading": "Agent thực sự xứng đáng ở đâu",
+          "body": "Agent hợp với công việc có mục tiêu rõ, nhiều bước, và chấp nhận được việc thử lại. Nó ít hợp hơn nhiều với xử lý giao dịch lưu lượng lớn không cho phép sai sót.",
+          "bullets": [
+            "Phân loại và định tuyến: đọc một mục đến, phân loại, xử lý hoặc chuyển lên.",
+            "Tra cứu và tóm tắt xuyên nhiều hệ thống nội bộ.",
+            "Công việc hậu cần nhiều bước mà hiện tại là một người chép qua lại giữa các công cụ.",
+            "Soạn thảo bản nháp để con người xem và duyệt trước khi gửi đi."
+          ]
+        },
+        {
+          "heading": "Phân quyền và phạm vi thiệt hại",
+          "body": "Câu hỏi thiết kế không phải là agent làm được gì khi nó chạy đúng, mà là nó làm được gì khi nó sai. Chúng tôi trả lời câu đó trước khi xây bất cứ thứ gì.",
+          "bullets": [
+            "Truy cập công cụ theo quyền tối thiểu — mặc định chỉ đọc, quyền ghi cấp theo từng trường hợp.",
+            "Bắt buộc con người xác nhận với các thao tác chi tiền, gửi đi, hoặc xóa.",
+            "Giới hạn tần suất và ngân sách cho mỗi lần chạy, để một vòng lặp không biến thành hóa đơn.",
+            "Trace đầy đủ từng bước, để mọi hành động đều giải thích lại được."
+          ]
+        },
+        {
+          "heading": "Làm cho agent kiểm thử được",
+          "body": "Một agent hành xử khác nhau mỗi lần chạy thì không thể bảo trì. Chúng tôi cố định những gì cố định được: công cụ tất định có kiểm thử riêng, trace đã ghi được phát lại làm ca hồi quy, và đánh giá trên cả lượt chạy thay vì từng câu trả lời. Không có những thứ đó thì mỗi thay đổi là một canh bạc, và sẽ không ai tin hệ thống đủ để nới quyền cho nó."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Agent khác chatbot ở chỗ nào?",
+          "answer": "Chatbot sinh ra văn bản để con người hành động theo. Agent tự thực hiện hành động bằng cách gọi công cụ — truy vấn cơ sở dữ liệu, mở phiếu hỗ trợ, gửi tin nhắn. Khác biệt đó là lý do phân quyền và dấu vết kiểm toán quan trọng hơn hẳn so với một giao diện chat."
+        },
+        {
+          "question": "Nếu agent làm sai thì sao?",
+          "answer": "Hãy giả định là nó sẽ sai, và thiết kế sao cho hậu quả có giới hạn. Các hành động không hoàn tác được và tốn kém đều nằm sau bước xác nhận của con người, quyền truy cập công cụ ở mức tối thiểu, và mọi bước được ghi log đủ chi tiết để dựng lại và đảo ngược."
+        },
+        {
+          "question": "Nó làm việc được với công cụ hiện có của chúng tôi không?",
+          "answer": "Được — agent hành động qua chính các API bạn đang có. Với hệ thống không có API, vẫn dùng các đường tệp, hàng đợi hoặc cơ sở dữ liệu như khi tích hợp thông thường."
+        },
+        {
+          "question": "Bây giờ đã đáng làm chưa?",
+          "answer": "Với công việc có giới hạn và xem lại được thì thường là đáng. Với xử lý không người giám sát, rủi ro cao, lưu lượng lớn thì thường là chưa. Chúng tôi thà nói vậy còn hơn xây một thứ mà một tháng sau bạn phải tắt đi."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "ventures": {
+      "navLabel": "Các mảng hoạt động",
+      "title": "Các mảng hoạt động của SofinWave",
+      "metaTitle": "SofinWave Ventures — bốn mảng hoạt động",
+      "metaDescription": "SofinWave vận hành bốn mảng: tư vấn phần mềm và triển khai AI, sản xuất nội dung và truyền thông, kiến thức cùng công cụ đầu tư, và giáo dục.",
+      "lede": "SofinWave là bốn mảng kinh doanh dùng chung một đội ngũ và một bộ chuẩn kỹ thuật. Tư vấn phần mềm là mảng lõi và nuôi các mảng còn lại. Ba mảng kia lớn lên từ chính những việc chúng tôi vốn đã làm cho mình — sản xuất nội dung, tự xây công cụ đầu tư, và đi dạy. Mỗi mảng chạy trên site riêng vì phục vụ những người khác nhau và nên được đánh giá tách bạch.",
+      "sections": [
+        {
+          "heading": "Tư vấn phần mềm & triển khai AI",
+          "body": "Mảng lõi, tại sofinwave.org. Đội offshore, đội chuyên trách và tăng cường nhân sự cho doanh nghiệp ở Mỹ, châu Âu và châu Á — cộng thêm triển khai AI cho các đội đang cố đưa bản thử nghiệm lên production. Phần lớn nhân sự của chúng tôi ở đây."
+        },
+        {
+          "heading": "Truyền thông & sản xuất nội dung",
+          "body": "Tại media.sofinwave.org. Quay dựng video và làm nội dung xoay quanh sản phẩm, kèm phân phối theo mô hình affiliate. Việc này khởi đầu là marketing cho chính chúng tôi rồi thành dịch vụ khi quy trình đã lặp lại được."
+        },
+        {
+          "heading": "Kiến thức & công cụ đầu tư",
+          "body": "Tại finance.sofinwave.org. Ghi chép về quy trình đầu tư của chính chúng tôi, và những công cụ chúng tôi xây để phục vụ nó. Đây là kiến thức được công bố, không phải lời khuyên đầu tư — chúng tôi không có giấy phép tư vấn, không quản lý tiền của ai, và site nói rõ điều đó."
+        },
+        {
+          "heading": "Giáo dục",
+          "body": "Tại academy.sofinwave.org. Giảng dạy trong những lĩnh vực chúng tôi làm — kỹ thuật, đầu tư, sản xuất nội dung — và cả giáo dục phổ thông. Phần lớn tài liệu vốn được viết ra để đào tạo người của chính chúng tôi."
+        },
+        {
+          "heading": "Vì sao tách site riêng",
+          "body": "Vì đây là những mảng kinh doanh riêng với những nhóm khán giả riêng, và trộn chung sẽ phục vụ cả bốn đều tệ. Người đang cân nhắc ký hợp đồng kỹ thuật với chúng tôi không nên phải lội qua các ghi chép đầu tư, và công cụ tìm kiếm đánh giá site tập trung cao hơn site dàn trải. Chung thương hiệu, chung chuẩn mực, tách cửa vào."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Đây là một công ty hay nhiều công ty?",
+          "answer": "Một đội ngũ vận hành bốn mảng công việc, mỗi mảng có site riêng. Hợp đồng, hóa đơn và người bạn làm việc cùng không thay đổi tùy theo site nào đưa bạn tới đây."
+        },
+        {
+          "question": "Đội phần mềm có làm cả các mảng khác không?",
+          "answer": "Nhân sự có chồng lấn, và đó là lý do công cụ cùng chuẩn mực nhất quán. Các hợp tác với khách hàng được bố trí người và lên lịch độc lập với dự án nội bộ."
+        },
+        {
+          "question": "Tôi nên liên hệ mảng nào?",
+          "answer": "Mảng nào khớp với nhu cầu của bạn — mỗi site có trang liên hệ riêng và tất cả đều về cùng một hộp thư. Nếu chưa rõ, hãy bắt đầu từ sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    }
+  },
+  "mediaMetadata": {
+    "title": "SofinWave Media — Sản xuất video và nội dung sản phẩm",
+    "description": "SofinWave Media sản xuất video sản phẩm và nội dung viết hướng chuyển đổi, kèm phân phối affiliate. Vận hành bởi chính đội kỹ thuật của SofinWave.",
+    "ogHeadline": "Nội dung bán được hàng",
+    "ogSubline": "Video sản phẩm, nội dung viết, và phân phối affiliate."
+  },
+  "mediaPages": {
+    "breadcrumbLabel": "Đường dẫn",
+    "faqHeading": "Câu hỏi thường gặp",
+    "home": {
+      "navLabel": "Trang chủ",
+      "title": "Sản xuất video và nội dung sản phẩm",
+      "metaTitle": "SofinWave Media — Sản xuất video và nội dung sản phẩm",
+      "metaDescription": "Video sản phẩm và nội dung viết hướng chuyển đổi, kèm phân phối affiliate. Sản xuất bởi chính đội kỹ thuật của SofinWave.",
+      "lede": "SofinWave Media làm video và nội dung viết về sản phẩm, rồi phân phối qua các kênh affiliate. Việc này khởi đầu là marketing cho chính chúng tôi — chúng tôi vốn đã quay và viết về những công cụ mình dùng — rồi thành dịch vụ khi quy trình đã lặp lại được. Điểm khác biệt so với một hãng sản xuất thông thường là chúng tôi hiểu sản phẩm về mặt kỹ thuật, nên nội dung giải thích được thứ đó thực sự làm gì.",
+      "sections": [
+        {
+          "heading": "Chúng tôi sản xuất gì",
+          "body": "Mọi thứ được xây quanh một sản phẩm và một quyết định cụ thể của người xem, không phải quanh một lịch đăng bài.",
+          "bullets": [
+            "Video sản phẩm: trình diễn, hướng dẫn sử dụng, và so sánh.",
+            "Bài đánh giá và cẩm nang mua hàng với độ chi tiết mà người mua kỹ thuật cần.",
+            "Bản cắt ngắn tùy biến theo từng nền tảng thay vì đăng lại y nguyên.",
+            "Nội dung và tư liệu cho trang đích, khớp với những gì nội dung đã hứa."
+          ]
+        },
+        {
+          "heading": "Cách chúng tôi xử lý phần affiliate",
+          "body": "Doanh thu affiliate chỉ sống được nếu khán giả tin lời giới thiệu, nghĩa là quyền lợi phải công khai và đánh giá phải trung thực.",
+          "bullets": [
+            "Công khai quan hệ affiliate trên mọi nội dung có liên quan.",
+            "Chúng tôi nói cả điểm dở của sản phẩm. Nội dung không bao giờ chê thì sẽ không còn ai đọc.",
+            "Chúng tôi từ chối sản phẩm mình sẽ không dùng, vì một lời giới thiệu tệ tốn kém hơn khoản hoa hồng."
+          ]
+        },
+        {
+          "heading": "Vì sao một đội kỹ thuật làm việc này",
+          "body": "Phần lớn nội dung sản phẩm được viết bởi những người chưa dùng sản phẩm quá trang giới thiệu. Chúng tôi làm phần mềm để kiếm sống, nên khi đánh giá một công cụ lập trình, một tích hợp hay một nền tảng, chúng tôi đã thực sự chạy nó. Đó là toàn bộ lợi thế, và nó không chuyển sang được những lĩnh vực chúng tôi không biết gì — nên chúng tôi ở gần mảng công nghệ và công cụ."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn có làm việc trực tiếp với thương hiệu không?",
+          "answer": "Có, cả về sản xuất lẫn phân phối. Điều khoản tùy vào đây là hợp đồng sản xuất thuần túy hay thỏa thuận affiliate — hãy cho biết bạn cần loại nào và chúng tôi sẽ nói cụ thể."
+        },
+        {
+          "question": "Các bạn có nói tốt về sản phẩm của chúng tôi không?",
+          "answer": "Chúng tôi sẽ nói đúng về nó. Nếu không thể giới thiệu một cách trung thực, chúng tôi sẽ từ chối công việc thay vì đăng thứ khiến mình mất khán giả."
+        },
+        {
+          "question": "Các bạn làm những ngành hàng nào?",
+          "answer": "Chủ yếu công nghệ, công cụ lập trình và phần mềm doanh nghiệp — những mảng chúng tôi thực sự dùng. Chúng tôi không phải kênh đánh giá đại trà và sẽ tệ hơn cả vô dụng nếu bước ra ngoài phạm vi đó."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi về sản phẩm của bạn",
+        "body": "Cho chúng tôi biết sản phẩm là gì và dành cho ai. Nếu phù hợp, chúng tôi sẽ nói mình sẽ tiếp cận thế nào.",
+        "button": "Liên hệ"
+      }
+    },
+    "about": {
+      "navLabel": "Về chúng tôi",
+      "title": "Về SofinWave Media",
+      "metaTitle": "Về SofinWave Media",
+      "metaDescription": "SofinWave Media là mảng nội dung của SofinWave, một đội tư vấn phần mềm tại Việt Nam. Chúng tôi sản xuất video và nội dung sản phẩm, phân phối qua kênh affiliate.",
+      "lede": "SofinWave Media là mảng nội dung của SofinWave, một đội tư vấn phần mềm đặt tại Việt Nam. Chúng tôi bắt đầu làm nội dung về những công cụ dùng trong công việc, tiếp tục làm vì thấy có ích, rồi biến nó thành một mảng kinh doanh khi quy trình đã lặp lại được.",
+      "sections": [
+        {
+          "heading": "Cách chúng tôi chọn chủ đề",
+          "body": "Chúng tôi làm về những thứ mình dùng hoặc nhiều khả năng sẽ dùng. Chính ràng buộc đó khiến nội dung đáng đọc, và nó đồng nghĩa chúng tôi từ chối nhiều hơn nhận."
+        },
+        {
+          "heading": "Công bố quyền lợi",
+          "body": "Một số nội dung của chúng tôi có chứa liên kết affiliate, nghĩa là chúng tôi có thể nhận hoa hồng nếu bạn mua qua đó. Điều này được ghi rõ ngay trên nội dung, nó không bao giờ làm thay đổi những gì chúng tôi nói về sản phẩm, và chúng tôi không nhận tiền để đánh giá tích cực."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Ai đứng sau việc này?",
+          "answer": "Cùng đội ngũ với sofinwave.org — các kỹ sư và chuyên gia tư vấn lấy việc xây phần mềm làm mảng chính. Xem trang các mảng hoạt động bên đó để biết bốn mảng liên hệ với nhau ra sao."
+        },
+        {
+          "question": "Các bạn kiếm tiền bằng cách nào?",
+          "answer": "Hợp đồng sản xuất và hoa hồng affiliate. Cả hai đều được công bố trên nội dung tương ứng."
+        }
+      ],
+      "cta": {
+        "title": "Hợp tác với chúng tôi",
+        "body": "Sản xuất, phân phối, hoặc cả hai. Hãy cho biết bạn đang nghĩ tới điều gì.",
+        "button": "Liên hệ"
+      }
+    },
+    "contact": {
+      "navLabel": "Liên hệ",
+      "title": "Liên hệ",
+      "metaTitle": "Liên hệ SofinWave Media",
+      "metaDescription": "Liên hệ về video sản phẩm, sản xuất nội dung, hoặc hợp tác affiliate. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "lede": "Hãy cho chúng tôi biết về sản phẩm và đối tượng của nó. Nếu đó là thứ chúng tôi có thể nói về một cách trung thực, chúng tôi sẽ trình bày cách tiếp cận và chi phí. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "sections": [
+        {
+          "heading": "Nên gửi kèm gì",
+          "body": "Một liên kết tới sản phẩm, người mua là ai, và bạn muốn người xem làm gì sau khi xem. Chừng đó thường đủ cho câu trả lời đầu tiên."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bao lâu thì các bạn trả lời?",
+          "answer": "Trong vòng một ngày làm việc. Chúng tôi ở múi giờ UTC+7."
+        },
+        {
+          "question": "Các bạn có nhận sản phẩm ngoài mảng công nghệ không?",
+          "answer": "Hiếm khi. Lợi thế của chúng tôi là thực sự dùng thứ mình nói về, và lợi thế đó biến mất khi ra ngoài lĩnh vực của mình."
+        }
+      ],
+      "cta": {
+        "title": "Bạn muốn dùng email hơn?",
+        "body": "Hãy viết thẳng cho chúng tôi — biểu mẫu bên dưới cũng về cùng một nơi.",
+        "button": "Liên hệ"
+      }
+    }
+  },
+  "financeMetadata": {
+    "title": "SofinWave Finance — Ghi chép và công cụ đầu tư",
+    "description": "Ghi chép về quy trình đầu tư của chính chúng tôi và các công cụ tự xây để phục vụ nó. Đây là kiến thức được công bố, không phải khuyến nghị đầu tư. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép.",
+    "ogHeadline": "Cách chúng tôi nghĩ về đầu tư",
+    "ogSubline": "Ghi chép và công cụ của chính chúng tôi. Không phải lời khuyên — chúng tôi không có giấy phép."
+  },
+  "financePages": {
+    "breadcrumbLabel": "Đường dẫn",
+    "faqHeading": "Câu hỏi thường gặp",
+    "home": {
+      "navLabel": "Trang chủ",
+      "title": "Ghi chép và công cụ đầu tư",
+      "metaTitle": "SofinWave Finance — Ghi chép và công cụ đầu tư",
+      "metaDescription": "Ghi chép về quy trình đầu tư của chính chúng tôi và các công cụ tự xây. Chỉ mang tính thông tin chung — SofinWave không phải đơn vị tư vấn đầu tư được cấp phép.",
+      "lede": "Đây là nơi chúng tôi ghi lại cách mình đầu tư tiền của chính mình, và công bố những công cụ tự xây để phục vụ việc đó. Nó là bản ghi về một quy trình, không phải một lời khuyến nghị. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung.",
+      "sections": [
+        {
+          "heading": "Site này là gì",
+          "body": "Một cuốn sổ làm việc được công bố. Chúng tôi ghi lại để suy nghĩ rõ ràng hơn và để sau này kiểm chứng được lập luận của mình có đứng vững không.",
+          "bullets": [
+            "Cách chúng tôi đặt khung cho quyết định, và các bảng kiểm chạy trước khi hành động.",
+            "Rà soát lại các quyết định của chính mình, kể cả những quyết định tệ.",
+            "Công cụ chúng tôi xây cho việc phân tích của mình, và chúng nói được gì, không nói được gì.",
+            "Ghi chép về các nguồn dữ liệu, và những chỗ chúng gây hiểu nhầm."
+          ]
+        },
+        {
+          "heading": "Site này không phải là gì",
+          "body": "Nó không phải lời khuyên, và không phải dịch vụ phát tín hiệu mua bán. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung. Chúng tôi không quản lý tiền cho ai, không bán khuyến nghị, và không nội dung nào ở đây tính đến hoàn cảnh, nghĩa vụ hay khẩu vị rủi ro của bạn — những thứ chúng tôi hoàn toàn không biết."
+        },
+        {
+          "heading": "Vì sao một đội kỹ thuật viết về đầu tư",
+          "body": "Cùng lý do như khi chúng tôi viết về bất cứ thứ gì: chúng tôi xây công cụ cho những vấn đề mình gặp. Phần lớn nội dung đầu tư được công bố hoặc là quảng cáo cho một sản phẩm, hoặc là dịch vụ tín hiệu không có lịch sử kiểm chứng. Chúng tôi thà trình bày quy trình, kể cả những chỗ nó thất bại, rồi để bạn tự đánh giá. Nếu điều đó hữu ích với bạn thì tốt. Nếu bạn cần lời khuyên, hãy nói chuyện với người được cấp phép để đưa ra lời khuyên."
+        },
+        {
+          "heading": "Về các công cụ",
+          "body": "Các công cụ ở đây là những thứ chúng tôi xây cho chính mình — bộ lọc, bộ theo dõi, và các script phân tích. Chúng tính toán; chúng không quyết định gì cả. Bất kỳ công cụ nào đưa ra một con số đều mời gọi bạn tin con số đó nhiều hơn mức nó xứng đáng, nên chúng tôi cố ghi rõ các giả định thay vì giấu chúng sau một giao diện."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn có cung cấp tư vấn đầu tư không?",
+          "answer": "Không. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung. Nếu bạn cần lời khuyên phù hợp với hoàn cảnh của mình, hãy tham vấn một đơn vị được cấp phép tại nơi bạn cư trú."
+        },
+        {
+          "question": "Các bạn có quản lý tiền cho khách hàng không?",
+          "answer": "Không. Chúng tôi không quản lý, không gom vốn, không nhận vốn của bất kỳ ai, và không có giấy phép để làm việc đó."
+        },
+        {
+          "question": "Tôi có thể làm theo các bạn không?",
+          "answer": "Bạn có thể đọc chúng tôi làm gì và vì sao. Việc đó có phù hợp với bạn hay không phụ thuộc vào hoàn cảnh, khung thời gian và khả năng chịu lỗ của bạn — những điều chúng tôi không hề biết. Kết quả trong quá khứ, kể cả của chúng tôi, không dự báo kết quả tương lai."
+        },
+        {
+          "question": "Vì sao lại công bố những thứ này?",
+          "answer": "Việc viết buộc người ta rõ ràng hơn, và việc công bố buộc người ta trung thực về những quyết định đã sai. Kho lưu này hữu ích cho chính chúng tôi hơn là cho ai khác; nó công khai đơn giản vì không có lý do gì để không công khai."
+        }
+      ],
+      "cta": {
+        "title": "Đọc phần miễn trừ trách nhiệm",
+        "body": "Trước khi dùng bất cứ thứ gì ở đây, hãy đọc site này tự nhận là gì và không phải là gì.",
+        "button": "Liên hệ"
+      }
+    },
+    "disclaimer": {
+      "navLabel": "Miễn trừ trách nhiệm",
+      "title": "Miễn trừ trách nhiệm",
+      "metaTitle": "Miễn trừ trách nhiệm — SofinWave Finance",
+      "metaDescription": "SofinWave không phải đơn vị tư vấn đầu tư được cấp phép. Nội dung trên site này là thông tin chung về quy trình của chính chúng tôi, không phải khuyến nghị đầu tư.",
+      "lede": "SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung. Hãy đọc trang này trước khi dựa vào bất cứ nội dung nào khác ở đây.",
+      "sections": [
+        {
+          "heading": "Không tư vấn, không khuyến nghị",
+          "body": "Không nội dung nào trên site này là khuyến nghị mua, bán hay nắm giữ bất kỳ tài sản nào. Nội dung mô tả những quyết định chúng tôi đã đưa ra với tiền của chính mình, vì lý do của chính mình, trong hoàn cảnh của chính mình. Nó không được điều chỉnh theo bạn và cũng không thể — chúng tôi không biết tình hình tài chính, nghĩa vụ, tình trạng thuế, khung thời gian hay khả năng chịu lỗ của bạn."
+        },
+        {
+          "heading": "Không được cấp phép",
+          "body": "SofinWave không nắm giữ giấy phép tư vấn đầu tư, quản lý danh mục hay môi giới tại bất kỳ quốc gia nào. Chúng tôi không quản lý, không gom, không nhận vốn của khách hàng. Nếu bạn cần lời khuyên cho tình huống của mình, hãy tham vấn đơn vị được cấp phép tại nơi bạn cư trú."
+        },
+        {
+          "heading": "Không bảo đảm, và rủi ro mất vốn là có thật",
+          "body": "Đầu tư có rủi ro, bao gồm mất toàn bộ số tiền đã đầu tư. Kết quả trong quá khứ — của chúng tôi hay của bất kỳ ai — không dự báo kết quả tương lai. Mọi con số, mô hình hay kết quả công cụ trên site này đều dựa trên các giả định có thể sai, và được cung cấp không kèm bất kỳ bảo đảm nào về tính chính xác hay đầy đủ."
+        },
+        {
+          "heading": "Vị thế và xung đột lợi ích",
+          "body": "Chúng tôi có thể đang nắm giữ vị thế ở các tài sản được nhắc tới, và các vị thế đó có thể thay đổi bất cứ lúc nào mà nội dung không được cập nhật theo. Ở những nội dung mà chúng tôi có lợi ích đáng kể hoặc quan hệ thương mại liên quan, chúng tôi công bố ngay trên nội dung đó."
+        },
+        {
+          "heading": "Quyết định của bạn là của bạn",
+          "body": "Bạn chịu trách nhiệm cho quyết định đầu tư của mình và cho việc kiểm chứng mọi nội dung ở đây trước khi hành động. SofinWave không chịu trách nhiệm cho bất kỳ thiệt hại nào phát sinh từ việc sử dụng site này, trong phạm vi tối đa pháp luật cho phép."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Liên hệ trực tiếp thì có khác không?",
+          "answer": "Không. Trao đổi với chúng tôi cũng không phải là tư vấn, và chúng tôi sẽ không đưa khuyến nghị cá nhân. Nếu cuộc trao đổi đi tới đó, chúng tôi sẽ chỉ bạn tới một đơn vị được cấp phép."
+        },
+        {
+          "question": "Các bạn có định xin giấy phép không?",
+          "answer": "Nếu điều đó thay đổi, trang này sẽ thay đổi theo và nói rõ. Cho tới lúc đó, hãy xem mọi thứ ở đây là thông tin chung."
+        }
+      ],
+      "cta": {
+        "title": "Có thắc mắc về phần này?",
+        "body": "Nếu có điều gì chưa rõ, hãy hỏi — chúng tôi thà trả lời còn hơn để bạn tự suy đoán.",
+        "button": "Liên hệ"
+      }
+    },
+    "about": {
+      "navLabel": "Về chúng tôi",
+      "title": "Về SofinWave Finance",
+      "metaTitle": "Về SofinWave Finance",
+      "metaDescription": "SofinWave Finance là nơi đội kỹ thuật SofinWave công bố ghi chép về quy trình đầu tư của chính mình và các công cụ tự xây.",
+      "lede": "SofinWave Finance là nơi đội ngũ SofinWave ghi lại cách mình đầu tư tiền của chính mình. Đây là một phần của SofinWave, đội tư vấn phần mềm đặt tại Việt Nam. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung.",
+      "sections": [
+        {
+          "heading": "Ai viết những nội dung này",
+          "body": "Chính các kỹ sư đang vận hành mảng phần mềm. Chúng tôi không phải người làm nghề tài chính, và không tự nhận là như vậy. Thứ chúng tôi mang lại là thói quen ghi lại hệ thống, kiểm chứng giả định, và lưu lại điều đã xảy ra."
+        },
+        {
+          "heading": "Chúng tôi xử lý việc mình sai thế nào",
+          "body": "Công khai. Những quyết định tệ vẫn được giữ lại kèm ghi chú về chỗ lập luận đã bỏ sót. Một kho lưu về đầu tư mà chỉ ghi lại các lần thắng thì vô giá trị, và chúng tôi cũng sẽ không tin kho lưu như vậy của người khác."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn có phải người làm nghề tài chính không?",
+          "answer": "Không. Chúng tôi là kỹ sư phần mềm có đầu tư, viết về quy trình của chính mình. Không nội dung nào ở đây nên được đọc như lời khuyên chuyên môn."
+        },
+        {
+          "question": "Site này liên hệ thế nào với các site SofinWave khác?",
+          "answer": "Cùng đội ngũ, khác mảng kinh doanh. Xem trang các mảng hoạt động trên sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Liên hệ",
+        "body": "Câu hỏi về quy trình hay công cụ đều được hoan nghênh. Yêu cầu tư vấn đầu tư là điều chúng tôi không thể đáp ứng.",
+        "button": "Liên hệ"
+      }
+    },
+    "contact": {
+      "navLabel": "Liên hệ",
+      "title": "Liên hệ",
+      "metaTitle": "Liên hệ SofinWave Finance",
+      "metaDescription": "Liên hệ về các ghi chép hoặc công cụ trên SofinWave Finance. Chúng tôi không thể đáp ứng các yêu cầu tư vấn đầu tư.",
+      "lede": "Câu hỏi về quy trình, công cụ hay nguồn dữ liệu đều được hoan nghênh. Chúng tôi không thể đáp ứng yêu cầu tư vấn đầu tư hay khuyến nghị cá nhân. SofinWave không phải đơn vị tư vấn đầu tư được cấp phép và không cung cấp dịch vụ tư vấn đầu tư, quản lý danh mục hay môi giới. Toàn bộ nội dung ở đây mô tả quy trình của chính chúng tôi và được công bố chỉ nhằm mục đích thông tin chung.",
+      "sections": [
+        {
+          "heading": "Chúng tôi giúp được gì",
+          "body": "Một công cụ hoạt động ra sao, một con số đến từ đâu, một mô hình dựa trên giả định nào, hoặc một lỗi bạn phát hiện. Các đính chính đặc biệt được hoan nghênh."
+        },
+        {
+          "heading": "Chúng tôi sẽ từ chối điều gì",
+          "body": "Mọi câu hỏi dạng \"tôi nên mua gì\" hay \"đây có phải khoản đầu tư tốt cho tôi không\". Không phải vì chúng tôi thiếu thiện chí, mà vì trả lời chính là đưa ra lời khuyên mà chúng tôi không có giấy phép để đưa."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bao lâu thì các bạn trả lời?",
+          "answer": "Thường trong vòng một ngày làm việc. Chúng tôi ở múi giờ UTC+7."
+        },
+        {
+          "question": "Các bạn xem giúp danh mục của tôi được không?",
+          "answer": "Không. Việc đó là tư vấn, và chúng tôi không có giấy phép để thực hiện."
+        }
+      ],
+      "cta": {
+        "title": "Bạn muốn dùng email hơn?",
+        "body": "Hãy viết thẳng cho chúng tôi — biểu mẫu bên dưới cũng về cùng một nơi.",
+        "button": "Liên hệ"
+      }
+    }
+  },
+  "academyMetadata": {
+    "title": "SofinWave Academy — Kỹ thuật, đầu tư và gia sư phổ thông",
+    "description": "Khóa học và gia sư từ SofinWave: kỹ thuật phần mềm và AI, kiến thức đầu tư, sản xuất nội dung, và các môn phổ thông lớp 1-12.",
+    "ogHeadline": "Học từ người trực tiếp làm nghề",
+    "ogSubline": "Kỹ thuật, AI, kiến thức đầu tư, sản xuất nội dung, và gia sư phổ thông."
+  },
+  "academyPages": {
+    "breadcrumbLabel": "Đường dẫn",
+    "faqHeading": "Câu hỏi thường gặp",
+    "home": {
+      "navLabel": "Trang chủ",
+      "title": "SofinWave Academy",
+      "metaTitle": "SofinWave Academy — Kỹ thuật, đầu tư và gia sư phổ thông",
+      "metaDescription": "Khóa học và gia sư về kỹ thuật phần mềm và AI, kiến thức đầu tư, sản xuất nội dung, và các môn phổ thông lớp 1-12.",
+      "lede": "SofinWave Academy dạy chính những gì đội ngũ chúng tôi làm để kiếm sống, cộng thêm gia sư phổ thông lớp 1 đến 12. Tài liệu kỹ thuật vốn là bộ onboarding nội bộ — những văn bản chúng tôi viết để kỹ sư mới bắt nhịp — và phần còn lại lớn lên từ cùng thói quen ghi chép tử tế. Lớp nhỏ, ví dụ chạy được, và người dạy vẫn đang trực tiếp làm nghề.",
+      "sections": [
+        {
+          "heading": "Chúng tôi dạy gì",
+          "body": "Bốn mảng, do người thực hành đứng lớp chứ không phải giảng viên chuyên nghiệp.",
+          "bullets": [
+            "Kỹ thuật phần mềm: TypeScript, hệ thống backend, kiến trúc và kiểm thử.",
+            "AI trong thực tế: xây và đánh giá ứng dụng LLM thay vì học lý thuyết.",
+            "Kiến thức đầu tư: cách đọc một doanh nghiệp và cách nghĩ về rủi ro. Không phải tư vấn.",
+            "Sản xuất nội dung: quay, dựng, và viết sao cho giữ được sự chú ý.",
+            "Các môn phổ thông lớp 1-12: toán, khoa học tự nhiên và tiếng Anh."
+          ]
+        },
+        {
+          "heading": "Lớp học vận hành thế nào",
+          "body": "Nhóm nhỏ, làm việc thật thay vì nghe giảng. Mỗi buổi kết thúc bằng một thứ học viên đã xây, đã giải, hoặc đã viết ra.",
+          "bullets": [
+            "Lớp ít người, để câu hỏi được trả lời ngay lúc đặt ra.",
+            "Bài tập và dự án lấy từ những vấn đề chúng tôi thực sự đã gặp.",
+            "Ghi hình buổi học và tài liệu viết để xem lại sau.",
+            "Dạy bằng tiếng Việt hoặc tiếng Anh."
+          ]
+        },
+        {
+          "heading": "Về các khóa đầu tư",
+          "body": "Các khóa này dạy cách đọc báo cáo tài chính, hiểu về rủi ro, và cách nghĩ về định giá. Đây là giáo dục tài chính, không phải tư vấn đầu tư — chúng tôi không phải đơn vị được cấp phép, sẽ không nói ai nên mua gì, và không kết quả khóa học nào được hiểu là cam kết về lợi nhuận."
+        },
+        {
+          "heading": "Về phần gia sư phổ thông",
+          "body": "Với lớp 1 đến 12, chúng tôi dạy toán, khoa học tự nhiên và tiếng Anh, và nói thẳng về phạm vi: đây là gia sư nhóm nhỏ xây quanh việc hiểu bản chất, không phải thứ thay thế toàn bộ chương trình, và phát huy tốt nhất khi đi song song với trường chứ không thay cho trường."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Ai đứng lớp?",
+          "answer": "Các kỹ sư và chuyên gia tư vấn đang hành nghề tại SofinWave. Người dạy phần kỹ thuật cũng chính là người đang viết mã production trong tuần đó."
+        },
+        {
+          "question": "Lớp học bằng ngôn ngữ nào?",
+          "answer": "Tiếng Việt hoặc tiếng Anh, tùy lớp. Tài liệu viết thường được cung cấp bằng cả hai."
+        },
+        {
+          "question": "Khóa đầu tư có chỉ tôi nên mua gì không?",
+          "answer": "Không. Các khóa dạy cách phân tích và cách nghĩ về rủi ro. Chúng tôi không có giấy phép tư vấn đầu tư và cũng sẽ không làm điều đó trong lớp học."
+        },
+        {
+          "question": "Các bạn có dạy người mới bắt đầu không?",
+          "answer": "Có, với hầu hết môn. Ở những khóa đòi hỏi kiến thức nền, điều kiện tiên quyết được nêu ngay từ đầu thay vì để học viên phát hiện ở tuần thứ ba."
+        }
+      ],
+      "cta": {
+        "title": "Hỏi về một khóa học",
+        "body": "Cho chúng tôi biết bạn muốn học gì và đang bắt đầu từ đâu, chúng tôi sẽ nói có khóa nào phù hợp không.",
+        "button": "Liên hệ"
+      }
+    },
+    "about": {
+      "navLabel": "Về chúng tôi",
+      "title": "Về SofinWave Academy",
+      "metaTitle": "Về SofinWave Academy",
+      "metaDescription": "SofinWave Academy là mảng giảng dạy của SofinWave, đội tư vấn phần mềm tại Việt Nam. Người dạy là người hành nghề, phần lớn tài liệu khởi đầu từ đào tạo nội bộ.",
+      "lede": "SofinWave Academy là mảng giảng dạy của SofinWave, đội tư vấn phần mềm đặt tại Việt Nam. Phần lớn tài liệu kỹ thuật khởi đầu là những văn bản chúng tôi viết để đào tạo nhân sự mới của chính mình, và đó cũng là lý do nó cụ thể một cách khác thường.",
+      "sections": [
+        {
+          "heading": "Người hành nghề, không phải giảng viên chuyên nghiệp",
+          "body": "Tất cả những người dạy ở đây đều đang làm việc trong lĩnh vực mình dạy. Điều đó có cái giá — chúng tôi mở ít lớp hơn một trung tâm chuyên đào tạo — và có cái lợi, là các ví dụ luôn cập nhật và câu trả lời cho \"điều này có xảy ra trong dự án thật không\" đến từ người trong cuộc."
+        },
+        {
+          "heading": "Những gì chúng tôi không tự nhận",
+          "body": "Chúng tôi không phải cơ sở được kiểm định và không cấp bằng có giá trị công nhận. Thứ bạn nhận được là tài liệu, phần thực hành, và quyền tiếp cận những người trực tiếp làm nghề. Nếu bạn cần bằng cấp chính quy thì chúng tôi không phải nơi đó, và chúng tôi muốn nói điều này ngay từ bây giờ."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn có cấp chứng chỉ không?",
+          "answer": "Chúng tôi có thể xác nhận hoàn thành khóa học, nhưng chúng tôi không phải cơ quan được kiểm định và chứng chỉ đó không có giá trị công nhận chính thức. Hãy đánh giá khóa học qua tài liệu, không qua tờ giấy."
+        },
+        {
+          "question": "Site này liên hệ thế nào với các site SofinWave khác?",
+          "answer": "Cùng đội ngũ, khác mảng kinh doanh. Xem trang các mảng hoạt động trên sofinwave.org."
+        }
+      ],
+      "cta": {
+        "title": "Hỏi về một khóa học",
+        "body": "Cho chúng tôi biết bạn muốn học gì và chúng tôi sẽ nói có giúp được không.",
+        "button": "Liên hệ"
+      }
+    },
+    "contact": {
+      "navLabel": "Liên hệ",
+      "title": "Liên hệ",
+      "metaTitle": "Liên hệ SofinWave Academy",
+      "metaDescription": "Hỏi về khóa học, gia sư, lịch học, hoặc khóa nào phù hợp trình độ của bạn. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "lede": "Cho chúng tôi biết bạn muốn học gì và đang bắt đầu từ đâu. Nếu có khóa phù hợp chúng tôi sẽ nói, còn nếu không thì chúng tôi cũng nói vậy thay vì xếp bạn vào khóa gần giống nhất. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "sections": [
+        {
+          "heading": "Nên nói rõ những gì",
+          "body": "Môn học, trình độ hiện tại, bạn muốn học bằng tiếng Việt hay tiếng Anh, và sau khóa bạn muốn làm được gì. Với gia sư phổ thông, hãy cho biết lớp và môn."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bao lâu thì các bạn trả lời?",
+          "answer": "Trong vòng một ngày làm việc. Chúng tôi ở múi giờ UTC+7."
+        },
+        {
+          "question": "Có học thử được không?",
+          "answer": "Hãy hỏi — với phần lớn khóa học điều đó là hợp lý, và một buổi học thử cho cả hai bên biết nhiều hơn mọi lời mô tả."
+        }
+      ],
+      "cta": {
+        "title": "Bạn muốn dùng email hơn?",
+        "body": "Hãy viết thẳng cho chúng tôi — biểu mẫu bên dưới cũng về cùng một nơi.",
+        "button": "Liên hệ"
+      }
     }
   }
 }

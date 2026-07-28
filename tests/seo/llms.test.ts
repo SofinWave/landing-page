@@ -1,43 +1,50 @@
 import { describe, it, expect } from "vitest";
+import { SiteId } from "@/enums";
 import { buildLlmsTxt, buildLlmsFullTxt } from "@/lib/llms";
-import { CONTENT_ROUTES, HOME_PATH } from "@/lib/routes";
+import { HOME_PATH, contentRoutesFor } from "@/lib/routes";
+import { ALL_SITES, siteConfig } from "@/lib/sites";
 import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
 
-describe("llms.txt", () => {
-  const txt = buildLlmsTxt();
+const catalog = en as unknown as Record<string, Record<string, never>>;
 
-  it("lists every content route in every locale", () => {
+describe.each(ALL_SITES.map((s) => s.id))("llms.txt for %s", (siteId) => {
+  const config = siteConfig(siteId);
+  const txt = buildLlmsTxt(siteId);
+
+  it("lists every route in every locale on that site's origin", () => {
     for (const locale of routing.locales) {
-      expect(txt).toContain(`https://sofinwave.org/${locale}/${HOME_PATH}`);
-      for (const route of CONTENT_ROUTES) {
-        expect(txt).toContain(`https://sofinwave.org/${locale}/${route.path}`);
+      expect(txt).toContain(`https://${config.host}/${locale}/${HOME_PATH}`);
+      for (const route of contentRoutesFor(siteId)) {
+        expect(txt).toContain(`https://${config.host}/${locale}/${route.path}`);
       }
     }
   });
 
-  it("never links a locale root, which only redirects", () => {
-    for (const locale of routing.locales) {
-      expect(txt).not.toMatch(new RegExp(`sofinwave\\.org/${locale}\\)`));
-    }
+  it("opens with the site's own name and description", () => {
+    expect(txt.startsWith(`# ${config.name}`)).toBe(true);
+    const meta = catalog[config.metaNamespace] as unknown as { description: string };
+    expect(txt).toContain(meta.description);
   });
 
-  it("opens with the site summary", () => {
-    expect(txt.startsWith("# SofinWave")).toBe(true);
-    expect(txt).toContain(en.metadata.description);
+  it("never links another site", () => {
+    for (const other of ALL_SITES) {
+      if (other.id === siteId) continue;
+      expect(txt).not.toContain(`https://${other.host}/`);
+    }
   });
 });
 
-describe("llms-full.txt", () => {
-  const txt = buildLlmsFullTxt();
+describe.each(ALL_SITES.map((s) => s.id))("llms-full.txt for %s", (siteId) => {
+  const config = siteConfig(siteId);
+  const txt = buildLlmsFullTxt(siteId);
+  const pages = catalog[config.contentNamespace] as unknown as Record<
+    string,
+    { lede: string; sections: { heading: string }[]; faq: { answer: string }[] }
+  >;
 
-  it("includes the lede and every section heading of each English page", () => {
-    const pages = en.pages as unknown as Record<
-      string,
-      { lede: string; sections: { heading: string }[] }
-    >;
-
-    for (const route of CONTENT_ROUTES) {
+  it("includes the lede and section headings of every content page", () => {
+    for (const route of contentRoutesFor(siteId)) {
       const page = pages[route.key];
       expect(txt, `lede for ${route.key}`).toContain(page.lede);
       for (const section of page.sections) {
@@ -47,19 +54,34 @@ describe("llms-full.txt", () => {
   });
 
   it("includes every FAQ answer, which is what answer engines quote", () => {
-    const pages = en.pages as unknown as Record<
-      string,
-      { faq: { question: string; answer: string }[] }
-    >;
-
-    for (const route of CONTENT_ROUTES) {
+    for (const route of contentRoutesFor(siteId)) {
       for (const item of pages[route.key].faq) {
         expect(txt).toContain(item.answer);
       }
     }
   });
 
+  it("includes the landing page's own copy", () => {
+    // The tech landing page is bespoke, so its copy comes from `hero`/`faq`
+    // rather than a content-shell entry; every other site's home is a page.
+    if (siteId === SiteId.Tech) {
+      const hero = catalog.hero as unknown as { subtitle: string };
+      const faq = catalog.faq as unknown as { items: { answer: string }[] };
+      expect(txt).toContain(hero.subtitle);
+      expect(txt).toContain(faq.items[0].answer);
+    } else {
+      expect(txt).toContain(pages.home.lede);
+    }
+  });
+});
+
+describe("llms-full.txt content specifics", () => {
   it("renders comparison tables as markdown so they survive plain-text parsing", () => {
-    expect(txt).toContain("| Destination | Overlap with Europe |");
+    expect(buildLlmsFullTxt(SiteId.Tech)).toContain("| Destination | Overlap with Europe |");
+  });
+
+  it("carries the finance disclaimer, which must travel with the content", () => {
+    const txt = buildLlmsFullTxt(SiteId.Finance);
+    expect(txt).toContain("not a licensed investment adviser");
   });
 });
