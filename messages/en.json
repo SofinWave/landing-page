@@ -189,7 +189,7 @@
   },
   "team": {
     "title": "Who we are",
-    "about": "SofinWave is a small senior team of engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team, from Vietnam, in English and Vietnamese.",
+    "about": "SofinWave is a small senior team of engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team, from Vietnam, in English, Vietnamese, and Chinese.",
     "members": [
       {
         "name": "Jesse",
@@ -1105,7 +1105,7 @@
       "navLabel": "About",
       "title": "About SofinWave",
       "metaTitle": "About SofinWave — Software Outsourcing from Vietnam",
-      "metaDescription": "SofinWave is a Vietnam-based software outsourcing company working with US and European clients in English and Vietnamese, from architecture through delivery and operations.",
+      "metaDescription": "SofinWave is a Vietnam-based software outsourcing company working with US and European clients in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
       "lede": "SofinWave is a software outsourcing company based in Vietnam. We work with companies in the US, Europe, and Asia as an offshore team, a dedicated team inside their process, or individual engineers filling specific gaps. Our work is mostly on systems that already exist and already have users — the unglamorous, high-stakes kind.",
       "sections": [
         {
