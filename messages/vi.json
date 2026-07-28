@@ -1324,6 +1324,12 @@
             "Ghi hình egocentric và exocentric cho robotics và embodied AI, thu theo cặp đồng bộ.",
             "Gán nhãn trên ảnh, video, point cloud 3D, tài liệu, và âm thanh.",
             "Dữ liệu post-training cho LLM: minh họa supervised fine-tuning, xếp hạng preference, và đánh giá."
+          ],
+          "links": [
+            { "href": "/services/data-collection", "label": "Thu thập dữ liệu" },
+            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" },
+            { "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" },
+            { "href": "/services/rlhf-sft-data", "label": "Dữ liệu RLHF và SFT" }
           ]
         },
         {
@@ -1490,7 +1496,8 @@
             "Metadata calibration và pose cho mọi camera và rig đã dùng, bàn giao cùng footage chứ không phải một bước dựng lại riêng.",
             "Log theo từng buổi thu, gắn từng take về đúng bước kịch bản và biến thể tác vụ mà nó thuộc về.",
             "Gán nhãn trên chính footage đó khi bạn cần — công việc gán nhãn mô tả ở trang gán nhãn dữ liệu của chúng tôi chạy trực tiếp trên thứ trang này thu được."
-          ]
+          ],
+          "links": [{ "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" }]
         }
       ],
       "faq": [
@@ -1637,7 +1644,8 @@
         },
         {
           "heading": "Tiếng Việt và tiếng Anh",
-          "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên."
+          "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên.",
+          "links": [{ "href": "/services/llm-integration", "label": "Tích hợp LLM và RAG" }]
         }
       ],
       "faq": [

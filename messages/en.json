@@ -1319,6 +1319,15 @@
             "Egocentric and exocentric capture for robotics and embodied AI, recorded as synchronised pairs.",
             "Annotation across image, video, 3D point cloud, document, and audio.",
             "LLM post-training data: supervised fine-tuning demonstrations, preference ranking, and evaluation."
+          ],
+          "links": [
+            { "href": "/services/data-collection", "label": "Data collection" },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            { "href": "/services/data-annotation", "label": "Data annotation" },
+            { "href": "/services/rlhf-sft-data", "label": "RLHF and SFT data" }
           ]
         },
         {
@@ -1485,7 +1494,8 @@
             "Calibration and pose metadata for every camera and rig used, delivered alongside the footage rather than as a separate reconstruction step.",
             "Per-session logs tying individual takes back to the script step and task variant they belong to.",
             "Annotation on the same footage when you want it — the labelling work described on our data annotation page runs directly against what this page captures."
-          ]
+          ],
+          "links": [{ "href": "/services/data-annotation", "label": "Data annotation" }]
         }
       ],
       "faq": [
@@ -1632,7 +1642,8 @@
         },
         {
           "heading": "Vietnamese and English",
-          "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on."
+          "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on.",
+          "links": [{ "href": "/services/llm-integration", "label": "LLM integration and RAG" }]
         }
       ],
       "faq": [
