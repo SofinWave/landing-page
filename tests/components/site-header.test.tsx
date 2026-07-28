@@ -7,6 +7,11 @@ import en from "@/messages/en.json";
 vi.mock("@/i18n/navigation", () => ({
   usePathname: () => "/home",
   useRouter: () => ({ replace: () => {} }),
+  Link: ({ href, children, ...props }: { href: string; children: React.ReactNode }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
 }));
 
 import { SiteHeader } from "@/components/site-header";
@@ -22,7 +27,8 @@ function renderHeader() {
 describe("SiteHeader", () => {
   it("renders nav links and CTA", () => {
     renderHeader();
-    expect(screen.getAllByText("Case studies").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Services").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Why Vietnam").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Book a consultation").length).toBeGreaterThan(0);
   });
 

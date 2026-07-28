@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContentPage, type ContentPageData } from "@/components/content-page";
+import { Contact } from "@/app/[locale]/(public)/home/_components/contact";
 import { PageStructuredData } from "@/components/structured-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CONTENT_ROUTES, findRoute } from "@/lib/routes";
@@ -64,6 +65,8 @@ export default async function ContentRoutePage({
       <SiteHeader />
       <main className="flex-1">
         <ContentPage locale={locale} path={page.route.path} data={page.data} />
+        {/* The contact page is the one route that needs an interactive element. */}
+        {page.route.path === "contact" ? <Contact /> : null}
       </main>
       <SiteFooter />
     </div>

@@ -11,7 +11,9 @@ describe("Services", () => {
         <Services />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByRole("heading", { level: 2, name: "What we do" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 2, name: "How we work with you" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("Architecture consulting")).toBeInTheDocument();
     expect(screen.getByText("Maintenance & operations")).toBeInTheDocument();
   });

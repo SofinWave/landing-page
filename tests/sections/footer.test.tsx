@@ -1,7 +1,16 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
+
+vi.mock("@/i18n/navigation", () => ({
+  Link: ({ href, children, ...props }: { href: string; children: React.ReactNode }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+}));
+
 import { SiteFooter } from "@/components/site-footer";
 
 describe("SiteFooter", () => {
@@ -11,7 +20,9 @@ describe("SiteFooter", () => {
         <SiteFooter />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByText("Software consulting & implementation.")).toBeInTheDocument();
+    expect(
+      screen.getByText("Software outsourcing and offshore development from Vietnam."),
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Work.KingNNT@gmail.com" })).toHaveAttribute(
       "href",
       "mailto:Work.KingNNT@gmail.com",
