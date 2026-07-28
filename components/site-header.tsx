@@ -7,34 +7,42 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-togger";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Logo } from "@/components/logo";
+import { Link } from "@/i18n/navigation";
+
+/**
+ * Real routes rather than home-page anchors: these links have to resolve from
+ * every page, and they are how crawlers reach the service and pillar pages.
+ */
+const NAV = [
+  { href: "/services", key: "services" },
+  { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
+  { href: "/engagement-models", key: "engagementModels" },
+  { href: "/about", key: "about" },
+] as const;
 
 export function SiteHeader() {
   const t = useTranslations("header");
+  const tPages = useTranslations("pages");
   const [open, setOpen] = useState(false);
 
-  const links = [
-    { href: "#services", label: t("services") },
-    { href: "#process", label: t("process") },
-    { href: "#work", label: t("work") },
-    { href: "#contact", label: t("contact") },
-  ];
+  const links = NAV.map((item) => ({ href: item.href, label: tPages(`${item.key}.navLabel`) }));
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <a href="#top" aria-label={t("brand")}>
+        <Link href="/home" aria-label={t("brand")}>
           <Logo label={t("brand")} priority />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -46,7 +54,7 @@ export function SiteHeader() {
           <LanguageSwitcher />
           <ModeToggle />
           <Button asChild>
-            <a href="#contact">{t("cta")}</a>
+            <Link href="/contact">{t("cta")}</Link>
           </Button>
         </div>
 
@@ -69,20 +77,20 @@ export function SiteHeader() {
           <ul className="container mx-auto flex flex-col gap-1 px-4 py-3">
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="block rounded-md px-2 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className="pt-2">
               <Button asChild className="w-full">
-                <a href="#contact" onClick={() => setOpen(false)}>
+                <Link href="/contact" onClick={() => setOpen(false)}>
                   {t("cta")}
-                </a>
+                </Link>
               </Button>
             </li>
           </ul>

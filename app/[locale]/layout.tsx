@@ -5,14 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
-import {
-  OG_LOCALE,
-  SITE_NAME,
-  SITE_URL,
-  SITE_KEYWORDS,
-  languageAlternates,
-  localeUrl,
-} from "@/lib/site";
+import { SITE_NAME, SITE_URL, SITE_KEYWORDS } from "@/lib/site";
 import "../globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -29,42 +22,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const title = t("title");
-  const description = t("description");
-  const url = localeUrl(locale);
 
+  /**
+   * Site-wide defaults only. Canonical, hreflang, and per-page Open Graph are
+   * set by each page via `pageMetadata` — declaring a canonical on the layout
+   * would point every route at the same URL.
+   */
   return {
     metadataBase: new URL(SITE_URL),
-    title,
-    description,
+    title: {
+      default: t("title"),
+      template: `%s | ${SITE_NAME}`,
+    },
+    description: t("description"),
     applicationName: SITE_NAME,
     keywords: SITE_KEYWORDS[locale] ?? SITE_KEYWORDS[routing.defaultLocale],
     authors: [{ name: SITE_NAME, url: SITE_URL }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
-    alternates: {
-      canonical: url,
-      languages: {
-        ...languageAlternates(routing.locales),
-        "x-default": localeUrl(routing.defaultLocale),
-      },
-    },
-    openGraph: {
-      type: "website",
-      siteName: SITE_NAME,
-      title,
-      description,
-      url,
-      locale: OG_LOCALE[locale],
-      alternateLocale: routing.locales.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
-      images: [{ url: "/icon.png", width: 500, height: 500, alt: SITE_NAME }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["/icon.png"],
-    },
     robots: {
       index: true,
       follow: true,
