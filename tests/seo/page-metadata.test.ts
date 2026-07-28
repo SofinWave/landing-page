@@ -30,6 +30,21 @@ describe("pageMetadata", () => {
     const meta = pageMetadata({ locale: "en", path: HOME_PATH, title: "t", description: "d" });
     expect(meta.alternates?.canonical).toBe("https://sofinwave.org/en/home");
   });
+
+  it("declares a 1200x630 social card on both og and twitter", () => {
+    // Regression guard: setting `openGraph` here stops Next.js from merging the
+    // `opengraph-image` file convention, which silently left every page without
+    // an og:image.
+    const meta = pageMetadata({ locale: "vi", path: "about", title: "t", description: "d" });
+    const images = meta.openGraph?.images;
+
+    expect(Array.isArray(images) && images.length).toBeTruthy();
+    const image = (images as { url: string; width: number; height: number }[])[0];
+    expect(image.url).toBe("https://sofinwave.org/vi/opengraph-image");
+    expect(image.width).toBe(1200);
+    expect(image.height).toBe(630);
+    expect(meta.twitter?.images).toEqual(["https://sofinwave.org/vi/opengraph-image"]);
+  });
 });
 
 describe("webPageSchema", () => {
