@@ -1,9 +1,10 @@
 # mise configuration.
 #
-# Tasks are defined as file tasks under `.mise/tasks/`, namespaced by
+# Tasks are defined as file tasks under `mise/tasks/`, namespaced by
 # environment via subfolders:
-#   .mise/tasks/local/*  -> local:*   (development)
-#   .mise/tasks/prod/*   -> prod:*     (production)
+#   mise/tasks/local/*  -> local:*  (development)
+#   mise/tasks/prod/*   -> prod:*   (production)
+#   mise/tasks/rpi/*    -> rpi:*    (Raspberry Pi)
 #
 # List them with `mise tasks ls`; run with `mise run <task>`, e.g.
 # `mise run local:up` or `mise run prod:up`.

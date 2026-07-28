@@ -29,7 +29,7 @@ pnpm exec vitest run tests/sections/hero.test.tsx
 pnpm exec vitest run -t "renders the CTA"
 ```
 
-Docker workflows are wrapped as [mise](https://mise.jdx.dev) file tasks namespaced `local:*` / `prod:*` (see `.mise.toml`; list with `mise tasks ls`). Note: the containerized `mise run local:dev` task runs `yarn dev` **inside** the container — this is the only place yarn is used.
+Docker workflows are wrapped as [mise](https://mise.jdx.dev) file tasks namespaced `local:*` / `prod:*` / `rpi:*` (see `mise.toml` and `mise/tasks/`; list with `mise tasks ls`). Note: the containerized `mise run local:dev` task runs `yarn dev` **inside** the container — this is the only place yarn is used.
 
 ## Formatting vs. linting split
 
