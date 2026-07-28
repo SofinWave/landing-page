@@ -1298,6 +1298,88 @@
         "button": "Đặt lịch tư vấn"
       }
     },
+    "aiTrainingData": {
+      "navLabel": "Dữ liệu huấn luyện",
+      "title": "Dữ liệu huấn luyện AI: thu thập, gán nhãn và post-training",
+      "metaTitle": "Dịch vụ dữ liệu huấn luyện AI — Thu thập & gán nhãn",
+      "metaDescription": "Thu thập dữ liệu, gán nhãn, và dữ liệu post-training cho LLM từ Việt Nam, do chính đội kỹ sư sau này fine-tune và triển khai model thực hiện. Có ghi hình egocentric và exocentric.",
+      "lede": "Model là phần rẻ nhất. Model chỉ là vài dòng cấu hình và một hóa đơn; dataset để nó học là công sức nhiều tháng của những người hiểu rõ bài toán, và đó mới là chỗ phần lớn dự án AI thực sự tắc lại. Chúng tôi thu thập dữ liệu theo đúng đặc tả của bạn, gán nhãn nó, và — vì xây hệ thống AI là việc chính của chúng tôi — chính chúng tôi sau này là người phải huấn luyện trên nó. Điều đó thay đổi cách đặc tả được viết ra.",
+      "sections": [
+        {
+          "heading": "Vì sao dự án AI tắc ở dữ liệu chứ không ở model",
+          "body": "Đội ngũ đến với một model đã chọn sẵn và một vấn đề dataset chưa ai gọi tên. Kiểu mẫu này lặp lại rất đều.",
+          "bullets": [
+            "Guideline gán nhãn được viết trước khi ai nhìn thấy case khó, nên case khó bị gán nhãn không nhất quán.",
+            "Dữ liệu thu thập giống môi trường demo hơn là môi trường triển khai thật.",
+            "Không ai đo agreement giữa các annotator, nên không ai biết nhãn có còn nghĩa lý gì không.",
+            "Dataset phủ kỹ trường hợp phổ biến và gần như bỏ trống trường hợp lỗi — ngược hẳn với thứ việc huấn luyện thực sự cần.",
+            "Định dạng phải viết lại trước khi đưa vào pipeline huấn luyện, và bản viết lại làm mất thông tin."
+          ]
+        },
+        {
+          "heading": "Chúng tôi làm gì",
+          "body": "Bốn năng lực, bán riêng hoặc trọn gói như một chương trình.",
+          "bullets": [
+            "Thu thập dữ liệu theo đặc tả bằng văn bản — video, hình ảnh, âm thanh, tài liệu, và kịch bản dàn dựng.",
+            "Ghi hình egocentric và exocentric cho robotics và embodied AI, thu theo cặp đồng bộ.",
+            "Gán nhãn trên ảnh, video, point cloud 3D, tài liệu, và âm thanh.",
+            "Dữ liệu post-training cho LLM: minh họa supervised fine-tuning, xếp hạng preference, và đánh giá."
+          ]
+        },
+        {
+          "heading": "Đội gán nhãn cũng là đội huấn luyện model",
+          "body": "Phần lớn vendor gán nhãn giao dataset rồi không bao giờ biết nó có chạy được không. Xây hệ thống AI là việc chính của chúng tôi, nghĩa là một dataset chúng tôi làm ra có thể chính là dataset chúng tôi phải fine-tune, đánh giá, và bảo vệ khi chạy production. Đó không phải câu marketing — nó quyết định guideline gán nhãn viết ra sao, vì người viết guideline biết trước sự mập mờ nào sẽ trồi lên thành lỗi model về sau."
+        },
+        {
+          "heading": "Chất lượng phải đo được",
+          "body": "Tuyên bố về chất lượng vô nghĩa nếu không có phép đo đứng sau, nên chúng tôi đo công việc thay vì khẳng định kết quả.",
+          "bullets": [
+            "Gold-standard item cài vào mọi batch, chấm điểm liên tục thay vì audit ở cuối.",
+            "Multi-pass review, lượt hai không biết kết quả lượt một.",
+            "Inter-annotator agreement báo cáo bằng một con số, không phải một lời khẳng định.",
+            "Pre-labelling tự động ở chỗ model làm được lượt đầu, người chỉ sửa lại thay vì làm từ đầu.",
+            "Guideline được version như code, vì một thay đổi guideline âm thầm làm mất giá trị mọi thứ đã gán nhãn trước đó."
+          ]
+        },
+        {
+          "heading": "Bảo mật và quyền truy cập",
+          "body": "Điều gì nói rõ được, chúng tôi nói rõ; điều gì không nói rõ được, chúng tôi bỏ qua chứ không suy diễn thêm.",
+          "bullets": [
+            "Mọi người chạm vào dữ liệu của bạn đều ký NDA trước khi thấy bất cứ gì.",
+            "Quyền truy cập cấp theo từng dự án, không theo từng nhân viên, và thu hồi khi dự án kết thúc.",
+            "Dữ liệu khách hàng nằm trong môi trường tách biệt khỏi các việc khác của chúng tôi.",
+            "Dữ liệu bị xóa khi hoàn thành, theo lịch đã thống nhất trong hợp đồng."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Dự án nhỏ nhất các bạn nhận là bao nhiêu?",
+          "answer": "Một pilot batch. Đây luôn là bước đầu đúng đắn bất kể quy mô về sau, vì đó là cách duy nhất để biết guideline có trụ được khi chạm dữ liệu thật hay không."
+        },
+        {
+          "question": "Pilot batch chạy như thế nào?",
+          "answer": "Bạn gửi một mẫu đại diện và tiêu chí nghiệm thu. Chúng tôi gán nhãn, báo cáo những chỗ bất đồng gặp phải, rồi viết lại guideline dựa trên đó. Bất đồng chính là điểm mấu chốt — một pilot không tạo ra bất đồng nào nghĩa là nó quá dễ để có giá trị tham khảo."
+        },
+        {
+          "question": "Dữ liệu và nhãn thuộc về ai?",
+          "answer": "Thuộc về bạn, kể cả mọi thứ suy ra từ đó. Chúng tôi không giữ lại gì sau ngày xóa đã thống nhất, và không bao giờ tái sử dụng dữ liệu khách hàng để xây dataset riêng."
+        },
+        {
+          "question": "Khi annotator bất đồng thì xử lý ra sao?",
+          "answer": "Bất đồng được đẩy lên xử lý, không lấy trung bình. Một reviewer cấp cao phân xử, và kết quả quay lại guideline để cùng một case không bị quyết định hai lần."
+        },
+        {
+          "question": "Các bạn có làm ngôn ngữ khác ngoài tiếng Anh và tiếng Việt không?",
+          "answer": "Hãy trao đổi cụ thể về ngôn ngữ và khối lượng. Chúng tôi thà nói không đủ người để làm còn hơn nhận rồi làm dở."
+        }
+      ],
+      "cta": {
+        "title": "Bắt đầu bằng một pilot batch",
+        "body": "Gửi một mẫu và mô tả bạn cần nó trở thành gì. Chúng tôi sẽ nói cho bạn biết đặc tả đang thiếu chỗ nào.",
+        "button": "Liên hệ"
+      }
+    },
     "ventures": {
       "navLabel": "Các mảng hoạt động",
       "title": "Các mảng hoạt động của SofinWave",
