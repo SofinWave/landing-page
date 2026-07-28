@@ -34,7 +34,13 @@ export function SiteHeader({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
           <Logo label={config.name} priority />
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        {/*
+         * Desktop chrome starts at lg, not md. The wordmark (~186px), five nav
+         * labels, and the right-hand cluster need ~970px; md only offers 736,
+         * which made the nav labels wrap inside a 64px-tall header. The status
+         * pill waits until xl for the same reason — it costs another ~150px.
+         */}
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -46,8 +52,8 @@ export function SiteHeader({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <span className="mr-2 hidden items-center gap-2 font-mono text-xs text-muted-foreground lg:inline-flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <span className="mr-2 hidden items-center gap-2 font-mono text-xs text-muted-foreground xl:inline-flex">
             <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--accent-glow)]" />
             {t("status")}
           </span>
@@ -58,7 +64,7 @@ export function SiteHeader({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher />
           <ModeToggle />
           <Button
@@ -73,7 +79,7 @@ export function SiteHeader({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
       </div>
 
       {open && (
-        <nav className="border-t border-border md:hidden">
+        <nav className="border-t border-border lg:hidden">
           <ul className="container mx-auto flex flex-col gap-1 px-4 py-3">
             {links.map((l) => (
               <li key={l.href}>
