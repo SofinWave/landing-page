@@ -1,17 +1,29 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
-import { languageAlternates, localeUrl } from "@/lib/site";
+import { ROUTES } from "@/lib/routes";
+import { languageAlternates, pageUrl } from "@/lib/site";
 
+/**
+ * Every route from the registry, in every locale, with hreflang alternates.
+ *
+ * URLs point at real pages (`/{locale}/home`, not `/{locale}`) — the locale root
+ * only redirects, and listing a redirect in a sitemap wastes crawl budget.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = {
-    ...languageAlternates(routing.locales),
-    "x-default": localeUrl(routing.defaultLocale),
-  };
+  const lastModified = new Date();
 
-  return routing.locales.map((locale) => ({
-    url: localeUrl(locale),
-    changeFrequency: "monthly",
-    priority: locale === routing.defaultLocale ? 1 : 0.9,
-    alternates: { languages },
-  }));
+  return routing.locales.flatMap((locale) =>
+    ROUTES.map((route) => ({
+      url: pageUrl(locale, route.path),
+      lastModified,
+      changeFrequency: route.changeFrequency,
+      priority: locale === routing.defaultLocale ? route.priority : route.priority * 0.9,
+      alternates: {
+        languages: {
+          ...languageAlternates(routing.locales, route.path),
+          "x-default": pageUrl(routing.defaultLocale, route.path),
+        },
+      },
+    })),
+  );
 }

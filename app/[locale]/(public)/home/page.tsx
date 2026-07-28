@@ -1,4 +1,7 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/metadata";
+import { HOME_PATH } from "@/lib/routes";
 import { StructuredData } from "@/components/structured-data";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "./_components/hero";
@@ -11,7 +14,28 @@ import { Testimonials } from "./_components/testimonials";
 import { Team } from "./_components/team";
 import { Faq } from "./_components/faq";
 import { Contact } from "./_components/contact";
-import { SiteFooter } from "./_components/footer";
+import { SiteFooter } from "@/components/site-footer";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    // The landing page owns the site's default title, so it opts out of the
+    // "%s | SofinWave" template the layout applies to subpages.
+    ...pageMetadata({
+      locale,
+      path: HOME_PATH,
+      title: t("title"),
+      description: t("description"),
+    }),
+    title: { absolute: t("title") },
+  };
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -1,7 +1,9 @@
 {
   "metadata": {
-    "title": "SofinWave — Tư vấn & Triển khai Hệ thống Phần mềm",
-    "description": "SofinWave đồng hành cùng doanh nghiệp thiết kế và triển khai hệ thống phần mềm đáng tin cậy — từ tư vấn kiến trúc đến bàn giao trọn gói."
+    "title": "SofinWave — Thuê ngoài phát triển phần mềm và đội offshore tại Việt Nam",
+    "description": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam. Đội phát triển offshore, đội chuyên trách và tăng cường nhân sự IT cho doanh nghiệp Mỹ và châu Âu — từ kiến trúc đến bàn giao và vận hành.",
+    "ogHeadline": "Thuê ngoài phát triển phần mềm từ Việt Nam",
+    "ogSubline": "Đội offshore, đội chuyên trách và tăng cường nhân sự — từ kiến trúc đến bàn giao."
   },
   "nav": {
     "language": "Ngôn ngữ",
@@ -20,9 +22,9 @@
     "status": "Đang nhận dự án"
   },
   "hero": {
-    "eyebrow": "Tư vấn & triển khai phần mềm",
-    "title": "Xây dựng hệ thống doanh nghiệp bạn vận hành mỗi ngày",
-    "subtitle": "SofinWave đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
+    "eyebrow": "Thuê ngoài phần mềm & phát triển offshore",
+    "title": "Đội kỹ sư offshore của bạn tại Việt Nam",
+    "subtitle": "SofinWave xây và vận hành phần mềm mà doanh nghiệp bạn phụ thuộc vào — dưới dạng đội offshore trọn vẹn, đội chuyên trách trong quy trình của bạn, hoặc kỹ sư lấp đúng khoảng trống. Từ kiến trúc đến bàn giao, bằng tiếng Anh, từ múi giờ UTC+7.",
     "ctaPrimary": "Đặt lịch tư vấn",
     "ctaSecondary": "Xem dự án"
   },
@@ -31,8 +33,8 @@
     "items": ["ArtInLeap", "SmartGoldFish", "Spinshell Inc", "Cloud Kinetics", "AWS Vietnam"]
   },
   "services": {
-    "title": "Chúng tôi làm gì",
-    "subtitle": "Năng lực trọn vòng đời phát triển phần mềm.",
+    "title": "Chúng tôi làm việc với bạn thế nào",
+    "subtitle": "Ba mô hình đội ngũ và ba dịch vụ kỹ thuật, phủ toàn bộ vòng đời bàn giao.",
     "items": [
       {
         "icon": "compass",
@@ -103,9 +105,18 @@
         "problem": "Hệ thống monolith cũ không chịu nổi tải mùa cao điểm, mỗi lần phát hành mất hàng tuần.",
         "solution": "Tái kiến trúc thành các service module với CI/CD tự động và observability.",
         "results": [
-          { "label": "Thời gian deploy", "value": "-95%" },
-          { "label": "Sức chứa đỉnh", "value": "8x" },
-          { "label": "Sự cố", "value": "-60%" }
+          {
+            "label": "Thời gian deploy",
+            "value": "-95%"
+          },
+          {
+            "label": "Sức chứa đỉnh",
+            "value": "8x"
+          },
+          {
+            "label": "Sự cố",
+            "value": "-60%"
+          }
         ],
         "tags": ["Kiến trúc", "DevOps", "Node.js"]
       },
@@ -114,9 +125,18 @@
         "problem": "Các công cụ rời rạc khiến phải nhập liệu thủ công và báo cáo trễ.",
         "solution": "Xây lớp tích hợp hợp nhất ERP, CRM và thanh toán theo thời gian thực.",
         "results": [
-          { "label": "Việc thủ công", "value": "-80%" },
-          { "label": "Độ trễ báo cáo", "value": "Thời gian thực" },
-          { "label": "Go-live", "value": "10 tuần" }
+          {
+            "label": "Việc thủ công",
+            "value": "-80%"
+          },
+          {
+            "label": "Độ trễ báo cáo",
+            "value": "Thời gian thực"
+          },
+          {
+            "label": "Go-live",
+            "value": "10 tuần"
+          }
         ],
         "tags": ["Tích hợp", "TypeScript", "PostgreSQL"]
       }
@@ -158,7 +178,7 @@
   },
   "team": {
     "title": "Chúng tôi là ai",
-    "about": "SofinWave là đội ngũ kỹ sư và chuyên gia tư vấn cấp cao đã bàn giao nhiều hệ thống production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như một phần trong đội của bạn.",
+    "about": "SofinWave là một đội nhỏ gồm kỹ sư và chuyên gia tư vấn có kinh nghiệm, đã đưa nhiều hệ thống lên production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như phần mở rộng của đội bạn, từ Việt Nam, bằng tiếng Anh và tiếng Việt.",
     "members": [
       { "name": "Jesse", "role": "Chuyên gia tư vấn chính" },
       { "name": "Alex", "role": "Kỹ sư trưởng" },
@@ -170,19 +190,31 @@
     "items": [
       {
         "question": "Hợp tác bắt đầu như thế nào?",
-        "answer": "Bằng một buổi khảo sát ngắn để hiểu mục tiêu, sau đó là đề xuất và kế hoạch bằng văn bản."
+        "answer": "Bằng một buổi trao đổi ngắn để hiểu mục tiêu của bạn, sau đó là đề xuất và kế hoạch bằng văn bản. Ước lượng đưa ra sau khi khảo sát, không bao giờ chỉ từ một bản mô tả."
       },
       {
-        "question": "Có làm việc cùng đội hiện có không?",
-        "answer": "Có. Chúng tôi thường phối hợp với đội nội bộ và bàn giao gọn gàng kèm tài liệu."
+        "question": "Thuê ngoài tại Việt Nam tốn bao nhiêu so với tuyển tại chỗ?",
+        "answer": "Tính trên mỗi kỹ sư thì nhìn chung thấp hơn Mỹ, Anh và Tây Âu, dù mức tiết kiệm nhỏ hơn bảng giá quảng cáo sau khi tính thời gian onboarding và công quản lý. Đơn giá tùy vai trò và cấp độ — hãy cho biết bạn cần gì, chúng tôi sẽ gửi bảng giá đúng với tình huống của bạn."
       },
       {
-        "question": "Cách tính chi phí ra sao?",
-        "answer": "Cố định theo phạm vi cho dự án rõ ràng, hoặc theo thời gian cho công việc thay đổi. Thống nhất trước khi bắt đầu."
+        "question": "Độ trùng múi giờ sẽ là bao nhiêu?",
+        "answer": "Chúng tôi ở UTC+7 quanh năm, không có giờ mùa hè. Nghĩa là khoảng nửa ngày làm việc trùng trực tiếp với châu Âu, và trùng ở hai đầu ngày với bờ Đông nước Mỹ. Chúng tôi ưu tiên trao đổi bằng văn bản để tiến độ không phụ thuộc vào việc hai bên cùng online."
       },
       {
-        "question": "Bảo mật và sở hữu trí tuệ thì sao?",
-        "answer": "Bạn sở hữu toàn bộ code và IP. Chúng tôi áp dụng quyền truy cập tối thiểu và có thể ký NDA trước."
+        "question": "Các bạn có làm việc với đội ngũ sẵn có không?",
+        "answer": "Có. Chúng tôi thường xuyên nhúng vào đội nội bộ, làm việc trong quy trình và công cụ của bạn, và bàn giao sạch kèm tài liệu."
+      },
+      {
+        "question": "Cách tính giá ra sao?",
+        "answer": "Giá trọn gói cho dự án có phạm vi rõ, tính theo thời gian cho công việc còn thay đổi, hoặc năng lực chuyên trách theo tháng cho phát triển liên tục. Chúng tôi đề xuất mô hình phù hợp với công việc thay vì hợp đồng lớn nhất."
+      },
+      {
+        "question": "Còn bảo mật và sở hữu trí tuệ thì sao?",
+        "answer": "Bạn sở hữu toàn bộ mã nguồn và tài sản trí tuệ. Chúng tôi áp dụng truy cập tối thiểu, làm việc trong repository và tài khoản cloud của bạn, và ký NDA trước khi bắt đầu khảo sát kỹ thuật."
+      },
+      {
+        "question": "Nếu chúng tôi muốn kết thúc hợp tác thì sao?",
+        "answer": "Điều khoản kết thúc, thời gian báo trước và bàn giao được thống nhất từ đầu. Tài liệu và kiểm thử được tạo ra xuyên suốt, nên đội của bạn tiếp quản được mà không cần chúng tôi."
       }
     ]
   },
@@ -199,11 +231,874 @@
   },
   "footer": {
     "brand": "SofinWave",
-    "tagline": "Tư vấn & triển khai phần mềm.",
+    "tagline": "Thuê ngoài phát triển phần mềm và đội offshore từ Việt Nam.",
     "status": "Hệ thống đang vận hành",
     "email": "Work.KingNNT@gmail.com",
     "rights": "Bảo lưu mọi quyền.",
     "navigate": "Điều hướng",
-    "connect": "Kết nối"
+    "connect": "Kết nối",
+    "servicesNav": "Dịch vụ"
+  },
+  "pages": {
+    "breadcrumbLabel": "Đường dẫn",
+    "faqHeading": "Câu hỏi thường gặp",
+    "home": {
+      "navLabel": "Trang chủ",
+      "title": "Trang chủ"
+    },
+    "vietnamSoftwareOutsourcing": {
+      "navLabel": "Vì sao Việt Nam",
+      "title": "Thuê ngoài phát triển phần mềm tại Việt Nam",
+      "metaTitle": "Thuê ngoài phần mềm tại Việt Nam: chi phí, múi giờ và cách bắt đầu",
+      "metaDescription": "Cách thuê ngoài phát triển phần mềm tại Việt Nam vận hành với doanh nghiệp Mỹ và châu Âu — mô hình hợp tác, độ trùng múi giờ, bảo vệ sở hữu trí tuệ, và so sánh Việt Nam với Ấn Độ, Philippines, Ba Lan.",
+      "lede": "Thuê ngoài phát triển phần mềm tại Việt Nam là việc giao công việc kỹ thuật cho một đội ngũ đặt tại Việt Nam, dưới dạng đội dự án trọn gói hoặc kỹ sư nhúng vào đội ngũ sẵn có của bạn. Với doanh nghiệp Mỹ và châu Âu, lựa chọn này thường đến từ ba yếu tố cộng lại: chi phí kỹ thuật thấp hơn, nguồn nhân lực lập trình dồi dào và đang mở rộng, cùng múi giờ tạo được độ trùng thật với buổi sáng châu Âu và buổi tối nước Mỹ. SofinWave là công ty phát triển phần mềm đặt tại Việt Nam, làm việc bằng cả tiếng Anh và tiếng Việt, từ khâu kiến trúc đến bàn giao và vận hành.",
+      "sections": [
+        {
+          "heading": "Thuê ngoài tại Việt Nam thực sự mang lại gì",
+          "body": "Lý do thuê ngoài hiếm khi chỉ là chi phí. Nó là năng lực bạn có thể tăng hoặc giảm mà không cần một chu kỳ tuyển dụng, và là quyền tiếp cận những kỹ năng bạn không muốn giữ dài hạn trong biên chế. Việt Nam hấp dẫn ở điểm này vì thị trường kỹ sư có chiều sâu đúng ở các stack mà phần lớn công ty sản phẩm đang dùng.",
+          "bullets": [
+            "Chi phí kỹ thuật tổng thể thấp hơn so với tuyển cùng cấp độ tại Mỹ, Anh hoặc Tây Âu.",
+            "Nguồn kỹ sư lớn về JavaScript/TypeScript, Java, Python, Go và mobile.",
+            "Bàn giao bằng tiếng Anh: đặc tả, code review và demo mặc định bằng tiếng Anh.",
+            "Năng lực co giãn theo điều khoản hợp đồng thay vì theo luật lao động."
+          ]
+        },
+        {
+          "heading": "Múi giờ: độ trùng thực tế là bao nhiêu",
+          "body": "Việt Nam ở UTC+7 quanh năm và không áp dụng giờ mùa hè, nên độ lệch không bao giờ thay đổi. Điều đó tạo ra quan hệ làm việc ổn định với cả châu Âu lẫn châu Mỹ, dù hình thái mỗi bên một khác.",
+          "bullets": [
+            "Trung Âu (UTC+1/+2): Việt Nam sớm hơn 5–6 giờ. Buổi chiều Việt Nam là buổi sáng châu Âu, cho khoảng nửa ngày làm việc trùng nhau trực tiếp.",
+            "Anh (UTC+0/+1): sớm hơn 6–7 giờ, khung trùng buổi sáng tương đương.",
+            "Bờ Đông nước Mỹ (UTC-5/-4): sớm hơn 11–12 giờ. Độ trùng nằm ở hai đầu ngày, nên cặp này hợp với nhịp bàn giao có chủ đích.",
+            "Bờ Tây nước Mỹ (UTC-8/-7): sớm hơn 14–15 giờ, gần như mô hình follow-the-sun."
+          ]
+        },
+        {
+          "heading": "So sánh Việt Nam với các điểm đến khác",
+          "body": "Không điểm đến nào thắng ở mọi tiêu chí. So sánh trung thực là chọn đánh đổi phù hợp với cách đội ngũ bạn làm việc, chứ không phải tìm quốc gia tốt nhất một cách tuyệt đối."
+        },
+        {
+          "heading": "Bảo vệ sở hữu trí tuệ và mã nguồn của bạn",
+          "body": "Đây là câu hỏi làm dừng phần lớn cuộc trao đổi về thuê ngoài, và nó nên được chốt trong hợp đồng thay vì mặc định. Việt Nam là thành viên Công ước Berne và Hiệp ước Quyền tác giả WIPO, và điều khoản chuyển giao quyền theo hợp đồng thuê thực hiện có hiệu lực thi hành trong hợp đồng thương mại.",
+          "bullets": [
+            "Bạn sở hữu toàn bộ mã nguồn, tài liệu và tài sản trí tuệ tạo ra trong hợp tác.",
+            "NDA được ký trước khi bắt đầu bất kỳ khảo sát kỹ thuật nào.",
+            "Quyền truy cập theo nguyên tắc tối thiểu — kỹ sư chỉ nhận đúng hệ thống cần dùng.",
+            "Mã nguồn nằm trong repository và tài khoản cloud của bạn, không phải của chúng tôi, trừ khi bạn muốn khác."
+          ]
+        },
+        {
+          "heading": "Cách bắt đầu mà không đặt cược cả dự án",
+          "body": "Cách vào một quan hệ thuê ngoài với rủi ro thấp nhất là một phần việc có phạm vi rõ và sản phẩm bàn giao thật, không phải một giai đoạn thử việc với mục tiêu mơ hồ. Bạn hiểu về một đội ngũ qua một lát cắt đã bàn giao xong nhiều hơn qua ba tháng phỏng vấn.",
+          "bullets": [
+            "Bắt đầu bằng một buổi trao đổi để làm rõ mục tiêu, ràng buộc và tiêu chí thành công.",
+            "Thống nhất lát cắt công việc đầu tiên đủ nhỏ để hoàn thành trong vài tuần, không phải vài quý.",
+            "Xem mã nguồn, kiểm thử và cách giao tiếp — đó là thứ cho biết việc mở rộng sẽ ra sao.",
+            "Mở rộng, điều chỉnh cấu trúc đội, hoặc dừng lại, theo điều khoản đã thống nhất từ đầu."
+          ]
+        }
+      ],
+      "table": {
+        "caption": "So sánh Việt Nam với các điểm đến thuê ngoài khác",
+        "columns": [
+          "Điểm đến",
+          "Trùng giờ với châu Âu",
+          "Trùng giờ với bờ Đông Mỹ",
+          "Đánh đổi điển hình"
+        ],
+        "rows": [
+          [
+            "Việt Nam (UTC+7)",
+            "Nửa ngày, buổi sáng châu Âu",
+            "Hai đầu ngày",
+            "Tỷ lệ chi phí trên cấp độ tốt; mạnh về JS/TS và mobile"
+          ],
+          [
+            "Ấn Độ (UTC+5:30)",
+            "Gần trọn ngày làm việc châu Âu",
+            "Sáng sớm Mỹ",
+            "Nguồn nhân lực lớn nhất; biên độ chất lượng rộng nên khâu chọn đối tác quan trọng nhất"
+          ],
+          [
+            "Philippines (UTC+8)",
+            "Nửa ngày, buổi sáng châu Âu",
+            "Hai đầu ngày",
+            "Tiếng Anh tốt nhất khu vực; nguồn kỹ sư cấp cao mỏng hơn"
+          ],
+          [
+            "Ba Lan (UTC+1/+2)",
+            "Trọn ngày làm việc",
+            "Trùng buổi chiều",
+            "Thuận tiện near-shore cho EU với chi phí gần Tây Âu"
+          ]
+        ]
+      },
+      "faq": [
+        {
+          "question": "Thuê ngoài tại Việt Nam có rẻ hơn tuyển tại chỗ không?",
+          "answer": "Tính trên mỗi kỹ sư thì nhìn chung là có, khi so với Mỹ, Anh và Tây Âu — nhưng mức tiết kiệm nhỏ hơn bảng giá quảng cáo, sau khi tính thời gian onboarding, giờ trùng và công quản lý. Lợi ích rõ ràng hơn là bạn co giãn được năng lực theo hợp đồng thay vì qua chu kỳ tuyển dụng và cắt giảm. Hãy hỏi chúng tôi mức giá hiện tại cho đúng vai trò bạn cần."
+        },
+        {
+          "question": "Có rào cản ngôn ngữ không?",
+          "answer": "Việc bàn giao mặc định chạy bằng tiếng Anh — đặc tả, code review, commit message, demo và tài liệu. SofinWave cũng làm việc bằng tiếng Việt với khách hàng muốn vậy. Nếu đội của bạn có người không dùng tiếng Anh, hãy nói sớm để chúng tôi bố trí lại cách trao đổi bằng văn bản."
+        },
+        {
+          "question": "Ai sở hữu mã nguồn chúng tôi trả tiền để làm ra?",
+          "answer": "Bạn sở hữu — toàn bộ mã nguồn, tài liệu và tài sản trí tuệ tạo ra trong hợp tác đều chuyển cho bạn. Điều này được ghi vào hợp đồng trước khi bắt đầu, và chúng tôi ký NDA trước khi khảo sát kỹ thuật."
+        },
+        {
+          "question": "Bao lâu thì một đội có thể bắt đầu?",
+          "answer": "Tùy vai trò và cấp độ bạn cần. Hãy cho biết cấu trúc đội mong muốn, chúng tôi sẽ đưa ngày bắt đầu trung thực thay vì lạc quan — một đội bắt đầu chậm hai tuần nhưng đúng người rẻ hơn nhiều so với đội vào ngay rồi thay người liên tục."
+        },
+        {
+          "question": "Nếu hợp tác không thành thì sao?",
+          "answer": "Điều khoản kết thúc được thống nhất ngay từ đầu, gồm thời gian báo trước, bàn giao và tài liệu. Chúng tôi bàn giao sạch — mục đích của một hợp tác tốt là đội của bạn tiếp quản được mà không cần chúng tôi."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi xem Việt Nam có hợp với tình huống của bạn không",
+        "body": "Một buổi nói chuyện ngắn thường đủ để biết thuê ngoài giúp ích hay chỉ thêm chi phí điều phối. Chúng tôi sẽ nói thẳng dù câu trả lời là gì.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "services": {
+      "navLabel": "Dịch vụ",
+      "title": "Dịch vụ",
+      "metaTitle": "Dịch vụ thuê ngoài phát triển phần mềm",
+      "metaDescription": "Phát triển offshore, đội ngũ chuyên trách, tăng cường nhân sự IT, phần mềm theo yêu cầu, tích hợp hệ thống và DevOps — triển khai từ Việt Nam cho khách hàng Mỹ và châu Âu.",
+      "lede": "SofinWave có sáu cách hợp tác, từ một đội offshore trọn vẹn chịu trách nhiệm bàn giao đầu cuối, đến từng kỹ sư nhúng vào đội ngũ sẵn có của bạn. Chọn cách nào phụ thuộc vào việc bạn cần năng lực, cần kỹ năng cụ thể, hay cần người chịu trách nhiệm cho một kết quả. Nếu chưa rõ, hãy mô tả vấn đề và chúng tôi sẽ nói mình đề xuất mô hình nào và vì sao.",
+      "sections": [
+        {
+          "heading": "Các mô hình đội ngũ",
+          "body": "Ba mô hình này khác nhau ở chỗ ai chịu trách nhiệm cho kết quả. Chọn theo mức trách nhiệm bàn giao bạn muốn giữ lại.",
+          "bullets": [
+            "Phát triển offshore — một đội hoàn chỉnh chịu trách nhiệm bàn giao sản phẩm hoặc hệ thống, có quy trình và báo cáo riêng.",
+            "Đội ngũ chuyên trách — kỹ sư gắn với bạn dài hạn, làm việc trong quy trình của bạn, trên board và standup của bạn.",
+            "Tăng cường nhân sự IT — từng người cụ thể lấp đúng khoảng trống trong đội sẵn có, do bạn quản lý."
+          ]
+        },
+        {
+          "heading": "Các dịch vụ kỹ thuật",
+          "body": "Những dịch vụ này định phạm vi theo kết quả kỹ thuật thay vì theo cấu trúc đội, và thường được triển khai qua một trong các mô hình phía trên.",
+          "bullets": [
+            "Phát triển phần mềm theo yêu cầu — hệ thống web, mobile và backend xây theo nghiệp vụ của bạn.",
+            "Tích hợp hệ thống — kết nối ERP, CRM, thanh toán và hệ thống bên thứ ba thành một luồng chạy ổn định.",
+            "DevOps & cloud — CI/CD, hạ tầng dạng mã, quan trắc, và tối ưu chi phí cloud."
+          ]
+        },
+        {
+          "heading": "Cách chọn",
+          "body": "Phép thử thực tế là ai sẽ chịu trách nhiệm khi tiến độ trễ. Nếu câu trả lời buộc phải là nhà cung cấp, bạn cần phát triển offshore. Nếu quản lý kỹ thuật của chính bạn sẽ chịu trách nhiệm, thì tăng cường nhân sự hoặc đội chuyên trách hợp hơn và thường rẻ hơn."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Đang làm giữa chừng có đổi mô hình được không?",
+          "answer": "Được, và điều này khá phổ biến. Nhiều hợp tác bắt đầu như một dự án có phạm vi rồi chuyển sang đội chuyên trách khi hướng đi đã rõ. Đổi mô hình là phụ lục hợp đồng, không phải làm lại từ đầu."
+        },
+        {
+          "question": "Các bạn có nhận làm trên codebase sẵn có không?",
+          "answer": "Có. Phần lớn công việc của chúng tôi nằm trên hệ thống đã tồn tại và đã có người dùng. Chúng tôi bắt đầu bằng việc đọc qua mã nguồn và hạ tầng trước khi báo giá bất cứ điều gì."
+        },
+        {
+          "question": "Hợp tác nhỏ nhất các bạn nhận là bao nhiêu?",
+          "answer": "Nhỏ vừa đủ để thực sự kiểm chứng xem hai bên có hợp nhau không. Hãy cho biết lát cắt đầu tiên bạn muốn nhận bàn giao, chúng tôi sẽ nói đó có phải điểm khởi đầu hợp lý không."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "offshoreDevelopment": {
+      "navLabel": "Phát triển offshore",
+      "title": "Phát triển phần mềm offshore",
+      "metaTitle": "Dịch vụ phát triển phần mềm offshore tại Việt Nam",
+      "metaDescription": "Đội phát triển offshore trọn vẹn tại Việt Nam chịu trách nhiệm bàn giao đầu cuối — kiến trúc, xây dựng, kiểm thử, phát hành và vận hành — cho doanh nghiệp Mỹ và châu Âu.",
+      "lede": "Phát triển phần mềm offshore nghĩa là một đội ngũ nhà cung cấp ở nước khác chịu trách nhiệm bàn giao sản phẩm hoặc hệ thống, chứ không chỉ cung cấp nhân lực. SofinWave vận hành các đội offshore từ Việt Nam cho khách hàng Mỹ và châu Âu: chúng tôi nhận một kết quả đã xác định, bố trí đúng vai trò cần thiết, và chịu trách nhiệm đưa nó lên production. Bạn nhận được tiến độ có thể kiểm chứng — phần mềm chạy được, không phải slide báo cáo.",
+      "sections": [
+        {
+          "heading": "Đội ngũ trông như thế nào",
+          "body": "Đội offshore được bố trí theo công việc chứ không theo khuôn mẫu. Một đội sản phẩm điển hình ghép kỹ sư với các vai trò hỗ trợ giúp việc bàn giao không bị tắc.",
+          "bullets": [
+            "Một technical lead chịu trách nhiệm về kiến trúc và chất lượng mã nguồn.",
+            "Kỹ sư backend, frontend và mobile với số lượng tương ứng phạm vi.",
+            "QA nằm trong đội thay vì ghép thêm vào phút cuối.",
+            "Một delivery lead điều phối nhịp làm việc và là đầu mối liên hệ duy nhất của bạn."
+          ]
+        },
+        {
+          "heading": "Cách vận hành bàn giao",
+          "body": "Quy trình được giữ ở mức đơn giản một cách có chủ đích, vì mục tiêu là tính dự đoán được. Công việc chạy theo vòng lặp ngắn, mỗi vòng kết thúc bằng một buổi demo, nên bạn không bao giờ phải tin vào tiến độ một cách cảm tính.",
+          "bullets": [
+            "Khảo sát trước: mục tiêu, ràng buộc và tiêu chí thành công được ghi lại trước khi viết mã.",
+            "Vòng lặp một đến hai tuần, mỗi vòng kết thúc bằng demo phần mềm chạy được.",
+            "Kiểm thử tự động và CI ngay từ commit đầu tiên, không phải bổ sung trước khi ra mắt.",
+            "Phát hành vào môi trường của bạn qua một pipeline lặp lại được."
+          ]
+        },
+        {
+          "heading": "Những gì bạn vẫn nắm quyền kiểm soát",
+          "body": "Đưa việc bàn giao ra ngoài không có nghĩa là mất quyền giám sát. Những tài sản quan trọng vẫn thuộc về bạn và luôn nhìn thấy được.",
+          "bullets": [
+            "Repository của bạn, tài khoản cloud của bạn, CI của bạn — chúng tôi làm việc bên trong đó.",
+            "Toàn bộ lịch sử commit và quyền xem code review ngay từ ngày đầu.",
+            "Quyết định kiến trúc được ghi lại và bạn duyệt trước khi triển khai.",
+            "Tài liệu được duy trì song song công việc, nên bàn giao không phải một dự án riêng."
+          ]
+        },
+        {
+          "heading": "Khi nào phát triển offshore là lựa chọn sai",
+          "body": "Nếu yêu cầu thay đổi nhanh hơn tốc độ ghi lại được, hoặc công việc phụ thuộc vào việc liên tục tiếp cận người bên trong doanh nghiệp bạn, thì một đội nhà cung cấp sẽ vất vả bất kể chất lượng ra sao. Trong tình huống đó, đội chuyên trách nằm trong quy trình của chính bạn, hoặc tăng cường nhân sự, thường hiệu quả hơn — và chúng tôi sẽ nói vậy thay vì bán cho bạn gói lớn hơn."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Khác gì so với đội ngũ chuyên trách?",
+          "answer": "Khác ở trách nhiệm. Với phát triển offshore, chúng tôi chịu trách nhiệm cho kết quả và chạy quy trình của mình. Với đội chuyên trách, quản lý của bạn chạy quy trình và kỹ sư làm việc bên trong đó. Phát triển offshore đắt hơn tính trên mỗi kỹ sư và gỡ bớt gánh nặng quản lý cho bạn nhiều hơn."
+        },
+        {
+          "question": "Chúng tôi theo dõi tiến độ bằng cách nào?",
+          "answer": "Qua phần mềm chạy được ở cuối mỗi vòng lặp, cộng với quyền truy cập trực tiếp vào repository và hệ thống quản lý công việc. Nếu báo cáo tiến độ là bằng chứng duy nhất về tiến độ thì đã có gì đó không ổn."
+        },
+        {
+          "question": "Nếu sau này chúng tôi muốn đưa việc về nội bộ?",
+          "answer": "Đó là kết cục bình thường, và hợp tác được thiết kế sẵn cho tình huống này. Tài liệu và kiểm thử được tạo ra xuyên suốt, và điều khoản bàn giao được thống nhất từ đầu thay vì đàm phán khi đã căng thẳng."
+        },
+        {
+          "question": "Các bạn làm theo giá trọn gói hay theo thời gian?",
+          "answer": "Cả hai. Giá trọn gói hợp với phạm vi đã xác định rõ; tính theo thời gian hợp với công việc còn thay đổi. Xem trang mô hình hợp tác để biết chúng tôi quyết định đề xuất loại nào như thế nào."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "dedicatedTeam": {
+      "navLabel": "Đội chuyên trách",
+      "title": "Đội ngũ phát triển chuyên trách",
+      "metaTitle": "Đội ngũ phát triển chuyên trách tại Việt Nam",
+      "metaDescription": "Thuê đội ngũ phát triển chuyên trách tại Việt Nam làm việc trong quy trình, công cụ và lộ trình của bạn — kỹ sư dài hạn mà không cần chu kỳ tuyển dụng.",
+      "lede": "Đội ngũ phát triển chuyên trách là nhóm kỹ sư gắn với bạn dài hạn, làm việc trong quy trình của bạn thay vì của nhà cung cấp. Họ tham gia standup của bạn, lấy việc từ backlog của bạn, và được lead của bạn review. Bạn có được tính liên tục như nhân sự nội bộ mà không phải gánh chu kỳ tuyển dụng, và có thể thay đổi cấu trúc đội khi lộ trình thay đổi.",
+      "sections": [
+        {
+          "heading": "Cách vận hành trên thực tế",
+          "body": "Đội ngũ do bạn điều hành. Chúng tôi lo tuyển dụng, hợp đồng lao động, thiết bị và giữ người; bạn lo họ làm gì.",
+          "bullets": [
+            "Bạn định nghĩa vai trò và phỏng vấn ứng viên trước khi họ tham gia.",
+            "Kỹ sư làm việc trong repository, hệ thống quản lý công việc và các buổi họp của bạn.",
+            "Quản lý kỹ thuật của bạn đặt ưu tiên và review công việc.",
+            "Chúng tôi lo hợp đồng, lương, thiết bị và thay người nếu có ai nghỉ."
+          ]
+        },
+        {
+          "heading": "Vì sao tính liên tục quan trọng hơn số lượng người",
+          "body": "Phần đắt đỏ nhất của bất kỳ đội kỹ thuật nào là ngữ cảnh — hiểu vì sao hệ thống có hình hài như hiện tại. Một đội chuyên trách có giá trị ở tháng thứ sáu cao hơn tháng đầu tiên, nên chúng tôi thiết kế các hợp tác này hướng tới giữ người thay vì thay người. Nếu buộc phải thay một kỹ sư, việc bàn giao diễn ra có chồng lấn thời gian, không để lại khoảng trống."
+        },
+        {
+          "heading": "Chọn giữa ba mô hình",
+          "body": "Điểm khác biệt đáng kể là ai chịu trách nhiệm khi có việc trễ. Dùng bảng dưới để quyết định nên bắt đầu từ cuộc trao đổi nào."
+        }
+      ],
+      "table": {
+        "caption": "Đội chuyên trách vs. tăng cường nhân sự vs. phát triển offshore",
+        "columns": ["", "Đội chuyên trách", "Tăng cường nhân sự", "Phát triển offshore"],
+        "rows": [
+          ["Ai quản lý công việc", "Quản lý của bạn", "Quản lý của bạn", "Chúng tôi"],
+          ["Ai chịu trách nhiệm kết quả", "Bạn", "Bạn", "Chúng tôi"],
+          [
+            "Thời hạn điển hình",
+            "Từ sáu tháng trở lên",
+            "Vài tuần đến vài tháng",
+            "Theo độ dài dự án"
+          ],
+          [
+            "Hợp nhất khi",
+            "Bạn cần năng lực bổ sung lâu dài",
+            "Bạn cần một kỹ năng cụ thể ngay",
+            "Bạn cần người chịu trách nhiệm bàn giao"
+          ],
+          ["Chi phí khởi động", "Vừa phải, trả một lần", "Thấp", "Cao hơn, bao gồm khảo sát"]
+        ]
+      },
+      "faq": [
+        {
+          "question": "Chúng tôi có được phỏng vấn kỹ sư không?",
+          "answer": "Có, và bạn nên làm vậy. Bạn định nghĩa vai trò, chúng tôi lọc danh sách, bạn phỏng vấn và quyết định. Không ai vào đội của bạn mà chưa được bạn đồng ý."
+        },
+        {
+          "question": "Cam kết tối thiểu là bao lâu?",
+          "answer": "Đội chuyên trách chỉ hợp lý về kinh tế trên khoảng thời gian dài, vì chi phí khởi động trả một lần và thu hồi dần. Với nhu cầu ngắn hoặc chưa chắc chắn, tăng cường nhân sự là câu trả lời rẻ hơn."
+        },
+        {
+          "question": "Nếu một kỹ sư nghỉ thì sao?",
+          "answer": "Chúng tôi thay người và bố trí thời gian chồng lấn để ngữ cảnh được chuyển giao thay vì mất đi. Chi phí giữ người là việc của chúng tôi, không phải của bạn."
+        },
+        {
+          "question": "Đội có tăng hoặc giảm quy mô được không?",
+          "answer": "Được, với thời gian báo trước ghi trong hợp đồng. Giảm quy mô là một phần của thỏa thuận không kém gì tăng quy mô — chính sự linh hoạt đó là lý do lớn khiến các đội chọn thuê ngoài."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "staffAugmentation": {
+      "navLabel": "Tăng cường nhân sự",
+      "title": "Tăng cường nhân sự IT",
+      "metaTitle": "Dịch vụ tăng cường nhân sự IT từ Việt Nam",
+      "metaDescription": "Bổ sung kỹ sư cấp cao đích danh vào đội ngũ sẵn có trong vài tuần đến vài tháng. Tăng cường nhân sự IT từ Việt Nam — bạn quản lý công việc, chúng tôi lo phần còn lại.",
+      "lede": "Tăng cường nhân sự IT là việc bổ sung từng kỹ sư đích danh vào đội ngũ sẵn có của bạn trong một khoảng thời gian xác định. Bạn quản lý họ đúng như quản lý nhân sự của mình; chúng tôi lo hợp đồng, lương và thiết bị. Đây là cách hợp tác nhanh nhất và ít ràng buộc nhất với chúng tôi, và là câu trả lời đúng khi bạn biết chính xác đang thiếu kỹ năng nào.",
+      "sections": [
+        {
+          "heading": "Khi nào tăng cường nhân sự tốt hơn tuyển dụng",
+          "body": "Tuyển chính thức là câu trả lời đúng cho năng lực lõi và lâu dài. Tăng cường nhân sự tốt hơn khi nhu cầu có điểm kết thúc, hoặc khi bạn không thể chờ hết một chu kỳ tuyển dụng.",
+          "bullets": [
+            "Một deadline cần nhiều người hơn số bạn có, trong khoảng thời gian đã biết.",
+            "Một kỹ năng cụ thể — nền tảng mobile, một loại cơ sở dữ liệu, một đợt chuyển lên cloud — chỉ cần một lần.",
+            "Bù cho thời gian nghỉ thai sản, thời gian báo trước, hoặc một trường hợp nghỉ đột xuất.",
+            "Kiểm chứng xem một vị trí có thực sự cần thiết không trước khi mở biên chế chính thức."
+          ]
+        },
+        {
+          "heading": "Chúng tôi lo gì và bạn lo gì",
+          "body": "Ranh giới được giữ đơn giản một cách có chủ đích, vì sự mơ hồ về việc ai quản lý kỹ sư chính là nguyên nhân thường gặp khiến mô hình này thất bại.",
+          "bullets": [
+            "Bạn: ưu tiên công việc, code review, định hướng hằng ngày, phản hồi hiệu suất.",
+            "Chúng tôi: tìm người, hợp đồng, lương, thiết bị, và thay người khi cần.",
+            "Cả hai: một buổi trao đổi định kỳ để vấn đề lộ ra sớm thay vì đến lúc gia hạn."
+          ]
+        },
+        {
+          "heading": "Giới hạn cần nói thẳng",
+          "body": "Kỹ sư bổ sung phát huy tốt khi đội của bạn đã có định hướng rõ và quy trình review vận hành được. Nếu điểm nghẽn là không ai có thời gian định hướng công việc, thì thêm kỹ sư làm mọi thứ tệ hơn chứ không tốt lên. Trong trường hợp đó, một đội chuyên trách có lead riêng, hoặc một đội offshore chịu trách nhiệm cho kết quả, là cấu trúc phù hợp hơn — hãy nói sớm và chúng tôi sẽ đề xuất tương ứng."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bao lâu thì một người có thể bắt đầu?",
+          "answer": "Nhanh hơn đội chuyên trách vì không có bước xây dựng đội, nhưng vẫn tùy kỹ năng. Chuyên môn hiếm mất nhiều thời gian tìm hơn chuyên môn phổ biến. Chúng tôi đưa bạn ngày thực tế, không phải ngày mong đợi."
+        },
+        {
+          "question": "Chúng tôi có làm việc với cùng một người suốt không?",
+          "answer": "Có. Tăng cường nhân sự là con người đích danh, không phải năng lực thay thế lẫn nhau được. Nếu buộc phải đổi, chúng tôi báo sớm và bố trí thời gian chồng lấn."
+        },
+        {
+          "question": "Hợp tác ngắn nhất là bao lâu?",
+          "answer": "Hợp tác ngắn là khả thi nhưng hiếm khi đáng — những tuần đầu chủ yếu là xây dựng ngữ cảnh, nên hợp đồng quá ngắn tiêu phần lớn giá trị vào giai đoạn khởi động. Hãy cho biết deadline bạn đang chạy và chúng tôi sẽ nói thẳng có đáng bắt đầu hay không."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "customSoftwareDevelopment": {
+      "navLabel": "Phần mềm theo yêu cầu",
+      "title": "Phát triển phần mềm theo yêu cầu",
+      "metaTitle": "Dịch vụ phát triển phần mềm theo yêu cầu",
+      "metaDescription": "Phần mềm web, mobile và backend xây quanh nghiệp vụ của bạn — được thiết kế, xây dựng, kiểm thử và vận hành bởi đội kỹ sư đặt tại Việt Nam.",
+      "lede": "Phát triển phần mềm theo yêu cầu là xây hệ thống quanh nghiệp vụ của bạn thay vì uốn doanh nghiệp theo một sản phẩm mua sẵn. Việc này đáng làm khi chính quy trình bạn vận hành là thứ tạo ra lợi thế cạnh tranh, và nên tránh khi một công cụ có sẵn đã đủ dùng. Chúng tôi sẽ nói bạn đang ở tình huống nào trước khi báo giá.",
+      "sections": [
+        {
+          "heading": "Chúng tôi xây những gì",
+          "body": "Phần lớn công việc của chúng tôi là hệ thống nghiệp vụ — phần mềm mà doanh nghiệp dùng để vận hành chứ không phải để bán, dù chúng tôi cũng xây sản phẩm.",
+          "bullets": [
+            "Ứng dụng web và nền tảng nội bộ, thường bằng TypeScript với React hoặc Next.js.",
+            "Dịch vụ backend và API bằng Node.js, Python hoặc Go, với PostgreSQL phía sau.",
+            "Ứng dụng mobile khi trình duyệt thực sự không đủ.",
+            "Đường ống dữ liệu và báo cáo trong trường hợp báo cáo chính là sản phẩm."
+          ]
+        },
+        {
+          "heading": "Xây hay mua",
+          "body": "Phép thử trung thực là quy trình đó tạo khác biệt hay chỉ là chi phí. Nếu một đối thủ có thể mua sẵn cùng năng lực mà không hề bất lợi, thì hãy mua. Hãy xây khi các quy tắc gắn với cách bạn thắng, khi phần khó nằm ở tích hợp với những gì bạn đang chạy, hoặc khi chi phí bản quyền ở quy mô của bạn vượt quá chi phí tự xây."
+        },
+        {
+          "heading": "Cách chúng tôi giữ hệ thống dễ bảo trì",
+          "body": "Phần đắt đỏ của phần mềm theo yêu cầu không phải lúc viết, mà là lúc sống chung với nó. Mọi thứ chúng tôi xây đều được thiết lập sao cho một đội khác có thể tiếp quản.",
+          "bullets": [
+            "Kiểm thử tự động viết song song với tính năng, không bổ sung về sau.",
+            "Quyết định kiến trúc được ghi lại kèm lý do, để những thay đổi sau này có căn cứ.",
+            "Chọn giải pháp quy ước và đơn giản, trừ khi có lý do cụ thể để làm khác.",
+            "Triển khai tự động hóa ngay từ lần phát hành đầu, để việc ra bản không phụ thuộc vào một người."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn ước lượng một dự án thế nào?",
+          "answer": "Sau khi khảo sát, không phải trước. Một ước lượng đưa ra khi chưa ai nhìn vào ràng buộc của bạn chỉ là phỏng đoán có gắn con số. Giai đoạn khảo sát ngắn, có tính phí, và tạo ra một bản kế hoạch bạn có thể mang đi nơi khác nếu muốn."
+        },
+        {
+          "question": "Các bạn làm được trên hệ thống sẵn có của chúng tôi không?",
+          "answer": "Được, và phần lớn công việc của chúng tôi đúng là như vậy. Dự án làm mới từ đầu là ngoại lệ. Chúng tôi bắt đầu bằng việc đọc mã nguồn và hạ tầng trước khi đề xuất bất cứ điều gì."
+        },
+        {
+          "question": "Các bạn dùng công nghệ gì?",
+          "answer": "Chủ yếu TypeScript, Node.js, React và Next.js, Python, Go, PostgreSQL, Kubernetes và AWS. Chúng tôi chọn theo thứ đội của bạn bảo trì được, không theo thứ mới nhất."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "systemIntegration": {
+      "navLabel": "Tích hợp hệ thống",
+      "title": "Tích hợp hệ thống",
+      "metaTitle": "Dịch vụ tích hợp hệ thống: ERP, CRM và thanh toán",
+      "metaDescription": "Kết nối ERP, CRM, thanh toán và hệ thống bên thứ ba thành một luồng chạy ổn định. Dịch vụ tích hợp hệ thống chú trọng xử lý lỗi và khả năng quan trắc.",
+      "lede": "Tích hợp hệ thống là công việc khiến các hệ thống riêng lẻ hoạt động như một — đưa dữ liệu qua lại giữa ERP, CRM, cổng thanh toán và mọi thứ khác doanh nghiệp đang dùng, đủ tin cậy để không ai phải nhập tay lại. Phần khó gần như không bao giờ là luồng thuận lợi. Nó nằm ở chuyện gì xảy ra khi một hệ thống sập, chậm, hoặc trả về thứ không ai lường trước.",
+      "sections": [
+        {
+          "heading": "Công việc tích hợp thường trông ra sao",
+          "body": "Phần lớn dự án tích hợp bắt đầu vì có người đang chép dữ liệu thủ công giữa các hệ thống, và chi phí của việc đó cuối cùng đã lộ ra.",
+          "bullets": [
+            "Hệ thống ERP và kế toán cần dữ liệu đơn hàng và tồn kho từ nơi khác.",
+            "Cổng thanh toán, nơi tính đúng đắn và đối soát quan trọng hơn tốc độ.",
+            "CRM và công cụ marketing cần một bản ghi khách hàng đáng tin.",
+            "Hệ thống cũ không có API hiện đại, phải tiếp cận qua tệp, hàng đợi hoặc cơ sở dữ liệu."
+          ]
+        },
+        {
+          "heading": "Thiết kế cho luồng có lỗi",
+          "body": "Một tích hợp chỉ chạy được khi mọi hệ thống đều khỏe thì chưa phải đã hoàn thành. Chúng tôi thiết kế cho tình huống hỏng cục bộ ngay từ đầu, vì trên production đó là trạng thái bình thường chứ không phải ngoại lệ.",
+          "bullets": [
+            "Thao tác idempotent, để một lần thử lại không thể trừ tiền hai lần hay tạo trùng đơn.",
+            "Quy tắc thử lại và giãn cách rõ ràng thay vì hy vọng lần sau sẽ thành công.",
+            "Xử lý dead-letter để thông điệp lỗi hiện ra thay vì mất đi lặng lẽ.",
+            "Kiểm tra đối soát bắt được sai lệch giữa các hệ thống trước khi khách hàng phát hiện."
+          ]
+        },
+        {
+          "heading": "Làm cho luồng quan sát được",
+          "body": "Khi một tích hợp trục trặc, câu hỏi đầu tiên luôn là một bản ghi đã dừng ở đâu. Nếu trả lời câu đó phải đọc log trên bốn hệ thống thì mỗi sự cố mất hàng giờ thay vì vài phút. Chúng tôi gắn công cụ đo xuyên suốt luồng để câu hỏi đó chỉ có một chỗ trả lời."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Hệ thống không có API thì tích hợp được không?",
+          "answer": "Thường là được. Hệ thống cũ thường tiếp cận qua trao đổi tệp theo lịch, truy cập cơ sở dữ liệu, hoặc hàng đợi thông điệp. Cách này kém thanh lịch hơn nhưng hoàn toàn khả thi, và chúng tôi sẽ nói rõ các đánh đổi trước khi cam kết."
+        },
+        {
+          "question": "Dữ liệu mâu thuẫn giữa các hệ thống thì xử lý sao?",
+          "answer": "Bằng cách cùng bạn quyết định dứt khoát hệ thống nào là nguồn chuẩn cho từng trường dữ liệu, trước khi viết bất kỳ dòng mã nào. Phần lớn rắc rối tích hợp đến từ việc quyết định đó được đưa ra một cách ngầm định."
+        },
+        {
+          "question": "Sau khi lên production các bạn có hỗ trợ tiếp không?",
+          "answer": "Có thể. Tích hợp hay hỏng khi hệ thống ở hai đầu thay đổi, nên hỗ trợ vận hành thường có giá trị hơn cả lần xây ban đầu. Hoặc chúng tôi bàn giao kèm tài liệu và runbook."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "devopsCloud": {
+      "navLabel": "DevOps & cloud",
+      "title": "DevOps & Cloud",
+      "metaTitle": "Dịch vụ DevOps thuê ngoài và chuyển đổi cloud",
+      "metaDescription": "Pipeline CI/CD, hạ tầng dạng mã, quan trắc, Kubernetes và tối ưu chi phí cloud — DevOps thuê ngoài từ Việt Nam cho đội ngũ muốn việc phát hành thôi đau đớn.",
+      "lede": "Công việc DevOps là thứ biến việc phát hành phần mềm từ một sự kiện thành một thói quen. Chúng tôi xây pipeline, định nghĩa hạ tầng và hệ thống giám sát để đội ngũ có thể triển khai vào chiều thứ Ba mà không ai phải nín thở. Đây thường là phần việc có đòn bẩy cao nhất với một đội đang ra bản chậm, vì lợi ích cộng dồn qua mọi lần phát hành sau đó.",
+      "sections": [
+        {
+          "heading": "Chúng tôi thường bắt đầu từ đâu",
+          "body": "Câu hỏi đầu tiên là điều gì khiến việc phát hành hôm nay khổ sở. Câu trả lời quyết định thứ tự công việc, và nó hiếm khi là thứ người ta nghĩ.",
+          "bullets": [
+            "CI/CD: build, test và deploy tự động để việc phát hành lặp lại được.",
+            "Hạ tầng dạng mã, để môi trường được tạo lại thay vì phải nhớ.",
+            "Quan trắc: log, chỉ số và trace trả lời được câu hỏi ngay giữa sự cố.",
+            "Chi phí cloud: tìm ra khoản chi không mua về thứ gì cả."
+          ]
+        },
+        {
+          "heading": "Kubernetes, nhưng chỉ khi nó xứng đáng",
+          "body": "Kubernetes giải quyết vấn đề thật ở quy mô thật, và tạo ra vấn đề mới ở dưới quy mô đó. Chúng tôi dùng nó khi khối lượng công việc biện minh được cho chi phí vận hành, và đề xuất thứ đơn giản hơn khi không. Một nền tảng mà đội của bạn không gỡ lỗi được lúc 3 giờ sáng là gánh nặng, dù nó hiện đại đến đâu."
+        },
+        {
+          "heading": "Chuyển lên cloud không theo kiểu một phát ăn ngay",
+          "body": "Các đợt chuyển đổi thất bại khi chúng theo kiểu được ăn cả ngã về không. Chúng tôi chuyển từng khối công việc một, giữ khả năng quay lui ở mỗi bước, và đo chi phí lẫn hiệu năng trước và sau để bài toán kinh doanh được kiểm chứng thay vì mặc định."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn làm việc với nhà cung cấp cloud nào?",
+          "answer": "Chủ yếu AWS, và làm với các nhà cung cấp khác nếu đó là thứ bạn đang chạy. Đổi nhà cung cấp cloud hiếm khi đáng làm nếu chỉ vì bản thân việc đó — lợi ích thường đến từ cách kiến trúc khối công việc, không phải từ logo trên hóa đơn."
+        },
+        {
+          "question": "Các bạn có giảm được hóa đơn cloud của chúng tôi không?",
+          "answer": "Thường là có, và lượt rà đầu tiên thường tìm ra tài nguyên nhàn rỗi, máy chủ cấu hình quá dư, và dung lượng lưu trữ không ai nhận. Chúng tôi báo cáo những gì tìm thấy và chi phí để xử lý, để bạn quyết định việc nào đáng làm."
+        },
+        {
+          "question": "Các bạn có trực vận hành không?",
+          "answer": "Chúng tôi có thể vận hành thứ mình xây, bao gồm giám sát và xử lý sự cố. Điều khoản tùy mức độ bao phủ bạn cần — hãy cho biết yêu cầu về độ sẵn sàng và chúng tôi sẽ nói cụ thể điều gì là khả thi."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "engagementModels": {
+      "navLabel": "Mô hình hợp tác",
+      "title": "Mô hình hợp tác và cách tính giá",
+      "metaTitle": "Mô hình hợp tác: giá trọn gói và tính theo thời gian",
+      "metaDescription": "Cách SofinWave định giá công việc thuê ngoài phần mềm — giá trọn gói, tính theo thời gian, và năng lực chuyên trách — cùng cách chọn mô hình cho dự án của bạn.",
+      "lede": "Có ba cách trả tiền cho công việc phần mềm, và cách đúng phụ thuộc hoàn toàn vào mức độ đã biết rõ của phạm vi. Giá trọn gói hợp với công việc có thể đặc tả đầy đủ từ trước. Tính theo thời gian hợp với công việc sẽ thay đổi trong lúc bạn hiểu dần ra. Năng lực chuyên trách hợp với công việc liên tục không có điểm kết thúc. Chọn sai mô hình là nguyên nhân phổ biến nhất khiến quan hệ thuê ngoài trở nên đối đầu.",
+      "sections": [
+        {
+          "heading": "Giá trọn gói",
+          "body": "Bạn thống nhất phạm vi, giá và ngày hoàn thành. Mô hình này hiệu quả khi yêu cầu thực sự chốt được, và hỏng nặng khi không — vì mọi thay đổi trở thành một cuộc đàm phán thay vì một quyết định.",
+          "bullets": [
+            "Hợp nhất với: phạm vi đã hiểu rõ, một đợt chuyển đổi, một tích hợp xác định, hoặc xây lại thứ đã tồn tại.",
+            "Bạn nhận được: chắc chắn về ngân sách và định nghĩa hoàn thành rõ ràng.",
+            "Đánh đổi: thay đổi tốn kém hơn, vì mức giá đã tính sẵn rủi ro thay đổi vào trong.",
+            "Điều kiện: phải khảo sát trước. Chúng tôi không báo giá trọn gói chỉ dựa trên một bản mô tả."
+          ]
+        },
+        {
+          "heading": "Tính theo thời gian",
+          "body": "Bạn trả cho công sức thực tế bỏ ra, theo đơn giá đã thống nhất, có mức trần và điểm rà soát định kỳ. Đây là mô hình trung thực cho mọi thứ thực sự mới, vì nó không buộc bên nào phải giả vờ rằng phạm vi đã biết trước.",
+          "bullets": [
+            "Hợp nhất với: sản phẩm mới, yêu cầu còn thay đổi, và công việc mà việc khám phá vẫn tiếp diễn khi đang xây.",
+            "Bạn nhận được: khả năng đổi hướng mà không phải đàm phán lại hợp đồng.",
+            "Đánh đổi: bạn gánh rủi ro về phạm vi, nên dự báo và báo cáo trở nên quan trọng hơn.",
+            "Chúng tôi luôn kèm: mức trần đã thống nhất và điểm rà soát định kỳ, để nó không bao giờ chạy vô hạn."
+          ]
+        },
+        {
+          "heading": "Năng lực chuyên trách",
+          "body": "Bạn trả theo tháng cho một đội đã thống nhất, và tự điều hành công việc của họ. Đây là mô hình dễ hình dung nhất, và kinh tế nhất trên khoảng thời gian dài, vì chi phí khởi động chỉ trả một lần thay vì lặp lại ở mỗi ranh giới dự án.",
+          "bullets": [
+            "Hợp nhất với: phát triển sản phẩm liên tục không có ngày kết thúc xác định.",
+            "Bạn nhận được: chi phí hằng tháng dự đoán được và một đội tích lũy ngữ cảnh.",
+            "Đánh đổi: chỉ có lãi sau vài tháng, nên không hợp với nhu cầu ngắn hạn.",
+            "Thời gian báo trước khi giảm quy mô được thống nhất ngay từ đầu."
+          ]
+        },
+        {
+          "heading": "Chúng tôi thực sự quyết định thế nào",
+          "body": "Chúng tôi đề xuất mô hình phù hợp với công việc, không phải mô hình làm hợp đồng lớn nhất. Nếu bạn hỏi giá trọn gói cho thứ không thể đặc tả được, chúng tôi sẽ nói thẳng và giải thích cần gì để đến được đó — thường là một giai đoạn khảo sát ngắn, mà sau đó bạn có thể mang tới bất kỳ nhà cung cấp nào."
+        }
+      ],
+      "table": {
+        "caption": "Chọn mô hình",
+        "columns": ["Nếu...", "Hãy chọn", "Vì"],
+        "rows": [
+          [
+            "Phạm vi đã biết đầy đủ và ổn định",
+            "Giá trọn gói",
+            "Sự chắc chắn về ngân sách đáng để đổi lấy chi phí kiểm soát thay đổi"
+          ],
+          [
+            "Bạn vẫn đang tìm hiểu nên xây gì",
+            "Tính theo thời gian",
+            "Bạn đổi hướng được mà không cần phụ lục hợp đồng"
+          ],
+          [
+            "Công việc liên tục, không có ngày kết thúc",
+            "Năng lực chuyên trách",
+            "Chi phí khởi động trả một lần thay vì lặp lại mỗi dự án"
+          ],
+          [
+            "Bạn cần một kỹ năng cụ thể trong thời gian ngắn",
+            "Tính theo thời gian",
+            "Không có cam kết dài hạn phải gỡ về sau"
+          ]
+        ]
+      },
+      "faq": [
+        {
+          "question": "Đơn giá của các bạn là bao nhiêu?",
+          "answer": "Đơn giá phụ thuộc vai trò, cấp độ và độ dài hợp tác, nên công bố một con số duy nhất sẽ gây hiểu nhầm. Hãy cho biết các vai trò bạn cần và thời gian dự kiến, chúng tôi sẽ gửi bảng giá phản ánh đúng tình huống của bạn."
+        },
+        {
+          "question": "Giai đoạn khảo sát có tính phí không?",
+          "answer": "Có, và đó là chủ đích. Khảo sát có trả phí tạo ra một bản kế hoạch thật — kiến trúc, phạm vi và ước lượng — thuộc về bạn và bạn có thể mang tới nhà cung cấp khác. Khảo sát miễn phí chỉ tạo ra một tài liệu bán hàng."
+        },
+        {
+          "question": "Có thời hạn hợp đồng tối thiểu không?",
+          "answer": "Tùy mô hình. Năng lực chuyên trách có mức tối thiểu vì chi phí khởi động là chi phí thật; tính theo thời gian thì thường không. Thời gian báo trước luôn áp dụng cho cả hai bên."
+        },
+        {
+          "question": "Thay đổi phạm vi trong dự án giá trọn gói xử lý thế nào?",
+          "answer": "Qua một yêu cầu thay đổi bằng văn bản kèm ước lượng riêng, được thống nhất trước khi làm. Điểm mấu chốt là không ai phát hiện ra chi phí sau khi việc đã xong."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "fintech": {
+      "navLabel": "Fintech",
+      "title": "Phát triển phần mềm Fintech",
+      "metaTitle": "Công ty phát triển phần mềm Fintech",
+      "metaDescription": "Thanh toán, sổ cái, đối soát và hệ thống tài chính chịu quản lý, được xây bởi đội kỹ sư coi tính đúng đắn và khả năng kiểm toán là yêu cầu, không phải tính năng.",
+      "lede": "Phần mềm fintech có một đặc tính mà phần lớn phần mềm khác không có: gần đúng cũng đồng nghĩa với sai. Một sổ cái làm mất một xu, một giao dịch bị thử lại thành trừ tiền hai lần, hay một báo cáo không đối soát được đều không phải lỗi bề mặt. Chúng tôi xây hệ thống tài chính với tính đúng đắn, khả năng kiểm toán và xử lý lỗi được thiết kế vào từ commit đầu tiên, thay vì thêm vào sau một sự cố.",
+      "sections": [
+        {
+          "heading": "Chúng tôi xây gì trong lĩnh vực này",
+          "body": "Công việc tập trung quanh dòng tiền và những bản ghi chứng minh nó đã diễn ra.",
+          "bullets": [
+            "Tích hợp thanh toán và phần đối soát chứng minh số liệu khớp.",
+            "Sổ cái ghi kép và bản ghi giao dịch được xây để kiểm toán được.",
+            "Luồng mở tài khoản và KYC tôn trọng cả yêu cầu tuân thủ lẫn tỷ lệ hoàn tất.",
+            "Báo cáo mà các con số phải chịu được soi xét."
+          ]
+        },
+        {
+          "heading": "Tính đúng đắn như một kỷ luật kỹ thuật",
+          "body": "Trong hệ thống tài chính, những tình huống đáng chú ý là loại một phần triệu giao dịch mới gặp, vì ở quy mô lớn chúng xảy ra hằng ngày. Chúng tôi thiết kế cho chúng một cách tường minh.",
+          "bullets": [
+            "Idempotency trên mọi thao tác làm dịch chuyển tiền.",
+            "Bản ghi giao dịch bất biến — điều chỉnh là bút toán mới, không bao giờ là sửa đè.",
+            "Tác vụ đối soát phát hiện sai lệch trước khi khách hàng hay kiểm toán viên phát hiện.",
+            "Xử lý tường minh tình huống hỏng cục bộ giữa các hệ thống và nhà cung cấp."
+          ]
+        },
+        {
+          "heading": "Làm việc với yêu cầu chịu quản lý",
+          "body": "Chúng tôi là kỹ sư, không phải cố vấn tuân thủ của bạn, và sẽ không giả vờ ngược lại. Việc chúng tôi làm là xây hệ thống khiến việc tuân thủ chứng minh được — kiểm soát truy cập, dấu vết kiểm toán, lưu trữ dữ liệu, và bằng chứng có thể xuất ra khi được yêu cầu. Bộ phận pháp chế và tuân thủ của bạn định nghĩa nghĩa vụ; chúng tôi đảm bảo phần mềm chứng minh được nghĩa vụ đó đã được đáp ứng."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn đã làm hệ thống tài chính chịu quản lý chưa?",
+          "answer": "Đội ngũ của chúng tôi đã đưa lên production các hệ thống xử lý thanh toán và bản ghi tài chính. Về chi tiết liên quan trực tiếp đến tình huống của bạn, hãy trao đổi trong một buổi gọi — chúng tôi muốn bàn chi tiết thật dưới NDA hơn là công bố những tuyên bố chung chung."
+        },
+        {
+          "question": "Các bạn làm việc được với cổng thanh toán hiện tại của chúng tôi không?",
+          "answer": "Được. Phần lớn công việc fintech là tích hợp với nhà cung cấp đã được chọn sẵn. Chúng tôi bắt đầu bằng việc đọc kỹ ngữ nghĩa API của họ, đặc biệt quanh thử lại, webhook và thời điểm quyết toán, vì đó là nơi phát sinh phần lớn lỗi."
+        },
+        {
+          "question": "Các bạn xử lý dữ liệu tài chính nhạy cảm thế nào?",
+          "answer": "Truy cập tối thiểu, giảm thiểu dữ liệu, mã hóa khi truyền và khi lưu, và không đưa dữ liệu production vào môi trường phát triển. Các biện pháp cụ thể được thống nhất với bạn trước khi bắt đầu."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "ecommerce": {
+      "navLabel": "Thương mại điện tử",
+      "title": "Phát triển thương mại điện tử",
+      "metaTitle": "Phát triển thương mại điện tử và kỹ thuật nền tảng",
+      "metaDescription": "Gian hàng, thanh toán, tồn kho và hệ thống đơn hàng được thiết kế cho lưu lượng đỉnh — thuê ngoài phát triển thương mại điện tử cho đội ngũ có doanh thu phụ thuộc vào thời gian hoạt động.",
+      "lede": "Kỹ thuật thương mại điện tử được chấm điểm vào hai ngày trong năm. Một nền tảng chạy nhanh vào tháng Ba nhưng sập vào Black Friday là đã thất bại, bất kể nó hoạt động tốt đến đâu ở mức trung bình. Chúng tôi xây và tái kiến trúc hệ thống thương mại theo mức đỉnh chứ không theo mức trung bình, và theo những phần khách hàng để ý nhất: thanh toán, tìm kiếm, và con số tồn kho có đúng hay không.",
+      "sections": [
+        {
+          "heading": "Hệ thống thương mại thường đau ở đâu",
+          "body": "Các kiểu hỏng lặp lại qua nhiều doanh nghiệp, và hiếm khi nằm ở bản thân gian hàng.",
+          "bullets": [
+            "Luồng thanh toán xuống cấp khi tải cao, đúng lúc mất khách đắt giá nhất.",
+            "Tồn kho lệch khỏi thực tế, gây bán vượt và phải đối soát thủ công.",
+            "Luồng đơn hàng rối giữa nền tảng bán hàng, ERP và hệ thống kho.",
+            "Hiệu năng tìm kiếm và danh mục âm thầm kéo tụt tỷ lệ chuyển đổi."
+          ]
+        },
+        {
+          "heading": "Thiết kế cho đỉnh, không phải cho trung bình",
+          "body": "Hoạch định năng lực dựa trên lưu lượng trung bình chắc chắn dẫn tới một mùa cao điểm tồi tệ. Chúng tôi kiểm thử tải theo hồ sơ đỉnh sát thực tế, tìm ra chỗ hệ thống thực sự gãy, và sửa đúng chỗ đó thay vì chỗ trông có vẻ rủi ro.",
+          "bullets": [
+            "Kiểm thử tải theo hình dạng lưu lượng thực tế trước mùa cao điểm, không phải sau.",
+            "Chiến lược cache vẫn cho kết quả đúng khi giá và tồn kho thay đổi.",
+            "Suy giảm êm ái, để một dịch vụ gợi ý bị lỗi không bao giờ chặn một lượt mua.",
+            "Quan trắc đủ chặt để chẩn đoán ngay trong lúc cao điểm chứ không phải sau đó."
+          ]
+        },
+        {
+          "heading": "Đổi nền tảng mà không mất một mùa",
+          "body": "Viết lại toàn bộ hệ thống thương mại là rủi ro vì hạn chót do lịch quyết định chứ không do bạn. Chúng tôi thiên về thay thế từng phần — chuyển từng năng lực một sau một giao diện ổn định — để ở mọi thời điểm luôn có một hệ thống chạy được và một đường lui."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn có làm việc với nền tảng thương mại sẵn có không?",
+          "answer": "Có. Phần lớn công việc là mở rộng hoặc tích hợp các nền tảng đang chạy thay vì thay thế chúng, và thay thế thường là câu trả lời đắt hơn cho một câu hỏi sai."
+        },
+        {
+          "question": "Các bạn hỗ trợ được trước mùa cao điểm không?",
+          "answer": "Được, và càng sớm càng tốt. Kiểm thử tải và khắc phục cần thời gian; công việc bắt đầu trước vài tuần hữu ích hơn nhiều so với bắt đầu trước vài ngày."
+        },
+        {
+          "question": "Các bạn xử lý độ chính xác tồn kho thế nào?",
+          "answer": "Bằng cách xác định dứt khoát hệ thống nào là nguồn chuẩn cho tồn kho, rồi thiết kế luồng để mọi hệ thống khác đối soát về đó. Phần lớn vấn đề bán vượt là vấn đề quyền sở hữu dữ liệu chứ không phải vấn đề kỹ thuật."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "logistics": {
+      "navLabel": "Logistics",
+      "title": "Phát triển phần mềm logistics",
+      "metaTitle": "Phát triển phần mềm logistics và chuỗi cung ứng",
+      "metaDescription": "Hệ thống kho, vận tải và theo dõi vẫn cho kết quả đúng khi mạng thì không — phát triển phần mềm logistics cho hoạt động vận hành diễn ra ngoài đời thực.",
+      "lede": "Phần mềm logistics mô hình hóa một thế giới vật lý không hề hợp tác. Máy quét mất kết nối, tài xế đi qua hầm, và một kiện hàng vẫn tồn tại dù hệ thống có biết nó ở đâu hay không. Những hệ thống giả định kết nối ổn định và dữ liệu gọn gàng sẽ hỏng đúng trong điều kiện mà chúng được xây ra để phục vụ. Chúng tôi thiết kế hệ thống logistics quanh sự gián đoạn và khả năng chỉnh sửa, thay vì quanh luồng thuận lợi.",
+      "sections": [
+        {
+          "heading": "Chúng tôi xây gì",
+          "body": "Công việc trải từ sàn kho, ra đường, đến phần báo cáo nối hai nơi đó lại.",
+          "bullets": [
+            "Hệ thống kho và tồn kho, gồm giao diện cho máy cầm tay và hoạt động được khi mất mạng.",
+            "Vận tải và hoạch định tuyến, cùng ứng dụng dành cho tài xế.",
+            "Theo dõi hành trình với lịch sử sự kiện chịu được cập nhật đến sai thứ tự.",
+            "Tích hợp với hãng vận chuyển, hải quan, ERP và cổng thông tin khách hàng."
+          ]
+        },
+        {
+          "heading": "Thiết kế cho kết nối chập chờn",
+          "body": "Mọi thứ dùng trong kho hoặc trên xe đều sẽ mất kết nối. Đó là một đầu vào thiết kế, không phải một sự cố, và việc coi nó là sự cố chính là cách các hệ thống này tích tụ dần những cách làm thủ công chắp vá.",
+          "bullets": [
+            "Thu thập dữ liệu ưu tiên ngoại tuyến, xếp hàng chờ và đồng bộ khi có mạng trở lại.",
+            "Quy tắc xử lý xung đột quyết định từ trước thay vì ứng biến.",
+            "Mô hình sự kiện chấp nhận được cập nhật đến muộn hoặc sai thứ tự.",
+            "Giao diện dùng được bằng một tay, khi đeo găng, trong điều kiện thiếu sáng."
+          ]
+        },
+        {
+          "heading": "Khi dữ liệu và thực tế không khớp",
+          "body": "Trong logistics, sớm muộn điều đó luôn xảy ra. Vấn đề là hệ thống có làm cho sai lệch đó hiện ra và sửa được hay không, hay giấu đi cho tới khi khách hàng gọi điện. Chúng tôi xây sẵn đường đối soát và chỉnh sửa, kèm dấu vết kiểm toán, để việc chỉnh cho khớp thực tế là một thao tác vận hành bình thường chứ không phải một lần sửa thẳng vào cơ sở dữ liệu."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn tích hợp được với hệ thống hãng vận chuyển không?",
+          "answer": "Được. Tích hợp hãng vận chuyển là phần việc thường xuyên ở đây, và những điểm khó chịu của chúng — bộ từ vựng trạng thái không nhất quán, webhook đến muộn, sự kiện sai thứ tự — chính là thứ thiết kế phải hấp thụ."
+        },
+        {
+          "question": "Các bạn có làm ứng dụng di động cho tài xế và nhân viên kho không?",
+          "answer": "Có, kèm khả năng hoạt động ngoại tuyến khi môi trường đòi hỏi. Tính dễ dùng trong điều kiện thực tế ở đây quan trọng hơn phần lớn phần mềm khác: tay lạnh, đeo găng và thiếu sáng đều là ràng buộc thiết kế."
+        },
+        {
+          "question": "Các bạn làm việc được với WMS hoặc TMS hiện có của chúng tôi không?",
+          "answer": "Thường là được. Thay thế một hệ thống kho hoặc vận tải đang chạy tốt gây gián đoạn lớn và hiếm khi là đường rẻ nhất. Chúng tôi thường mở rộng và tích hợp cái đang chạy nhiều hơn."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn đang xây gì",
+        "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "about": {
+      "navLabel": "Về chúng tôi",
+      "title": "Về SofinWave",
+      "metaTitle": "Về SofinWave — thuê ngoài phần mềm từ Việt Nam",
+      "metaDescription": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam, làm việc với khách hàng Mỹ và châu Âu bằng tiếng Anh và tiếng Việt, từ kiến trúc đến bàn giao và vận hành.",
+      "lede": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam. Chúng tôi làm việc với doanh nghiệp ở Mỹ, châu Âu và châu Á dưới hình thức đội offshore, đội chuyên trách nằm trong quy trình của họ, hoặc từng kỹ sư lấp đúng khoảng trống cụ thể. Công việc của chúng tôi phần lớn nằm trên các hệ thống đã tồn tại và đã có người dùng — loại việc ít hào nhoáng nhưng rủi ro cao.",
+      "sections": [
+        {
+          "heading": "Cách chúng tôi làm việc",
+          "body": "Đây là những cam kết định hình mọi hợp tác, và cũng là những gì chính chúng tôi muốn nhận được từ một nhà cung cấp.",
+          "bullets": [
+            "Chúng tôi nói thẳng điều mình nghĩ, kể cả khi câu trả lời là bạn không nên thuê chúng tôi.",
+            "Ước lượng đưa ra sau khi khảo sát, không bao giờ chỉ từ một bản mô tả.",
+            "Tiến độ được chứng minh bằng phần mềm chạy được thay vì báo cáo trạng thái.",
+            "Tài liệu và kiểm thử là một phần của công việc, nên bàn giao không bao giờ là dự án riêng.",
+            "Bạn sở hữu toàn bộ mã nguồn và tài sản trí tuệ, và chúng nằm trong repository cùng tài khoản của bạn."
+          ]
+        },
+        {
+          "heading": "Chúng tôi mạnh ở đâu",
+          "body": "Chúng tôi là một đội nhỏ gồm người có kinh nghiệm, không phải một đội lớn pha trộn nhiều cấp độ, và điều đó định hình loại việc chúng tôi nhận. Chúng tôi mạnh nhất ở backend và nền tảng — kiến trúc, tích hợp, hiệu năng, và phần vận hành để một hệ thống chạy đúng trên production.",
+          "bullets": [
+            "TypeScript và Node.js, React và Next.js ở phía giao diện.",
+            "Python và Go cho các dịch vụ và công việc dữ liệu.",
+            "PostgreSQL, Kubernetes và AWS cho phần hạ tầng bên dưới.",
+            "Fintech, thương mại điện tử, logistics, nền tảng SaaS và hệ thống doanh nghiệp."
+          ]
+        },
+        {
+          "heading": "Chúng tôi không phải là gì",
+          "body": "Chúng tôi không phải nơi cung ứng nhân lực có thể bố trí bốn mươi kỹ sư vào tháng sau, và cũng không phải studio thiết kế. Nếu bạn cần quy mô rất lớn, hoặc cần thiết kế thương hiệu và sản phẩm là sản phẩm bàn giao chính, một đối tác khác sẽ phục vụ bạn tốt hơn và chúng tôi sẽ nói điều đó sớm thay vì muộn."
+        },
+        {
+          "heading": "Làm việc xuyên múi giờ",
+          "body": "Chúng tôi ở Việt Nam, múi giờ UTC+7, không thay đổi theo giờ mùa hè. Điều đó cho khoảng nửa ngày làm việc trùng trực tiếp với châu Âu và trùng ở hai đầu ngày với bờ Đông nước Mỹ. Chúng tôi vận hành theo nguyên tắc ưu tiên trao đổi bằng văn bản để tiến độ không phụ thuộc vào việc hai bên cùng thức, và sắp xếp có chủ đích những giờ trực tiếp thực sự cần thiết."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Đội ngũ có quy mô thế nào?",
+          "answer": "Chúng tôi chủ đích là một đội nhỏ gồm người có kinh nghiệm thay vì một đội lớn pha trộn. Về quy mô hiện tại và những người cụ thể sẽ làm dự án của bạn, hãy trao đổi trong một buổi gọi — dù sao bạn cũng nên gặp họ trước khi cam kết."
+        },
+        {
+          "question": "Các bạn làm việc bằng ngôn ngữ nào?",
+          "answer": "Tiếng Anh và tiếng Việt. Các tài liệu bàn giao — đặc tả, code review, tài liệu kỹ thuật, demo — mặc định bằng tiếng Anh trừ khi bạn muốn khác."
+        },
+        {
+          "question": "Các bạn đặt ở đâu?",
+          "answer": "Việt Nam, làm việc với khách hàng quốc tế. Chúng tôi ưu tiên làm việc từ xa với khách hàng và mặc định phối hợp bằng văn bản."
+        },
+        {
+          "question": "Chúng tôi nói chuyện được với khách hàng tham chiếu không?",
+          "answer": "Hãy hỏi trong buổi trao đổi. Chúng tôi sẽ kết nối bạn với những khách hàng đã đồng ý chia sẻ, thay vì công bố tên và trích dẫn khi chưa có sự tham gia của họ."
+        }
+      ],
+      "cta": {
+        "title": "Bắt đầu bằng một cuộc trò chuyện",
+        "body": "Hãy cho biết bạn đang xây gì và điều gì đang cản trở. Nếu chúng tôi không phù hợp, chúng tôi cũng sẽ nói vậy.",
+        "button": "Đặt lịch tư vấn"
+      }
+    },
+    "contact": {
+      "navLabel": "Liên hệ",
+      "title": "Liên hệ",
+      "metaTitle": "Liên hệ SofinWave",
+      "metaDescription": "Liên hệ về thuê ngoài phát triển phần mềm, đội phát triển offshore, hoặc tăng cường nhân sự. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "lede": "Hãy cho chúng tôi biết bạn đang xây gì và điều gì đang cản trở. Tin nhắn đầu tiên hữu ích nhất là mô tả hệ thống, điểm nghẽn bạn đang gặp, và kết quả bạn cần — thường chừng đó đã đủ để chúng tôi nói được mình có giúp được không và sẽ đề xuất mô hình hợp tác nào. Chúng tôi trả lời trong vòng một ngày làm việc.",
+      "sections": [
+        {
+          "heading": "Sau khi bạn liên hệ thì điều gì diễn ra",
+          "body": "Không có chuỗi bán hàng, không có email nhỏ giọt. Quy trình được thiết kế cho ngắn gọn.",
+          "bullets": [
+            "Chúng tôi trả lời trong vòng một ngày làm việc, thường là kèm câu hỏi.",
+            "Một buổi trao đổi khoảng 45 phút để hiểu mục tiêu và ràng buộc.",
+            "Một đề xuất bằng văn bản gồm phạm vi, mô hình và ước lượng trung thực.",
+            "Nếu chúng tôi không phù hợp, chúng tôi nói thẳng — thường kèm gợi ý ai thì phù hợp."
+          ]
+        },
+        {
+          "heading": "Trước khi gửi thông tin cần bảo mật",
+          "body": "Hãy giữ tin nhắn đầu tiên ở mức bạn thấy thoải mái khi đưa vào email. Chúng tôi ký NDA trước khi khảo sát kỹ thuật, nên các chi tiết có thể chờ đến lúc đó."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bao lâu thì các bạn trả lời?",
+          "answer": "Trong vòng một ngày làm việc. Chúng tôi ở múi giờ UTC+7, nên tin nhắn gửi vào buổi chiều giờ Mỹ thường đã có hồi đáp khi bạn bắt đầu ngày làm việc kế tiếp."
+        },
+        {
+          "question": "Tôi có cần đặc tả chi tiết trước không?",
+          "answer": "Không. Một mô tả rõ ràng về vấn đề hữu ích hơn một bản đặc tả viết ra khi chưa ai nhìn vào các ràng buộc."
+        },
+        {
+          "question": "Các bạn có ký NDA không?",
+          "answer": "Có, trước bất kỳ khảo sát kỹ thuật nào. Hãy gửi mẫu của bạn hoặc yêu cầu mẫu của chúng tôi."
+        }
+      ],
+      "cta": {
+        "title": "Bạn muốn dùng email hơn?",
+        "body": "Hãy viết thẳng cho chúng tôi, cách nào cũng đến cùng một nơi. Biểu mẫu bên dưới cũng gửi về đúng địa chỉ đó.",
+        "button": "Đặt lịch tư vấn"
+      }
+    }
   }
 }

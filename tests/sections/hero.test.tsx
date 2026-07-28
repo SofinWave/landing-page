@@ -12,7 +12,7 @@ describe("Hero", () => {
       </NextIntlClientProvider>,
     );
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "We ship the systems your business runs on",
+      "Your offshore engineering team in Vietnam",
     );
     expect(screen.getByText("Book a consultation")).toBeInTheDocument();
     expect(screen.getByText("View case studies")).toBeInTheDocument();
