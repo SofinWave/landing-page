@@ -112,9 +112,19 @@ and read their links from the registry.
 
 shadcn/ui, "new-york" style (`components.json`), Radix primitives under `components/ui/`. Icons from `lucide-react`. `cn()` (clsx + tailwind-merge) from `@/lib/utils` for class merging. Theming via `next-themes` (`components/theme-provider.tsx`, `mode-togger.tsx`), light/dark through CSS variables in `app/globals.css`.
 
-### Server actions
+### Contact form
 
-`app/actions/contact.ts` (`"use server"`) handles the contact form, validating with a Zod schema in `app/actions/contact.schema.ts`. Currently logs submissions — forwarding to an email/webhook provider is a TODO.
+There is no server action and no inbox integration. `lib/contact.ts` holds the
+Zod schema and `buildContactMailto()`; the form validates in the browser and
+then hands off to a `mailto:` URL, so the enquiry is composed and sent from the
+visitor's own mail client to `SITE_EMAIL`.
+
+That means submissions are never recorded server-side, so the UI must not claim
+delivery — it says the mail app was opened, keeps the typed text (nothing opens
+when no mail client is registered), and always shows the address as a fallback.
+The message is capped at `MESSAGE_MAX` because long `mailto:` URLs get truncated.
+Wiring a real provider later means replacing the handoff, not restoring the
+deleted action.
 
 ### SEO / metadata
 
