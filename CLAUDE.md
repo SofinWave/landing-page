@@ -23,7 +23,11 @@ the software business.
 
 ## Commands
 
-Package manager is **pnpm** (despite the presence of `yarn.lock`/`package-lock.json` — CI and the pre-commit hook both use pnpm).
+Package manager is **pnpm**, pinned by `packageManager` in `package.json`.
+`pnpm-lock.yaml` is the only lockfile in the repo — do not add `yarn.lock` or
+`package-lock.json` back. Vercel picks its package manager by lockfile and ranks
+`yarn.lock` *above* `pnpm-lock.yaml`, so a second lockfile silently hands the
+deploy to yarn and installs a tree nobody has built.
 
 ```bash
 pnpm dev            # dev server (Turbopack) on http://localhost:3000
@@ -44,7 +48,7 @@ pnpm exec vitest run tests/sections/hero.test.tsx
 pnpm exec vitest run -t "renders the CTA"
 ```
 
-Docker workflows are wrapped as [mise](https://mise.jdx.dev) file tasks namespaced `local:*` / `prod:*` / `rpi:*` (see `mise.toml` and `mise/tasks/`; list with `mise tasks ls`). Note: the containerized `mise run local:dev` task runs `yarn dev` **inside** the container — this is the only place yarn is used.
+Docker workflows are wrapped as [mise](https://mise.jdx.dev) file tasks namespaced `local:*` / `prod:*` / `rpi:*` (see `mise.toml` and `mise/tasks/`; list with `mise tasks ls`). All three image families install with pnpm via corepack.
 
 ## Formatting vs. linting split
 

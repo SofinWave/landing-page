@@ -9,6 +9,11 @@ ARG NAME_CONTAINER_USER=user_container
 
 RUN apt update
 
+# pnpm is the project's package manager; corepack pins it to the version in
+# package.json's `packageManager` field. Must run as root — it writes shims
+# into /usr/local/bin.
+RUN corepack enable
+
 RUN userdel -r node
 RUN echo UID_HOST_USER = ${UID_HOST_USER} - GID_HOST_USER = ${GID_HOST_USER}
 RUN addgroup --system --gid ${GID_HOST_USER} ${NAME_CONTAINER_GROUP}
@@ -23,9 +28,10 @@ USER ${NAME_CONTAINER_USER}
 
 WORKDIR /app
 
-ADD package.json .
-ADD yarn.lock .
+COPY package.json pnpm-lock.yaml ./
 
-RUN yarn install
+# --ignore-scripts skips the package's own `prepare` (husky needs a .git that
+# isn't in the build context).
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 EXPOSE 3000
