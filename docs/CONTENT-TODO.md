@@ -39,17 +39,28 @@ but stay off until the quotes are real and attributable with permission.
 Once you have real quotes with named consent, say so and the `Review` and
 `AggregateRating` nodes can be wired into `lib/structured-data.ts`.
 
-## 3. Complete the team roster
+## 3. Strengthen the team roster
 
 **Where:** `messages/*.json` → `team.members`
 
-Two of three entries are literally named "Team Member". Real names and roles
-matter for E-E-A-T, and `components/structured-data.tsx` filters placeholder
-names out of `Person` schema, so those two currently emit nothing.
+The placeholder entries are gone — the roster now carries real first names
+(Jesse, Alex, Brian) with 512x512 portraits, so all three are emitted as
+schema.org `Person` nodes rather than being filtered out.
 
-Add real names, roles, and ideally a one-line background each. Photos go in
-`public/images/members/` — note the current files there are 2.7–5.3 MB PNGs and
-should be resized to roughly 400×400 before use.
+What would strengthen it further, in rough order of value:
+
+- **Surnames.** Full names are a much stronger entity signal than first names,
+  and let search engines connect a person to their LinkedIn or GitHub.
+- **A one-line background each** — years of experience, or the systems they have
+  shipped. E-E-A-T rewards demonstrable expertise, not job titles.
+- **Real portraits for Alex and Brian.** Two of three are currently the
+  `anonymous-*` placeholders. Stock or anonymised images are honest as long as
+  nobody presents them as photographs of those people, but real ones are better.
+- **`sameAs` per person** — LinkedIn or GitHub URLs on the `Person` nodes.
+
+The placeholder filter in `components/structured-data.tsx` still guards against
+regressions: any entry named "Team Member", "TBD", or "Coming soon" is silently
+omitted from schema rather than published as staff.
 
 ## 4. Business identity facts for Organization schema
 
