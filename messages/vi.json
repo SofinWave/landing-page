@@ -1150,7 +1150,7 @@
         },
         {
           "question": "Các bạn làm việc bằng ngôn ngữ nào?",
-          "answer": "Tiếng Anh và tiếng Việt. Các tài liệu bàn giao — đặc tả, code review, tài liệu kỹ thuật, demo — mặc định bằng tiếng Anh trừ khi bạn muốn khác."
+          "answer": "Tiếng Anh, tiếng Việt và tiếng Trung. Các tài liệu bàn giao — đặc tả, code review, tài liệu kỹ thuật, demo — mặc định bằng tiếng Anh trừ khi bạn muốn khác."
         },
         {
           "question": "Các bạn đặt ở đâu?",
