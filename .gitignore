@@ -4,11 +4,14 @@
 /node_modules
 /.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.yarn/
+
+# Foreign lockfiles. pnpm-lock.yaml is the source of truth; Vercel picks its
+# package manager by lockfile and ranks yarn.lock above pnpm-lock.yaml, so a
+# stray one hijacks the deploy into yarn with an untested dependency tree.
+/yarn.lock
+/package-lock.json
+/bun.lockb
 
 # testing
 /coverage
