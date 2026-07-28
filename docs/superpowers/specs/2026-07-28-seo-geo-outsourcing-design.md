@@ -94,11 +94,14 @@ Existing home sections stay in `app/[locale]/(public)/home/_components/`.
 
 ### GEO layer
 
-- `scripts/build-llms-txt.ts` generates `public/llms.txt` and
-  `public/llms-full.txt` from `lib/routes.ts` + the message catalogs at build
-  time. The hand-maintained file is deleted.
-- A `/{locale}/{path}.md` route serves each page as plain markdown. Answer
-  engines parse markdown far more reliably than a React-rendered DOM.
+- `/llms.txt` and `/llms-full.txt` are route handlers (`app/llms.txt/route.ts`,
+  `app/llms-full.txt/route.ts`) generating their content from `lib/routes.ts` and
+  the message catalogs via `lib/llms.ts`. Both are statically rendered at build.
+  The hand-maintained `public/llms.txt` is deleted.
+- Per-page `/{locale}/{path}.md` was **dropped**. Serving it requires a
+  middleware rewrite, because a route handler and a page cannot occupy the same
+  path, and the per-page `.md` convention is far less established than
+  `llms-full.txt` — which already exposes the same content to the same consumers.
 - Content patterns that answer engines reward, applied to every page: a lede that
   answers the page's question in the first two sentences; explicit
   entity-defining sentences; Q&A blocks; comparison tables; concrete, dated

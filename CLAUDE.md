@@ -81,7 +81,8 @@ shadcn/ui, "new-york" style (`components.json`), Radix primitives under `compone
 too close to the dark theme background to read on transparency alone. Those files, plus
 `public/images/logo-mark.png` and `app/icon.png`, are **derived**: regenerate them with
 `python3 scripts/build-brand-assets.py` (needs Pillow) rather than editing them by hand.
-The source art is `public/images/logo-sofinwave.png`.
+The source art is `assets/brand/logo-sofinwave.png` — kept outside `public/` so the
+4.4 MB original is never deployed or publicly downloadable.
 
 ### Path alias
 

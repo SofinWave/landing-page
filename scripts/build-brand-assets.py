@@ -13,7 +13,7 @@ source art is ever replaced.
 import colorsys
 from PIL import Image
 
-SRC = "public/images/logo-sofinwave.png"
+SRC = "assets/brand/logo-sofinwave.png"
 
 # Content regions measured from the source (left, top, right, bottom).
 MARK = (228, 519, 1822, 1260)  # SF ligature + circuit wave
