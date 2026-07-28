@@ -17,9 +17,9 @@ describe("sitemap", () => {
   it("declares hreflang alternates including x-default on every entry", () => {
     for (const entry of entries) {
       const langs = entry.alternates?.languages ?? {};
-      expect(langs["x-default"]).toBe("https://kingnnt.org/en");
+      expect(langs["x-default"]).toBe("https://sofinwave.org/en");
       for (const locale of routing.locales) {
-        expect(langs[locale]).toBe(`https://kingnnt.org/${locale}`);
+        expect(langs[locale]).toBe(`https://sofinwave.org/${locale}`);
       }
     }
   });
@@ -43,8 +43,8 @@ describe("robots", () => {
   });
 
   it("points to the sitemap and host", () => {
-    expect(r.sitemap).toBe("https://kingnnt.org/sitemap.xml");
-    expect(r.host).toBe("https://kingnnt.org");
+    expect(r.sitemap).toBe("https://sofinwave.org/sitemap.xml");
+    expect(r.host).toBe("https://sofinwave.org");
   });
 });
 
@@ -52,6 +52,6 @@ describe("manifest", () => {
   it("references the logo icon", () => {
     const m = manifest();
     expect(m.icons?.[0]?.src).toBe("/icon.png");
-    expect(m.short_name).toBe("kingnnt.org");
+    expect(m.short_name).toBe("SofinWave");
   });
 });

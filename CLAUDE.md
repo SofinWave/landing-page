@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Bilingual (English / Vietnamese) marketing landing page for kingnnt.org, a software consulting business. Next.js 16 App Router + React 19 + TypeScript (strict), styled with Tailwind v4 and shadcn/ui.
+Bilingual (English / Vietnamese) marketing landing page for SofinWave (sofinwave.org), a software consulting business. Next.js 16 App Router + React 19 + TypeScript (strict), styled with Tailwind v4 and shadcn/ui.
 
 ## Commands
 
@@ -72,7 +72,7 @@ shadcn/ui, "new-york" style (`components.json`), Radix primitives under `compone
 
 ### SEO / metadata
 
-`lib/site.ts` is the single source of truth for site URL, name, keywords (per-locale), `sameAs`, and hreflang/OG-locale helpers. `SITE_URL` comes from `NEXT_PUBLIC_SITE_URL` (defaults to `https://kingnnt.org`). Metadata is generated in `app/[locale]/layout.tsx` (`generateMetadata`), plus `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, and JSON-LD via `components/structured-data.tsx` + `lib/structured-data.ts`. When changing domain, brand, or keywords, edit `lib/site.ts`.
+`lib/site.ts` is the single source of truth for site URL, name, keywords (per-locale), `sameAs`, and hreflang/OG-locale helpers. `SITE_URL` comes from `NEXT_PUBLIC_SITE_URL` (defaults to `https://sofinwave.org`). Metadata is generated in `app/[locale]/layout.tsx` (`generateMetadata`), plus `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, and JSON-LD via `components/structured-data.tsx` + `lib/structured-data.ts`. When changing domain, brand, or keywords, edit `lib/site.ts`.
 
 ### Path alias
 

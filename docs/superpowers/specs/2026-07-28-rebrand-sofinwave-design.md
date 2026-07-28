@@ -29,10 +29,25 @@ Derived by a one-off Pillow script:
 
 | File | Content |
 | --- | --- |
-| `public/images/logo-wordmark.png` | Whole lockup (SF mark + "Sofinwave" text), background trimmed and made transparent |
-| `public/images/logo-wordmark-dark.png` | Same lockup, dark-navy pixels lifted for legibility on dark backgrounds |
-| `public/images/logo-mark.png` | Square crop of the SF + wave mark only, transparent background |
-| `app/icon.png` | Overwritten with a 500×500 render of `logo-mark` (favicon + manifest, which declares `sizes: "500x500"`) |
+| `public/images/logo-wordmark.png` | Horizontal lockup (mark left, "Sofinwave" right), transparent, 1115×192 |
+| `public/images/logo-wordmark-dark.png` | Same lockup, brightness compressed into the top half of the range for dark backgrounds |
+| `public/images/logo-mark.png` | Square S monogram, transparent, 500×500 |
+| `app/icon.png` | Same monogram (favicon + manifest, which declares `sizes: "500x500"`) |
+
+Two details fell out of measuring the source rather than eyeballing it:
+
+- **The lockup is re-composed, not just cropped.** The source stacks the mark (1593×740)
+  above the wordmark (1566×184). At a 32 px header height that wordmark would render ~6 px
+  tall. The script therefore crops the two pieces and rebuilds them side by side, scaling
+  the wordmark to 42% of the mark height — a 5.8:1 lockup that reads at 32 px (161 px wide,
+  which leaves room for the three mobile controls at a 390 px viewport).
+- **The favicon is the S alone, not the whole mark.** The mark is 2.15:1; letterboxed into
+  a square it shrinks to illegibility at tab sizes, and cutting it short slices the wave
+  mid-stroke. A clean 19 px column gap at x≈734 separates the S from the F, so the S is
+  lifted out whole and padded to a square.
+
+Assets are palette-quantised on save (the source is noisy AI-generated art, so full-depth
+PNGs came out at ~390 KB); the exported files land at 40–45 KB with no visible banding.
 
 A dark variant is required, not optional: the dark theme sets
 `--background: oklch(0.16 0.02 255)`, and the logo's darkest navy is close enough to that
@@ -45,9 +60,13 @@ value that a merely-transparent PNG would be near-invisible.
 Renders the wordmark instead of a square icon plus text:
 
 - Two `<Image>` elements — light variant with `dark:hidden`, dark variant with `hidden dark:block`.
-- Sized `h-8 w-auto`; `width`/`height` set from the derived asset's intrinsic size so Next
+- Sized `h-7 w-auto sm:h-8`; `width`/`height` come from the asset's intrinsic size so Next
   can reserve layout space.
-- The `label` prop stops rendering visible text and becomes the `alt` value.
+- Both variants stay in the DOM and swap in CSS, because the theme is unknown during SSR.
+  A `display: none` element is dropped from the accessibility tree, so an `alt` on either
+  image would vanish in one of the two themes — the accessible name goes on the wrapping
+  `<span role="img" aria-label>` and both images carry `alt=""`.
+- The `label` prop no longer renders visible text; it defaults to `SITE_NAME`.
 - `size` prop is dropped (a wordmark is not square). `className` and `priority` stay.
 
 `components/site-header.tsx` is unchanged — it already wraps the logo in an
@@ -97,8 +116,10 @@ Update existing assertions that hardcode the old brand:
 
 Add `tests/components/logo.test.tsx`:
 
-- renders an image whose `alt` is the passed label
+- exposes the label as the accessible name of an `img` role
+- falls back to `SITE_NAME` when no label is passed
 - renders no visible text node for the label (the wordmark carries it)
-- renders both light and dark variants
+- renders both theme variants with the classes that swap them
 
-Verification gate: `pnpm test`, `pnpm lint`, `pnpm format:check` all pass.
+Verification gate: `pnpm test`, `pnpm lint`, `pnpm format:check`, and `pnpm build` all pass,
+plus headless-Chrome screenshots of the header in both themes.

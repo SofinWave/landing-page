@@ -2,14 +2,14 @@ import { LocaleSupport } from "@/enums";
 
 /**
  * Canonical site URL. Override per environment with NEXT_PUBLIC_SITE_URL
- * (no trailing slash), e.g. https://kingnnt.org.
+ * (no trailing slash), e.g. https://sofinwave.org.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingnnt.org").replace(
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sofinwave.org").replace(
   /\/$/,
   "",
 );
 
-export const SITE_NAME = "kingnnt.org";
+export const SITE_NAME = "SofinWave";
 
 /** BCP-47 tags used for Open Graph locale + hreflang. */
 export const OG_LOCALE: Record<string, string> = {
@@ -45,9 +45,9 @@ export const SITE_KEYWORDS: Record<string, string[]> = {
 };
 
 /** Social / canonical profiles surfaced in structured data (sameAs). */
-export const SITE_SAME_AS: string[] = ["https://github.com/kingnnt"];
+export const SITE_SAME_AS: string[] = ["https://github.com/SofinWave"];
 
-export const SITE_EMAIL = "hello@kingnnt.org";
+export const SITE_EMAIL = "Work.KingNNT@gmail.com";
 
 /** Absolute URL for a locale's home page. */
 export function localeUrl(locale: string): string {

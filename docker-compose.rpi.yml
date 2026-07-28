@@ -11,8 +11,8 @@
 # see .env.rpi.example) and is loaded by the rpi:* tasks when present.
 services:
   node:
-    container_name: kingnnt-dot-org_rpi_node
-    hostname: kingnnt-dot-org_rpi_node
+    container_name: sofinwave_rpi_node
+    hostname: sofinwave_rpi_node
     build:
       dockerfile: .docker/rpi/node/Dockerfile
     env_file:
@@ -23,8 +23,8 @@ services:
 
   caddy:
     image: caddy:2-alpine
-    container_name: kingnnt-dot-org_rpi_caddy
-    hostname: kingnnt-dot-org_rpi_caddy
+    container_name: sofinwave_rpi_caddy
+    hostname: sofinwave_rpi_caddy
     restart: unless-stopped
     depends_on:
       node:

@@ -21,7 +21,7 @@ interface OrgArgs {
 /**
  * ProfessionalService/Organization node — the primary entity for search and
  * generative engines. Includes a service catalog and areas of expertise so
- * LLMs can answer "what does kingnnt.org do" accurately.
+ * LLMs can answer "what does SofinWave do" accurately.
  */
 export function organizationSchema({
   locale,

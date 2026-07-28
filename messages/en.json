@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "kingnnt.org — Software Consulting & Implementation",
-    "description": "kingnnt.org helps businesses design and implement reliable software systems — from architecture consulting to full delivery."
+    "title": "SofinWave — Software Consulting & Implementation",
+    "description": "SofinWave helps businesses design and implement reliable software systems — from architecture consulting to full delivery."
   },
   "nav": {
     "language": "Language",
@@ -9,7 +9,7 @@
     "vietnamese": "Tiếng Việt"
   },
   "header": {
-    "brand": "kingnnt.org",
+    "brand": "SofinWave",
     "services": "Services",
     "process": "Process",
     "work": "Case studies",
@@ -22,7 +22,7 @@
   "hero": {
     "eyebrow": "Software consulting & implementation",
     "title": "We ship the systems your business runs on",
-    "subtitle": "kingnnt.org partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
+    "subtitle": "SofinWave partners with you from architecture to delivery — designing, building, and operating reliable software systems that scale.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "View case studies"
   },
@@ -155,7 +155,7 @@
   },
   "team": {
     "title": "Who we are",
-    "about": "kingnnt.org is a focused team of senior engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team.",
+    "about": "SofinWave is a focused team of senior engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team.",
     "members": [
       { "name": "King Nguyen", "role": "Principal Consultant" },
       { "name": "Team Member", "role": "Lead Engineer" },
@@ -195,10 +195,10 @@
     "error": "Something went wrong. Please try again."
   },
   "footer": {
-    "brand": "kingnnt.org",
+    "brand": "SofinWave",
     "tagline": "Software consulting & implementation.",
     "status": "All systems operational",
-    "email": "hello@kingnnt.org",
+    "email": "Work.KingNNT@gmail.com",
     "rights": "All rights reserved.",
     "navigate": "Navigate",
     "connect": "Connect"
