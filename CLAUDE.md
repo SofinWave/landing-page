@@ -161,6 +161,13 @@ The landing page lives at `/{locale}/home`; `/{locale}` only redirects there, so
 `docs/CONTENT-TODO.md`. Placeholder team names are filtered out of `Person`
 schema for the same reason.
 
+### Analytics
+
+`@vercel/analytics`'s `<Analytics />` sits in `app/[site]/[locale]/layout.tsx`,
+which is the root layout for all four sites. It is inert off Vercel, so local
+and Docker builds are unaffected. Page views must be enabled per project in the
+Vercel dashboard; all four hostnames report into the one project.
+
 ### Brand assets
 
 `components/logo.tsx` renders the wordmark lockup, which ships as two theme variants
