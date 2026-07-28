@@ -6,6 +6,7 @@ import {
   Plug,
   Gauge,
   Shield,
+  Cpu,
   Database,
   type LucideIcon,
 } from "lucide-react";
@@ -21,6 +22,7 @@ const ICONS: Record<string, LucideIcon> = {
   plug: Plug,
   gauge: Gauge,
   shield: Shield,
+  cpu: Cpu,
   database: Database,
 };
 

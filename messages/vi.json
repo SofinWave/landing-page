@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "Chúng tôi làm việc với bạn thế nào",
-    "subtitle": "Các mô hình hợp tác và dịch vụ kỹ thuật xuyên suốt vòng đời dự án, nay có cả dữ liệu để model học.",
+    "subtitle": "Mô hình đội ngũ, dịch vụ kỹ thuật, triển khai AI, và dữ liệu để model học — xuyên suốt vòng đời dự án.",
     "items": [
       {
         "icon": "compass",
@@ -65,6 +65,11 @@
         "icon": "shield",
         "title": "Bảo trì & vận hành",
         "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live."
+      },
+      {
+        "icon": "cpu",
+        "title": "Hệ thống AI",
+        "description": "Triển khai, tích hợp LLM và RAG, agent — dựng kèm evaluation và kiểm soát chi phí."
       },
       {
         "icon": "database",
