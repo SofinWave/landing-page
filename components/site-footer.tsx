@@ -2,6 +2,8 @@ import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { GridBackdrop } from "@/components/backgrounds/grid-backdrop";
 import { Link } from "@/i18n/navigation";
+import type { SiteId } from "@/enums";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
 import { SITE_SAME_AS } from "@/lib/site";
 
 /**
@@ -9,23 +11,10 @@ import { SITE_SAME_AS } from "@/lib/site";
  * anchors, so every page passes link equity down to the service and pillar
  * pages — the site previously had no internal links at all.
  */
-const SERVICE_LINKS = [
-  { href: "/services", key: "services" },
-  { href: "/services/offshore-development", key: "offshoreDevelopment" },
-  { href: "/services/dedicated-team", key: "dedicatedTeam" },
-  { href: "/services/staff-augmentation", key: "staffAugmentation" },
-] as const;
-
-const COMPANY_LINKS = [
-  { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
-  { href: "/engagement-models", key: "engagementModels" },
-  { href: "/about", key: "about" },
-  { href: "/contact", key: "contact" },
-] as const;
-
-export function SiteFooter() {
+export function SiteFooter({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
+  const config = siteConfig(site);
   const t = useTranslations("footer");
-  const tPages = useTranslations("pages");
+  const tPages = useTranslations(config.contentNamespace);
   const github = SITE_SAME_AS[0];
 
   return (
@@ -36,11 +25,17 @@ export function SiteFooter() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-accent-gradient opacity-60"
       />
       <div className="container relative mx-auto px-4 py-14">
-        <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div
+          className={
+            config.footerServices.length > 0
+              ? "grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]"
+              : "grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]"
+          }
+        >
           {/* Brand */}
           <div>
             <div className="text-2xl font-bold tracking-tight">
-              <span className="text-gradient">{t("brand")}</span>
+              <span className="text-gradient">{config.name}</span>
             </div>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">{t("tagline")}</p>
             <div className="mt-5 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground">
@@ -53,23 +48,25 @@ export function SiteFooter() {
           </div>
 
           {/* Services */}
-          <nav aria-label={t("servicesNav")}>
-            <div className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              {`// ${t("servicesNav")}`}
-            </div>
-            <ul className="space-y-2.5">
-              {SERVICE_LINKS.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    {tPages(`${item.key}.title`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {config.footerServices.length > 0 ? (
+            <nav aria-label={t("servicesNav")}>
+              <div className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                {`// ${t("servicesNav")}`}
+              </div>
+              <ul className="space-y-2.5">
+                {config.footerServices.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      {tPages(`${item.key}.title`)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
 
           {/* Company */}
           <nav aria-label={t("navigate")}>
@@ -77,7 +74,7 @@ export function SiteFooter() {
               {`// ${t("navigate")}`}
             </div>
             <ul className="space-y-2.5">
-              {COMPANY_LINKS.map((item) => (
+              {config.footerCompany.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -131,7 +128,7 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-12 border-t border-border/60 pt-6 font-mono text-xs text-muted-foreground">
           <span>
-            © 2026 {t("brand")}. {t("rights")}
+            © 2026 {config.name}. {t("rights")}
           </span>
         </div>
       </div>

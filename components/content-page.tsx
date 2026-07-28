@@ -3,7 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
+import type { SiteId } from "@/enums";
 import { breadcrumbTrail } from "@/lib/routes";
+import { siteConfig } from "@/lib/sites";
 
 export interface ContentSection {
   heading: string;
@@ -46,13 +48,15 @@ export async function ContentPage({
   locale,
   path,
   data,
+  site,
 }: {
   locale: string;
   path: string;
   data: ContentPageData;
+  site: SiteId;
 }) {
-  const t = await getTranslations({ locale, namespace: "pages" });
-  const trail = breadcrumbTrail(path);
+  const t = await getTranslations({ locale, namespace: siteConfig(site).contentNamespace });
+  const trail = breadcrumbTrail(site, path);
   const ancestors = trail.slice(0, -1);
 
   return (

@@ -1,4 +1,6 @@
-import { SITE_EMAIL, SITE_NAME, SITE_SAME_AS, SITE_URL, localeUrl, pageUrl } from "@/lib/site";
+import type { SiteId } from "@/enums";
+import { SITE_EMAIL, SITE_SAME_AS, localeUrl, pageUrl, siteUrl } from "@/lib/site";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
 import { type RouteDef, breadcrumbTrail } from "@/lib/routes";
 
 interface ServiceItem {
@@ -14,9 +16,12 @@ interface FaqItem {
 interface OrgArgs {
   locale: string;
   description: string;
-  services: ServiceItem[];
-  technologies: string[];
-  domains: string[];
+  /** Offer catalog. Omitted from the node when empty. */
+  services?: ServiceItem[];
+  /** Areas of expertise. Omitted from the node when empty. */
+  technologies?: string[];
+  domains?: string[];
+  site?: SiteId;
 }
 
 /**
@@ -27,18 +32,23 @@ interface OrgArgs {
 export function organizationSchema({
   locale,
   description,
-  services,
-  technologies,
-  domains,
+  services = [],
+  technologies = [],
+  domains = [],
+  site = DEFAULT_SITE.id,
 }: OrgArgs) {
+  const config = siteConfig(site);
+  const origin = siteUrl(site);
+  const expertise = [...technologies, ...domains];
+
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": `${SITE_URL}/#organization`,
-    name: SITE_NAME,
-    url: localeUrl(locale),
-    logo: `${SITE_URL}/icon.png`,
-    image: `${SITE_URL}/icon.png`,
+    "@type": config.schemaType,
+    "@id": `${origin}/#organization`,
+    name: config.name,
+    url: localeUrl(locale, site),
+    logo: `${origin}/icon.png`,
+    image: `${origin}/icon.png`,
     email: SITE_EMAIL,
     description,
     inLanguage: locale,
@@ -47,32 +57,41 @@ export function organizationSchema({
       { "@type": "Country", name: "Vietnam" },
       { "@type": "Place", name: "Worldwide" },
     ],
-    knowsAbout: [...technologies, ...domains],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Software consulting & implementation",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.title,
-          description: s.description,
-        },
-      })),
-    },
+    // Only emitted when the site actually has them. Borrowing another
+    // vertical's catalog would misdescribe this entity to search and answer
+    // engines, which is the whole reason the sites are separate.
+    ...(expertise.length > 0 ? { knowsAbout: expertise } : {}),
+    ...(services.length > 0
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: config.name,
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: s.title,
+                description: s.description,
+              },
+            })),
+          },
+        }
+      : {}),
   };
 }
 
 /** WebSite node linking pages to the publisher entity. */
-export function websiteSchema(locale: string) {
+export function websiteSchema(locale: string, site: SiteId = DEFAULT_SITE.id) {
+  const origin = siteUrl(site);
+
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    url: localeUrl(locale),
-    name: SITE_NAME,
+    "@id": `${origin}/#website`,
+    url: localeUrl(locale, site),
+    name: siteConfig(site).name,
     inLanguage: locale,
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${origin}/#organization` },
   };
 }
 
@@ -97,15 +116,16 @@ export function breadcrumbSchema(
   locale: string,
   path: string,
   nameFor: (route: RouteDef) => string,
+  site: SiteId = DEFAULT_SITE.id,
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbTrail(path).map((route, i) => ({
+    itemListElement: breadcrumbTrail(site, path).map((route, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: nameFor(route),
-      item: pageUrl(locale, route.path),
+      item: pageUrl(locale, route.path, site),
     })),
   };
 }
@@ -116,13 +136,16 @@ export function webPageSchema({
   path,
   title,
   description,
+  site = DEFAULT_SITE.id,
 }: {
   locale: string;
   path: string;
   title: string;
   description: string;
+  site?: SiteId;
 }) {
-  const url = pageUrl(locale, path);
+  const url = pageUrl(locale, path, site);
+  const origin = siteUrl(site);
 
   return {
     "@context": "https://schema.org",
@@ -132,9 +155,9 @@ export function webPageSchema({
     name: title,
     description,
     inLanguage: locale,
-    isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: { "@id": `${SITE_URL}/#organization` },
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${origin}/#website` },
+    about: { "@id": `${origin}/#organization` },
+    publisher: { "@id": `${origin}/#organization` },
   };
 }
 
@@ -148,22 +171,24 @@ export function serviceSchema({
   name,
   description,
   serviceType,
+  site = DEFAULT_SITE.id,
 }: {
   locale: string;
   path: string;
   name: string;
   description: string;
   serviceType: string;
+  site?: SiteId;
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${pageUrl(locale, path)}#service`,
+    "@id": `${pageUrl(locale, path, site)}#service`,
     name,
     description,
     serviceType,
-    url: pageUrl(locale, path),
-    provider: { "@id": `${SITE_URL}/#organization` },
+    url: pageUrl(locale, path, site),
+    provider: { "@id": `${siteUrl(site)}/#organization` },
     areaServed: [
       { "@type": "Country", name: "Vietnam" },
       { "@type": "Place", name: "Worldwide" },
@@ -183,17 +208,19 @@ export function personSchema({
   name,
   role,
   locale,
+  site = DEFAULT_SITE.id,
 }: {
   name: string;
   role: string;
   locale: string;
+  site?: SiteId;
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name,
     jobTitle: role,
-    worksFor: { "@id": `${SITE_URL}/#organization` },
-    url: localeUrl(locale),
+    worksFor: { "@id": `${siteUrl(site)}/#organization` },
+    url: localeUrl(locale, site),
   };
 }

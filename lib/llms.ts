@@ -1,21 +1,23 @@
+import type { SiteId } from "@/enums";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
 import { routing } from "@/i18n/routing";
-import { ROUTES, HOME_PATH } from "@/lib/routes";
-import { SITE_EMAIL, SITE_NAME, SITE_URL, pageUrl } from "@/lib/site";
+import { HOME_PATH } from "@/lib/routes";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
+import { SITE_EMAIL, pageUrl, siteUrl } from "@/lib/site";
 
 /**
- * Generators for `/llms.txt` and `/llms-full.txt`.
+ * Generators for each site's `/llms.txt` and `/llms-full.txt`.
  *
  * Both are derived from the route registry and the message catalogs rather than
  * maintained by hand, so they cannot drift from the site the way the previous
  * hand-written `public/llms.txt` inevitably would have.
  */
 
-type Catalog = typeof en;
+type Catalog = Record<string, Record<string, unknown>>;
 
 const CATALOGS: Record<string, Catalog> = {
-  en,
+  en: en as unknown as Catalog,
   vi: vi as unknown as Catalog,
 };
 
@@ -33,33 +35,76 @@ interface ContentEntry {
   faq: { question: string; answer: string }[];
 }
 
-function contentPages(locale: string) {
-  const pages = catalog(locale).pages as unknown as Record<string, ContentEntry>;
+interface SiteMeta {
+  title: string;
+  description: string;
+}
 
-  return ROUTES.filter((route) => route.path !== HOME_PATH).map((route) => ({
-    route,
-    url: pageUrl(locale, route.path),
-    page: pages[route.key],
-  }));
+function meta(site: SiteId, locale: string): SiteMeta {
+  return catalog(locale)[siteConfig(site).metaNamespace] as unknown as SiteMeta;
+}
+
+function pagesOf(site: SiteId, locale: string): Record<string, ContentEntry> {
+  return catalog(locale)[siteConfig(site).contentNamespace] as unknown as Record<
+    string,
+    ContentEntry
+  >;
+}
+
+function contentPages(site: SiteId, locale: string) {
+  const pages = pagesOf(site, locale);
+
+  return siteConfig(site)
+    .routes.filter((route) => route.path !== HOME_PATH)
+    .map((route) => ({
+      route,
+      url: pageUrl(locale, route.path, site),
+      page: pages[route.key],
+    }))
+    .filter((entry) => Boolean(entry.page));
+}
+
+const LOCALE_LABEL: Record<string, string> = { en: "English", vi: "Tiếng Việt" };
+
+/**
+ * The landing page's text.
+ *
+ * The tech site's home is a bespoke composition of marketing sections rather
+ * than a content-shell page, so its copy lives in the `hero` and `faq`
+ * namespaces. Every other site renders home through the shell, where the copy
+ * sits under `pages.home` like any other route.
+ */
+function homeContent(site: SiteId, locale: string): Pick<ContentEntry, "lede" | "faq"> {
+  const home = pagesOf(site, locale)?.home;
+  if (home?.lede) return { lede: home.lede, faq: home.faq ?? [] };
+
+  const c = catalog(locale);
+  const hero = c.hero as unknown as { subtitle?: string } | undefined;
+  const faq = c.faq as unknown as { items?: ContentEntry["faq"] } | undefined;
+
+  return {
+    lede: hero?.subtitle ?? meta(site, locale).description,
+    faq: faq?.items ?? [],
+  };
 }
 
 /** Short index: what the site is, and one line per page. The llms.txt convention. */
-export function buildLlmsTxt(): string {
+export function buildLlmsTxt(site: SiteId = DEFAULT_SITE.id): string {
+  const config = siteConfig(site);
   const lines: string[] = [
-    `# ${SITE_NAME}`,
+    `# ${config.name}`,
     "",
-    `> ${en.metadata.description}`,
+    `> ${meta(site, routing.defaultLocale).description}`,
     "",
     "## Pages",
     "",
   ];
 
   for (const locale of routing.locales) {
-    const home = pageUrl(locale, HOME_PATH);
-    lines.push(`### ${locale === "en" ? "English" : "Tiếng Việt"} (${locale})`, "");
-    lines.push(`- [${catalog(locale).metadata.title}](${home})`);
+    lines.push(`### ${LOCALE_LABEL[locale] ?? locale} (${locale})`, "");
+    lines.push(`- [${meta(site, locale).title}](${pageUrl(locale, HOME_PATH, site)})`);
 
-    for (const { url, page } of contentPages(locale)) {
+    for (const { url, page } of contentPages(site, locale)) {
       lines.push(`- [${page.title}](${url}): ${page.metaDescription}`);
     }
     lines.push("");
@@ -68,9 +113,9 @@ export function buildLlmsTxt(): string {
   lines.push(
     "## Contact",
     "",
-    `- Website: ${SITE_URL}`,
+    `- Website: ${siteUrl(site)}`,
     `- Email: ${SITE_EMAIL}`,
-    `- Languages: English, Vietnamese`,
+    "- Languages: English, Vietnamese",
     "",
   );
 
@@ -78,13 +123,14 @@ export function buildLlmsTxt(): string {
 }
 
 /** Full text of every page, so an answer engine can cite specifics without crawling. */
-export function buildLlmsFullTxt(): string {
+export function buildLlmsFullTxt(site: SiteId = DEFAULT_SITE.id): string {
+  const config = siteConfig(site);
   const lines: string[] = [
-    `# ${SITE_NAME} — full content`,
+    `# ${config.name} — full content`,
     "",
-    `> ${en.metadata.description}`,
+    `> ${meta(site, routing.defaultLocale).description}`,
     "",
-    `Canonical site: ${SITE_URL}. Content below is the complete text of every page,`,
+    `Canonical site: ${siteUrl(site)}. Content below is the complete text of every page,`,
     "in English first and Vietnamese second.",
     "",
   ];
@@ -92,15 +138,22 @@ export function buildLlmsFullTxt(): string {
   for (const locale of routing.locales) {
     lines.push("---", "", `# Locale: ${locale}`, "");
 
-    const home = catalog(locale);
-    lines.push(`## ${home.metadata.title}`, "", `URL: ${pageUrl(locale, HOME_PATH)}`, "");
-    lines.push(home.hero.subtitle, "");
-    lines.push("### FAQ", "");
-    for (const item of home.faq.items) {
-      lines.push(`**${item.question}**`, "", item.answer, "");
+    const home = homeContent(site, locale);
+    lines.push(
+      `## ${meta(site, locale).title}`,
+      "",
+      `URL: ${pageUrl(locale, HOME_PATH, site)}`,
+      "",
+      home.lede,
+      "",
+    );
+
+    if (home.faq.length > 0) {
+      lines.push("### FAQ", "");
+      for (const item of home.faq) lines.push(`**${item.question}**`, "", item.answer, "");
     }
 
-    for (const { url, page } of contentPages(locale)) {
+    for (const { url, page } of contentPages(site, locale)) {
       lines.push("---", "", `## ${page.title}`, "", `URL: ${url}`, "", page.lede, "");
 
       for (const section of page.sections) {
@@ -124,7 +177,7 @@ export function buildLlmsFullTxt(): string {
     }
   }
 
-  lines.push("---", "", "## Contact", "", `Email: ${SITE_EMAIL}`, `Website: ${SITE_URL}`, "");
+  lines.push("---", "", "## Contact", "", `Email: ${SITE_EMAIL}`, `Website: ${siteUrl(site)}`, "");
 
   return lines.join("\n");
 }

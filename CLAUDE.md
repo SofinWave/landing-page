@@ -4,7 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Bilingual (English / Vietnamese) marketing landing page for SofinWave (sofinwave.org), a software consulting business. Next.js 16 App Router + React 19 + TypeScript (strict), styled with Tailwind v4 and shadcn/ui.
+Bilingual (English / Vietnamese) marketing site for SofinWave. Next.js 16 App
+Router + React 19 + TypeScript (strict), styled with Tailwind v4 and shadcn/ui.
+
+**One app serves four hostnames**, one per business vertical:
+
+| Hostname | `SiteId` | Vertical |
+| --- | --- | --- |
+| `sofinwave.org` | `tech` | IT consulting & implementation, including AI |
+| `media.sofinwave.org` | `media` | Video/content production, affiliate |
+| `finance.sofinwave.org` | `finance` | Investing knowledge & tooling (YMYL) |
+| `academy.sofinwave.org` | `academy` | Education |
+
+They are separate sites rather than sections of one because a single domain
+covering all four would dilute topical authority in each, and because the
+finance vertical is YMYL — isolating it keeps its trust requirements away from
+the software business.
 
 ## Commands
 
@@ -52,15 +67,46 @@ Everything is locale-scoped. `next-intl` drives routing, and the whole app lives
 
 - **Locales** are defined once in `enums/locale.enum.ts` (`LocaleSupport.EN` / `.VI`) and wired into `i18n/routing.ts` (`localePrefix: "always"`, default `en`). Add a locale here + a `messages/<locale>.json` file.
 - `i18n/request.ts` loads the per-request message catalog; `i18n/navigation.ts` exports locale-aware `Link`, `redirect`, `useRouter`, etc. — **use these, not `next/link`/`next/navigation`, for internal navigation.**
-- **Middleware lives in `proxy.ts`** (Next.js 16 renamed `middleware.ts` → `proxy.ts`), applying the next-intl middleware.
-- Copy lives in `messages/en.json` and `messages/vi.json`. The two catalogs **must have identical key structure** — `tests/messages/parity.test.ts` enforces this and will fail otherwise. Add every new key to both files.
+- **Middleware lives in `proxy.ts`** (Next.js 16 renamed `middleware.ts` → `proxy.ts`). It applies the next-intl middleware *and* the hostname-to-site rewrite described above.
+- Copy lives in `messages/en.json` and `messages/vi.json`, namespaced per site (`metadata`/`pages` for tech, `mediaMetadata`/`mediaPages`, `financeMetadata`/`financePages`, `academyMetadata`/`academyPages`). The two catalogs **must have identical key structure** — `tests/messages/parity.test.ts` enforces this and will fail otherwise. Add every new key to both files.
 - Server Components read translations via `getTranslations`; Client Components via `useTranslations`. `setRequestLocale(locale)` is called in layouts/pages to enable static rendering.
+
+### Multi-site routing
+
+`proxy.ts` resolves the incoming `Host` header to a site via `resolveSite()` and
+**rewrites** the request into that site's subtree: `media.sofinwave.org/en/about`
+renders `/media/en/about`. The rewrite is invisible to the client, keeps
+next-intl's locale handling untouched (the locale stays the first public path
+segment), and keeps every page statically generatable — reading `Host` inside a
+page would force dynamic rendering instead.
+
+Root-level files whose content differs per site (`sitemap.xml`, `robots.txt`,
+`llms.txt`, `llms-full.txt`, `manifest.webmanifest`) are rewritten to route
+handlers under `app/s/[site]/`.
+
+- `enums/site.enum.ts` — the four `SiteId`s.
+- `lib/sites.ts` — per-site config: hostname, brand name, message namespaces,
+  schema.org type, routes, and navigation. **Adding a vertical starts here.**
+- `lib/routes.ts` — route registry per site. Drives navigation, sitemaps,
+  breadcrumbs, and `llms.txt`, so those cannot disagree.
 
 ### Page composition
 
-`app/[locale]/(public)/home/page.tsx` is the single landing page. It composes one React component per marketing section from `app/[locale]/(public)/home/_components/` (hero, services, process, case-studies, tech-stack, testimonials, team, faq, contact, footer, logo-strip). Each section is a mostly-static, translation-driven component. To edit a section, edit its `_components/*.tsx` file and the corresponding namespace in the message catalogs.
+`app/[site]/[locale]/(public)/home/page.tsx` renders the landing page. The
+**tech** site's home is a bespoke composition of marketing sections from
+`_components/` (hero, services, process, case-studies, tech-stack, testimonials,
+team, faq, contact, logo-strip); every other site's home is a content-shell page
+like any other route.
 
-`components/section.tsx` provides the shared section shell (container + vertical rhythm). Sections use anchor links (`#contact`, `#work`) for in-page nav.
+`app/[site]/[locale]/(public)/[...slug]/page.tsx` renders every other route
+through `components/content-page.tsx` — a data-driven shell reading its copy from
+the site's content namespace. Its FAQ renders as plain `dl`/`dt` rather than an
+accordion so crawlers and answer engines read the answers without executing
+anything.
+
+`components/section.tsx` provides the shared section shell (container + vertical
+rhythm). `components/site-header.tsx` and `site-footer.tsx` take a `site` prop
+and read their links from the registry.
 
 ### UI components
 
@@ -72,7 +118,26 @@ shadcn/ui, "new-york" style (`components.json`), Radix primitives under `compone
 
 ### SEO / metadata
 
-`lib/site.ts` is the single source of truth for site URL, name, keywords (per-locale), `sameAs`, and hreflang/OG-locale helpers. `SITE_URL` comes from `NEXT_PUBLIC_SITE_URL` (defaults to `https://sofinwave.org`). Metadata is generated in `app/[locale]/layout.tsx` (`generateMetadata`), plus `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, and JSON-LD via `components/structured-data.tsx` + `lib/structured-data.ts`. When changing domain, brand, or keywords, edit `lib/site.ts`.
+The landing page lives at `/{locale}/home`; `/{locale}` only redirects there, so
+**canonicals and sitemap entries must never point at `/{locale}`**.
+
+- `lib/site.ts` — URL builders (`siteUrl`, `pageUrl`, `languageAlternates`),
+  keywords, `sameAs`, OG locales. All take an optional `SiteId`.
+- `lib/metadata.ts` — `pageMetadata()` builds per-page canonical, hreflang, and
+  Open Graph. Canonical belongs on the page, never the layout, which wraps every
+  route. The `og:image` is referenced explicitly: setting `openGraph` in
+  `generateMetadata` stops Next.js merging the `opengraph-image` file
+  convention, which silently drops the card.
+- `lib/sitemap.ts` — hand-rolled XML with `xhtml:link` hreflang per URL.
+- `lib/structured-data.ts` + `components/structured-data.tsx` — JSON-LD. Each
+  site emits only its own entity; the tech offer catalog, expertise list, and
+  team roster must not leak into the other verticals.
+- `lib/llms.ts` — generates `llms.txt` and `llms-full.txt` from the route
+  registry and catalogs, per site. Never hand-edit those files.
+
+**Never emit `Review`/`AggregateRating`** until the testimonials are real — see
+`docs/CONTENT-TODO.md`. Placeholder team names are filtered out of `Person`
+schema for the same reason.
 
 ### Brand assets
 

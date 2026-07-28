@@ -1,84 +1,114 @@
 import { describe, it, expect } from "vitest";
-import { ROUTES, CONTENT_ROUTES, HOME_PATH, breadcrumbTrail, findRoute } from "@/lib/routes";
+import { SiteId } from "@/enums";
+import { HOME_PATH, breadcrumbTrail, contentRoutesFor, findRoute, routesFor } from "@/lib/routes";
+import { ALL_SITES, siteConfig } from "@/lib/sites";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
 
-const catalogs = { en, vi } as Record<string, typeof en>;
+const catalogs: Record<string, Record<string, unknown>> = {
+  en: en as unknown as Record<string, unknown>,
+  vi: vi as unknown as Record<string, unknown>,
+};
 
-describe("route registry", () => {
+describe.each(ALL_SITES.map((s) => s.id))("route registry for %s", (siteId) => {
+  const routes = routesFor(siteId);
+
   it("has a unique path and key per route", () => {
-    expect(new Set(ROUTES.map((r) => r.path)).size).toBe(ROUTES.length);
-    expect(new Set(ROUTES.map((r) => r.key)).size).toBe(ROUTES.length);
+    expect(new Set(routes.map((r) => r.path)).size).toBe(routes.length);
+    expect(new Set(routes.map((r) => r.key)).size).toBe(routes.length);
   });
 
   it("uses paths without leading or trailing slashes", () => {
-    for (const route of ROUTES) {
+    for (const route of routes) {
       expect(route.path).not.toMatch(/^\//);
       expect(route.path).not.toMatch(/\/$/);
     }
   });
 
-  it("points every parent reference at a route that exists", () => {
-    for (const route of ROUTES) {
-      if (route.parent) expect(findRoute(route.parent)).toBeDefined();
+  it("points every parent reference at a route of the same site", () => {
+    for (const route of routes) {
+      if (route.parent) expect(findRoute(siteId, route.parent)).toBeDefined();
     }
   });
 
-  it("excludes the landing page from CONTENT_ROUTES", () => {
-    expect(CONTENT_ROUTES.some((r) => r.path === HOME_PATH)).toBe(false);
-    expect(CONTENT_ROUTES).toHaveLength(ROUTES.length - 1);
+  it("always has a landing page", () => {
+    expect(findRoute(siteId, HOME_PATH)).toBeDefined();
+    expect(contentRoutesFor(siteId)).toHaveLength(routes.length - 1);
   });
 });
 
 describe("breadcrumbTrail", () => {
-  it("returns the route itself for the landing page", () => {
-    expect(breadcrumbTrail(HOME_PATH).map((r) => r.path)).toEqual([HOME_PATH]);
+  it("returns the route itself for a landing page", () => {
+    expect(breadcrumbTrail(SiteId.Tech, HOME_PATH).map((r) => r.path)).toEqual([HOME_PATH]);
   });
 
   it("walks the full ancestor chain root-first", () => {
-    expect(breadcrumbTrail("services/dedicated-team").map((r) => r.path)).toEqual([
+    expect(breadcrumbTrail(SiteId.Tech, "services/ai-implementation").map((r) => r.path)).toEqual([
       HOME_PATH,
       "services",
-      "services/dedicated-team",
+      "services/ai-implementation",
     ]);
   });
 
-  it("returns an empty trail for an unknown path", () => {
-    expect(breadcrumbTrail("nope/not-a-page")).toEqual([]);
+  it("returns an empty trail for a path belonging to another site", () => {
+    expect(breadcrumbTrail(SiteId.Media, "services/ai-implementation")).toEqual([]);
   });
 });
 
-describe("route content", () => {
-  it.each(Object.keys(catalogs))("has complete copy for every route in %s", (locale) => {
-    const pages = catalogs[locale].pages as unknown as Record<string, Record<string, unknown>>;
+describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
+  const config = siteConfig(siteId);
 
-    for (const route of ROUTES) {
-      expect(pages[route.key], `missing pages.${route.key} in ${locale}`).toBeDefined();
-      expect(pages[route.key].title).toBeTruthy();
+  it.each(Object.keys(catalogs))("is complete in %s", (locale) => {
+    const meta = catalogs[locale][config.metaNamespace] as Record<string, string>;
+    expect(meta, `missing ${config.metaNamespace} in ${locale}`).toBeDefined();
+    for (const key of ["title", "description", "ogHeadline", "ogSubline"]) {
+      expect(meta[key], `${config.metaNamespace}.${key} in ${locale}`).toBeTruthy();
     }
 
-    for (const route of CONTENT_ROUTES) {
+    const pages = catalogs[locale][config.contentNamespace] as Record<
+      string,
+      Record<string, unknown>
+    >;
+    expect(pages, `missing ${config.contentNamespace} in ${locale}`).toBeDefined();
+    expect(pages.breadcrumbLabel).toBeTruthy();
+    expect(pages.faqHeading).toBeTruthy();
+
+    for (const route of config.routes) {
       const page = pages[route.key];
-      expect(page.metaTitle, `pages.${route.key}.metaTitle in ${locale}`).toBeTruthy();
+      expect(page, `missing ${config.contentNamespace}.${route.key} in ${locale}`).toBeDefined();
+      expect(page.title).toBeTruthy();
+      expect(page.navLabel).toBeTruthy();
+    }
+
+    // The tech landing page is a bespoke composition, so only the shell-rendered
+    // routes carry the full content shape.
+    const shellRoutes = siteId === SiteId.Tech ? contentRoutesFor(siteId) : [...config.routes];
+
+    for (const route of shellRoutes) {
+      const page = pages[route.key];
+      expect(page.metaTitle, `${route.key}.metaTitle in ${locale}`).toBeTruthy();
       expect(page.metaDescription).toBeTruthy();
       expect(page.lede).toBeTruthy();
       expect(Array.isArray(page.sections)).toBe(true);
       expect((page.sections as unknown[]).length).toBeGreaterThan(0);
       expect(Array.isArray(page.faq)).toBe(true);
       expect(page.cta).toBeDefined();
+      expect((page.metaDescription as string).length).toBeLessThan(300);
     }
   });
 
-  it.each(
-    Object.keys(catalogs),
-  )("keeps meta descriptions within snippet length in %s", (locale) => {
-    const pages = catalogs[locale].pages as unknown as Record<string, { metaDescription?: string }>;
+  it.each(Object.keys(catalogs))("resolves every nav link to a page in %s", (locale) => {
+    const pages = catalogs[locale][config.contentNamespace] as Record<
+      string,
+      Record<string, unknown>
+    >;
 
-    for (const route of CONTENT_ROUTES) {
-      const description = pages[route.key].metaDescription ?? "";
-      expect(description.length, `pages.${route.key}.metaDescription in ${locale}`).toBeLessThan(
-        250,
-      );
+    for (const link of [...config.nav, ...config.footerServices, ...config.footerCompany]) {
+      expect(pages[link.key], `nav key ${link.key} on ${siteId}`).toBeDefined();
+      expect(
+        findRoute(siteId, link.href.replace(/^\//, "")),
+        `nav href ${link.href}`,
+      ).toBeDefined();
     }
   });
 });

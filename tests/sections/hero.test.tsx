@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
-import { Hero } from "@/app/[locale]/(public)/home/_components/hero";
+import { Hero } from "@/app/[site]/[locale]/(public)/home/_components/hero";
 
 describe("Hero", () => {
   it("renders the single h1 and both CTAs", () => {

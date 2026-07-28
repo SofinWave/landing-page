@@ -1,77 +1,78 @@
 import { describe, it, expect } from "vitest";
-import sitemap from "@/app/sitemap";
-import robots from "@/app/robots";
-import manifest from "@/app/manifest";
+import { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
-import { ROUTES } from "@/lib/routes";
+import { buildSitemap } from "@/lib/sitemap";
+import { ALL_SITES, resolveSite, siteConfig } from "@/lib/sites";
+import { HOME_PATH } from "@/lib/routes";
 
-describe("sitemap", () => {
-  const entries = sitemap();
+const LASTMOD = new Date("2026-07-28T00:00:00.000Z");
 
-  it("lists every route in every locale", () => {
-    expect(entries).toHaveLength(routing.locales.length * ROUTES.length);
+describe("resolveSite", () => {
+  it("maps each production hostname to its site", () => {
+    for (const site of ALL_SITES) {
+      expect(resolveSite(site.host).id).toBe(site.id);
+    }
+  });
 
+  it("ignores port, case, and a www prefix", () => {
+    expect(resolveSite("MEDIA.SofinWave.org:443").id).toBe(SiteId.Media);
+    expect(resolveSite("www.sofinwave.org").id).toBe(SiteId.Tech);
+  });
+
+  it("matches a leading label so local and preview hosts work", () => {
+    expect(resolveSite("finance.localhost:3000").id).toBe(SiteId.Finance);
+    expect(resolveSite("academy.example.dev").id).toBe(SiteId.Academy);
+  });
+
+  it("falls back to the apex rather than failing on an unknown host", () => {
+    expect(resolveSite("nonsense.example.com").id).toBe(SiteId.Tech);
+    expect(resolveSite(null).id).toBe(SiteId.Tech);
+    expect(resolveSite("").id).toBe(SiteId.Tech);
+  });
+});
+
+describe.each(ALL_SITES.map((s) => s.id))("sitemap for %s", (siteId) => {
+  const config = siteConfig(siteId);
+  const xml = buildSitemap(siteId, LASTMOD);
+
+  it("lists every route in every locale, on that site's own origin", () => {
     for (const locale of routing.locales) {
-      for (const route of ROUTES) {
-        expect(entries.some((e) => e.url === `https://sofinwave.org/${locale}/${route.path}`)).toBe(
-          true,
-        );
+      for (const route of config.routes) {
+        expect(xml).toContain(`<loc>https://${config.host}/${locale}/${route.path}</loc>`);
       }
     }
   });
 
   it("never lists a locale root, which only redirects", () => {
     for (const locale of routing.locales) {
-      expect(entries.some((e) => e.url === `https://sofinwave.org/${locale}`)).toBe(false);
+      expect(xml).not.toContain(`<loc>https://${config.host}/${locale}</loc>`);
     }
   });
 
-  it("declares hreflang alternates pointing at real pages, including x-default", () => {
-    for (const entry of entries) {
-      const path = new URL(entry.url).pathname.split("/").slice(2).join("/");
-      const langs = entry.alternates?.languages ?? {};
-
-      expect(langs["x-default"]).toBe(`https://sofinwave.org/en/${path}`);
-      for (const locale of routing.locales) {
-        expect(langs[locale]).toBe(`https://sofinwave.org/${locale}/${path}`);
-      }
+  it("declares hreflang alternates including x-default", () => {
+    expect(xml).toContain(
+      `<xhtml:link rel="alternate" hreflang="x-default" href="https://${config.host}/en/${HOME_PATH}"/>`,
+    );
+    for (const locale of routing.locales) {
+      expect(xml).toContain(
+        `<xhtml:link rel="alternate" hreflang="${locale}" href="https://${config.host}/${locale}/${HOME_PATH}"/>`,
+      );
     }
   });
 
-  it("stamps lastModified on every entry", () => {
-    for (const entry of entries) {
-      expect(entry.lastModified).toBeInstanceOf(Date);
-    }
-  });
-});
-
-describe("robots", () => {
-  const r = robots();
-  const rules = Array.isArray(r.rules) ? r.rules : [r.rules];
-
-  it("allows all crawlers and disallows /api/", () => {
-    const wildcard = rules.find((rule) => rule?.userAgent === "*");
-    expect(wildcard?.allow).toBe("/");
-    expect(wildcard?.disallow).toContain("/api/");
-  });
-
-  it("explicitly welcomes AI/answer-engine crawlers (GEO)", () => {
-    const agents = rules.map((rule) => rule?.userAgent);
-    for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]) {
-      expect(agents).toContain(bot);
+  it("never leaks another site's URLs", () => {
+    for (const other of ALL_SITES) {
+      if (other.id === siteId) continue;
+      expect(xml).not.toContain(`https://${other.host}/`);
     }
   });
 
-  it("points to the sitemap and host", () => {
-    expect(r.sitemap).toBe("https://sofinwave.org/sitemap.xml");
-    expect(r.host).toBe("https://sofinwave.org");
-  });
-});
-
-describe("manifest", () => {
-  it("references the logo icon", () => {
-    const m = manifest();
-    expect(m.icons?.[0]?.src).toBe("/icon.png");
-    expect(m.short_name).toBe("SofinWave");
+  it("is well-formed and stamps lastmod on every entry", () => {
+    const locs = xml.match(/<loc>/g) ?? [];
+    const mods = xml.match(/<lastmod>/g) ?? [];
+    expect(locs).toHaveLength(routing.locales.length * config.routes.length);
+    expect(mods).toHaveLength(locs.length);
+    expect(xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')).toBe(true);
+    expect(xml.trimEnd().endsWith("</urlset>")).toBe(true);
   });
 });

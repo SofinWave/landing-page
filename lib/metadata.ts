@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import type { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
-import { OG_LOCALE, SITE_NAME, SITE_URL, languageAlternates, pageUrl } from "@/lib/site";
+import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
+import { OG_LOCALE, languageAlternates, pageUrl, siteUrl } from "@/lib/site";
 
 interface PageMetadataArgs {
   locale: string;
@@ -8,6 +10,7 @@ interface PageMetadataArgs {
   path: string;
   title: string;
   description: string;
+  site?: SiteId;
 }
 
 /**
@@ -16,8 +19,15 @@ interface PageMetadataArgs {
  * This belongs on the page rather than the layout: a layout wraps every route,
  * so a canonical declared there would point every page at the same URL.
  */
-export function pageMetadata({ locale, path, title, description }: PageMetadataArgs): Metadata {
-  const url = pageUrl(locale, path);
+export function pageMetadata({
+  locale,
+  path,
+  title,
+  description,
+  site = DEFAULT_SITE.id,
+}: PageMetadataArgs): Metadata {
+  const url = pageUrl(locale, path, site);
+  const config = siteConfig(site);
 
   /**
    * Referenced explicitly rather than left to Next.js's `opengraph-image` file
@@ -26,10 +36,10 @@ export function pageMetadata({ locale, path, title, description }: PageMetadataA
    * without an `og:image` at all.
    */
   const image = {
-    url: `${SITE_URL}/${locale}/opengraph-image`,
+    url: `${siteUrl(site)}/${locale}/opengraph-image`,
     width: 1200,
     height: 630,
-    alt: SITE_NAME,
+    alt: config.name,
   };
 
   return {
@@ -38,13 +48,13 @@ export function pageMetadata({ locale, path, title, description }: PageMetadataA
     alternates: {
       canonical: url,
       languages: {
-        ...languageAlternates(routing.locales, path),
-        "x-default": pageUrl(routing.defaultLocale, path),
+        ...languageAlternates(routing.locales, path, site),
+        "x-default": pageUrl(routing.defaultLocale, path, site),
       },
     },
     openGraph: {
       type: "website",
-      siteName: SITE_NAME,
+      siteName: config.name,
       title,
       description,
       url,

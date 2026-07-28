@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
-import { Services } from "@/app/[locale]/(public)/home/_components/services";
+import { Services } from "@/app/[site]/[locale]/(public)/home/_components/services";
 
 describe("Services", () => {
   it("renders heading and all service cards", () => {

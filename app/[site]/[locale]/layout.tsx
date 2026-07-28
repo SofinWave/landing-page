@@ -5,41 +5,46 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SITE_NAME, SITE_URL, SITE_KEYWORDS } from "@/lib/site";
-import "../globals.css";
+import { SITE_KEYWORDS, siteUrl } from "@/lib/site";
+import { ALL_SITES, DEFAULT_SITE, isSiteId, siteConfig } from "@/lib/sites";
+import "../../globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return ALL_SITES.flatMap((site) => routing.locales.map((locale) => ({ site: site.id, locale })));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ site: string; locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata" });
+  const { site, locale } = await params;
+  const config = siteConfig(isSiteId(site) ? site : DEFAULT_SITE.id);
+  const t = await getTranslations({ locale, namespace: config.metaNamespace });
 
   /**
    * Site-wide defaults only. Canonical, hreflang, and per-page Open Graph are
    * set by each page via `pageMetadata` — declaring a canonical on the layout
    * would point every route at the same URL.
    */
+  const origin = siteUrl(config.id);
+
   return {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(origin),
+    manifest: "/manifest.webmanifest",
     title: {
       default: t("title"),
-      template: `%s | ${SITE_NAME}`,
+      template: `%s | ${config.name}`,
     },
     description: t("description"),
-    applicationName: SITE_NAME,
+    applicationName: config.name,
     keywords: SITE_KEYWORDS[locale] ?? SITE_KEYWORDS[routing.defaultLocale],
-    authors: [{ name: SITE_NAME, url: SITE_URL }],
-    creator: SITE_NAME,
-    publisher: SITE_NAME,
+    authors: [{ name: config.name, url: origin }],
+    creator: config.name,
+    publisher: config.name,
     robots: {
       index: true,
       follow: true,
@@ -59,10 +64,10 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ site: string; locale: string }>;
 }) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) notFound();
+  const { site, locale } = await params;
+  if (!hasLocale(routing.locales, locale) || !isSiteId(site)) notFound();
   setRequestLocale(locale);
 
   return (
