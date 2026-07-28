@@ -16,9 +16,9 @@ describe("organizationSchema", () => {
 
   it("is a ProfessionalService with a stable @id and logo", () => {
     expect(org["@type"]).toBe("ProfessionalService");
-    expect(org["@id"]).toBe("https://kingnnt.org/#organization");
-    expect(org.logo).toBe("https://kingnnt.org/icon.png");
-    expect(org.url).toBe("https://kingnnt.org/en");
+    expect(org["@id"]).toBe("https://sofinwave.org/#organization");
+    expect(org.logo).toBe("https://sofinwave.org/icon.png");
+    expect(org.url).toBe("https://sofinwave.org/en");
   });
 
   it("lists every service in the offer catalog", () => {
@@ -36,8 +36,8 @@ describe("websiteSchema", () => {
   it("links to the organization publisher", () => {
     const site = websiteSchema("vi");
     expect(site["@type"]).toBe("WebSite");
-    expect(site.url).toBe("https://kingnnt.org/vi");
-    expect(site.publisher["@id"]).toBe("https://kingnnt.org/#organization");
+    expect(site.url).toBe("https://sofinwave.org/vi");
+    expect(site.publisher["@id"]).toBe("https://sofinwave.org/#organization");
   });
 });
 

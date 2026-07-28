@@ -12,9 +12,9 @@ describe("SiteFooter", () => {
       </NextIntlClientProvider>,
     );
     expect(screen.getByText("Software consulting & implementation.")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "hello@kingnnt.org" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Work.KingNNT@gmail.com" })).toHaveAttribute(
       "href",
-      "mailto:hello@kingnnt.org",
+      "mailto:Work.KingNNT@gmail.com",
     );
   });
 

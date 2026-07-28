@@ -1,6 +1,8 @@
 # Reverse proxy in front of the Next.js app.
-# Plain HTTP on :80 — public TLS is terminated upstream (Cloudflare Tunnel /
-# another proxy), which forwards to this Caddy.
+# Plain HTTP on :80 — public TLS for sofinwave.org is terminated upstream
+# (Cloudflare Tunnel / another proxy), which forwards to this Caddy.
+# Deliberately no host matcher: naming the domain here would switch Caddy to
+# automatic HTTPS and it would fail ACME, since only :80 is published.
 :80 {
 	encode zstd gzip
 	reverse_proxy node:3000

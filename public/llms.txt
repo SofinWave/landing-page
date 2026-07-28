@@ -1,6 +1,6 @@
-# kingnnt.org
+# SofinWave
 
-> kingnnt.org is a software consulting and implementation firm. We partner with businesses from architecture to delivery — designing, building, and operating reliable software systems that scale. We serve clients in Vietnam and worldwide, in both English and Vietnamese.
+> SofinWave is a software consulting and implementation firm. We partner with businesses from architecture to delivery — designing, building, and operating reliable software systems that scale. We serve clients in Vietnam and worldwide, in both English and Vietnamese.
 
 ## What we do
 
@@ -33,6 +33,6 @@
 
 ## Contact
 
-- Website: https://kingnnt.org
-- Email: hello@kingnnt.org
-- Languages: English (https://kingnnt.org/en), Vietnamese (https://kingnnt.org/vi)
+- Website: https://sofinwave.org
+- Email: Work.KingNNT@gmail.com
+- Languages: English (https://sofinwave.org/en), Vietnamese (https://sofinwave.org/vi)

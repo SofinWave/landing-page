@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "kingnnt.org — Tư vấn & Triển khai Hệ thống Phần mềm",
-    "description": "kingnnt.org đồng hành cùng doanh nghiệp thiết kế và triển khai hệ thống phần mềm đáng tin cậy — từ tư vấn kiến trúc đến bàn giao trọn gói."
+    "title": "SofinWave — Tư vấn & Triển khai Hệ thống Phần mềm",
+    "description": "SofinWave đồng hành cùng doanh nghiệp thiết kế và triển khai hệ thống phần mềm đáng tin cậy — từ tư vấn kiến trúc đến bàn giao trọn gói."
   },
   "nav": {
     "language": "Ngôn ngữ",
@@ -9,7 +9,7 @@
     "vietnamese": "Tiếng Việt"
   },
   "header": {
-    "brand": "kingnnt.org",
+    "brand": "SofinWave",
     "services": "Dịch vụ",
     "process": "Quy trình",
     "work": "Dự án",
@@ -22,7 +22,7 @@
   "hero": {
     "eyebrow": "Tư vấn & triển khai phần mềm",
     "title": "Xây dựng hệ thống doanh nghiệp bạn vận hành mỗi ngày",
-    "subtitle": "kingnnt.org đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
+    "subtitle": "SofinWave đồng hành từ kiến trúc đến bàn giao — thiết kế, xây dựng và vận hành hệ thống phần mềm đáng tin cậy, sẵn sàng mở rộng.",
     "ctaPrimary": "Đặt lịch tư vấn",
     "ctaSecondary": "Xem dự án"
   },
@@ -158,7 +158,7 @@
   },
   "team": {
     "title": "Chúng tôi là ai",
-    "about": "kingnnt.org là đội ngũ kỹ sư và chuyên gia tư vấn cấp cao đã bàn giao nhiều hệ thống production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như một phần trong đội của bạn.",
+    "about": "SofinWave là đội ngũ kỹ sư và chuyên gia tư vấn cấp cao đã bàn giao nhiều hệ thống production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như một phần trong đội của bạn.",
     "members": [
       { "name": "King Nguyen", "role": "Chuyên gia tư vấn chính" },
       { "name": "Thành viên", "role": "Kỹ sư trưởng" },
@@ -198,10 +198,10 @@
     "error": "Có lỗi xảy ra. Vui lòng thử lại."
   },
   "footer": {
-    "brand": "kingnnt.org",
+    "brand": "SofinWave",
     "tagline": "Tư vấn & triển khai phần mềm.",
     "status": "Hệ thống đang vận hành",
-    "email": "hello@kingnnt.org",
+    "email": "Work.KingNNT@gmail.com",
     "rights": "Bảo lưu mọi quyền.",
     "navigate": "Điều hướng",
     "connect": "Kết nối"
