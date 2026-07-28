@@ -139,6 +139,13 @@ const TECH_ROUTES: readonly RouteDef[] = [
     priority: 0.9,
     changeFrequency: "monthly",
   },
+  {
+    path: "services/data-annotation",
+    key: "dataAnnotation",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
 
   {
     path: "engagement-models",

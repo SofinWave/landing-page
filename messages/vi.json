@@ -1517,6 +1517,91 @@
         "button": "Liên hệ"
       }
     },
+    "dataAnnotation": {
+      "navLabel": "Gán nhãn",
+      "title": "Gán nhãn và chú thích dữ liệu",
+      "metaTitle": "Dịch vụ gán nhãn dữ liệu — Ảnh, video, 3D, văn bản, âm thanh",
+      "metaDescription": "Gán nhãn ảnh, video, point cloud 3D, tài liệu, và âm thanh — bounding box, polygon, segmentation, OCR, NER, và diarisation — thực hiện tại Việt Nam trên CVAT, Label Studio, hoặc platform của bạn.",
+      "lede": "Gán nhãn thường được bán như một dạng nhập liệu, và với phần lớn một batch nó đúng là vậy — annotator vẽ đúng cái box mà ai cũng sẽ vẽ. Thứ quyết định một dataset có dùng được hay không nằm ở phần còn lại: vật thể bị che khuất một nửa bởi vật khác, hai người nói chồng lên nhau, entity trải dài qua một ký hiệu tiền tệ mà chưa ai viết rule cho nó. Chất lượng thật sự của một vendor không nằm ở cách họ xử lý phần đa số dễ dàng; nó nằm ở cách họ xử lý khi guideline không bao được thứ đang hiện trên màn hình. Trang này viết quanh đúng trường hợp đó.",
+      "sections": [
+        {
+          "heading": "Hình ảnh và video",
+          "body": "Frame tĩnh và chuỗi video, gán nhãn theo đúng hình học mà model downstream cần, không phải một box mặc định quanh mọi thứ trong khung hình.",
+          "bullets": [
+            "Bounding box 2D, vẽ sát đúng phần diện tích thật của vật thể chứ không chừa biên độ cho thoải mái.",
+            "Polygon cho những biên dạng mà box không biểu diễn được — hình dạng bất quy tắc, thực vật, vật liệu đổ hoặc biến dạng.",
+            "Semantic và instance segmentation, mask ở mức pixel tách riêng từng instance của một class thay vì gộp chung vào một vùng.",
+            "Keypoint và pose, gán nhãn khớp và landmark cho pose estimation của người và vật thể.",
+            "Object tracking qua các frame, giữ nguyên identity qua occlusion để một vật thể giữ đúng ID khi biến mất sau vật khác rồi xuất hiện lại."
+          ]
+        },
+        {
+          "heading": "Dữ liệu 3D và cảm biến",
+          "body": "Dữ liệu cảm biến mà một ảnh phẳng không biểu diễn được, gán nhãn ngay trong không gian tọa độ mà model thật sự huấn luyện trên đó.",
+          "bullets": [
+            "Gán nhãn point cloud — bounding box 3D và segmentation theo từng điểm trên output LiDAR và depth sensor.",
+            "LiDAR-camera sensor fusion, gán nhãn các điểm chiếu lên frame camera để hai modality ra thành một bộ nhãn thống nhất thay vì hai bộ phải đối chiếu lại sau.",
+            "Cuboid tracking qua chuỗi dữ liệu, bounding box 3D của một vật thể được giữ và re-identify xuyên suốt bản ghi thay vì vẽ lại từng frame."
+          ]
+        },
+        {
+          "heading": "Tài liệu và văn bản",
+          "body": "Gán nhãn văn bản tôn trọng layout và intent, không chỉ ký tự.",
+          "bullets": [
+            "OCR và cấu trúc tài liệu — trích xuất văn bản cộng với layout mang lại ý nghĩa cho nó: bảng, form field, header, thứ tự đọc.",
+            "Named entity recognition (NER), gán nhãn người, tổ chức, địa điểm, và entity đặc thù theo domain của bạn trong văn bản liền mạch.",
+            "Text classification, gán tài liệu hoặc đoạn văn vào một tập nhãn xây theo đúng taxonomy của bạn thay vì một tập nhãn chung chung.",
+            "Gán nhãn intent và utterance cho dữ liệu hội thoại và giọng nói, gán nhãn người nói đang cố làm gì thay vì chỉ ghi lại họ nói gì."
+          ]
+        },
+        {
+          "heading": "Âm thanh",
+          "body": "Âm thanh có lời và không lời, gán nhãn trên cùng một timeline.",
+          "bullets": [
+            "Transcription, verbatim hoặc đã làm sạch tùy vào việc downstream cần gì.",
+            "Speaker diarisation — phân đoạn audio theo ai đang nói lúc nào, kể cả khi lời nói chồng lên nhau.",
+            "Gán nhãn acoustic event: âm thanh không lời — chuông báo, kính vỡ, tiếng máy — gán nhãn cùng timeline với lời nói thay vì bỏ qua."
+          ]
+        },
+        {
+          "heading": "Công cụ",
+          "body": "Chúng tôi chạy CVAT và Label Studio in-house cho những dự án không chỉ định platform, và làm việc trực tiếp trên platform sẵn có của khách hàng khi đã có sẵn. Đây không phải một sự chiều khách: bắt khách hàng migrate cả pipeline sang công cụ chúng tôi thích dùng để việc mua labelling tiện hơn cho chúng tôi là một chi phí vận hành của vendor, bị dựng lên rồi tính ngược lại cho khách hàng. Huấn luyện một đội annotator trên platform của bạn một lần rẻ hơn cho tất cả mọi người so với việc bắt pipeline của bạn đổi cách nạp nhãn."
+        },
+        {
+          "heading": "Đưa một đội vào dự án của bạn",
+          "body": "Thứ tự quan trọng hơn lịch trình. Tăng quân số trước khi guideline ổn định không nhân capacity gán nhãn lên — nó nhân đúng những lỗi guideline còn mắc phải lên, vì mỗi annotator mới đều áp đúng một instruction chưa được kiểm chứng lên một khối lượng item lớn hơn. Chúng tôi thêm người theo một thứ tự được xây để bắt một instruction sai trong khi vẫn còn rẻ để sửa, chứ không phải sau khi nó đã bị lặp lại ở quy mô lớn.",
+          "bullets": [
+            "Một pilot batch, gán nhãn trên một mẫu đại diện trước khi cam kết bất kỳ khối lượng nào.",
+            "Guideline được viết lại theo đúng những disagreement mà pilot thực sự phát hiện ra, không phải những disagreement chúng tôi đoán trước.",
+            "Một core team nhỏ đã qua đào tạo, đúng quy mô với guideline đã ổn định chứ không phải quy mô dự án cuối cùng.",
+            "Thêm quân số chỉ sau khi core đang áp guideline nhất quán, với core review output của annotator mới thay vì một lớp QA riêng phải học lại dự án từ đầu."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn cam kết độ chính xác bao nhiêu, và đo bằng cách nào?",
+          "answer": "Không có con số cố định nào chúng tôi đưa ra trước khi thấy dữ liệu, vì target khả thi phụ thuộc vào thứ đang được gán nhãn — segment một cảnh lộn xộn và classify một tài liệu sạch không phải cùng một bài toán. Target được thống nhất theo từng dự án dựa trên một gold set dựng từ chính dữ liệu của bạn, dùng đúng cách thực hành gold set và inter-annotator agreement mô tả ở trang dữ liệu huấn luyện AI của chúng tôi, và được báo cáo liên tục trong suốt dự án thay vì hứa một lần lúc bắt đầu."
+        },
+        {
+          "question": "Nếu guideline không bao được trường hợp thực tế thì sao?",
+          "answer": "Trường hợp đó được escalate lên thay vì để annotator nào gặp trước tự quyết định. Một reviewer cấp cao xử lý, kết quả xử lý được viết vào guideline kèm ví dụ đã gây ra nó, và bản cập nhật được version hóa để mọi annotator làm việc trên cùng một tài liệu sau đó. Pilot batch tồn tại chính là để phát hiện những trường hợp này trước khi chúng xuất hiện ở quy mô lớn."
+        },
+        {
+          "question": "Làm lại thì tính phí thế nào?",
+          "answer": "Làm lại do chính annotator của chúng tôi áp sai một guideline đã thống nhất thì chúng tôi chịu, không tính phí. Làm lại do thay đổi đặc tả — một class mới, một boundary case được định nghĩa lại, một rule bạn yêu cầu áp dụng khác đi sau khi đã làm — được scope và tính phí như một change order, vì đó là instruction mới, không phải sửa lỗi của chúng tôi."
+        },
+        {
+          "question": "Các bạn làm trực tiếp trên platform của chúng tôi được không?",
+          "answer": "Có — đó là mặc định, không phải ngoại lệ. Chúng tôi huấn luyện đội annotation trên platform và project setup sẵn có của bạn thay vì bắt bạn export dữ liệu sang công cụ của chúng tôi; xem phần Công cụ ở trên."
+        }
+      ],
+      "cta": {
+        "title": "Gửi cho chúng tôi một pilot batch",
+        "body": "Gửi một mẫu đại diện và guideline hiện tại của bạn, nếu có. Chúng tôi sẽ gán nhãn nó, chỉ ra chỗ nó bị vỡ, và nói cho bạn biết guideline cần thêm gì trước khi bạn cam kết khối lượng.",
+        "button": "Liên hệ"
+      }
+    },
     "ventures": {
       "navLabel": "Các mảng hoạt động",
       "title": "Các mảng hoạt động của SofinWave",

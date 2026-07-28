@@ -1512,6 +1512,91 @@
         "button": "Get in touch"
       }
     },
+    "dataAnnotation": {
+      "navLabel": "Annotation",
+      "title": "Data Annotation and Labelling Services",
+      "metaTitle": "Data Annotation Services — Image, Video, 3D, Text, Audio",
+      "metaDescription": "Image, video, 3D point cloud, document, and audio annotation and labelling — bounding boxes, segmentation, OCR, NER, and diarisation — delivered from Vietnam in CVAT, Label Studio, or your platform.",
+      "lede": "Labelling gets sold as data entry, and for most of a batch it behaves like data entry — an annotator draws the box everyone would draw. What determines whether a dataset is usable is the rest of it: the object half-occluded by another, the two speakers talking over each other, the entity that spans a currency symbol nobody wrote a rule for. A vendor's quality is not what it does with the easy majority; it is what it does when the guideline does not cover what is on screen. That is the case this page is written around.",
+      "sections": [
+        {
+          "heading": "Image and video",
+          "body": "Static frames and video sequences, annotated to the geometry the downstream model actually needs rather than a default box drawn around everything in view.",
+          "bullets": [
+            "2D bounding boxes, drawn tight to the object's true extent rather than to a comfortable margin around it.",
+            "Polygons for boundaries a box cannot represent — irregular shapes, vegetation, spilled or deformable material.",
+            "Semantic and instance segmentation, pixel-level masks that separate every instance of a class rather than merging them into one region.",
+            "Keypoints and pose, joint and landmark annotation for human and object pose estimation.",
+            "Object tracking across frames, with identity preserved through occlusion so an object keeps its ID when it disappears behind another and re-emerges."
+          ]
+        },
+        {
+          "heading": "3D and sensor data",
+          "body": "Sensor output a flat image cannot represent, labelled in the coordinate space the model actually trains on.",
+          "bullets": [
+            "Point cloud annotation — 3D bounding boxes and per-point segmentation on LiDAR and depth-sensor output.",
+            "LiDAR-camera sensor fusion, annotating projected points against the camera frame so the two modalities ship as one aligned label set rather than two that need reconciling downstream.",
+            "Cuboid tracking through sequences, an object's 3D bounding box carried and re-identified across a recording instead of redrawn frame by frame."
+          ]
+        },
+        {
+          "heading": "Document and text",
+          "body": "Text annotation that respects layout and intent, not just characters.",
+          "bullets": [
+            "OCR and document structure — text extraction plus the layout that gives it meaning: tables, form fields, headers, reading order.",
+            "Named entity recognition (NER), tagging people, organisations, locations, and entities specific to your domain inside running text.",
+            "Text classification, assigning documents or passages to a label set built against your taxonomy rather than a generic one.",
+            "Intent and utterance labelling for conversational and voice data, tagging what a speaker is trying to accomplish rather than only what they said."
+          ]
+        },
+        {
+          "heading": "Audio",
+          "body": "Speech and non-speech audio, labelled on a shared timeline.",
+          "bullets": [
+            "Transcription, verbatim or cleaned depending on what the downstream task needs.",
+            "Speaker diarisation — segmenting audio by who is speaking when, including overlapping speech.",
+            "Acoustic event labelling: non-speech sounds — alarms, glass breaking, machinery — tagged alongside speech rather than discarded."
+          ]
+        },
+        {
+          "heading": "Tooling",
+          "body": "We run CVAT and Label Studio in-house for projects that do not specify a platform, and we work inside a client's own platform when one is already in place. The position is not a courtesy: asking a client to migrate an existing pipeline onto our preferred tool so labelling is more convenient for us is a vendor's operating cost, invented and then charged to the customer. Training an annotation team on your platform once is cheaper for everyone than asking your pipeline to change how it ingests labels."
+        },
+        {
+          "heading": "Putting a team on your project",
+          "body": "The order matters more than the schedule. Scaling headcount before the guidelines have stabilised does not multiply labelling capacity — it multiplies whatever the guidelines still get wrong, because every new annotator applies the same untested instruction to a larger volume of items. We add people in an order built to catch a wrong instruction while it is still cheap to fix, not after it has been repeated at volume.",
+          "bullets": [
+            "A pilot batch, labelled against a representative sample before any commitment to volume.",
+            "Guidelines rewritten against the disagreements the pilot actually surfaced, not against the disagreements we guessed at in advance.",
+            "A small trained core, sized to guidelines that have stabilised rather than to the eventual project volume.",
+            "Headcount added once the core is applying the guidelines consistently, with the core reviewing new annotators' output rather than a separate QA layer learning the project from zero."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "What accuracy do you target, and how is it measured?",
+          "answer": "There is no fixed figure we quote before seeing the data, because the achievable target depends on what is being labelled — segmenting a cluttered scene and classifying a clean document are not the same task. The target is agreed per project against a gold set built from your data, using the same gold-set and inter-annotator agreement practice described on our AI training data page, and it is reported continuously through the project rather than promised once at the start."
+        },
+        {
+          "question": "What happens when the guidelines turn out to be ambiguous?",
+          "answer": "The case is escalated rather than settled independently by whichever annotator hits it first. A senior reviewer resolves it, the resolution is written into the guidelines with the example that triggered it, and the update is versioned so every annotator is working from the same document afterwards. A pilot batch exists specifically to surface these cases before they show up at volume."
+        },
+        {
+          "question": "How is rework priced?",
+          "answer": "Rework caused by our own annotators misapplying an agreed guideline is on us and is not billed. Rework caused by a specification change — a new class, a redefined boundary case, a rule you asked us to apply differently after the fact — is scoped and billed as a change order, because it is new instruction, not a correction of our error."
+        },
+        {
+          "question": "Can you work inside our annotation platform?",
+          "answer": "Yes — that is the default, not an exception. We train the annotation team on your platform and your existing project setup rather than asking you to export data into ours; see the tooling section above."
+        }
+      ],
+      "cta": {
+        "title": "Send us a pilot batch",
+        "body": "Send a representative sample and your current guidelines, if you have them. We will label it, show you where it broke, and tell you what the guidelines need before you commit to volume.",
+        "button": "Get in touch"
+      }
+    },
     "ventures": {
       "navLabel": "Ventures",
       "title": "SofinWave Ventures",
