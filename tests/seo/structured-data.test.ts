@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { faqSchema, organizationSchema, websiteSchema } from "@/lib/structured-data";
+import { faqSchema, organizationSchema, serviceSchema, websiteSchema } from "@/lib/structured-data";
+import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
 
 const services = en.services.items;
@@ -29,6 +30,21 @@ describe("organizationSchema", () => {
   it("declares expertise and areas served", () => {
     expect(org.knowsAbout).toEqual([...en.tech.technologies, ...en.tech.domains]);
     expect(org.areaServed.some((a) => a.name === "Vietnam")).toBe(true);
+  });
+});
+
+describe("serviceSchema", () => {
+  // This was a hardcoded ["en", "vi"], which would have gone on telling answer
+  // engines the service is offered in two languages after a third was added.
+  it("advertises every routed locale as an available language", () => {
+    const service = serviceSchema({
+      locale: "en",
+      path: "services/offshore-development",
+      name: "Offshore development",
+      description: "A complete offshore team.",
+      serviceType: "Software outsourcing",
+    });
+    expect(service.availableLanguage).toEqual([...routing.locales]);
   });
 });
 

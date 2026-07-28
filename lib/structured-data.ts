@@ -1,4 +1,5 @@
 import type { SiteId } from "@/enums";
+import { routing } from "@/i18n/routing";
 import { SITE_EMAIL, SITE_SAME_AS, localeUrl, pageUrl, siteUrl } from "@/lib/site";
 import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
 import { type RouteDef, breadcrumbTrail } from "@/lib/routes";
@@ -193,7 +194,9 @@ export function serviceSchema({
       { "@type": "Country", name: "Vietnam" },
       { "@type": "Place", name: "Worldwide" },
     ],
-    availableLanguage: ["en", "vi"],
+    // Derived from the routing config so adding a locale cannot leave this
+    // claiming the site is offered in fewer languages than it actually is.
+    availableLanguage: [...routing.locales],
   };
 }
 
