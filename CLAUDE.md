@@ -74,6 +74,15 @@ shadcn/ui, "new-york" style (`components.json`), Radix primitives under `compone
 
 `lib/site.ts` is the single source of truth for site URL, name, keywords (per-locale), `sameAs`, and hreflang/OG-locale helpers. `SITE_URL` comes from `NEXT_PUBLIC_SITE_URL` (defaults to `https://sofinwave.org`). Metadata is generated in `app/[locale]/layout.tsx` (`generateMetadata`), plus `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, and JSON-LD via `components/structured-data.tsx` + `lib/structured-data.ts`. When changing domain, brand, or keywords, edit `lib/site.ts`.
 
+### Brand assets
+
+`components/logo.tsx` renders the wordmark lockup, which ships as two theme variants
+(`public/images/logo-wordmark.png` / `-dark.png`) that swap via CSS — the brand navy is
+too close to the dark theme background to read on transparency alone. Those files, plus
+`public/images/logo-mark.png` and `app/icon.png`, are **derived**: regenerate them with
+`python3 scripts/build-brand-assets.py` (needs Pillow) rather than editing them by hand.
+The source art is `public/images/logo-sofinwave.png`.
+
 ### Path alias
 
 `@/*` → repo root (`tsconfig.json` + vitest alias). Import as `@/components/...`, `@/lib/...`, `@/enums`, etc.

@@ -25,7 +25,7 @@ Source is `public/images/logo-sofinwave.png` — 2048×2048, RGB (no alpha), nea
 background (RGB 252–255 with noise), lockup centred with wide margins. It is kept as the
 unmodified original. `public/images/logo-kingnnt.png` is also kept (archived, unreferenced).
 
-Derived by a one-off Pillow script:
+Derived by `scripts/build-brand-assets.py` (Pillow), re-runnable from the repo root:
 
 | File | Content |
 | --- | --- |
