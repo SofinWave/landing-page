@@ -385,8 +385,8 @@
       "navLabel": "Services",
       "title": "Services",
       "metaTitle": "Software Outsourcing Services",
-      "metaDescription": "Offshore development, dedicated teams, IT staff augmentation, custom software, system integration, and DevOps — delivered from Vietnam for US and European clients.",
-      "lede": "SofinWave offers six ways to work together, from a full offshore team that owns delivery end to end, to individual engineers embedded in your existing team. Which one fits depends on whether you need capacity, specific skills, or someone to own an outcome. If you are not sure, describe the problem and we will tell you which model we would propose and why.",
+      "metaDescription": "Offshore development, dedicated teams, staff augmentation, custom software, system integration, DevOps, AI delivery, and AI training data — from Vietnam for US and European clients.",
+      "lede": "SofinWave works in four registers: team models, engineering services, AI delivery, and the training data underneath it. Which one fits depends on whether you need capacity, specific skills, someone to own an outcome, or the dataset a model will learn from. If you are not sure, describe the problem and we will tell you which we would propose and why.",
       "sections": [
         {
           "heading": "Team models",
@@ -395,6 +395,20 @@
             "Offshore development — a complete team that owns delivery of a product or system, with its own process and reporting.",
             "Dedicated team — engineers assigned to you long-term who work inside your process, your board, your standups.",
             "IT staff augmentation — named individuals filling specific gaps in an existing team, managed by you."
+          ],
+          "links": [
+            {
+              "href": "/services/offshore-development",
+              "label": "Offshore development"
+            },
+            {
+              "href": "/services/dedicated-team",
+              "label": "Dedicated team"
+            },
+            {
+              "href": "/services/staff-augmentation",
+              "label": "IT staff augmentation"
+            }
           ]
         },
         {
@@ -404,6 +418,75 @@
             "Custom software development — web, mobile, and backend systems built to your business rules.",
             "System integration — connecting ERP, CRM, payment, and third-party systems into one reliable flow.",
             "DevOps & cloud — CI/CD, infrastructure as code, observability, and cloud cost work."
+          ],
+          "links": [
+            {
+              "href": "/services/custom-software-development",
+              "label": "Custom software development"
+            },
+            {
+              "href": "/services/system-integration",
+              "label": "System integration"
+            },
+            {
+              "href": "/services/devops-cloud",
+              "label": "DevOps & cloud"
+            }
+          ]
+        },
+        {
+          "heading": "AI delivery",
+          "body": "Three purchases that get conflated because they all involve a model. Each fails in a different way, so each has its own page.",
+          "bullets": [
+            "AI implementation — taking a model from a convincing demo to a system with evaluation, cost control, and a rollback path.",
+            "LLM integration and RAG — connecting a model to your own data without it inventing the parts it does not know.",
+            "AI agents — multi-step workflows that act rather than answer, with the guardrails that makes tolerable."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "AI implementation"
+            },
+            {
+              "href": "/services/llm-integration",
+              "label": "LLM integration and RAG"
+            },
+            {
+              "href": "/services/ai-agents",
+              "label": "AI agents"
+            }
+          ]
+        },
+        {
+          "heading": "AI training data",
+          "body": "The data an AI system learns from, collected and labelled by the team that then has to train on it. The overview page explains how the four fit together.",
+          "bullets": [
+            "Data collection — video, image, audio, document, and scripted scenarios captured to a written specification.",
+            "Egocentric and exocentric capture — synchronised first-person and multi-view recording for robotics and embodied AI.",
+            "Data annotation — image, video, 3D point cloud, document, and audio labelling.",
+            "RLHF and SFT data — demonstrations, preference ranking, evaluation, and red teaming for LLM post-training."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data overview"
+            },
+            {
+              "href": "/services/data-collection",
+              "label": "Data collection"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "RLHF and SFT data"
+            }
           ]
         },
         {
@@ -1326,13 +1409,22 @@
             "LLM post-training data: supervised fine-tuning demonstrations, preference ranking, and evaluation."
           ],
           "links": [
-            { "href": "/services/data-collection", "label": "Data collection" },
+            {
+              "href": "/services/data-collection",
+              "label": "Data collection"
+            },
             {
               "href": "/services/egocentric-data-collection",
               "label": "Egocentric and exocentric capture"
             },
-            { "href": "/services/data-annotation", "label": "Data annotation" },
-            { "href": "/services/rlhf-sft-data", "label": "RLHF and SFT data" }
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "RLHF and SFT data"
+            }
           ]
         },
         {
@@ -1434,7 +1526,10 @@
               "href": "/services/egocentric-data-collection",
               "label": "Egocentric and exocentric capture"
             },
-            { "href": "/services/ai-training-data", "label": "AI training data" }
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
           ]
         }
       ],
@@ -1508,8 +1603,14 @@
             "Annotation on the same footage when you want it — the labelling work described on our data annotation page runs directly against what this page captures."
           ],
           "links": [
-            { "href": "/services/data-annotation", "label": "Data annotation" },
-            { "href": "/services/ai-training-data", "label": "AI training data" }
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
           ]
         }
       ],
@@ -1597,7 +1698,10 @@
             "Headcount added once the core is applying the guidelines consistently, with the core reviewing new annotators' output rather than a separate QA layer learning the project from zero."
           ],
           "links": [
-            { "href": "/services/ai-training-data", "label": "AI training data" },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            },
             {
               "href": "/services/egocentric-data-collection",
               "label": "Egocentric and exocentric capture"
@@ -1652,7 +1756,12 @@
         {
           "heading": "Rubric-based evaluation",
           "body": "Rubric-based evaluation asks the same question as preference ranking but produces a score rather than a comparison: does this specific output meet a stated bar, and by how much does it miss when it doesn't. We build the rubric to be applied the same way by every scorer, on every item, which is what makes a model change measurable rather than a matter of impression — evaluation as infrastructure, not a one-off exercise. What we add here is the labour: the people who apply the rubric at the volume a real evaluation set requires, consistently enough that a score moving is evidence and not noise.",
-          "links": [{ "href": "/services/ai-implementation", "label": "AI implementation" }]
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "AI implementation"
+            }
+          ]
         },
         {
           "heading": "Red teaming",
@@ -1667,8 +1776,14 @@
           "heading": "Vietnamese and English",
           "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on.",
           "links": [
-            { "href": "/services/llm-integration", "label": "LLM integration and RAG" },
-            { "href": "/services/ai-training-data", "label": "AI training data" }
+            {
+              "href": "/services/llm-integration",
+              "label": "LLM integration and RAG"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
           ]
         }
       ],

@@ -385,8 +385,8 @@
       "navLabel": "Dịch vụ",
       "title": "Dịch vụ",
       "metaTitle": "Dịch vụ thuê ngoài phát triển phần mềm",
-      "metaDescription": "Phát triển offshore, đội ngũ chuyên trách, tăng cường nhân sự IT, phần mềm theo yêu cầu, tích hợp hệ thống và DevOps — triển khai từ Việt Nam cho khách hàng Mỹ và châu Âu.",
-      "lede": "SofinWave có sáu cách hợp tác, từ một đội offshore trọn vẹn chịu trách nhiệm bàn giao đầu cuối, đến từng kỹ sư nhúng vào đội ngũ sẵn có của bạn. Chọn cách nào phụ thuộc vào việc bạn cần năng lực, cần kỹ năng cụ thể, hay cần người chịu trách nhiệm cho một kết quả. Nếu chưa rõ, hãy mô tả vấn đề và chúng tôi sẽ nói mình đề xuất mô hình nào và vì sao.",
+      "metaDescription": "Phát triển offshore, đội ngũ chuyên trách, tăng cường nhân sự IT, phần mềm theo yêu cầu, tích hợp hệ thống, DevOps, triển khai AI và dữ liệu huấn luyện AI — từ Việt Nam cho khách hàng Mỹ và châu Âu.",
+      "lede": "SofinWave làm việc theo bốn nhóm: mô hình đội ngũ, dịch vụ kỹ thuật, triển khai AI, và dữ liệu huấn luyện nằm bên dưới. Chọn nhóm nào tùy vào việc bạn cần thêm năng lực, cần kỹ năng cụ thể, cần người chịu trách nhiệm kết quả, hay cần chính bộ dữ liệu để model học. Nếu chưa chắc, cứ mô tả bài toán, chúng tôi sẽ nói nên chọn gì và vì sao.",
       "sections": [
         {
           "heading": "Các mô hình đội ngũ",
@@ -395,6 +395,20 @@
             "Phát triển offshore — một đội hoàn chỉnh chịu trách nhiệm bàn giao sản phẩm hoặc hệ thống, có quy trình và báo cáo riêng.",
             "Đội ngũ chuyên trách — kỹ sư gắn với bạn dài hạn, làm việc trong quy trình của bạn, trên board và standup của bạn.",
             "Tăng cường nhân sự IT — từng người cụ thể lấp đúng khoảng trống trong đội sẵn có, do bạn quản lý."
+          ],
+          "links": [
+            {
+              "href": "/services/offshore-development",
+              "label": "Phát triển offshore"
+            },
+            {
+              "href": "/services/dedicated-team",
+              "label": "Đội chuyên trách"
+            },
+            {
+              "href": "/services/staff-augmentation",
+              "label": "Tăng cường nhân sự"
+            }
           ]
         },
         {
@@ -404,6 +418,75 @@
             "Phát triển phần mềm theo yêu cầu — hệ thống web, mobile và backend xây theo nghiệp vụ của bạn.",
             "Tích hợp hệ thống — kết nối ERP, CRM, thanh toán và hệ thống bên thứ ba thành một luồng chạy ổn định.",
             "DevOps & cloud — CI/CD, hạ tầng dạng mã, quan trắc, và tối ưu chi phí cloud."
+          ],
+          "links": [
+            {
+              "href": "/services/custom-software-development",
+              "label": "Phần mềm theo yêu cầu"
+            },
+            {
+              "href": "/services/system-integration",
+              "label": "Tích hợp hệ thống"
+            },
+            {
+              "href": "/services/devops-cloud",
+              "label": "DevOps & cloud"
+            }
+          ]
+        },
+        {
+          "heading": "Triển khai AI",
+          "body": "Ba thứ hay bị gộp làm một chỉ vì đều dính tới model. Mỗi thứ hỏng theo một kiểu khác nhau, nên mỗi thứ có trang riêng.",
+          "bullets": [
+            "Triển khai hệ thống AI — đưa model từ một bản demo thuyết phục thành hệ thống có evaluation, kiểm soát chi phí và đường lùi.",
+            "Tích hợp LLM và RAG — nối model vào dữ liệu của bạn mà không để nó bịa ra phần nó không biết.",
+            "AI agent — quy trình nhiều bước biết hành động chứ không chỉ trả lời, kèm guardrail để việc đó chấp nhận được."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "Hệ thống AI"
+            },
+            {
+              "href": "/services/llm-integration",
+              "label": "Tích hợp LLM và RAG"
+            },
+            {
+              "href": "/services/ai-agents",
+              "label": "AI agent"
+            }
+          ]
+        },
+        {
+          "heading": "Dữ liệu huấn luyện AI",
+          "body": "Dữ liệu để hệ thống AI học, do chính đội sau đó phải huấn luyện trên nó thu thập và gán nhãn. Trang tổng quan giải thích bốn mảng ghép với nhau ra sao.",
+          "bullets": [
+            "Thu thập dữ liệu — video, ảnh, audio, tài liệu và kịch bản dựng sẵn, thu theo đặc tả viết ra giấy.",
+            "Thu ego và exo — quay đồng bộ góc nhìn thứ nhất và multi-view cho robotics và embodied AI.",
+            "Gán nhãn dữ liệu — ảnh, video, point cloud 3D, tài liệu và audio.",
+            "Dữ liệu RLHF và SFT — demonstration, preference ranking, đánh giá và red teaming cho post-training LLM."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "Tổng quan dữ liệu huấn luyện AI"
+            },
+            {
+              "href": "/services/data-collection",
+              "label": "Thu thập dữ liệu"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "Dữ liệu RLHF và SFT"
+            }
           ]
         },
         {
@@ -1331,10 +1414,22 @@
             "Dữ liệu post-training cho LLM: minh họa supervised fine-tuning, xếp hạng preference, và đánh giá."
           ],
           "links": [
-            { "href": "/services/data-collection", "label": "Thu thập dữ liệu" },
-            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" },
-            { "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" },
-            { "href": "/services/rlhf-sft-data", "label": "Dữ liệu RLHF và SFT" }
+            {
+              "href": "/services/data-collection",
+              "label": "Thu thập dữ liệu"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "Dữ liệu RLHF và SFT"
+            }
           ]
         },
         {
@@ -1432,8 +1527,14 @@
             "Báo cáo item bị loại cho bất cứ thứ gì không qua review, nêu rõ lý do loại — không phải một batch tự nhiên nhỏ hơn mà không giải thích."
           ],
           "links": [
-            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" },
-            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
           ]
         }
       ],
@@ -1507,8 +1608,14 @@
             "Gán nhãn trên chính footage đó khi bạn cần — công việc gán nhãn mô tả ở trang gán nhãn dữ liệu của chúng tôi chạy trực tiếp trên thứ trang này thu được."
           ],
           "links": [
-            { "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" },
-            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
           ]
         }
       ],
@@ -1596,8 +1703,14 @@
             "Thêm quân số chỉ sau khi core đang áp guideline nhất quán, với core review output của annotator mới thay vì một lớp QA riêng phải học lại dự án từ đầu."
           ],
           "links": [
-            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" },
-            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" }
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            }
           ]
         }
       ],
@@ -1648,7 +1761,12 @@
         {
           "heading": "Đánh giá theo rubric",
           "body": "Đánh giá theo rubric hỏi cùng một câu hỏi như preference ranking nhưng cho ra một điểm số thay vì một phép so sánh: output cụ thể này có đạt một ngưỡng đã nêu không, và nếu không đạt thì thiếu bao nhiêu. Chúng tôi xây rubric để mọi người chấm áp dụng giống hệt nhau, trên mọi item, đó là thứ khiến một thay đổi model trở thành một sự kiện đo được thay vì một ấn tượng — đánh giá là hạ tầng, không phải việc làm một lần. Thứ chúng tôi thêm vào ở đây là nhân lực: những người áp rubric ở khối lượng một evaluation set thật sự cần, đủ nhất quán để một điểm số dịch chuyển là bằng chứng chứ không phải nhiễu.",
-          "links": [{ "href": "/services/ai-implementation", "label": "Triển khai hệ thống AI" }]
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "Triển khai hệ thống AI"
+            }
+          ]
         },
         {
           "heading": "Red teaming",
@@ -1663,8 +1781,14 @@
           "heading": "Tiếng Việt và tiếng Anh",
           "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên.",
           "links": [
-            { "href": "/services/llm-integration", "label": "Tích hợp LLM và RAG" },
-            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
+            {
+              "href": "/services/llm-integration",
+              "label": "Tích hợp LLM và RAG"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
           ]
         }
       ],
