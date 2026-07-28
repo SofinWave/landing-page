@@ -1,6 +1,16 @@
 import { describe, it, expect } from "vitest";
+import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
+
+/**
+ * English is the reference catalog; every other locale is checked against it.
+ * Keyed by locale so adding one to `routing.locales` fails here until its
+ * catalog is imported, rather than silently going unchecked.
+ */
+const CATALOGS: Record<string, unknown> = { en, vi, zh };
+const TRANSLATIONS = routing.locales.filter((locale) => locale !== routing.defaultLocale);
 
 function keyPaths(obj: unknown, prefix = ""): string[] {
   if (obj && typeof obj === "object" && !Array.isArray(obj)) {
@@ -28,11 +38,19 @@ function arrayLengths(obj: unknown, prefix = ""): Record<string, number> {
 }
 
 describe("message catalogs", () => {
-  it("en and vi have identical key structure", () => {
-    expect(keyPaths(en).sort()).toEqual(keyPaths(vi).sort());
+  it("ships a catalog for every routed locale", () => {
+    for (const locale of routing.locales) {
+      expect(CATALOGS[locale], `no catalog imported for "${locale}"`).toBeDefined();
+    }
   });
 
-  it("en and vi have identical array lengths at every path", () => {
-    expect(arrayLengths(en)).toEqual(arrayLengths(vi));
+  describe.each(TRANSLATIONS)("%s against en", (locale) => {
+    it("has an identical key structure", () => {
+      expect(keyPaths(CATALOGS[locale]).sort()).toEqual(keyPaths(en).sort());
+    });
+
+    it("has identical array lengths at every path", () => {
+      expect(arrayLengths(CATALOGS[locale])).toEqual(arrayLengths(en));
+    });
   });
 });

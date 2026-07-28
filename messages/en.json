@@ -8,7 +8,8 @@
   "nav": {
     "language": "Language",
     "english": "English",
-    "vietnamese": "Tiếng Việt"
+    "vietnamese": "Tiếng Việt",
+    "chinese": "中文"
   },
   "header": {
     "brand": "SofinWave",
