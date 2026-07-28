@@ -53,6 +53,17 @@ describe("breadcrumbTrail", () => {
   it("returns an empty trail for a path belonging to another site", () => {
     expect(breadcrumbTrail(SiteId.Media, "services/ai-implementation")).toEqual([]);
   });
+
+  it("follows a parent that is not the path prefix", () => {
+    expect(
+      breadcrumbTrail(SiteId.Tech, "services/egocentric-data-collection").map((r) => r.path),
+    ).toEqual([
+      HOME_PATH,
+      "services",
+      "services/data-collection",
+      "services/egocentric-data-collection",
+    ]);
+  });
 });
 
 describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {

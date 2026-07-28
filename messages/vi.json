@@ -1446,6 +1446,77 @@
         "button": "Liên hệ"
       }
     },
+    "egocentricDataCollection": {
+      "navLabel": "Thu ego & exo",
+      "title": "Thu thập dữ liệu Egocentric và Exocentric",
+      "metaTitle": "Dịch vụ thu thập dữ liệu Egocentric — Thu ego & exo",
+      "metaDescription": "Thu đồng bộ egocentric góc nhìn thứ nhất và exocentric đa góc cho dữ liệu huấn luyện robotics và embodied AI, thực hiện tại Việt Nam.",
+      "lede": "Một robot policy huấn luyện từ video phải học từ những demonstration của con người thực hiện tác vụ, và góc nhìn ghi những demonstration đó cũng quan trọng như bản thân tác vụ. Thu egocentric — camera đeo trên đầu — ghi lại đúng thứ camera của robot sau này sẽ thấy. Một mình nó lại bỏ lỡ phần lớn thứ khiến demonstration dùng được: tay của người thực hiện, vật thể đang thao tác, tư thế cơ thể tạo ra chuyển động — tất cả thường xuyên nằm ngoài khung hình hoặc bị chính đầu người đó che khuất. Thu exocentric, ghi từ các camera cố định bên ngoài trong cùng buổi thu, bù lại đúng phần góc nhìn thứ nhất không thể cho thấy. Chúng tôi chạy cả hai cùng lúc, đồng bộ, như một sản phẩm bàn giao duy nhất.",
+      "sections": [
+        {
+          "heading": "Thu ego và exo cùng lúc",
+          "body": "Mọi buổi thu ghi cả hai góc nhìn theo cùng một đồng hồ, để cặp dữ liệu có thể dùng như một cặp thay vì phải đối chiếu lại sau.",
+          "bullets": [
+            "Thu egocentric góc nhìn thứ nhất qua camera đeo đầu, đóng khung và ổn định theo tác vụ chứ không theo độ tiện đeo thông thường.",
+            "Rig đa góc bên ngoài đặt để bao phủ tay, vật thể đang thao tác, và tư thế cơ thể mà camera đeo đầu không thấy được.",
+            "Đồng bộ timecode trên mọi stream, để footage egocentric và exocentric khớp nhau theo từng frame chứ không phải ước lượng.",
+            "Calibration ghi cùng lúc với footage — intrinsics của camera và hình học của rig được ghi ngay trong buổi thu, không phải dựng lại sau đó từ những gì frame tình cờ cho thấy."
+          ]
+        },
+        {
+          "heading": "Vì sao cặp ego-exo có giá trị hơn từng cái riêng lẻ",
+          "body": "Stream egocentric cho thấy người thực hiện đã nhìn thấy gì: hướng tiếp cận, góc nhìn mà camera của robot sau này sẽ tái hiện, những tín hiệu thị giác mà người đó đang phản ứng lại. Nhưng nó lại cho thấy rất ít việc tay người đó thực sự đang làm gì, vì camera đeo đầu nhìn theo hướng đầu quay, còn tay, dụng cụ, và vật thể đang thao tác lại nằm ngoài khung hình đó hoặc bị chính cánh tay người thực hiện che khuất trong phần lớn tác vụ. Stream exocentric cho thấy điều ngược lại: chuyển động của tay, cách cầm nắm, tư thế vật thể, và dáng cơ thể, tất cả đều thấy được từ một góc cố định bên ngoài, nhưng lại thiếu đúng góc nhìn mà một policy huấn luyện cho input góc nhìn thứ nhất cần. Không stream nào thay thế được stream kia. Xem riêng lẻ, mỗi stream đều có thông tin với con người. Ghép cặp và đồng bộ, cả hai cùng cho một hệ thống học máy đúng thứ nó cần — góc nhìn nó sẽ hành động từ đó, và chi tiết vật lý mà riêng góc nhìn đó bỏ sót. EgoExo4D, một dataset nghiên cứu công khai, là lý do vì sao cách ghép cặp này giờ là thực hành chuẩn trong embodied AI chứ không phải một ý tưởng riêng lẻ: nó chứng minh rằng thu ego-exo đồng bộ tạo ra dữ liệu huấn luyện được mà không stream riêng lẻ nào tạo ra nổi."
+        },
+        {
+          "heading": "Một buổi thu diễn ra thế nào",
+          "body": "Những biến số làm hỏng một buổi thu hiếm khi lộ ra cho tới lúc xem lại, đó là lý do quy trình được xây để bắt lỗi trước khi ekip rời hiện trường.",
+          "bullets": [
+            "Calibration trước take đầu tiên, mọi camera và rig được kiểm tra lại với mốc tham chiếu của buổi thu, không giả định giống buổi trước.",
+            "Kịch bản hoạt động viết sẵn từ trước, để mọi take của cùng một tác vụ theo đúng các bước theo đúng thứ tự, và các take so sánh được với nhau.",
+            "Briefing cho operator về tác vụ, rig, và những failure mode riêng của buổi thu đó, trước khi bắt đầu ghi.",
+            "Kiểm tra chất lượng trong lúc thu — xem lại footage giữa các take, không dồn lại để xem một lượt vào cuối ngày.",
+            "Review ngay trong ngày trước khi ekip nghỉ, vì quay lại một take rẻ vào ngày đầu của một chương trình và gần như bất khả thi vào ngày thứ ba mươi, khi set, đạo cụ, và diễn viên đã không còn ở đó."
+          ]
+        },
+        {
+          "heading": "Teleoperation demonstration",
+          "body": "Chúng tôi hỗ trợ thu teleoperation demonstration khi khách hàng cung cấp rig — cánh tay robot, bộ điều khiển, cấu hình thao tác là của bạn; huấn luyện operator, kỷ luật buổi thu, và kiểm soát chất lượng từng take là của chúng tôi. Việc này chạy theo bài toán kinh tế khác hẳn thu hoạt động con người theo kịch bản: số lượng demonstration cần cho mỗi manipulation task để có một tập huấn luyện dùng được thường lên tới hàng trăm, không phải hàng chục, nên lập kế hoạch throughput và khả năng lặp lại buổi thu quan trọng hơn ở đây so với độ chỉn chu của từng take riêng lẻ. Chúng tôi lên kế hoạch chương trình theo đúng khối lượng đó ngay từ cuộc trao đổi đầu tiên, thay vì phát hiện ra giữa chừng."
+        },
+        {
+          "heading": "Bạn nhận được gì",
+          "body": "Bàn giao được xây để nạp thẳng vào pipeline huấn luyện, không phải để định dạng lại sau đó.",
+          "bullets": [
+            "Video đồng bộ cho mọi stream đã thu trong buổi — egocentric và mọi góc exocentric, canh theo một timecode chung.",
+            "Metadata calibration và pose cho mọi camera và rig đã dùng, bàn giao cùng footage chứ không phải một bước dựng lại riêng.",
+            "Log theo từng buổi thu, gắn từng take về đúng bước kịch bản và biến thể tác vụ mà nó thuộc về.",
+            "Gán nhãn trên chính footage đó khi bạn cần — công việc gán nhãn mô tả ở trang gán nhãn dữ liệu của chúng tôi chạy trực tiếp trên thứ trang này thu được."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Một ekip thu được bao nhiêu giờ mỗi ngày?",
+          "answer": "Điều này phụ thuộc vào yêu cầu thực tế của buổi thu, không phải một định mức ngày cố định: số lượng take riêng biệt mà kịch bản yêu cầu, mỗi take dài bao lâu, rig cần calibrate lại bao nhiêu lần giữa các setup, và bao nhiêu thời gian review trong lúc thu được bố trí để bắt một take hỏng trước khi ekip chuyển tiếp. Một tác vụ manipulation ngắn, lặp lại và một kịch bản hoạt động dài, tự do cho ra con số mỗi ngày rất khác nhau dù cùng một ekip. Chúng tôi định lượng việc này dựa trên đúng kịch bản của bạn thay vì đưa ra một con số sẽ không đúng cho tác vụ của bạn."
+        },
+        {
+          "question": "Các bạn có dựng rig riêng cho bài toán của chúng tôi được không?",
+          "answer": "Có, khi tác vụ đòi hỏi vị trí camera mà một setup đa góc tiêu chuẩn không bao phủ được — không gian làm việc chật hẹp, góc thao tác bất thường, hoặc yêu cầu bao phủ riêng cho input mà policy của bạn cần. Chúng tôi thiết kế hình học rig theo đúng thứ tác vụ cần cho thấy, không theo một cấu hình mặc định cố định."
+        },
+        {
+          "question": "Consent cho dữ liệu egocentric khác gì so với video thường?",
+          "answer": "Camera đeo đầu ghi lại bất cứ thứ gì người đeo nhìn vào, và điều đó thường xuyên bao gồm cả không gian riêng tư và người xung quanh không phải chủ thể của buổi thu và không được hỏi ý kiến trước khi bị quay. Release cho các buổi thu egocentric của chúng tôi bao phủ mọi người xuất hiện trong khung hình, không chỉ người đeo camera, và những địa điểm không thể xin được consent từ những người sẽ xuất hiện thì không được quay ở đó. Ràng buộc này quyết định buổi thu được thực hiện ở đâu trước cả khi nó quyết định thu được gì."
+        },
+        {
+          "question": "Các bạn có gán nhãn luôn phần dữ liệu đã thu không?",
+          "answer": "Có — gán nhãn trên footage egocentric và exocentric là dịch vụ chúng tôi chạy trực tiếp trên chính footage do ekip của mình thu, mô tả ở trang gán nhãn dữ liệu của chúng tôi. Hand pose, object tracking, và action segmentation trên các stream đồng bộ dễ làm đúng hơn khi đội gán nhãn hiểu rõ footage đó được rig và calibrate như thế nào ngay từ đầu."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi về một chương trình thu dữ liệu",
+        "body": "Mô tả tác vụ và góc nhìn model của bạn cần. Chúng tôi sẽ nói cho bạn biết rig và kế hoạch buổi thu cần bao phủ điều gì.",
+        "button": "Liên hệ"
+      }
+    },
     "ventures": {
       "navLabel": "Các mảng hoạt động",
       "title": "Các mảng hoạt động của SofinWave",

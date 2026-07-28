@@ -1441,6 +1441,77 @@
         "button": "Get in touch"
       }
     },
+    "egocentricDataCollection": {
+      "navLabel": "Ego & exo capture",
+      "title": "Egocentric and Exocentric Data Collection",
+      "metaTitle": "Egocentric Data Collection Services — Ego & Exo Capture",
+      "metaDescription": "Synchronised egocentric first-person and exocentric multi-view capture for robotics and embodied AI training data, run from Vietnam.",
+      "lede": "A robot policy trained from video has to learn from demonstrations of a human doing the task, and the viewpoint those demonstrations are recorded from matters as much as the task itself. Egocentric capture — a head-mounted camera — records what the robot's own camera will see. On its own it misses most of what makes the demonstration usable: the actor's hands, the object being manipulated, the body pose driving the motion, all routinely out of frame or occluded by the actor's own head. Exocentric capture, recorded from fixed external cameras around the same session, fills in what the first-person view cannot show. We run both together, synchronised, as one deliverable.",
+      "sections": [
+        {
+          "heading": "Egocentric and exocentric, captured together",
+          "body": "Every session records both viewpoints against the same clock, so the pair can be used as a pair rather than reconciled after the fact.",
+          "bullets": [
+            "Head-mounted first-person capture, framed and stabilised for the task rather than for general wearability.",
+            "External multi-view rigs positioned to cover the hands, the manipulated object, and the actor's body pose the head camera cannot see.",
+            "Timecode synchronisation across every stream, so egocentric and exocentric footage line up frame to frame rather than by estimate.",
+            "Calibration recorded with the footage — camera intrinsics and rig geometry captured at the time of the session, not reconstructed afterwards from what the frames happen to show."
+          ]
+        },
+        {
+          "heading": "Why the paired view is worth more than either alone",
+          "body": "The egocentric stream shows what the actor saw: the approach, the viewpoint the robot's own camera will eventually replicate, the visual cues the actor was reacting to. It also shows very little of what the actor's hands were actually doing, because a head-mounted camera looks where the head points, and hands, tools, and the object being manipulated spend much of a task out of that frame or blocked by the actor's own arm. The exocentric stream shows the opposite: hand articulation, grasp, object pose, and body posture, all visible from a fixed external angle, but without the viewpoint a policy trained for first-person input needs. Neither stream is a substitute for the other. Watched alone, either is informative to a person. Paired and synchronised, the two together give a learning system what it actually needs — the viewpoint it will act from and the physical detail that viewpoint alone omits. EgoExo4D, a public research dataset, is the reason this pairing is now standard practice in embodied AI rather than a bespoke idea: it demonstrated that synchronised ego-exo capture produces trainable data that neither stream produces on its own."
+        },
+        {
+          "heading": "How a session runs",
+          "body": "The variables that ruin a capture session are rarely visible until playback, which is why the sequence is built to catch them before the crew leaves.",
+          "bullets": [
+            "Calibration before the first take, with every camera and rig checked against the session's reference markers, not assumed from the previous session.",
+            "Activity scripting written in advance, so every take of the same task follows the same steps in the same order and takes are comparable to each other.",
+            "Operator briefing on the task, the rig, and the failure modes specific to that session, before recording starts.",
+            "In-session quality checks — footage reviewed between takes, not batched up for a single pass at the end of the day.",
+            "Same-day review before the crew stands down, because a reshoot is inexpensive on day one of a programme and effectively impossible on day thirty, once the set, the props, and the actors are gone."
+          ]
+        },
+        {
+          "heading": "Teleoperation demonstrations",
+          "body": "We support teleoperation capture when the client supplies the rig — the robot arm, the controller, the manipulation setup are yours; the operator training, session discipline, and take-level quality control are ours. This work runs at different economics than scripted human activity capture: demonstration counts per manipulation task for a usable training set typically run into the hundreds, not the dozens, so throughput planning and session repeatability matter more here than polish on any individual take. We plan the programme around that volume from the first conversation rather than discovering it partway through."
+        },
+        {
+          "heading": "What you receive",
+          "body": "Delivery is built to enter a training pipeline directly, not to be reformatted after the fact.",
+          "bullets": [
+            "Synchronised video for every stream captured in the session — egocentric and every exocentric angle, aligned to a common timecode.",
+            "Calibration and pose metadata for every camera and rig used, delivered alongside the footage rather than as a separate reconstruction step.",
+            "Per-session logs tying individual takes back to the script step and task variant they belong to.",
+            "Annotation on the same footage when you want it — the labelling work described on our data annotation page runs directly against what this page captures."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "How much footage can a crew capture in a day?",
+          "answer": "It depends on what the session actually requires, not on a fixed day rate: the number of distinct takes the script calls for, how long each take runs, how much recalibration a rig needs between setups, and how much in-session review time is built in to catch a bad take before the crew moves on. A short, repetitive manipulation task and a long, free-form activity script produce very different daily counts from the same crew. We size this against your specific script rather than quoting a number that would not hold for your task."
+        },
+        {
+          "question": "Can you build a custom rig for our task?",
+          "answer": "Yes, when the task calls for camera placements a standard multi-view setup does not cover — a confined workspace, an unusual manipulation angle, or coverage requirements specific to your policy's input. We design rig geometry against what the task needs to show, not against a fixed default configuration."
+        },
+        {
+          "question": "How is consent different for egocentric data?",
+          "answer": "A head-mounted camera records whatever the wearer looks at, which routinely includes private environments and bystanders who are not the subject of the session and were not asked to be filmed. Releases on our egocentric sessions cover everyone who appears in frame, not only the person wearing the camera, and locations where we cannot obtain consent from the people who would appear are not shot. That constraint shapes where a session can run before it shapes what it captures."
+        },
+        {
+          "question": "Can you annotate the footage you capture?",
+          "answer": "Yes — annotation on egocentric and exocentric footage is a service we run directly on what our own crews capture, described on our data annotation page. Hand pose, object tracking, and action segmentation across synchronised streams are easier to get right when the team labelling the footage understands how it was rigged and calibrated in the first place."
+        }
+      ],
+      "cta": {
+        "title": "Talk to us about a capture programme",
+        "body": "Describe the task and the viewpoint your model needs. We will tell you what the rig and the session plan need to cover.",
+        "button": "Get in touch"
+      }
+    },
     "ventures": {
       "navLabel": "Ventures",
       "title": "SofinWave Ventures",
