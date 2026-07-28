@@ -180,9 +180,18 @@
     "title": "Chúng tôi là ai",
     "about": "SofinWave là một đội nhỏ gồm kỹ sư và chuyên gia tư vấn có kinh nghiệm, đã đưa nhiều hệ thống lên production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như phần mở rộng của đội bạn, từ Việt Nam, bằng tiếng Anh và tiếng Việt.",
     "members": [
-      { "name": "Jesse", "role": "Chuyên gia tư vấn chính" },
-      { "name": "Alex", "role": "Kỹ sư trưởng" },
-      { "name": "Brian", "role": "Kiến trúc sư giải pháp" }
+      {
+        "name": "Jesse",
+        "role": "Chuyên gia tư vấn chính"
+      },
+      {
+        "name": "Alex",
+        "role": "Kỹ sư trưởng"
+      },
+      {
+        "name": "Brian",
+        "role": "Kiến trúc sư giải pháp"
+      }
     ]
   },
   "faq": {
@@ -225,9 +234,15 @@
     "email": "Email",
     "message": "Nội dung",
     "submit": "Gửi tin nhắn",
-    "sending": "Đang gửi…",
-    "success": "Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.",
-    "error": "Có lỗi xảy ra. Vui lòng thử lại."
+    "hint": "Thao tác này sẽ mở ứng dụng mail của bạn với nội dung điền sẵn.",
+    "opened": "Ứng dụng mail của bạn sẽ mở — hãy bấm gửi ở đó để hoàn tất.",
+    "fallback": "Không thấy mail mở? Gửi trực tiếp tới",
+    "mailSubject": "Liên hệ mới từ {name}",
+    "errors": {
+      "name": "Vui lòng nhập ít nhất 2 ký tự.",
+      "email": "Vui lòng nhập email hợp lệ.",
+      "message": "Vui lòng viết ít nhất 10 ký tự."
+    }
   },
   "footer": {
     "brand": "SofinWave",

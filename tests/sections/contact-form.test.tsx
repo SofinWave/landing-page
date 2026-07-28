@@ -1,46 +1,137 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NextIntlClientProvider } from "next-intl";
 import en from "@/messages/en.json";
+import viMessages from "@/messages/vi.json";
 import { ContactForm } from "@/app/[site]/[locale]/(public)/home/_components/contact-form";
-import { submitContact } from "@/app/actions/contact";
+import { SITE_EMAIL } from "@/lib/site";
 
-vi.mock("@/app/actions/contact", () => ({
-  submitContact: vi.fn().mockResolvedValue({ ok: true }),
-}));
+/**
+ * jsdom refuses to navigate, so swap window.location for a recorder and read
+ * back the mailto: URL the form tried to open.
+ */
+let navigated: string[] = [];
+const realLocation = window.location;
+
+beforeEach(() => {
+  navigated = [];
+  Object.defineProperty(window, "location", {
+    configurable: true,
+    writable: true,
+    value: {
+      ...realLocation,
+      set href(value: string) {
+        navigated.push(value);
+      },
+      get href() {
+        return "";
+      },
+    },
+  });
+});
+
+afterEach(() => {
+  Object.defineProperty(window, "location", { configurable: true, value: realLocation });
+  vi.restoreAllMocks();
+});
+
+function renderForm(messages: typeof en | typeof viMessages = en, locale = "en") {
+  return render(
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <ContactForm />
+    </NextIntlClientProvider>,
+  );
+}
+
+async function fill(user: ReturnType<typeof userEvent.setup>, values: Record<string, string>) {
+  for (const [label, value] of Object.entries(values)) {
+    if (value) await user.type(screen.getByLabelText(label), value);
+  }
+}
 
 describe("ContactForm", () => {
-  it("shows a success message and clears the fields after a successful submit", async () => {
+  it("opens the visitor's mail app with the enquiry pre-filled", async () => {
     const user = userEvent.setup();
-    render(
-      <NextIntlClientProvider locale="en" messages={en}>
-        <ContactForm />
-      </NextIntlClientProvider>,
+    renderForm();
+    await fill(user, { Name: "Ann", Email: "a@b.com", Message: "hello there friend" });
+    await user.click(screen.getByRole("button", { name: "Send message" }));
+
+    expect(navigated).toHaveLength(1);
+    const url = navigated[0];
+    expect(url.startsWith(`mailto:${SITE_EMAIL}?`)).toBe(true);
+    expect(decodeURIComponent(url)).toContain("New enquiry from Ann");
+    expect(decodeURIComponent(url)).toContain("hello there friend");
+  });
+
+  it("confirms the mail app was opened without claiming the message was sent", async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await fill(user, { Name: "Ann", Email: "a@b.com", Message: "hello there friend" });
+    await user.click(screen.getByRole("button", { name: "Send message" }));
+
+    expect(await screen.findByText(/mail app should be open/)).toBeInTheDocument();
+  });
+
+  it("keeps what the visitor typed, so nothing is lost if no mail app opens", async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await fill(user, { Name: "Ann", Email: "a@b.com", Message: "hello there friend" });
+    await user.click(screen.getByRole("button", { name: "Send message" }));
+
+    expect((screen.getByLabelText("Name") as HTMLInputElement).value).toBe("Ann");
+    expect((screen.getByLabelText("Message") as HTMLTextAreaElement).value).toBe(
+      "hello there friend",
     );
+  });
 
-    const nameInput = screen.getByLabelText("Name") as HTMLInputElement;
-    const emailInput = screen.getByLabelText("Email") as HTMLInputElement;
-    const messageInput = screen.getByLabelText("Message") as HTMLTextAreaElement;
+  it("always offers the address as a fallback for visitors with no mail client", () => {
+    renderForm();
+    const link = screen.getByRole("link", { name: SITE_EMAIL });
+    expect(link).toHaveAttribute("href", `mailto:${SITE_EMAIL}`);
+  });
 
-    await user.type(nameInput, "Ann");
-    await user.type(emailInput, "a@b.com");
-    await user.type(messageInput, "hello there friend");
+  it("flags every invalid field at once and does not open the mail app", async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await fill(user, { Name: "A", Email: "nope", Message: "hi" });
+    await user.click(screen.getByRole("button", { name: "Send message" }));
 
-    await user.click(screen.getByText("Send message"));
+    expect(navigated).toHaveLength(0);
+    expect(screen.getByText("Please enter at least 2 characters.")).toBeInTheDocument();
+    expect(screen.getByText("Please enter a valid email address.")).toBeInTheDocument();
+    expect(screen.getByText("Please write at least 10 characters.")).toBeInTheDocument();
+  });
 
-    expect(await screen.findByText("> Thanks — we'll be in touch shortly.")).toBeInTheDocument();
+  it("marks invalid fields for assistive technology", async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await user.click(screen.getByRole("button", { name: "Send message" }));
 
-    await waitFor(() => {
-      expect(nameInput.value).toBe("");
-      expect(emailInput.value).toBe("");
-      expect(messageInput.value).toBe("");
-    });
+    expect(screen.getByLabelText("Name")).toHaveAttribute("aria-invalid", "true");
+    expect(screen.getByLabelText("Name")).toHaveAttribute("aria-describedby", "name-error");
+  });
 
-    expect(submitContact).toHaveBeenCalledWith({
-      name: "Ann",
-      email: "a@b.com",
-      message: "hello there friend",
-    });
+  it("clears the errors once the visitor fixes them", async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await user.click(screen.getByRole("button", { name: "Send message" }));
+    expect(screen.getByText("Please enter a valid email address.")).toBeInTheDocument();
+
+    await fill(user, { Name: "Ann", Email: "a@b.com", Message: "hello there friend" });
+    await user.click(screen.getByRole("button", { name: "Send message" }));
+
+    expect(screen.queryByText("Please enter a valid email address.")).toBeNull();
+    expect(navigated).toHaveLength(1);
+  });
+
+  it("composes the mail in Vietnamese for the vi locale", async () => {
+    const user = userEvent.setup();
+    renderForm(viMessages, "vi");
+    await fill(user, { "Họ tên": "Ann", Email: "a@b.com", "Nội dung": "xin chao ban nhe" });
+    await user.click(screen.getByRole("button", { name: "Gửi tin nhắn" }));
+
+    expect(decodeURIComponent(navigated[0])).toContain("Liên hệ mới từ Ann");
+    expect(decodeURIComponent(navigated[0])).toContain("Họ tên: Ann");
   });
 });

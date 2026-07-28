@@ -180,9 +180,18 @@
     "title": "Who we are",
     "about": "SofinWave is a small senior team of engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team, from Vietnam, in English and Vietnamese.",
     "members": [
-      { "name": "Jesse", "role": "Principal Consultant" },
-      { "name": "Alex", "role": "Lead Engineer" },
-      { "name": "Brian", "role": "Solutions Architect" }
+      {
+        "name": "Jesse",
+        "role": "Principal Consultant"
+      },
+      {
+        "name": "Alex",
+        "role": "Lead Engineer"
+      },
+      {
+        "name": "Brian",
+        "role": "Solutions Architect"
+      }
     ]
   },
   "faq": {
@@ -225,9 +234,15 @@
     "email": "Email",
     "message": "Message",
     "submit": "Send message",
-    "sending": "Sending…",
-    "success": "Thanks — we'll be in touch shortly.",
-    "error": "Something went wrong. Please try again."
+    "hint": "This opens your mail app with the message ready to send.",
+    "opened": "Your mail app should be open — press send there to finish.",
+    "fallback": "Nothing opened? Write to us directly at",
+    "mailSubject": "New enquiry from {name}",
+    "errors": {
+      "name": "Please enter at least 2 characters.",
+      "email": "Please enter a valid email address.",
+      "message": "Please write at least 10 characters."
+    }
   },
   "footer": {
     "brand": "SofinWave",
