@@ -160,7 +160,7 @@ sites, and competing head-on will not work. A narrow angle — a specific grade
 band, a specific subject, or the bilingual/technical angle the rest of the group
 already has — is far more likely to succeed than broad coverage.
 
-## 6. Facts the data services pages are missing
+## 11. Facts the data services pages are missing
 
 **Where:** `messages/en.json` and `messages/vi.json` → `pages.aiTrainingData`,
 `pages.dataCollection`, `pages.egocentricDataCollection`, `pages.dataAnnotation`,
