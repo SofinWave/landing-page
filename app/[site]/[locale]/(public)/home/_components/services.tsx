@@ -1,5 +1,15 @@
 import { useTranslations } from "next-intl";
-import { Compass, Server, Code, Plug, Gauge, Shield, type LucideIcon } from "lucide-react";
+import {
+  Compass,
+  Server,
+  Code,
+  Plug,
+  Gauge,
+  Shield,
+  Cpu,
+  Database,
+  type LucideIcon,
+} from "lucide-react";
 import { Section } from "@/components/section";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HudCard } from "@/components/hud-card";
@@ -12,6 +22,8 @@ const ICONS: Record<string, LucideIcon> = {
   plug: Plug,
   gauge: Gauge,
   shield: Shield,
+  cpu: Cpu,
+  database: Database,
 };
 
 type ServiceItem = { icon: string; title: string; description: string };

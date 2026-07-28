@@ -118,6 +118,41 @@ const TECH_ROUTES: readonly RouteDef[] = [
     priority: 0.8,
     changeFrequency: "monthly",
   },
+  {
+    path: "services/ai-training-data",
+    key: "aiTrainingData",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/data-collection",
+    key: "dataCollection",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/egocentric-data-collection",
+    key: "egocentricDataCollection",
+    parent: "services/data-collection",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/data-annotation",
+    key: "dataAnnotation",
+    parent: "services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "services/rlhf-sft-data",
+    key: "rlhfSftData",
+    parent: "services",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
 
   {
     path: "engagement-models",

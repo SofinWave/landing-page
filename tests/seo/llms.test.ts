@@ -40,7 +40,11 @@ describe.each(ALL_SITES.map((s) => s.id))("llms-full.txt for %s", (siteId) => {
   const txt = buildLlmsFullTxt(siteId);
   const pages = catalog[config.contentNamespace] as unknown as Record<
     string,
-    { lede: string; sections: { heading: string }[]; faq: { answer: string }[] }
+    {
+      lede: string;
+      sections: { heading: string; links?: { href: string; label: string }[] }[];
+      faq: { answer: string }[];
+    }
   >;
 
   it("includes the lede and section headings of every content page", () => {
@@ -49,6 +53,17 @@ describe.each(ALL_SITES.map((s) => s.id))("llms-full.txt for %s", (siteId) => {
       expect(txt, `lede for ${route.key}`).toContain(page.lede);
       for (const section of page.sections) {
         expect(txt, `heading "${section.heading}"`).toContain(section.heading);
+      }
+    }
+  });
+
+  it("carries every section link as an absolute URL", () => {
+    for (const route of contentRoutesFor(siteId)) {
+      for (const section of pages[route.key].sections) {
+        for (const link of section.links ?? []) {
+          const url = `https://${config.host}/en${link.href}`;
+          expect(txt, `link ${link.href} on ${route.key}`).toContain(`[${link.label}](${url})`);
+        }
       }
     }
   });

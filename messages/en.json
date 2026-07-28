@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "How we work with you",
-    "subtitle": "Three team models and three engineering services, across the full delivery lifecycle.",
+    "subtitle": "Team models, engineering services, AI delivery, and the data your models learn from — across the full delivery lifecycle.",
     "items": [
       {
         "icon": "compass",
@@ -65,6 +65,16 @@
         "icon": "shield",
         "title": "Maintenance & operations",
         "description": "Monitoring, support, and continuous improvement after go-live."
+      },
+      {
+        "icon": "cpu",
+        "title": "AI systems",
+        "description": "Implementation, LLM integration and RAG, and agents — built with evaluation and cost control."
+      },
+      {
+        "icon": "database",
+        "title": "AI training data",
+        "description": "Collection, annotation, and post-training data — labelled by the team that trains on it."
       }
     ]
   },
@@ -380,8 +390,8 @@
       "navLabel": "Services",
       "title": "Services",
       "metaTitle": "Software Outsourcing Services",
-      "metaDescription": "Offshore development, dedicated teams, IT staff augmentation, custom software, system integration, and DevOps — delivered from Vietnam for US and European clients.",
-      "lede": "SofinWave offers six ways to work together, from a full offshore team that owns delivery end to end, to individual engineers embedded in your existing team. Which one fits depends on whether you need capacity, specific skills, or someone to own an outcome. If you are not sure, describe the problem and we will tell you which model we would propose and why.",
+      "metaDescription": "Offshore development, dedicated teams, staff augmentation, custom software, system integration, DevOps, AI delivery, and AI training data — from Vietnam for US and European clients.",
+      "lede": "SofinWave works in four registers: team models, engineering services, AI delivery, and the training data underneath it. Which one fits depends on whether you need capacity, specific skills, someone to own an outcome, or the dataset a model will learn from. If you are not sure, describe the problem and we will tell you which we would propose and why.",
       "sections": [
         {
           "heading": "Team models",
@@ -390,6 +400,20 @@
             "Offshore development — a complete team that owns delivery of a product or system, with its own process and reporting.",
             "Dedicated team — engineers assigned to you long-term who work inside your process, your board, your standups.",
             "IT staff augmentation — named individuals filling specific gaps in an existing team, managed by you."
+          ],
+          "links": [
+            {
+              "href": "/services/offshore-development",
+              "label": "Offshore development"
+            },
+            {
+              "href": "/services/dedicated-team",
+              "label": "Dedicated team"
+            },
+            {
+              "href": "/services/staff-augmentation",
+              "label": "IT staff augmentation"
+            }
           ]
         },
         {
@@ -399,6 +423,75 @@
             "Custom software development — web, mobile, and backend systems built to your business rules.",
             "System integration — connecting ERP, CRM, payment, and third-party systems into one reliable flow.",
             "DevOps & cloud — CI/CD, infrastructure as code, observability, and cloud cost work."
+          ],
+          "links": [
+            {
+              "href": "/services/custom-software-development",
+              "label": "Custom software development"
+            },
+            {
+              "href": "/services/system-integration",
+              "label": "System integration"
+            },
+            {
+              "href": "/services/devops-cloud",
+              "label": "DevOps & cloud"
+            }
+          ]
+        },
+        {
+          "heading": "AI delivery",
+          "body": "Three purchases that get conflated because they all involve a model. Each fails in a different way, so each has its own page.",
+          "bullets": [
+            "AI implementation — taking a model from a convincing demo to a system with evaluation, cost control, and a rollback path.",
+            "LLM integration and RAG — connecting a model to your own data without it inventing the parts it does not know.",
+            "AI agents — multi-step workflows that act rather than answer, with the guardrails that makes tolerable."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "AI implementation"
+            },
+            {
+              "href": "/services/llm-integration",
+              "label": "LLM integration and RAG"
+            },
+            {
+              "href": "/services/ai-agents",
+              "label": "AI agents"
+            }
+          ]
+        },
+        {
+          "heading": "AI training data",
+          "body": "The data an AI system learns from, collected and labelled by the team that then has to train on it. The overview page explains how the four fit together.",
+          "bullets": [
+            "Data collection — video, image, audio, document, and scripted scenarios captured to a written specification.",
+            "Egocentric and exocentric capture — synchronised first-person and multi-view recording for robotics and embodied AI.",
+            "Data annotation — image, video, 3D point cloud, document, and audio labelling.",
+            "RLHF and SFT data — demonstrations, preference ranking, evaluation, and red teaming for LLM post-training."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data overview"
+            },
+            {
+              "href": "/services/data-collection",
+              "label": "Data collection"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "RLHF and SFT data"
+            }
           ]
         },
         {
@@ -1291,6 +1384,432 @@
         "title": "Tell us what you are building",
         "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
         "button": "Book a consultation"
+      }
+    },
+    "aiTrainingData": {
+      "navLabel": "Training data",
+      "title": "AI Training Data: Collection, Annotation, and Post-Training",
+      "metaTitle": "AI Training Data Services — Collection & Annotation",
+      "metaDescription": "Data collection, annotation, and LLM post-training data from Vietnam, run by the engineers who then fine-tune and ship the model. Egocentric and exocentric capture included.",
+      "lede": "The model is the cheap part. A model is a few lines of configuration and a bill; the dataset it learns from is months of work by people who understand the task, and that is where most AI projects actually stall. We collect data to your specification, label it, and — because building AI systems is our main business — we are the people who later have to train on it. That changes how the specification gets written.",
+      "sections": [
+        {
+          "heading": "Why AI projects stall on data rather than models",
+          "body": "Teams arrive with a model choice already made and a dataset problem they have not named yet. The pattern is consistent.",
+          "bullets": [
+            "The labelling guidelines were written before anyone had seen the hard cases, so the hard cases are labelled inconsistently.",
+            "The collected data matches the demo environment rather than the deployment environment.",
+            "Nobody measured agreement between annotators, so nobody knows whether the labels mean anything.",
+            "The dataset covers the common case thoroughly and the failure case not at all, which is the reverse of what training needs.",
+            "The format has to be rewritten before it can enter the training pipeline, and the rewrite loses information."
+          ]
+        },
+        {
+          "heading": "What we do",
+          "body": "Four capabilities, sold separately or as one programme.",
+          "bullets": [
+            "Data collection to a written specification — video, image, audio, document, and scripted scenarios.",
+            "Egocentric and exocentric capture for robotics and embodied AI, recorded as synchronised pairs.",
+            "Annotation across image, video, 3D point cloud, document, and audio.",
+            "LLM post-training data: supervised fine-tuning demonstrations, preference ranking, and evaluation."
+          ],
+          "links": [
+            {
+              "href": "/services/data-collection",
+              "label": "Data collection"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "RLHF and SFT data"
+            }
+          ]
+        },
+        {
+          "heading": "The team that labels it also trains on it",
+          "body": "Most annotation vendors hand over a dataset and never learn whether it worked. We build AI systems as our main business, which means a dataset we produce is one we may have to fine-tune on, evaluate, and defend in production. That is not a marketing distinction — it decides what goes into the labelling guidelines, because the person writing them knows which ambiguities will surface later as model failures."
+        },
+        {
+          "heading": "How we keep quality measurable",
+          "body": "Quality claims are worth nothing without a measurement behind them, so we instrument the work rather than asserting the outcome.",
+          "bullets": [
+            "Gold-standard items seeded into every batch, scored continuously rather than audited at the end.",
+            "Multi-pass review, with the second pass blind to the first.",
+            "Inter-annotator agreement reported as a number, not a claim.",
+            "Automated pre-labelling where a model can do the first pass, with people correcting rather than starting from nothing.",
+            "Guidelines versioned like code, because a guideline change silently invalidates everything labelled before it."
+          ]
+        },
+        {
+          "heading": "Security and access",
+          "body": "What we can state plainly, we state; what we cannot, we leave out.",
+          "bullets": [
+            "Every person touching your data is covered by an NDA before they see any of it.",
+            "Access is granted per project, not per employee, and revoked when the project ends.",
+            "Client data stays in an environment separated from our other work.",
+            "Data is deleted on completion, on a schedule agreed in the contract."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the smallest project you take?",
+          "answer": "A pilot batch. It is the right first step regardless of eventual size, because it is the only way to find out whether the guidelines survive contact with real data."
+        },
+        {
+          "question": "How does a pilot batch work?",
+          "answer": "You send a representative sample and an acceptance criterion. We label it, report the disagreements we hit, and rewrite the guidelines against them. The disagreements are the point — a pilot that produces none was too easy to be informative."
+        },
+        {
+          "question": "Who owns the data and the labels?",
+          "answer": "You do, including anything derived from them. We retain nothing after the agreed deletion date, and we never reuse client data to build datasets of our own."
+        },
+        {
+          "question": "What happens when annotators disagree?",
+          "answer": "Disagreement is escalated, not averaged. A senior reviewer adjudicates, and the resolution goes back into the guidelines so the same case is not decided twice."
+        },
+        {
+          "question": "Do you work in languages other than English and Vietnamese?",
+          "answer": "Talk to us about the language and the volume. We would rather tell you we cannot staff it than staff it badly."
+        }
+      ],
+      "cta": {
+        "title": "Start with a pilot batch",
+        "body": "Send a sample and what you need it to become. We will tell you what the specification is missing.",
+        "button": "Get in touch"
+      }
+    },
+    "dataCollection": {
+      "navLabel": "Data collection",
+      "title": "Data Collection for AI Training",
+      "metaTitle": "AI Data Collection Services — Video, Image, Audio, Document",
+      "metaDescription": "Video, image, audio, document, and scripted-scenario data collection for AI training, run from Vietnam with consent documented per item, not per batch.",
+      "lede": "The deliverable that decides whether a collection project succeeds is the specification, not the footage. A crew can execute almost any brief competently; what fails is a brief that never named the variable that mattered — the angle, the lighting, the accent, the background noise level. Data that matches an ambiguous spec is technically correct and practically useless, and the failure only shows up once a model has been trained on it. We write the specification with you before anyone picks up a camera.",
+      "sections": [
+        {
+          "heading": "Collection to a written specification",
+          "body": "Every modality has its own set of variables that a vague brief leaves to whoever is holding the camera that day. We pin each one down in writing before collection starts, so a crew working across ten sites executes one brief rather than ten interpretations of it.",
+          "bullets": [
+            "Video — camera angle, distance, framing, motion, and lighting condition, because a model trained on one angle does not generalise to another.",
+            "Still image — resolution, background, occlusion level, and lighting, specified per shot rather than left to the photographer's judgement.",
+            "Audio and speech — microphone distance, background noise level, speaker accent and demographics, and recording environment.",
+            "Document capture — scan resolution, page condition (handwritten, printed, damaged), and file format, so the dataset matches what the model will see in production rather than a clean sample.",
+            "Scripted scenarios — the script, the required variations (order, wording, interruption), and who plays which role, so the same scenario is not re-interpreted by every performer on set."
+          ]
+        },
+        {
+          "heading": "Consent and provenance",
+          "body": "This is the section an enterprise buyer reads before anything else, because it decides whether the dataset can be used at all. We describe what we actually do and stop there — no certification claims, no assurance beyond what is evidenced.",
+          "bullets": [
+            "Every person appearing in collected media signs a release before the footage is used for anything, including the pilot batch.",
+            "The release is filed against the individual item — the clip, the photograph, the recording — not against the batch it was collected in.",
+            "Chain of custody is documented per item, from the point of capture to the point of delivery, so provenance traces to a specific release rather than to an assertion.",
+            "Anything we cannot evidence — a release we cannot produce, a chain of custody with a gap in it — is not delivered, regardless of what it cost to produce."
+          ]
+        },
+        {
+          "heading": "Where our coverage is genuinely different",
+          "body": "Most training data collected for global models comes out of North America and Western Europe, and it shows: traffic patterns, kitchen layouts, market stalls, accents, and skin tones common across Southeast Asia are thin or absent in those datasets. We collect in Vietnam and the wider region because that is where our teams and networks already are, which means the scenes, faces, languages, and operating environments in what we deliver are ones a Western-sourced dataset typically lacks — not because we underprice the work, but because we are already standing where the gap is."
+        },
+        {
+          "heading": "Delivery",
+          "body": "Delivery is built around what your pipeline already expects, not around what is convenient for us to export.",
+          "bullets": [
+            "Formats — container, codec, sample rate, resolution — fixed in the specification, not decided during export.",
+            "Metadata schema built to match your existing training pipeline: field names, identifiers, and folder structure, so you ingest what we send rather than mapping it into your own format.",
+            "A rejected-item report for anything that failed review, naming what failed and why, rather than a batch that is quietly smaller with no explanation."
+          ],
+          "links": [
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "How is consent evidenced?",
+          "answer": "Each item is linked to a signed release naming what the subject agreed to and for what use. We can produce the release for any item in a delivered batch on request; if we cannot produce it, the item was not delivered."
+        },
+        {
+          "question": "Do you capture minors?",
+          "answer": "Only with a guardian's signed consent and only when the specification explicitly calls for it. Most collection briefs do not, and we do not capture minors incidentally as background subjects."
+        },
+        {
+          "question": "Where is the data stored during collection?",
+          "answer": "In a project-specific environment, access limited to the people working on that collection, separated from other clients' data and from our own internal systems, for the duration of the collection."
+        },
+        {
+          "question": "What happens if the specification changes mid-collection?",
+          "answer": "Work already completed against the old specification is delivered and billed as scoped; the new specification becomes a change order for what is collected from that point forward. We do not retroactively reinterpret footage already shot against a brief that has since changed."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you need captured",
+        "body": "Describe what you need captured and where. We will tell you what the specification needs to say before anyone books a shoot.",
+        "button": "Get in touch"
+      }
+    },
+    "egocentricDataCollection": {
+      "navLabel": "Ego & exo capture",
+      "title": "Egocentric and Exocentric Data Collection",
+      "metaTitle": "Egocentric Data Collection Services — Ego & Exo Capture",
+      "metaDescription": "Synchronised egocentric first-person and exocentric multi-view capture for robotics and embodied AI training data, run from Vietnam.",
+      "lede": "A robot policy trained from video has to learn from demonstrations of a human doing the task, and the viewpoint those demonstrations are recorded from matters as much as the task itself. Egocentric capture — a head-mounted camera — records what the robot's own camera will see. On its own it misses most of what makes the demonstration usable: the actor's hands, the object being manipulated, the body pose driving the motion, all routinely out of frame or occluded by the actor's own head. Exocentric capture, recorded from fixed external cameras around the same session, fills in what the first-person view cannot show. We run both together, synchronised, as one deliverable.",
+      "sections": [
+        {
+          "heading": "Egocentric and exocentric, captured together",
+          "body": "Every session records both viewpoints against the same clock, so the pair can be used as a pair rather than reconciled after the fact.",
+          "bullets": [
+            "Head-mounted first-person capture, framed and stabilised for the task rather than for general wearability.",
+            "External multi-view rigs positioned to cover the hands, the manipulated object, and the actor's body pose the head camera cannot see.",
+            "Timecode synchronisation across every stream, so egocentric and exocentric footage line up frame to frame rather than by estimate.",
+            "Calibration recorded with the footage — camera intrinsics and rig geometry captured at the time of the session, not reconstructed afterwards from what the frames happen to show."
+          ]
+        },
+        {
+          "heading": "Why the paired view is worth more than either alone",
+          "body": "The egocentric stream shows what the actor saw: the approach, the viewpoint the robot's own camera will eventually replicate, the visual cues the actor was reacting to. It also shows very little of what the actor's hands were actually doing, because a head-mounted camera looks where the head points, and hands, tools, and the object being manipulated spend much of a task out of that frame or blocked by the actor's own arm. The exocentric stream shows the opposite: hand articulation, grasp, object pose, and body posture, all visible from a fixed external angle, but without the viewpoint a policy trained for first-person input needs. Neither stream is a substitute for the other. Watched alone, either is informative to a person. Paired and synchronised, the two together give a learning system what it actually needs — the viewpoint it will act from and the physical detail that viewpoint alone omits. EgoExo4D, a public research dataset, is the reason this pairing is now standard practice in embodied AI rather than a bespoke idea: it demonstrated that synchronised ego-exo capture produces trainable data that neither stream produces on its own. It built on Ego4D, the public dataset that established egocentric video as a research field in the first place, by adding the exocentric half most training use cases actually need."
+        },
+        {
+          "heading": "How a session runs",
+          "body": "The variables that ruin a capture session are rarely visible until playback, which is why the sequence is built to catch them before the crew leaves.",
+          "bullets": [
+            "Calibration before the first take, with every camera and rig checked against the session's reference markers, not assumed from the previous session.",
+            "Activity scripting written in advance, so every take of the same task follows the same steps in the same order and takes are comparable to each other.",
+            "Operator briefing on the task, the rig, and the failure modes specific to that session, before recording starts.",
+            "In-session quality checks — footage reviewed between takes, not batched up for a single pass at the end of the day.",
+            "Same-day review before the crew stands down, because a reshoot is inexpensive on day one of a programme and effectively impossible on day thirty, once the set, the props, and the actors are gone."
+          ]
+        },
+        {
+          "heading": "Teleoperation demonstrations",
+          "body": "We support teleoperation capture when the client supplies the rig — the robot arm, the controller, the manipulation setup are yours; the operator training, session discipline, and take-level quality control are ours. Teleoperation demonstrations of this kind are the standard training input for vision-language-action (VLA) models, and that downstream use is what sets the economics here apart from scripted human activity capture: demonstration counts per manipulation task for a usable training set typically run into the hundreds, not the dozens, so throughput planning and session repeatability matter more here than polish on any individual take. We plan the programme around that volume from the first conversation rather than discovering it partway through."
+        },
+        {
+          "heading": "What you receive",
+          "body": "Delivery is built to enter a training pipeline directly, not to be reformatted after the fact.",
+          "bullets": [
+            "Synchronised video for every stream captured in the session — egocentric and every exocentric angle, aligned to a common timecode.",
+            "Calibration and pose metadata for every camera and rig used, delivered alongside the footage rather than as a separate reconstruction step.",
+            "Per-session logs tying individual takes back to the script step and task variant they belong to.",
+            "Annotation on the same footage when you want it — the labelling work described on our data annotation page runs directly against what this page captures."
+          ],
+          "links": [
+            {
+              "href": "/services/data-annotation",
+              "label": "Data annotation"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "How much footage can a crew capture in a day?",
+          "answer": "It depends on what the session actually requires, not on a fixed day rate: the number of distinct takes the script calls for, how long each take runs, how much recalibration a rig needs between setups, and how much in-session review time is built in to catch a bad take before the crew moves on. A short, repetitive manipulation task and a long, free-form activity script produce very different daily counts from the same crew. We size this against your specific script rather than quoting a number that would not hold for your task."
+        },
+        {
+          "question": "Can you build a custom rig for our task?",
+          "answer": "Yes, when the task calls for camera placements a standard multi-view setup does not cover — a confined workspace, an unusual manipulation angle, or coverage requirements specific to your policy's input. We design rig geometry against what the task needs to show, not against a fixed default configuration."
+        },
+        {
+          "question": "How is consent different for egocentric data?",
+          "answer": "A head-mounted camera records whatever the wearer looks at, which routinely includes private environments and bystanders who are not the subject of the session and were not asked to be filmed. Releases on our egocentric sessions cover everyone who appears in frame, not only the person wearing the camera, and locations where we cannot obtain consent from the people who would appear are not shot. That constraint shapes where a session can run before it shapes what it captures."
+        },
+        {
+          "question": "Can you annotate the footage you capture?",
+          "answer": "Yes — annotation on egocentric and exocentric footage is a service we run directly on what our own crews capture. Hand pose, object tracking, and action segmentation across synchronised streams are easier to get right when the team labelling the footage understands how it was rigged and calibrated in the first place."
+        }
+      ],
+      "cta": {
+        "title": "Talk to us about a capture programme",
+        "body": "Describe the task and the viewpoint your model needs. We will tell you what the rig and the session plan need to cover.",
+        "button": "Get in touch"
+      }
+    },
+    "dataAnnotation": {
+      "navLabel": "Annotation",
+      "title": "Data Annotation and Labelling Services",
+      "metaTitle": "Data Annotation Services — Image, Video, 3D, Text, Audio",
+      "metaDescription": "Image, video, 3D point cloud, document, and audio annotation and labelling — bounding boxes, segmentation, OCR, NER, and diarisation — delivered from Vietnam in CVAT, Label Studio, or your platform.",
+      "lede": "Labelling gets sold as data entry, and for most of a batch it behaves like data entry — an annotator draws the box everyone would draw. What determines whether a dataset is usable is the rest of it: the object half-occluded by another, the two speakers talking over each other, the entity that spans a currency symbol nobody wrote a rule for. A vendor's quality is not what it does with the easy majority; it is what it does when the guideline does not cover what is on screen. That is the case this page is written around.",
+      "sections": [
+        {
+          "heading": "Image and video",
+          "body": "Static frames and video sequences, annotated to the geometry the downstream model actually needs rather than a default box drawn around everything in view.",
+          "bullets": [
+            "2D bounding boxes, drawn tight to the object's true extent rather than to a comfortable margin around it.",
+            "Polygons for boundaries a box cannot represent — irregular shapes, vegetation, spilled or deformable material.",
+            "Semantic and instance segmentation, pixel-level masks that separate every instance of a class rather than merging them into one region.",
+            "Keypoints and pose, joint and landmark annotation for human and object pose estimation.",
+            "Object tracking across frames, with identity preserved through occlusion so an object keeps its ID when it disappears behind another and re-emerges."
+          ]
+        },
+        {
+          "heading": "3D and sensor data",
+          "body": "Sensor output a flat image cannot represent, labelled in the coordinate space the model actually trains on.",
+          "bullets": [
+            "Point cloud annotation — 3D bounding boxes and per-point segmentation on LiDAR and depth-sensor output.",
+            "LiDAR-camera sensor fusion, annotating projected points against the camera frame so the two modalities ship as one aligned label set rather than two that need reconciling downstream.",
+            "Cuboid tracking through sequences, an object's 3D bounding box carried and re-identified across a recording instead of redrawn frame by frame."
+          ]
+        },
+        {
+          "heading": "Document and text",
+          "body": "Text annotation that respects layout and intent, not just characters.",
+          "bullets": [
+            "OCR and document structure — text extraction plus the layout that gives it meaning: tables, form fields, headers, reading order.",
+            "Named entity recognition (NER), tagging people, organisations, locations, and entities specific to your domain inside running text.",
+            "Text classification, assigning documents or passages to a label set built against your taxonomy rather than a generic one.",
+            "Intent and utterance labelling for conversational and voice data, tagging what a speaker is trying to accomplish rather than only what they said."
+          ]
+        },
+        {
+          "heading": "Audio",
+          "body": "Speech and non-speech audio, labelled on a shared timeline.",
+          "bullets": [
+            "Transcription, verbatim or cleaned depending on what the downstream task needs.",
+            "Speaker diarisation — segmenting audio by who is speaking when, including overlapping speech.",
+            "Acoustic event labelling: non-speech sounds — alarms, glass breaking, machinery — tagged alongside speech rather than discarded."
+          ]
+        },
+        {
+          "heading": "Tooling",
+          "body": "We run CVAT and Label Studio in-house for projects that do not specify a platform, and we work inside a client's own platform when one is already in place. The position is not a courtesy: asking a client to migrate an existing pipeline onto our preferred tool so labelling is more convenient for us is a vendor's operating cost, invented and then charged to the customer. Training an annotation team on your platform once is cheaper for everyone than asking your pipeline to change how it ingests labels."
+        },
+        {
+          "heading": "Putting a team on your project",
+          "body": "The order matters more than the schedule. Scaling headcount before the guidelines have stabilised does not multiply labelling capacity — it multiplies whatever the guidelines still get wrong, because every new annotator applies the same untested instruction to a larger volume of items. We add people in an order built to catch a wrong instruction while it is still cheap to fix, not after it has been repeated at volume.",
+          "bullets": [
+            "A pilot batch, labelled against a representative sample before any commitment to volume.",
+            "Guidelines rewritten against the disagreements the pilot actually surfaced, not against the disagreements we guessed at in advance.",
+            "A small trained core, sized to guidelines that have stabilised rather than to the eventual project volume.",
+            "Headcount added once the core is applying the guidelines consistently, with the core reviewing new annotators' output rather than a separate QA layer learning the project from zero."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "What accuracy do you target, and how is it measured?",
+          "answer": "There is no fixed figure we quote before seeing the data, because the achievable target depends on what is being labelled — segmenting a cluttered scene and classifying a clean document are not the same task. The target is agreed per project against a gold set built from your data, with gold-standard items scored continuously and inter-annotator agreement reported as a number rather than asserted, and it stays visible through the project rather than being promised once at the start."
+        },
+        {
+          "question": "What happens when the guidelines turn out to be ambiguous?",
+          "answer": "The case is escalated rather than settled independently by whichever annotator hits it first. A senior reviewer resolves it, the resolution is written into the guidelines with the example that triggered it, and the update is versioned so every annotator is working from the same document afterwards. A pilot batch exists specifically to surface these cases before they show up at volume."
+        },
+        {
+          "question": "How is rework priced?",
+          "answer": "Rework caused by our own annotators misapplying an agreed guideline is on us and is not billed. Rework caused by a specification change — a new class, a redefined boundary case, a rule you asked us to apply differently after the fact — is scoped and billed as a change order, because it is new instruction, not a correction of our error."
+        },
+        {
+          "question": "Can you work inside our annotation platform?",
+          "answer": "Yes — that is the default, not an exception. We train the annotation team on your platform and your existing project setup rather than asking you to export data into ours; see the tooling section above."
+        }
+      ],
+      "cta": {
+        "title": "Send us a pilot batch",
+        "body": "Send a representative sample and your current guidelines, if you have them. We will label it, show you where it broke, and tell you what the guidelines need before you commit to volume.",
+        "button": "Get in touch"
+      }
+    },
+    "rlhfSftData": {
+      "navLabel": "RLHF & SFT data",
+      "title": "RLHF and SFT Data for LLM Post-Training",
+      "metaTitle": "RLHF & SFT Data Services — LLM Post-Training",
+      "metaDescription": "SFT demonstrations, preference ranking, rubric-based evaluation, and red teaming for LLM post-training, staffed by people who can do the task — in English and Vietnamese.",
+      "lede": "Post-training data is written, not labelled. A demonstration answer, a preference judgement between two model outputs, a red-team prompt against deployed behaviour — each is authored by a person, and the ceiling on what the model can learn is set by whether that person could actually do the task being demonstrated, not by how fluently they can describe it. A demonstration written by someone paraphrasing what a good answer looks like reads exactly like a demonstration written by someone who could produce that answer, until the model trained on it fails the same way its data did. We staff this work with people who can do the task first and write for a model second.",
+      "sections": [
+        {
+          "heading": "Supervised fine-tuning demonstrations",
+          "body": "A supervised fine-tuning demonstration is a worked example: given this input, here is the response we want the model to imitate. Anyone can write a response that sounds right — reads smoothly, uses the right register, follows the format. Writing a response that is actually right requires having done the underlying task, or being close enough to it to catch the version that only sounds correct. We staff SFT work with people who hold the domain knowledge the task requires, not generalist writers producing what a good answer would probably look like, because a demonstration that is fluent and wrong does not fail visibly — it teaches the model to be fluent and wrong, confidently, in the same way, every time the pattern recurs."
+        },
+        {
+          "heading": "Preference ranking",
+          "body": "Preference ranking asks a person to choose between two model outputs for the same prompt, and that choice is only useful if it means the same thing every time it is made. An annotator's unstated taste is not a signal a model can learn from consistently — it drifts between annotators, and drifts for the same annotator across a session. We replace taste with a rubric.",
+          "bullets": [
+            "Pairwise comparison scored against a written rubric, not a preference the annotator improvises on the spot.",
+            "The rubric versioned as an artefact — every ranking traceable to the exact rubric version it was made under, so a rubric change does not silently reinterpret rankings made before it.",
+            "Disagreement rates tracked and reported, because a rubric two annotators never disagree on is usually not discriminating between the cases that actually matter."
+          ]
+        },
+        {
+          "heading": "Rubric-based evaluation",
+          "body": "Rubric-based evaluation asks the same question as preference ranking but produces a score rather than a comparison: does this specific output meet a stated bar, and by how much does it miss when it doesn't. We build the rubric to be applied the same way by every scorer, on every item, which is what makes a model change measurable rather than a matter of impression — evaluation as infrastructure, not a one-off exercise. What we add here is the labour: the people who apply the rubric at the volume a real evaluation set requires, consistently enough that a score moving is evidence and not noise.",
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "AI implementation"
+            }
+          ]
+        },
+        {
+          "heading": "Red teaming",
+          "body": "Red teaming is adversarial: people trying to make the deployed model fail, on purpose, using the same tactics a motivated user eventually will — reframed requests, roleplay, encoding tricks, gradual escalation across a conversation. A red-team session that produces a verbal report of what went wrong is close to useless, because nobody can reproduce the failure to check whether a fix actually closed it.",
+          "bullets": [
+            "Adversarial prompting run against the model's actual deployed behaviour, not a generic jailbreak checklist unrelated to your product.",
+            "Every finding written as a reproducible case: the exact prompt sequence, the exact failing output, the exact behaviour it violates.",
+            "Cases folded into the evaluation set rather than filed as a one-time report, so a fix is checked against the case that broke it and a regression surfaces automatically instead of waiting to be rediscovered by a real user."
+          ]
+        },
+        {
+          "heading": "Vietnamese and English",
+          "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on.",
+          "links": [
+            {
+              "href": "/services/llm-integration",
+              "label": "LLM integration and RAG"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "AI training data"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "How do you resolve disagreement between annotators?",
+          "answer": "It is escalated, not averaged. A senior reviewer adjudicates against the rubric, and the resolution is written into the next rubric version with the case that triggered it, so the same ambiguity is not re-litigated by the next annotator who hits it — and disagreement rates over time show whether the rubric is actually converging."
+        },
+        {
+          "question": "Can you source domain experts?",
+          "answer": "Yes, for the domains where writing the demonstration correctly requires domain knowledge — legal, medical, financial, or technical tasks a generalist writer cannot fake convincingly. Tell us the domain and the volume, and we will tell you plainly if we cannot staff it well rather than staffing it thin."
+        },
+        {
+          "question": "How does this connect to your LLM integration work?",
+          "answer": "SFT demonstrations, preference rankings, and evaluation sets are the inputs; fine-tuning and retrieval-augmented generation are what they feed. In practice they are usually the same engagement seen from two ends — the data built here, the system trained and integrated there."
+        }
+      ],
+      "cta": {
+        "title": "Talk to us about a post-training programme",
+        "body": "Tell us what post-training stage you're at — demonstrations, preference data, evaluation, or red teaming — and what you already have. We will tell you what's missing before you commit to volume.",
+        "button": "Get in touch"
       }
     },
     "ventures": {

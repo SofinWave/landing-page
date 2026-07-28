@@ -53,6 +53,17 @@ describe("breadcrumbTrail", () => {
   it("returns an empty trail for a path belonging to another site", () => {
     expect(breadcrumbTrail(SiteId.Media, "services/ai-implementation")).toEqual([]);
   });
+
+  it("follows a parent that is not the path prefix", () => {
+    expect(
+      breadcrumbTrail(SiteId.Tech, "services/egocentric-data-collection").map((r) => r.path),
+    ).toEqual([
+      HOME_PATH,
+      "services",
+      "services/data-collection",
+      "services/egocentric-data-collection",
+    ]);
+  });
 });
 
 describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
@@ -109,6 +120,28 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
         findRoute(siteId, link.href.replace(/^\//, "")),
         `nav href ${link.href}`,
       ).toBeDefined();
+    }
+  });
+
+  it.each(Object.keys(catalogs))("resolves every section link to a page in %s", (locale) => {
+    const pages = catalogs[locale][config.contentNamespace] as Record<
+      string,
+      Record<string, unknown>
+    >;
+
+    for (const [key, page] of Object.entries(pages)) {
+      if (typeof page !== "object" || page === null) continue;
+      const sections = (page as { sections?: unknown }).sections;
+      if (!Array.isArray(sections)) continue;
+
+      for (const section of sections as { links?: { href: string; label: string }[] }[]) {
+        for (const link of section.links ?? []) {
+          expect(
+            findRoute(siteId, link.href.replace(/^\//, "")),
+            `${key} link ${link.href}`,
+          ).toBeDefined();
+        }
+      }
     }
   });
 });

@@ -1,3 +1,4 @@
+import type { ContentPageData } from "@/components/content-page";
 import type { SiteId } from "@/enums";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
@@ -25,15 +26,13 @@ function catalog(locale: string): Catalog {
   return CATALOGS[locale] ?? CATALOGS[routing.defaultLocale];
 }
 
-interface ContentEntry {
-  metaTitle: string;
-  metaDescription: string;
-  title: string;
-  lede: string;
-  sections: { heading: string; body: string; bullets?: string[] }[];
-  table?: { caption: string; columns: string[]; rows: string[][] };
-  faq: { question: string; answer: string }[];
-}
+/**
+ * Pages here are the same objects `components/content-page.tsx` renders, so the
+ * shape comes from there rather than being restated. A local copy had already
+ * drifted once — it never gained `links`, and this generator silently dropped
+ * every internal link from the output.
+ */
+type ContentEntry = ContentPageData;
 
 interface SiteMeta {
   title: string;
@@ -160,6 +159,13 @@ export function buildLlmsFullTxt(site: SiteId = DEFAULT_SITE.id): string {
         lines.push(`### ${section.heading}`, "", section.body, "");
         for (const bullet of section.bullets ?? []) lines.push(`- ${bullet}`);
         if (section.bullets?.length) lines.push("");
+
+        // Absolute, like every other URL in this file: a bare `/services/...`
+        // means nothing to an engine reading this text away from the site.
+        for (const link of section.links ?? []) {
+          lines.push(`- [${link.label}](${pageUrl(locale, link.href, site)})`);
+        }
+        if (section.links?.length) lines.push("");
       }
 
       if (page.table) {

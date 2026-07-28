@@ -11,6 +11,7 @@ export interface ContentSection {
   heading: string;
   body: string;
   bullets?: string[];
+  links?: { href: string; label: string }[];
 }
 
 export interface ContentTable {
@@ -93,6 +94,20 @@ export async function ContentPage({
                   <li key={bullet} className="flex gap-3 text-muted-foreground">
                     <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
                     <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {section.links?.length ? (
+              <ul className="mt-4 space-y-2">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

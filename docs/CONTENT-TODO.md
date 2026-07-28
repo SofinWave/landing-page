@@ -159,3 +159,31 @@ here to rank.** Vietnamese K-12 search is dominated by very large free-content
 sites, and competing head-on will not work. A narrow angle — a specific grade
 band, a specific subject, or the bilingual/technical angle the rest of the group
 already has — is far more likely to succeed than broad coverage.
+
+## 11. Facts the data services pages are missing
+
+**Where:** `messages/en.json` and `messages/vi.json` → `pages.aiTrainingData`,
+`pages.dataCollection`, `pages.egocentricDataCollection`, `pages.dataAnnotation`,
+`pages.rlhfSftData`
+
+The five data pages describe capability and method only. Everything below was
+deliberately left out because it cannot be invented, and each unlocks something
+concrete.
+
+- **Security certifications, if held.** ISO 27001 or SOC 2 would replace the
+  "Security and access" bullets on the hub page with a claim buyers filter on.
+  Enterprise data buyers frequently screen vendors on this before reading
+  anything else. Nothing is claimed today.
+- **Annotator headcount and measured throughput.** Units per day at steady state
+  and current team size would turn "Putting a team on your project" from process
+  description into a capacity claim.
+- **Measured accuracy against a gold set.** The annotation FAQ currently
+  describes how accuracy is agreed and measured, and names no number.
+- **Ego/exo equipment and hours captured to date.** Camera models, rig count, and
+  hours already collected are the strongest available proof on
+  `services/egocentric-data-collection`, which is the page with the least
+  competition and therefore the most to gain.
+- **One real data project as a case study.** Worth more than everything else in
+  this list combined, for the reasons given at the top of this file.
+- **Languages supported beyond English and Vietnamese.** The hub FAQ currently
+  answers this by inviting the question rather than listing locales.

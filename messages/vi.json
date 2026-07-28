@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "Chúng tôi làm việc với bạn thế nào",
-    "subtitle": "Ba mô hình đội ngũ và ba dịch vụ kỹ thuật, phủ toàn bộ vòng đời bàn giao.",
+    "subtitle": "Mô hình đội ngũ, dịch vụ kỹ thuật, triển khai AI, và dữ liệu để model học — xuyên suốt vòng đời dự án.",
     "items": [
       {
         "icon": "compass",
@@ -65,6 +65,16 @@
         "icon": "shield",
         "title": "Bảo trì & vận hành",
         "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live."
+      },
+      {
+        "icon": "cpu",
+        "title": "Hệ thống AI",
+        "description": "Triển khai, tích hợp LLM và RAG, agent — dựng kèm evaluation và kiểm soát chi phí."
+      },
+      {
+        "icon": "database",
+        "title": "Dữ liệu huấn luyện AI",
+        "description": "Thu thập, gán nhãn và dữ liệu post-training — do chính đội sau đó huấn luyện model làm."
       }
     ]
   },
@@ -380,8 +390,8 @@
       "navLabel": "Dịch vụ",
       "title": "Dịch vụ",
       "metaTitle": "Dịch vụ thuê ngoài phát triển phần mềm",
-      "metaDescription": "Phát triển offshore, đội ngũ chuyên trách, tăng cường nhân sự IT, phần mềm theo yêu cầu, tích hợp hệ thống và DevOps — triển khai từ Việt Nam cho khách hàng Mỹ và châu Âu.",
-      "lede": "SofinWave có sáu cách hợp tác, từ một đội offshore trọn vẹn chịu trách nhiệm bàn giao đầu cuối, đến từng kỹ sư nhúng vào đội ngũ sẵn có của bạn. Chọn cách nào phụ thuộc vào việc bạn cần năng lực, cần kỹ năng cụ thể, hay cần người chịu trách nhiệm cho một kết quả. Nếu chưa rõ, hãy mô tả vấn đề và chúng tôi sẽ nói mình đề xuất mô hình nào và vì sao.",
+      "metaDescription": "Phát triển offshore, đội ngũ chuyên trách, tăng cường nhân sự IT, phần mềm theo yêu cầu, tích hợp hệ thống, DevOps, triển khai AI và dữ liệu huấn luyện AI — từ Việt Nam cho khách hàng Mỹ và châu Âu.",
+      "lede": "SofinWave làm việc theo bốn nhóm: mô hình đội ngũ, dịch vụ kỹ thuật, triển khai AI, và dữ liệu huấn luyện nằm bên dưới. Chọn nhóm nào tùy vào việc bạn cần thêm năng lực, cần kỹ năng cụ thể, cần người chịu trách nhiệm kết quả, hay cần chính bộ dữ liệu để model học. Nếu chưa chắc, cứ mô tả bài toán, chúng tôi sẽ nói nên chọn gì và vì sao.",
       "sections": [
         {
           "heading": "Các mô hình đội ngũ",
@@ -390,6 +400,20 @@
             "Phát triển offshore — một đội hoàn chỉnh chịu trách nhiệm bàn giao sản phẩm hoặc hệ thống, có quy trình và báo cáo riêng.",
             "Đội ngũ chuyên trách — kỹ sư gắn với bạn dài hạn, làm việc trong quy trình của bạn, trên board và standup của bạn.",
             "Tăng cường nhân sự IT — từng người cụ thể lấp đúng khoảng trống trong đội sẵn có, do bạn quản lý."
+          ],
+          "links": [
+            {
+              "href": "/services/offshore-development",
+              "label": "Phát triển offshore"
+            },
+            {
+              "href": "/services/dedicated-team",
+              "label": "Đội chuyên trách"
+            },
+            {
+              "href": "/services/staff-augmentation",
+              "label": "Tăng cường nhân sự"
+            }
           ]
         },
         {
@@ -399,6 +423,75 @@
             "Phát triển phần mềm theo yêu cầu — hệ thống web, mobile và backend xây theo nghiệp vụ của bạn.",
             "Tích hợp hệ thống — kết nối ERP, CRM, thanh toán và hệ thống bên thứ ba thành một luồng chạy ổn định.",
             "DevOps & cloud — CI/CD, hạ tầng dạng mã, quan trắc, và tối ưu chi phí cloud."
+          ],
+          "links": [
+            {
+              "href": "/services/custom-software-development",
+              "label": "Phần mềm theo yêu cầu"
+            },
+            {
+              "href": "/services/system-integration",
+              "label": "Tích hợp hệ thống"
+            },
+            {
+              "href": "/services/devops-cloud",
+              "label": "DevOps & cloud"
+            }
+          ]
+        },
+        {
+          "heading": "Triển khai AI",
+          "body": "Ba thứ hay bị gộp làm một chỉ vì đều dính tới model. Mỗi thứ hỏng theo một kiểu khác nhau, nên mỗi thứ có trang riêng.",
+          "bullets": [
+            "Triển khai hệ thống AI — đưa model từ một bản demo thuyết phục thành hệ thống có evaluation, kiểm soát chi phí và đường lùi.",
+            "Tích hợp LLM và RAG — nối model vào dữ liệu của bạn mà không để nó bịa ra phần nó không biết.",
+            "AI agent — quy trình nhiều bước biết hành động chứ không chỉ trả lời, kèm guardrail để việc đó chấp nhận được."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "Hệ thống AI"
+            },
+            {
+              "href": "/services/llm-integration",
+              "label": "Tích hợp LLM và RAG"
+            },
+            {
+              "href": "/services/ai-agents",
+              "label": "AI agent"
+            }
+          ]
+        },
+        {
+          "heading": "Dữ liệu huấn luyện AI",
+          "body": "Dữ liệu để hệ thống AI học, do chính đội sau đó phải huấn luyện trên nó thu thập và gán nhãn. Trang tổng quan giải thích bốn mảng ghép với nhau ra sao.",
+          "bullets": [
+            "Thu thập dữ liệu — video, ảnh, audio, tài liệu và kịch bản dựng sẵn, thu theo đặc tả viết ra giấy.",
+            "Thu ego và exo — quay đồng bộ góc nhìn thứ nhất và multi-view cho robotics và embodied AI.",
+            "Gán nhãn dữ liệu — ảnh, video, point cloud 3D, tài liệu và audio.",
+            "Dữ liệu RLHF và SFT — demonstration, preference ranking, đánh giá và red teaming cho post-training LLM."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "Tổng quan dữ liệu huấn luyện AI"
+            },
+            {
+              "href": "/services/data-collection",
+              "label": "Thu thập dữ liệu"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "Dữ liệu RLHF và SFT"
+            }
           ]
         },
         {
@@ -1296,6 +1389,432 @@
         "title": "Cho chúng tôi biết bạn đang xây gì",
         "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
         "button": "Đặt lịch tư vấn"
+      }
+    },
+    "aiTrainingData": {
+      "navLabel": "Dữ liệu huấn luyện",
+      "title": "Dữ liệu huấn luyện AI: thu thập, gán nhãn và post-training",
+      "metaTitle": "Dịch vụ dữ liệu huấn luyện AI — Thu thập & gán nhãn",
+      "metaDescription": "Thu thập dữ liệu, gán nhãn, và dữ liệu post-training cho LLM từ Việt Nam, do chính đội kỹ sư sau này fine-tune và triển khai model thực hiện. Có ghi hình egocentric và exocentric.",
+      "lede": "Model là phần rẻ nhất. Model chỉ là vài dòng cấu hình và một hóa đơn; dataset để nó học là công sức nhiều tháng của những người hiểu rõ bài toán, và đó mới là chỗ phần lớn dự án AI thực sự tắc lại. Chúng tôi thu thập dữ liệu theo đúng đặc tả của bạn, gán nhãn nó, và — vì xây hệ thống AI là việc chính của chúng tôi — chính chúng tôi sau này là người phải huấn luyện trên nó. Điều đó thay đổi cách đặc tả được viết ra.",
+      "sections": [
+        {
+          "heading": "Vì sao dự án AI tắc ở dữ liệu chứ không ở model",
+          "body": "Đội ngũ đến với một model đã chọn sẵn và một vấn đề dataset chưa ai gọi tên. Kiểu mẫu này lặp lại rất đều.",
+          "bullets": [
+            "Guideline gán nhãn được viết trước khi ai nhìn thấy case khó, nên case khó bị gán nhãn không nhất quán.",
+            "Dữ liệu thu thập giống môi trường demo hơn là môi trường triển khai thật.",
+            "Không ai đo agreement giữa các annotator, nên không ai biết nhãn có còn nghĩa lý gì không.",
+            "Dataset phủ kỹ trường hợp phổ biến và gần như bỏ trống trường hợp lỗi — ngược hẳn với thứ việc huấn luyện thực sự cần.",
+            "Định dạng phải viết lại trước khi đưa vào pipeline huấn luyện, và bản viết lại làm mất thông tin."
+          ]
+        },
+        {
+          "heading": "Chúng tôi làm gì",
+          "body": "Bốn năng lực, bán riêng hoặc trọn gói như một chương trình.",
+          "bullets": [
+            "Thu thập dữ liệu theo đặc tả bằng văn bản — video, hình ảnh, âm thanh, tài liệu, và kịch bản dàn dựng.",
+            "Ghi hình egocentric và exocentric cho robotics và embodied AI, thu theo cặp đồng bộ.",
+            "Gán nhãn trên ảnh, video, point cloud 3D, tài liệu, và âm thanh.",
+            "Dữ liệu post-training cho LLM: minh họa supervised fine-tuning, xếp hạng preference, và đánh giá."
+          ],
+          "links": [
+            {
+              "href": "/services/data-collection",
+              "label": "Thu thập dữ liệu"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/rlhf-sft-data",
+              "label": "Dữ liệu RLHF và SFT"
+            }
+          ]
+        },
+        {
+          "heading": "Đội gán nhãn cũng là đội huấn luyện model",
+          "body": "Phần lớn vendor gán nhãn giao dataset rồi không bao giờ biết nó có chạy được không. Xây hệ thống AI là việc chính của chúng tôi, nghĩa là một dataset chúng tôi làm ra có thể chính là dataset chúng tôi phải fine-tune, đánh giá, và bảo vệ khi chạy production. Đó không phải câu marketing — nó quyết định guideline gán nhãn viết ra sao, vì người viết guideline biết trước sự mập mờ nào sẽ trồi lên thành lỗi model về sau."
+        },
+        {
+          "heading": "Chất lượng phải đo được",
+          "body": "Tuyên bố về chất lượng vô nghĩa nếu không có phép đo đứng sau, nên chúng tôi đo công việc thay vì khẳng định kết quả.",
+          "bullets": [
+            "Gold-standard item cài vào mọi batch, chấm điểm liên tục thay vì audit ở cuối.",
+            "Multi-pass review, lượt hai không biết kết quả lượt một.",
+            "Inter-annotator agreement báo cáo bằng một con số, không phải một lời khẳng định.",
+            "Pre-labelling tự động ở chỗ model làm được lượt đầu, người chỉ sửa lại thay vì làm từ đầu.",
+            "Guideline được version như code, vì một thay đổi guideline âm thầm làm mất giá trị mọi thứ đã gán nhãn trước đó."
+          ]
+        },
+        {
+          "heading": "Bảo mật và quyền truy cập",
+          "body": "Điều gì nói rõ được, chúng tôi nói rõ; điều gì không nói rõ được, chúng tôi bỏ qua chứ không suy diễn thêm.",
+          "bullets": [
+            "Mọi người chạm vào dữ liệu của bạn đều ký NDA trước khi thấy bất cứ gì.",
+            "Quyền truy cập cấp theo từng dự án, không theo từng nhân viên, và thu hồi khi dự án kết thúc.",
+            "Dữ liệu khách hàng nằm trong môi trường tách biệt khỏi các việc khác của chúng tôi.",
+            "Dữ liệu bị xóa khi hoàn thành, theo lịch đã thống nhất trong hợp đồng."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Dự án nhỏ nhất các bạn nhận là bao nhiêu?",
+          "answer": "Một pilot batch. Đây luôn là bước đầu đúng đắn bất kể quy mô về sau, vì đó là cách duy nhất để biết guideline có trụ được khi chạm dữ liệu thật hay không."
+        },
+        {
+          "question": "Pilot batch chạy như thế nào?",
+          "answer": "Bạn gửi một mẫu đại diện và tiêu chí nghiệm thu. Chúng tôi gán nhãn, báo cáo những chỗ bất đồng gặp phải, rồi viết lại guideline dựa trên đó. Bất đồng chính là điểm mấu chốt — một pilot không tạo ra bất đồng nào nghĩa là nó quá dễ để có giá trị tham khảo."
+        },
+        {
+          "question": "Dữ liệu và nhãn thuộc về ai?",
+          "answer": "Thuộc về bạn, kể cả mọi thứ suy ra từ đó. Chúng tôi không giữ lại gì sau ngày xóa đã thống nhất, và không bao giờ tái sử dụng dữ liệu khách hàng để xây dataset riêng."
+        },
+        {
+          "question": "Khi annotator bất đồng thì xử lý ra sao?",
+          "answer": "Bất đồng được đẩy lên xử lý, không lấy trung bình. Một reviewer cấp cao phân xử, và kết quả quay lại guideline để cùng một case không bị quyết định hai lần."
+        },
+        {
+          "question": "Các bạn có làm ngôn ngữ khác ngoài tiếng Anh và tiếng Việt không?",
+          "answer": "Hãy trao đổi cụ thể về ngôn ngữ và khối lượng. Chúng tôi thà nói không đủ người để làm còn hơn nhận rồi làm dở."
+        }
+      ],
+      "cta": {
+        "title": "Bắt đầu bằng một pilot batch",
+        "body": "Gửi một mẫu và mô tả bạn cần nó trở thành gì. Chúng tôi sẽ nói cho bạn biết đặc tả đang thiếu chỗ nào.",
+        "button": "Liên hệ"
+      }
+    },
+    "dataCollection": {
+      "navLabel": "Thu thập dữ liệu",
+      "title": "Thu thập dữ liệu cho huấn luyện AI",
+      "metaTitle": "Dịch vụ thu thập dữ liệu AI — Video, hình ảnh, âm thanh, tài liệu",
+      "metaDescription": "Thu thập dữ liệu video, hình ảnh, âm thanh, tài liệu, và kịch bản dàn dựng cho huấn luyện AI, thực hiện tại Việt Nam với consent được lập hồ sơ theo từng item, không theo batch.",
+      "lede": "Yếu tố quyết định một dự án thu thập có thành công hay không là bản đặc tả, không phải là footage. Một đội quay có thể thực hiện gần như mọi brief một cách chỉn chu; thứ khiến dự án thất bại là một brief chưa từng gọi tên biến số quan trọng — góc máy, ánh sáng, giọng nói, mức ồn nền. Dữ liệu khớp với một đặc tả mơ hồ vẫn đúng về mặt kỹ thuật nhưng vô dụng trên thực tế, và lỗi đó chỉ lộ ra sau khi model đã được huấn luyện trên nó. Chúng tôi viết đặc tả cùng bạn trước khi ai đó cầm máy quay lên.",
+      "sections": [
+        {
+          "heading": "Thu thập theo đặc tả viết ra giấy",
+          "body": "Mỗi loại dữ liệu có một tập biến số riêng mà một brief mơ hồ sẽ để mặc cho người cầm máy hôm đó tự quyết. Chúng tôi chốt từng biến số bằng văn bản trước khi thu thập bắt đầu, để đội quay ở mười địa điểm khác nhau thực hiện đúng một brief, chứ không phải mười cách hiểu khác nhau về nó.",
+          "bullets": [
+            "Video — góc máy, khoảng cách, khung hình, chuyển động, và điều kiện ánh sáng, vì model huấn luyện trên một góc không tự generalize sang góc khác.",
+            "Hình ảnh tĩnh — độ phân giải, background, mức độ che khuất, và ánh sáng, quy định theo từng shot chứ không để tùy ý người chụp.",
+            "Âm thanh và giọng nói — khoảng cách micro, mức ồn nền, giọng vùng miền và nhân khẩu học của người nói, và môi trường thu.",
+            "Thu tài liệu — độ phân giải scan, tình trạng trang (viết tay, in, hư hỏng), và format file, để dataset khớp với thứ model sẽ gặp khi chạy thật chứ không phải một mẫu sạch sẽ.",
+            "Kịch bản dàn dựng — nội dung kịch bản, các biến thể bắt buộc (thứ tự, cách diễn đạt, gián đoạn), và ai đóng vai nào, để cùng một kịch bản không bị mỗi diễn viên diễn giải một kiểu."
+          ]
+        },
+        {
+          "heading": "Consent và nguồn gốc dữ liệu",
+          "body": "Đây là phần một khách hàng doanh nghiệp đọc trước tiên, vì nó quyết định dataset có dùng được hay không. Chúng tôi mô tả đúng những gì mình thực sự làm và dừng lại ở đó — không có tuyên bố chứng nhận nào, không có cam kết nào vượt quá những gì có thể chứng minh.",
+          "bullets": [
+            "Mọi người xuất hiện trong media thu thập đều ký release trước khi footage được dùng cho bất cứ việc gì, kể cả pilot batch.",
+            "Release được lập hồ sơ theo từng item — từng clip, từng ảnh, từng bản ghi âm — chứ không theo batch mà nó thuộc về.",
+            "Chain of custody được lập hồ sơ theo từng item, từ lúc thu đến lúc bàn giao, để nguồn gốc có thể truy về một release cụ thể chứ không phải một lời khẳng định suông.",
+            "Bất cứ thứ gì chúng tôi không thể chứng minh — một release không xuất trình được, một chain of custody có lỗ hổng — sẽ không được bàn giao, bất kể chi phí sản xuất đã bỏ ra."
+          ]
+        },
+        {
+          "heading": "Vùng phủ mà chúng tôi thực sự khác biệt",
+          "body": "Phần lớn dữ liệu huấn luyện cho các model toàn cầu được thu ở Bắc Mỹ và Tây Âu, và điều đó thể hiện rõ: cảnh giao thông, bố cục nhà bếp, sạp chợ, giọng nói, và tông da phổ biến ở Đông Nam Á rất mỏng hoặc gần như vắng mặt trong các dataset đó. Chúng tôi thu thập tại Việt Nam và khu vực lân cận vì đó là nơi đội ngũ và mạng lưới của chúng tôi đã sẵn có, nên những cảnh, khuôn mặt, ngôn ngữ, và môi trường vận hành trong dữ liệu chúng tôi bàn giao là những thứ một dataset nguồn gốc phương Tây thường không có — không phải vì chúng tôi định giá rẻ hơn, mà vì chúng tôi đã đứng sẵn ở đúng chỗ còn thiếu."
+        },
+        {
+          "heading": "Bàn giao",
+          "body": "Bàn giao được xây quanh những gì pipeline của bạn đã sẵn kỳ vọng, không phải quanh những gì thuận tiện cho chúng tôi export.",
+          "bullets": [
+            "Format — container, codec, sample rate, độ phân giải — chốt trong đặc tả trước khi thu thập bắt đầu, không quyết định lúc export.",
+            "Metadata schema được xây khớp với pipeline huấn luyện hiện có của bạn: tên field, identifier, và cấu trúc thư mục, để bạn nạp thẳng thứ chúng tôi gửi thay vì phải map lại vào format riêng.",
+            "Báo cáo item bị loại cho bất cứ thứ gì không qua review, nêu rõ lý do loại — không phải một batch tự nhiên nhỏ hơn mà không giải thích."
+          ],
+          "links": [
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Consent được chứng minh bằng gì?",
+          "answer": "Mỗi item được gắn với một release đã ký, nêu rõ chủ thể đã đồng ý việc gì và cho mục đích nào. Chúng tôi có thể xuất trình release cho bất kỳ item nào trong một batch đã bàn giao khi được yêu cầu; nếu không xuất trình được, item đó đã không được bàn giao."
+        },
+        {
+          "question": "Các bạn có thu dữ liệu của trẻ em không?",
+          "answer": "Chỉ khi có consent đã ký của người giám hộ và chỉ khi đặc tả yêu cầu rõ ràng. Phần lớn brief thu thập không yêu cầu việc này, và chúng tôi không thu trẻ em một cách tình cờ như nhân vật nền."
+        },
+        {
+          "question": "Dữ liệu được lưu ở đâu trong lúc thu thập?",
+          "answer": "Trong một môi trường riêng theo từng dự án, giới hạn truy cập cho đúng những người đang làm việc trên đợt thu thập đó, tách biệt khỏi dữ liệu của khách hàng khác và khỏi hệ thống nội bộ của chúng tôi, trong suốt thời gian thu thập."
+        },
+        {
+          "question": "Nếu đặc tả thay đổi giữa chừng thì sao?",
+          "answer": "Phần đã thu thập theo đặc tả cũ được bàn giao và tính phí theo đúng phạm vi cũ; đặc tả mới trở thành một change order áp dụng cho phần thu thập từ thời điểm đó trở đi. Chúng tôi không diễn giải lại footage đã quay theo một brief đã hết hiệu lực."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn cần thu gì",
+        "body": "Mô tả bạn cần thu gì và ở đâu. Chúng tôi sẽ nói cho bạn biết đặc tả cần ghi rõ điều gì trước khi đặt lịch quay.",
+        "button": "Liên hệ"
+      }
+    },
+    "egocentricDataCollection": {
+      "navLabel": "Thu ego & exo",
+      "title": "Thu thập dữ liệu Egocentric và Exocentric",
+      "metaTitle": "Dịch vụ thu thập dữ liệu Egocentric — Thu ego & exo",
+      "metaDescription": "Thu đồng bộ egocentric góc nhìn thứ nhất và exocentric đa góc cho dữ liệu huấn luyện robotics và embodied AI, thực hiện tại Việt Nam.",
+      "lede": "Một robot policy huấn luyện từ video phải học từ những demonstration của con người thực hiện tác vụ, và góc nhìn ghi những demonstration đó cũng quan trọng như bản thân tác vụ. Thu egocentric — camera đeo trên đầu — ghi lại đúng thứ camera của robot sau này sẽ thấy. Một mình nó lại bỏ lỡ phần lớn thứ khiến demonstration dùng được: tay của người thực hiện, vật thể đang thao tác, tư thế cơ thể tạo ra chuyển động — tất cả thường xuyên nằm ngoài khung hình hoặc bị chính đầu người đó che khuất. Thu exocentric, ghi từ các camera cố định bên ngoài trong cùng buổi thu, bù lại đúng phần góc nhìn thứ nhất không thể cho thấy. Chúng tôi chạy cả hai cùng lúc, đồng bộ, như một sản phẩm bàn giao duy nhất.",
+      "sections": [
+        {
+          "heading": "Thu ego và exo cùng lúc",
+          "body": "Mọi buổi thu ghi cả hai góc nhìn theo cùng một đồng hồ, để cặp dữ liệu có thể dùng như một cặp thay vì phải đối chiếu lại sau.",
+          "bullets": [
+            "Thu egocentric góc nhìn thứ nhất qua camera đeo đầu, đóng khung và ổn định theo tác vụ chứ không theo độ tiện đeo thông thường.",
+            "Rig đa góc bên ngoài đặt để bao phủ tay, vật thể đang thao tác, và tư thế cơ thể mà camera đeo đầu không thấy được.",
+            "Đồng bộ timecode trên mọi stream, để footage egocentric và exocentric khớp nhau theo từng frame chứ không phải ước lượng.",
+            "Calibration ghi cùng lúc với footage — intrinsics của camera và hình học của rig được ghi ngay trong buổi thu, không phải dựng lại sau đó từ những gì frame tình cờ cho thấy."
+          ]
+        },
+        {
+          "heading": "Vì sao cặp ego-exo có giá trị hơn từng cái riêng lẻ",
+          "body": "Stream egocentric cho thấy người thực hiện đã nhìn thấy gì: hướng tiếp cận, góc nhìn mà camera của robot sau này sẽ tái hiện, những tín hiệu thị giác mà người đó đang phản ứng lại. Nhưng nó lại cho thấy rất ít việc tay người đó thực sự đang làm gì, vì camera đeo đầu nhìn theo hướng đầu quay, còn tay, dụng cụ, và vật thể đang thao tác lại nằm ngoài khung hình đó hoặc bị chính cánh tay người thực hiện che khuất trong phần lớn tác vụ. Stream exocentric cho thấy điều ngược lại: chuyển động của tay, cách cầm nắm, tư thế vật thể, và dáng cơ thể, tất cả đều thấy được từ một góc cố định bên ngoài, nhưng lại thiếu đúng góc nhìn mà một policy huấn luyện cho input góc nhìn thứ nhất cần. Không stream nào thay thế được stream kia. Xem riêng lẻ, mỗi stream đều có thông tin với con người. Ghép cặp và đồng bộ, cả hai cùng cho một hệ thống học máy đúng thứ nó cần — góc nhìn nó sẽ hành động từ đó, và chi tiết vật lý mà riêng góc nhìn đó bỏ sót. EgoExo4D, một dataset nghiên cứu công khai, là lý do vì sao cách ghép cặp này giờ là thực hành chuẩn trong embodied AI chứ không phải một ý tưởng riêng lẻ: nó chứng minh rằng thu ego-exo đồng bộ tạo ra dữ liệu huấn luyện được mà không stream riêng lẻ nào tạo ra nổi. Nó được xây trên nền Ego4D, dataset công khai đã xác lập video egocentric như một lĩnh vực nghiên cứu ngay từ đầu, bằng cách bổ sung thêm nửa exocentric mà phần lớn use case huấn luyện thực sự cần."
+        },
+        {
+          "heading": "Một buổi thu diễn ra thế nào",
+          "body": "Những biến số làm hỏng một buổi thu hiếm khi lộ ra cho tới lúc xem lại, đó là lý do quy trình được xây để bắt lỗi trước khi ekip rời hiện trường.",
+          "bullets": [
+            "Calibration trước take đầu tiên, mọi camera và rig được kiểm tra lại với mốc tham chiếu của buổi thu, không giả định giống buổi trước.",
+            "Kịch bản hoạt động viết sẵn từ trước, để mọi take của cùng một tác vụ theo đúng các bước theo đúng thứ tự, và các take so sánh được với nhau.",
+            "Briefing cho operator về tác vụ, rig, và những failure mode riêng của buổi thu đó, trước khi bắt đầu ghi.",
+            "Kiểm tra chất lượng trong lúc thu — xem lại footage giữa các take, không dồn lại để xem một lượt vào cuối ngày.",
+            "Review ngay trong ngày trước khi ekip nghỉ, vì quay lại một take rẻ vào ngày đầu của một chương trình và gần như bất khả thi vào ngày thứ ba mươi, khi set, đạo cụ, và diễn viên đã không còn ở đó."
+          ]
+        },
+        {
+          "heading": "Teleoperation demonstration",
+          "body": "Chúng tôi hỗ trợ thu teleoperation demonstration khi khách hàng cung cấp rig — cánh tay robot, bộ điều khiển, cấu hình thao tác là của bạn; huấn luyện operator, kỷ luật buổi thu, và kiểm soát chất lượng từng take là của chúng tôi. Những demonstration kiểu này là input huấn luyện chuẩn cho các model vision-language-action (VLA), và chính mục đích sử dụng đó tạo ra bài toán kinh tế khác hẳn thu hoạt động con người theo kịch bản: số lượng demonstration cần cho mỗi manipulation task để có một tập huấn luyện dùng được thường lên tới hàng trăm, không phải hàng chục, nên lập kế hoạch throughput và khả năng lặp lại buổi thu quan trọng hơn ở đây so với độ chỉn chu của từng take riêng lẻ. Chúng tôi lên kế hoạch chương trình theo đúng khối lượng đó ngay từ cuộc trao đổi đầu tiên, thay vì phát hiện ra giữa chừng."
+        },
+        {
+          "heading": "Bạn nhận được gì",
+          "body": "Bàn giao được xây để nạp thẳng vào pipeline huấn luyện, không phải để định dạng lại sau đó.",
+          "bullets": [
+            "Video đồng bộ cho mọi stream đã thu trong buổi — egocentric và mọi góc exocentric, canh theo một timecode chung.",
+            "Metadata calibration và pose cho mọi camera và rig đã dùng, bàn giao cùng footage chứ không phải một bước dựng lại riêng.",
+            "Log theo từng buổi thu, gắn từng take về đúng bước kịch bản và biến thể tác vụ mà nó thuộc về.",
+            "Gán nhãn trên chính footage đó khi bạn cần — công việc gán nhãn mô tả ở trang gán nhãn dữ liệu của chúng tôi chạy trực tiếp trên thứ trang này thu được."
+          ],
+          "links": [
+            {
+              "href": "/services/data-annotation",
+              "label": "Gán nhãn dữ liệu"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Một ekip thu được bao nhiêu giờ mỗi ngày?",
+          "answer": "Điều này phụ thuộc vào yêu cầu thực tế của buổi thu, không phải một định mức ngày cố định: số lượng take riêng biệt mà kịch bản yêu cầu, mỗi take dài bao lâu, rig cần calibrate lại bao nhiêu lần giữa các setup, và bao nhiêu thời gian review trong lúc thu được bố trí để bắt một take hỏng trước khi ekip chuyển tiếp. Một tác vụ manipulation ngắn, lặp lại và một kịch bản hoạt động dài, tự do cho ra con số mỗi ngày rất khác nhau dù cùng một ekip. Chúng tôi định lượng việc này dựa trên đúng kịch bản của bạn thay vì đưa ra một con số sẽ không đúng cho tác vụ của bạn."
+        },
+        {
+          "question": "Các bạn có dựng rig riêng cho bài toán của chúng tôi được không?",
+          "answer": "Có, khi tác vụ đòi hỏi vị trí camera mà một setup đa góc tiêu chuẩn không bao phủ được — không gian làm việc chật hẹp, góc thao tác bất thường, hoặc yêu cầu bao phủ riêng cho input mà policy của bạn cần. Chúng tôi thiết kế hình học rig theo đúng thứ tác vụ cần cho thấy, không theo một cấu hình mặc định cố định."
+        },
+        {
+          "question": "Consent cho dữ liệu egocentric khác gì so với video thường?",
+          "answer": "Camera đeo đầu ghi lại bất cứ thứ gì người đeo nhìn vào, và điều đó thường xuyên bao gồm cả không gian riêng tư và người xung quanh không phải chủ thể của buổi thu và không được hỏi ý kiến trước khi bị quay. Release cho các buổi thu egocentric của chúng tôi bao phủ mọi người xuất hiện trong khung hình, không chỉ người đeo camera, và những địa điểm không thể xin được consent từ những người sẽ xuất hiện thì không được quay ở đó. Ràng buộc này quyết định buổi thu được thực hiện ở đâu trước cả khi nó quyết định thu được gì."
+        },
+        {
+          "question": "Các bạn có gán nhãn luôn phần dữ liệu đã thu không?",
+          "answer": "Có — gán nhãn trên footage egocentric và exocentric là dịch vụ chúng tôi chạy trực tiếp trên chính footage do ekip của mình thu. Hand pose, object tracking, và action segmentation trên các stream đồng bộ dễ làm đúng hơn khi đội gán nhãn hiểu rõ footage đó được rig và calibrate như thế nào ngay từ đầu."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi về một chương trình thu dữ liệu",
+        "body": "Mô tả tác vụ và góc nhìn model của bạn cần. Chúng tôi sẽ nói cho bạn biết rig và kế hoạch buổi thu cần bao phủ điều gì.",
+        "button": "Liên hệ"
+      }
+    },
+    "dataAnnotation": {
+      "navLabel": "Gán nhãn",
+      "title": "Gán nhãn và chú thích dữ liệu",
+      "metaTitle": "Dịch vụ gán nhãn dữ liệu — Ảnh, video, 3D, văn bản, âm thanh",
+      "metaDescription": "Gán nhãn ảnh, video, point cloud 3D, tài liệu, và âm thanh — bounding box, polygon, segmentation, OCR, NER, và diarisation — thực hiện tại Việt Nam trên CVAT, Label Studio, hoặc platform của bạn.",
+      "lede": "Gán nhãn thường được bán như một dạng nhập liệu, và với phần lớn một batch nó đúng là vậy — annotator vẽ đúng cái box mà ai cũng sẽ vẽ. Thứ quyết định một dataset có dùng được hay không nằm ở phần còn lại: vật thể bị che khuất một nửa bởi vật khác, hai người nói chồng lên nhau, entity trải dài qua một ký hiệu tiền tệ mà chưa ai viết rule cho nó. Chất lượng thật sự của một vendor không nằm ở cách họ xử lý phần đa số dễ dàng; nó nằm ở cách họ xử lý khi guideline không bao được thứ đang hiện trên màn hình. Trang này viết quanh đúng trường hợp đó.",
+      "sections": [
+        {
+          "heading": "Hình ảnh và video",
+          "body": "Frame tĩnh và chuỗi video, gán nhãn theo đúng hình học mà model downstream cần, không phải một box mặc định quanh mọi thứ trong khung hình.",
+          "bullets": [
+            "Bounding box 2D, vẽ sát đúng phần diện tích thật của vật thể chứ không chừa biên độ cho thoải mái.",
+            "Polygon cho những biên dạng mà box không biểu diễn được — hình dạng bất quy tắc, thực vật, vật liệu đổ hoặc biến dạng.",
+            "Semantic và instance segmentation, mask ở mức pixel tách riêng từng instance của một class thay vì gộp chung vào một vùng.",
+            "Keypoint và pose, gán nhãn khớp và landmark cho pose estimation của người và vật thể.",
+            "Object tracking qua các frame, giữ nguyên identity qua occlusion để một vật thể giữ đúng ID khi biến mất sau vật khác rồi xuất hiện lại."
+          ]
+        },
+        {
+          "heading": "Dữ liệu 3D và cảm biến",
+          "body": "Dữ liệu cảm biến mà một ảnh phẳng không biểu diễn được, gán nhãn ngay trong không gian tọa độ mà model thật sự huấn luyện trên đó.",
+          "bullets": [
+            "Gán nhãn point cloud — bounding box 3D và segmentation theo từng điểm trên output LiDAR và depth sensor.",
+            "LiDAR-camera sensor fusion, gán nhãn các điểm chiếu lên frame camera để hai modality ra thành một bộ nhãn thống nhất thay vì hai bộ phải đối chiếu lại sau.",
+            "Cuboid tracking qua chuỗi dữ liệu, bounding box 3D của một vật thể được giữ và re-identify xuyên suốt bản ghi thay vì vẽ lại từng frame."
+          ]
+        },
+        {
+          "heading": "Tài liệu và văn bản",
+          "body": "Gán nhãn văn bản tôn trọng layout và intent, không chỉ ký tự.",
+          "bullets": [
+            "OCR và cấu trúc tài liệu — trích xuất văn bản cộng với layout mang lại ý nghĩa cho nó: bảng, form field, header, thứ tự đọc.",
+            "Named entity recognition (NER), gán nhãn người, tổ chức, địa điểm, và entity đặc thù theo domain của bạn trong văn bản liền mạch.",
+            "Text classification, gán tài liệu hoặc đoạn văn vào một tập nhãn xây theo đúng taxonomy của bạn thay vì một tập nhãn chung chung.",
+            "Gán nhãn intent và utterance cho dữ liệu hội thoại và giọng nói, gán nhãn người nói đang cố làm gì thay vì chỉ ghi lại họ nói gì."
+          ]
+        },
+        {
+          "heading": "Âm thanh",
+          "body": "Âm thanh có lời và không lời, gán nhãn trên cùng một timeline.",
+          "bullets": [
+            "Transcription, verbatim hoặc đã làm sạch tùy vào việc downstream cần gì.",
+            "Speaker diarisation — phân đoạn audio theo ai đang nói lúc nào, kể cả khi lời nói chồng lên nhau.",
+            "Gán nhãn acoustic event: âm thanh không lời — chuông báo, kính vỡ, tiếng máy — gán nhãn cùng timeline với lời nói thay vì bỏ qua."
+          ]
+        },
+        {
+          "heading": "Công cụ",
+          "body": "Chúng tôi chạy CVAT và Label Studio in-house cho những dự án không chỉ định platform, và làm việc trực tiếp trên platform sẵn có của khách hàng khi đã có sẵn. Đây không phải một sự chiều khách: bắt khách hàng migrate cả pipeline sang công cụ chúng tôi thích dùng để việc mua labelling tiện hơn cho chúng tôi là một chi phí vận hành của vendor, bị dựng lên rồi tính ngược lại cho khách hàng. Huấn luyện một đội annotator trên platform của bạn một lần rẻ hơn cho tất cả mọi người so với việc bắt pipeline của bạn đổi cách nạp nhãn."
+        },
+        {
+          "heading": "Đưa một đội vào dự án của bạn",
+          "body": "Thứ tự quan trọng hơn lịch trình. Tăng quân số trước khi guideline ổn định không nhân capacity gán nhãn lên — nó nhân đúng những lỗi guideline còn mắc phải lên, vì mỗi annotator mới đều áp đúng một instruction chưa được kiểm chứng lên một khối lượng item lớn hơn. Chúng tôi thêm người theo một thứ tự được xây để bắt một instruction sai trong khi vẫn còn rẻ để sửa, chứ không phải sau khi nó đã bị lặp lại ở quy mô lớn.",
+          "bullets": [
+            "Một pilot batch, gán nhãn trên một mẫu đại diện trước khi cam kết bất kỳ khối lượng nào.",
+            "Guideline được viết lại theo đúng những disagreement mà pilot thực sự phát hiện ra, không phải những disagreement chúng tôi đoán trước.",
+            "Một core team nhỏ đã qua đào tạo, đúng quy mô với guideline đã ổn định chứ không phải quy mô dự án cuối cùng.",
+            "Thêm quân số chỉ sau khi core đang áp guideline nhất quán, với core review output của annotator mới thay vì một lớp QA riêng phải học lại dự án từ đầu."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Thu ego và exo"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Các bạn cam kết độ chính xác bao nhiêu, và đo bằng cách nào?",
+          "answer": "Không có con số cố định nào chúng tôi đưa ra trước khi thấy dữ liệu, vì target khả thi phụ thuộc vào thứ đang được gán nhãn — segment một cảnh lộn xộn và classify một tài liệu sạch không phải cùng một bài toán. Target được thống nhất theo từng dự án dựa trên một gold set dựng từ chính dữ liệu của bạn, với gold-standard item được chấm điểm liên tục và inter-annotator agreement báo cáo bằng một con số thay vì một lời khẳng định, và target đó vẫn hiển thị xuyên suốt dự án thay vì hứa một lần lúc bắt đầu."
+        },
+        {
+          "question": "Nếu guideline không bao được trường hợp thực tế thì sao?",
+          "answer": "Trường hợp đó được escalate lên thay vì để annotator nào gặp trước tự quyết định. Một reviewer cấp cao xử lý, kết quả xử lý được viết vào guideline kèm ví dụ đã gây ra nó, và bản cập nhật được version hóa để mọi annotator làm việc trên cùng một tài liệu sau đó. Pilot batch tồn tại chính là để phát hiện những trường hợp này trước khi chúng xuất hiện ở quy mô lớn."
+        },
+        {
+          "question": "Làm lại thì tính phí thế nào?",
+          "answer": "Làm lại do chính annotator của chúng tôi áp sai một guideline đã thống nhất thì chúng tôi chịu, không tính phí. Làm lại do thay đổi đặc tả — một class mới, một boundary case được định nghĩa lại, một rule bạn yêu cầu áp dụng khác đi sau khi đã làm — được scope và tính phí như một change order, vì đó là instruction mới, không phải sửa lỗi của chúng tôi."
+        },
+        {
+          "question": "Các bạn làm trực tiếp trên platform của chúng tôi được không?",
+          "answer": "Có — đó là mặc định, không phải ngoại lệ. Chúng tôi huấn luyện đội annotation trên platform và project setup sẵn có của bạn thay vì bắt bạn export dữ liệu sang công cụ của chúng tôi; xem phần Công cụ ở trên."
+        }
+      ],
+      "cta": {
+        "title": "Gửi cho chúng tôi một pilot batch",
+        "body": "Gửi một mẫu đại diện và guideline hiện tại của bạn, nếu có. Chúng tôi sẽ gán nhãn nó, chỉ ra chỗ nó bị vỡ, và nói cho bạn biết guideline cần thêm gì trước khi bạn cam kết khối lượng.",
+        "button": "Liên hệ"
+      }
+    },
+    "rlhfSftData": {
+      "navLabel": "Dữ liệu RLHF & SFT",
+      "title": "Dữ liệu RLHF và SFT cho Post-Training LLM",
+      "metaTitle": "Dịch vụ dữ liệu RLHF & SFT — Post-Training LLM",
+      "metaDescription": "SFT demonstration, preference ranking, đánh giá theo rubric, và red teaming cho post-training LLM, thực hiện bởi người làm được chính công việc đó — bằng tiếng Anh và tiếng Việt.",
+      "lede": "Dữ liệu post-training được viết ra, không phải gán nhãn. Một câu trả lời demonstration, một phán đoán preference giữa hai output của model, một prompt trong một phiên red teaming nhắm vào hành vi model đang chạy thật — mỗi thứ đều do một người viết ra, và trần năng lực model học được quyết định bởi việc người đó có thực sự làm được việc đang minh họa hay không, chứ không phải bởi họ mô tả nó trôi chảy ra sao. Một demonstration do người chỉ paraphrase lại xem một câu trả lời tốt trông như thế nào đọc giống hệt một demonstration do người thực sự làm được việc đó viết ra — cho tới khi model huấn luyện trên nó sai đúng kiểu dữ liệu của nó đã sai. Chúng tôi tuyển người làm được việc trước, rồi mới viết cho model sau.",
+      "sections": [
+        {
+          "heading": "Demonstration cho supervised fine-tuning",
+          "body": "Một demonstration cho supervised fine-tuning là một ví dụ làm mẫu: với input này, đây là response chúng tôi muốn model bắt chước. Ai cũng viết được một response nghe có vẻ đúng — trôi chảy, đúng văn phong, đúng định dạng. Viết một response thực sự đúng đòi hỏi đã từng làm chính công việc đó, hoặc đủ gần để nhận ra phiên bản chỉ nghe có vẻ đúng. Chúng tôi tuyển người làm SFT là người có kiến thức chuyên môn công việc đòi hỏi, không phải người viết chung chung đoán xem một câu trả lời tốt trông như thế nào, vì một demonstration trôi chảy mà sai không sai theo cách lộ liễu — nó dạy model trôi chảy mà sai, tự tin, theo đúng một kiểu, mỗi lần pattern đó lặp lại."
+        },
+        {
+          "heading": "Preference ranking",
+          "body": "Một preference ranking yêu cầu một người chọn giữa hai output của model cho cùng một prompt, và lựa chọn đó chỉ có ích nếu nó mang cùng một nghĩa mỗi lần được đưa ra. Gu thẩm mỹ không thành văn của một annotator không phải tín hiệu model học nhất quán được — nó trôi giữa các annotator, và trôi cả ở cùng một annotator qua từng phiên làm việc. Chúng tôi thay gu thẩm mỹ bằng một rubric.",
+          "bullets": [
+            "So sánh pairwise chấm theo một rubric viết thành văn bản, không phải một sở thích annotator ứng biến tại chỗ.",
+            "Rubric được version hóa như một artefact — mọi ranking đều truy được về đúng phiên bản rubric đã dùng, để một thay đổi rubric không âm thầm diễn giải lại những ranking đã làm trước đó.",
+            "Tỷ lệ disagreement được theo dõi và báo cáo, vì một rubric mà hai annotator không bao giờ bất đồng thường là một rubric không phân biệt được những case thực sự quan trọng."
+          ]
+        },
+        {
+          "heading": "Đánh giá theo rubric",
+          "body": "Đánh giá theo rubric hỏi cùng một câu hỏi như preference ranking nhưng cho ra một điểm số thay vì một phép so sánh: output cụ thể này có đạt một ngưỡng đã nêu không, và nếu không đạt thì thiếu bao nhiêu. Chúng tôi xây rubric để mọi người chấm áp dụng giống hệt nhau, trên mọi item, đó là thứ khiến một thay đổi model trở thành một sự kiện đo được thay vì một ấn tượng — đánh giá là hạ tầng, không phải việc làm một lần. Thứ chúng tôi thêm vào ở đây là nhân lực: những người áp rubric ở khối lượng một evaluation set thật sự cần, đủ nhất quán để một điểm số dịch chuyển là bằng chứng chứ không phải nhiễu.",
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "Triển khai hệ thống AI"
+            }
+          ]
+        },
+        {
+          "heading": "Red teaming",
+          "body": "Red teaming mang tính đối kháng: người cố tình làm model đang chạy thật thất bại, dùng đúng những chiến thuật một người dùng có chủ đích rồi cũng sẽ dùng — đặt lại câu hỏi theo khung khác, roleplay, mẹo encoding, leo thang dần qua một cuộc hội thoại. Một phiên red teaming chỉ để lại một báo cáo miệng về chuyện gì đã sai gần như vô dụng, vì không ai tái tạo lại được lỗi để kiểm tra một bản fix có thực sự đóng nó lại hay không.",
+          "bullets": [
+            "Prompting đối kháng nhắm thẳng vào hành vi thật của model đang chạy, không phải một checklist jailbreak chung chung chẳng liên quan tới sản phẩm của bạn.",
+            "Mọi phát hiện được viết thành một case tái tạo được: đúng chuỗi prompt, đúng output đã sai, đúng hành vi nó vi phạm.",
+            "Case được gộp vào evaluation set thay vì lưu thành một báo cáo dùng một lần, để một bản fix được kiểm lại đúng case đã làm nó vỡ, và một regression tự lộ ra thay vì đợi một người dùng thật phát hiện lại."
+          ]
+        },
+        {
+          "heading": "Tiếng Việt và tiếng Anh",
+          "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên.",
+          "links": [
+            {
+              "href": "/services/llm-integration",
+              "label": "Tích hợp LLM và RAG"
+            },
+            {
+              "href": "/services/ai-training-data",
+              "label": "Dữ liệu huấn luyện AI"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bất đồng giữa các annotator được giải quyết thế nào?",
+          "answer": "Được escalate lên, không lấy trung bình. Một reviewer cấp cao phân xử theo đúng rubric, và kết quả được viết vào phiên bản rubric tiếp theo kèm case đã gây ra nó, để cùng một điểm mập mờ không bị tranh cãi lại bởi annotator tiếp theo gặp phải nó — và tỷ lệ disagreement theo thời gian cho thấy rubric có thực sự đang hội tụ hay không."
+        },
+        {
+          "question": "Các bạn tìm được chuyên gia theo lĩnh vực không?",
+          "answer": "Có, ở những lĩnh vực mà viết đúng demonstration cần kiến thức chuyên môn — pháp lý, y tế, tài chính, hoặc các bài toán kỹ thuật mà một người viết chung chung không giả được. Cho chúng tôi biết lĩnh vực và khối lượng, chúng tôi sẽ nói thẳng nếu không đủ người để làm tốt, thay vì nhận rồi làm mỏng."
+        },
+        {
+          "question": "Phần này nối với mảng tích hợp LLM của các bạn ra sao?",
+          "answer": "SFT demonstration, preference ranking, và evaluation set là đầu vào; fine-tuning và retrieval-augmented generation là nơi chúng chảy vào. Trên thực tế hai việc này thường là cùng một dự án nhìn từ hai đầu — dữ liệu xây ở đây, hệ thống huấn luyện và tích hợp xây ở đó."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi về một chương trình post-training",
+        "body": "Cho chúng tôi biết bạn đang ở giai đoạn post-training nào — demonstration, preference data, evaluation, hay red teaming — và bạn đã có sẵn những gì. Chúng tôi sẽ nói cho bạn biết còn thiếu gì trước khi bạn cam kết khối lượng.",
+        "button": "Liên hệ"
       }
     },
     "ventures": {
