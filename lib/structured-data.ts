@@ -1,6 +1,6 @@
 import type { SiteId } from "@/enums";
 import { SITE_EMAIL, SITE_SAME_AS, localeUrl, pageUrl, siteUrl } from "@/lib/site";
-import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
+import { DEFAULT_SITE, type SiteConfig, siblingSites, siteConfig } from "@/lib/sites";
 import { type RouteDef, breadcrumbTrail } from "@/lib/routes";
 
 interface ServiceItem {
@@ -25,9 +25,32 @@ interface OrgArgs {
 }
 
 /**
+ * Reference to another site's Organization node.
+ *
+ * Carries `name` and `url` alongside the `@id` rather than the bare `@id` a
+ * same-document reference would use: the node it points at lives on a
+ * different hostname, so a consumer that fetched only this page has nothing to
+ * resolve the identifier against.
+ */
+function orgRef(config: SiteConfig, locale: string) {
+  return {
+    "@type": config.schemaType,
+    "@id": `${siteUrl(config.id)}/#organization`,
+    name: config.name,
+    url: localeUrl(locale, config.id),
+  };
+}
+
+/**
  * ProfessionalService/Organization node — the primary entity for search and
  * generative engines. Includes a service catalog and areas of expertise so
  * LLMs can answer "what does SofinWave do" accurately.
+ *
+ * The four sites are separate hostnames, so nothing in the markup would
+ * otherwise say they belong to one organization. The apex declares the other
+ * three as `subOrganization`; each of those points back with
+ * `parentOrganization`. Only the relationship is shared — a site still emits
+ * its own catalog and expertise and never borrows another vertical's.
  */
 export function organizationSchema({
   locale,
@@ -57,6 +80,9 @@ export function organizationSchema({
       { "@type": "Country", name: "Vietnam" },
       { "@type": "Place", name: "Worldwide" },
     ],
+    ...(site === DEFAULT_SITE.id
+      ? { subOrganization: siblingSites(site).map((sibling) => orgRef(sibling, locale)) }
+      : { parentOrganization: orgRef(DEFAULT_SITE, locale) }),
     // Only emitted when the site actually has them. Borrowing another
     // vertical's catalog would misdescribe this entity to search and answer
     // engines, which is the whole reason the sites are separate.

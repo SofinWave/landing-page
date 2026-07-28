@@ -158,6 +158,18 @@ export const SITE_SAME_AS: string[] = ["https://github.com/SofinWave"];
 export const SITE_EMAIL = "Work.KingNNT@gmail.com";
 
 /**
+ * Whether a link target is already a full URL.
+ *
+ * Content links are normally paths relative to their own site and get a locale
+ * prefix and an origin bolted on. A cross-site link is written out in full, and
+ * anything that treats it as a path produces
+ * `https://sofinwave.com/enhttps://media.sofinwave.com/...`.
+ */
+export function isAbsoluteHref(href: string): boolean {
+  return /^https?:\/\//i.test(href);
+}
+
+/**
  * Absolute URL for a locale-prefixed path on a site.
  *
  * `path` is the segment after the locale, without leading or trailing slashes.

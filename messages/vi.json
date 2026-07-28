@@ -264,6 +264,29 @@
     "connect": "Kết nối",
     "servicesNav": "Dịch vụ"
   },
+  "ecosystem": {
+    "navLabel": "Hệ sinh thái",
+    "heading": "Một đội ngũ, bốn mảng kinh doanh",
+    "lede": "SofinWave vận hành bốn mảng trên bốn site riêng. Tư vấn phần mềm là mảng lõi; ba mảng còn lại lớn lên từ những việc chúng tôi vốn đã làm cho chính mình.",
+    "sites": {
+      "tech": {
+        "role": "Phần mềm & AI",
+        "blurb": "Đội offshore, đội chuyên trách và triển khai AI cho doanh nghiệp ở Mỹ, châu Âu và châu Á."
+      },
+      "media": {
+        "role": "Truyền thông & Nội dung",
+        "blurb": "Quay dựng video và làm nội dung sản phẩm, kèm phân phối theo mô hình affiliate."
+      },
+      "finance": {
+        "role": "Kiến thức đầu tư",
+        "blurb": "Ghi chép về quy trình đầu tư của chúng tôi và những công cụ xây để phục vụ nó. Kiến thức được công bố, không phải lời khuyên."
+      },
+      "academy": {
+        "role": "Giáo dục",
+        "blurb": "Giảng dạy kỹ thuật, đầu tư và sản xuất nội dung, cùng giáo dục phổ thông."
+      }
+    }
+  },
   "pages": {
     "breadcrumbLabel": "Đường dẫn",
     "faqHeading": "Câu hỏi thường gặp",
@@ -1830,15 +1853,24 @@
         },
         {
           "heading": "Truyền thông & sản xuất nội dung",
-          "body": "Tại media.sofinwave.com. Quay dựng video và làm nội dung xoay quanh sản phẩm, kèm phân phối theo mô hình affiliate. Việc này khởi đầu là marketing cho chính chúng tôi rồi thành dịch vụ khi quy trình đã lặp lại được."
+          "body": "Tại media.sofinwave.com. Quay dựng video và làm nội dung xoay quanh sản phẩm, kèm phân phối theo mô hình affiliate. Việc này khởi đầu là marketing cho chính chúng tôi rồi thành dịch vụ khi quy trình đã lặp lại được.",
+          "links": [
+            { "href": "https://media.sofinwave.com/vi/home", "label": "media.sofinwave.com" }
+          ]
         },
         {
           "heading": "Kiến thức & công cụ đầu tư",
-          "body": "Tại finance.sofinwave.com. Ghi chép về quy trình đầu tư của chính chúng tôi, và những công cụ chúng tôi xây để phục vụ nó. Đây là kiến thức được công bố, không phải lời khuyên đầu tư — chúng tôi không có giấy phép tư vấn, không quản lý tiền của ai, và site nói rõ điều đó."
+          "body": "Tại finance.sofinwave.com. Ghi chép về quy trình đầu tư của chính chúng tôi, và những công cụ chúng tôi xây để phục vụ nó. Đây là kiến thức được công bố, không phải lời khuyên đầu tư — chúng tôi không có giấy phép tư vấn, không quản lý tiền của ai, và site nói rõ điều đó.",
+          "links": [
+            { "href": "https://finance.sofinwave.com/vi/home", "label": "finance.sofinwave.com" }
+          ]
         },
         {
           "heading": "Giáo dục",
-          "body": "Tại academy.sofinwave.com. Giảng dạy trong những lĩnh vực chúng tôi làm — kỹ thuật, đầu tư, sản xuất nội dung — và cả giáo dục phổ thông. Phần lớn tài liệu vốn được viết ra để đào tạo người của chính chúng tôi."
+          "body": "Tại academy.sofinwave.com. Giảng dạy trong những lĩnh vực chúng tôi làm — kỹ thuật, đầu tư, sản xuất nội dung — và cả giáo dục phổ thông. Phần lớn tài liệu vốn được viết ra để đào tạo người của chính chúng tôi.",
+          "links": [
+            { "href": "https://academy.sofinwave.com/vi/home", "label": "academy.sofinwave.com" }
+          ]
         },
         {
           "heading": "Vì sao tách site riêng",

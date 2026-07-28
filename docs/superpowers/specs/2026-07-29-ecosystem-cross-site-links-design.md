@@ -144,7 +144,21 @@ targets on every content page, not just `/ventures`.
 
 Then add a `links` entry to each of the four vertical sections of
 `pages.ventures` in both catalogs, pointing at the corresponding site's home
-page.
+page. The tech section gets no link — a visitor reading `/ventures` is already
+on that site.
+
+`ContentPage` is not the only consumer of `section.links`. `lib/llms.ts` builds
+`llms-full.txt` from the same objects and calls `pageUrl(locale, link.href)` on
+each, which turns a cross-site link into
+`https://sofinwave.com/enhttps://media.sofinwave.com/en/home`. Both call sites
+therefore share one predicate, `isAbsoluteHref()` in `lib/site.ts`, next to the
+URL builders whose contract it guards.
+
+Two existing invariants assume `section.links` are internal paths — one in
+`tests/lib/routes.test.ts` resolves each against the route registry, one in
+`tests/seo/llms.test.ts` expects the origin-prefixed form. Both now branch on
+the same predicate, and each gains a case covering the absolute form rather
+than merely skipping it.
 
 ### 6. Structured data
 
@@ -195,10 +209,13 @@ deliberately left out.
 | --- | --- |
 | `messages/en.json`, `messages/vi.json` | new `ecosystem` namespace; `links` on `pages.ventures` sections |
 | `lib/sites.ts` | `siblingSites()` |
+| `lib/site.ts` | `isAbsoluteHref()` |
 | `components/site-footer.tsx` | ecosystem column, responsive grid |
 | `app/[site]/[locale]/(public)/home/_components/ecosystem.tsx` | new section |
 | `app/[site]/[locale]/(public)/home/page.tsx` | render the section on tech |
+| `app/[site]/[locale]/(public)/home/_components/faq.tsx` | section index 7 → 8 |
 | `components/content-page.tsx` | absolute href renders as `<a>` |
+| `lib/llms.ts` | absolute href keeps its own origin |
 | `lib/structured-data.ts` | `subOrganization` / `parentOrganization` |
 | `tests/sections/ecosystem.test.tsx` | new |
-| `tests/sections/footer.test.tsx`, `tests/components/content-page.test.tsx`, `tests/seo/structured-data.test.ts` | extended |
+| `tests/sections/footer.test.tsx`, `tests/components/content-page.test.tsx`, `tests/seo/structured-data.test.ts`, `tests/seo/llms.test.ts`, `tests/lib/routes.test.ts` | extended |

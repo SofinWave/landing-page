@@ -1,10 +1,11 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { GridBackdrop } from "@/components/backgrounds/grid-backdrop";
 import { Link } from "@/i18n/navigation";
 import type { SiteId } from "@/enums";
-import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
-import { SITE_SAME_AS } from "@/lib/site";
+import { DEFAULT_SITE, siblingSites, siteConfig } from "@/lib/sites";
+import { HOME_PATH } from "@/lib/routes";
+import { SITE_SAME_AS, pageUrl } from "@/lib/site";
 
 /**
  * Site-wide footer. Its columns are real internal links rather than home-page
@@ -14,8 +15,11 @@ import { SITE_SAME_AS } from "@/lib/site";
 export function SiteFooter({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
   const config = siteConfig(site);
   const t = useTranslations("footer");
+  const tEcosystem = useTranslations("ecosystem");
   const tPages = useTranslations(config.contentNamespace);
+  const locale = useLocale();
   const github = SITE_SAME_AS[0];
+  const siblings = siblingSites(site);
 
   return (
     <footer className="relative overflow-hidden border-t border-border bg-muted/20">
@@ -28,8 +32,8 @@ export function SiteFooter({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
         <div
           className={
             config.footerServices.length > 0
-              ? "grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]"
-              : "grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]"
+              ? "grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1fr]"
+              : "grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]"
           }
         >
           {/* Brand */}
@@ -82,6 +86,26 @@ export function SiteFooter({ site = DEFAULT_SITE.id }: { site?: SiteId }) {
                   >
                     {tPages(`${item.key}.title`)}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Ecosystem — the sibling verticals. Plain anchors: these point at a
+              different hostname, which the locale-aware Link does not handle. */}
+          <nav aria-label={tEcosystem("navLabel")}>
+            <div className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              {`// ${tEcosystem("navLabel")}`}
+            </div>
+            <ul className="space-y-2.5">
+              {siblings.map((sibling) => (
+                <li key={sibling.id}>
+                  <a
+                    href={pageUrl(locale, HOME_PATH, sibling.id)}
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {sibling.name}
+                  </a>
                 </li>
               ))}
             </ul>

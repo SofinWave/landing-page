@@ -129,6 +129,19 @@ export function siteConfig(id: SiteId): SiteConfig {
   return SITES[id];
 }
 
+/**
+ * The other three sites, in registry order.
+ *
+ * Backs the ecosystem links in the footer and on the tech landing page. The
+ * sites are separate hostnames so each vertical is judged on its own content,
+ * but nothing about that split requires them to be unreachable from one
+ * another — without these links a crawler landing on one site has no path to
+ * the rest, and the four hostnames read as unrelated entities.
+ */
+export function siblingSites(site: SiteId): SiteConfig[] {
+  return ALL_SITES.filter((candidate) => candidate.id !== site);
+}
+
 export function isSiteId(value: string): value is SiteId {
   return Object.values(SiteId).includes(value as SiteId);
 }

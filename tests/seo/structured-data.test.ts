@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { faqSchema, organizationSchema, websiteSchema } from "@/lib/structured-data";
+import { SiteId } from "@/enums";
 import en from "@/messages/en.json";
 
 const services = en.services.items;
@@ -30,6 +31,59 @@ describe("organizationSchema", () => {
     expect(org.knowsAbout).toEqual([...en.tech.technologies, ...en.tech.domains]);
     expect(org.areaServed.some((a) => a.name === "Vietnam")).toBe(true);
   });
+
+  it("declares the other three verticals as sub-organizations", () => {
+    expect(org.parentOrganization).toBeUndefined();
+    expect(org.subOrganization).toEqual([
+      {
+        "@type": "Organization",
+        "@id": "https://media.sofinwave.com/#organization",
+        name: "SofinWave Media",
+        url: "https://media.sofinwave.com/en/home",
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://finance.sofinwave.com/#organization",
+        name: "SofinWave Finance",
+        url: "https://finance.sofinwave.com/en/home",
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://academy.sofinwave.com/#organization",
+        name: "SofinWave Academy",
+        url: "https://academy.sofinwave.com/en/home",
+      },
+    ]);
+  });
+});
+
+describe("organizationSchema on the sibling sites", () => {
+  const cases = [
+    { site: SiteId.Media, description: en.mediaMetadata.description },
+    { site: SiteId.Finance, description: en.financeMetadata.description },
+    { site: SiteId.Academy, description: en.academyMetadata.description },
+  ] as const;
+
+  for (const { site, description } of cases) {
+    it(`points ${site} back at the apex organization`, () => {
+      const org = organizationSchema({ locale: "en", description, site });
+
+      expect(org.subOrganization).toBeUndefined();
+      expect(org.parentOrganization).toEqual({
+        "@type": "ProfessionalService",
+        "@id": "https://sofinwave.com/#organization",
+        name: "SofinWave",
+        url: "https://sofinwave.com/en/home",
+      });
+    });
+
+    it(`does not let ${site} borrow the tech catalog or expertise`, () => {
+      const org = organizationSchema({ locale: "en", description, site });
+
+      expect(org.hasOfferCatalog).toBeUndefined();
+      expect(org.knowsAbout).toBeUndefined();
+    });
+  }
 });
 
 describe("websiteSchema", () => {
