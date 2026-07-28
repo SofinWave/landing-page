@@ -1430,6 +1430,10 @@
             "Format — container, codec, sample rate, độ phân giải — chốt trong đặc tả trước khi thu thập bắt đầu, không quyết định lúc export.",
             "Metadata schema được xây khớp với pipeline huấn luyện hiện có của bạn: tên field, identifier, và cấu trúc thư mục, để bạn nạp thẳng thứ chúng tôi gửi thay vì phải map lại vào format riêng.",
             "Báo cáo item bị loại cho bất cứ thứ gì không qua review, nêu rõ lý do loại — không phải một batch tự nhiên nhỏ hơn mà không giải thích."
+          ],
+          "links": [
+            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" },
+            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
           ]
         }
       ],
@@ -1502,7 +1506,10 @@
             "Log theo từng buổi thu, gắn từng take về đúng bước kịch bản và biến thể tác vụ mà nó thuộc về.",
             "Gán nhãn trên chính footage đó khi bạn cần — công việc gán nhãn mô tả ở trang gán nhãn dữ liệu của chúng tôi chạy trực tiếp trên thứ trang này thu được."
           ],
-          "links": [{ "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" }]
+          "links": [
+            { "href": "/services/data-annotation", "label": "Gán nhãn dữ liệu" },
+            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
+          ]
         }
       ],
       "faq": [
@@ -1520,7 +1527,7 @@
         },
         {
           "question": "Các bạn có gán nhãn luôn phần dữ liệu đã thu không?",
-          "answer": "Có — gán nhãn trên footage egocentric và exocentric là dịch vụ chúng tôi chạy trực tiếp trên chính footage do ekip của mình thu, mô tả ở trang gán nhãn dữ liệu của chúng tôi. Hand pose, object tracking, và action segmentation trên các stream đồng bộ dễ làm đúng hơn khi đội gán nhãn hiểu rõ footage đó được rig và calibrate như thế nào ngay từ đầu."
+          "answer": "Có — gán nhãn trên footage egocentric và exocentric là dịch vụ chúng tôi chạy trực tiếp trên chính footage do ekip của mình thu. Hand pose, object tracking, và action segmentation trên các stream đồng bộ dễ làm đúng hơn khi đội gán nhãn hiểu rõ footage đó được rig và calibrate như thế nào ngay từ đầu."
         }
       ],
       "cta": {
@@ -1587,13 +1594,17 @@
             "Guideline được viết lại theo đúng những disagreement mà pilot thực sự phát hiện ra, không phải những disagreement chúng tôi đoán trước.",
             "Một core team nhỏ đã qua đào tạo, đúng quy mô với guideline đã ổn định chứ không phải quy mô dự án cuối cùng.",
             "Thêm quân số chỉ sau khi core đang áp guideline nhất quán, với core review output của annotator mới thay vì một lớp QA riêng phải học lại dự án từ đầu."
+          ],
+          "links": [
+            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" },
+            { "href": "/services/egocentric-data-collection", "label": "Thu ego và exo" }
           ]
         }
       ],
       "faq": [
         {
           "question": "Các bạn cam kết độ chính xác bao nhiêu, và đo bằng cách nào?",
-          "answer": "Không có con số cố định nào chúng tôi đưa ra trước khi thấy dữ liệu, vì target khả thi phụ thuộc vào thứ đang được gán nhãn — segment một cảnh lộn xộn và classify một tài liệu sạch không phải cùng một bài toán. Target được thống nhất theo từng dự án dựa trên một gold set dựng từ chính dữ liệu của bạn, dùng đúng cách thực hành gold set và inter-annotator agreement mô tả ở trang dữ liệu huấn luyện AI của chúng tôi, và được báo cáo liên tục trong suốt dự án thay vì hứa một lần lúc bắt đầu."
+          "answer": "Không có con số cố định nào chúng tôi đưa ra trước khi thấy dữ liệu, vì target khả thi phụ thuộc vào thứ đang được gán nhãn — segment một cảnh lộn xộn và classify một tài liệu sạch không phải cùng một bài toán. Target được thống nhất theo từng dự án dựa trên một gold set dựng từ chính dữ liệu của bạn, với gold-standard item được chấm điểm liên tục và inter-annotator agreement báo cáo bằng một con số thay vì một lời khẳng định, và target đó vẫn hiển thị xuyên suốt dự án thay vì hứa một lần lúc bắt đầu."
         },
         {
           "question": "Nếu guideline không bao được trường hợp thực tế thì sao?",
@@ -1636,7 +1647,8 @@
         },
         {
           "heading": "Đánh giá theo rubric",
-          "body": "Đánh giá theo rubric hỏi cùng một câu hỏi như preference ranking nhưng cho ra một điểm số thay vì một phép so sánh: output cụ thể này có đạt một ngưỡng đã nêu không, và nếu không đạt thì thiếu bao nhiêu. Chúng tôi xây rubric để mọi người chấm áp dụng giống hệt nhau, trên mọi item, đó là thứ khiến một thay đổi model trở thành một sự kiện đo được thay vì một ấn tượng — lập luận về việc coi đánh giá là hạ tầng chứ không phải việc làm một lần đã được chúng tôi trình bày ở trang AI implementation, nơi một evaluation set là thứ đầu tiên chúng tôi xây trước khi đụng tới việc chọn model. Thứ chúng tôi thêm vào ở đây là nhân lực: những người áp rubric ở khối lượng một evaluation set thật sự cần, đủ nhất quán để một điểm số dịch chuyển là bằng chứng chứ không phải nhiễu."
+          "body": "Đánh giá theo rubric hỏi cùng một câu hỏi như preference ranking nhưng cho ra một điểm số thay vì một phép so sánh: output cụ thể này có đạt một ngưỡng đã nêu không, và nếu không đạt thì thiếu bao nhiêu. Chúng tôi xây rubric để mọi người chấm áp dụng giống hệt nhau, trên mọi item, đó là thứ khiến một thay đổi model trở thành một sự kiện đo được thay vì một ấn tượng — đánh giá là hạ tầng, không phải việc làm một lần. Thứ chúng tôi thêm vào ở đây là nhân lực: những người áp rubric ở khối lượng một evaluation set thật sự cần, đủ nhất quán để một điểm số dịch chuyển là bằng chứng chứ không phải nhiễu.",
+          "links": [{ "href": "/services/ai-implementation", "label": "Triển khai hệ thống AI" }]
         },
         {
           "heading": "Red teaming",
@@ -1650,7 +1662,10 @@
         {
           "heading": "Tiếng Việt và tiếng Anh",
           "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên.",
-          "links": [{ "href": "/services/llm-integration", "label": "Tích hợp LLM và RAG" }]
+          "links": [
+            { "href": "/services/llm-integration", "label": "Tích hợp LLM và RAG" },
+            { "href": "/services/ai-training-data", "label": "Dữ liệu huấn luyện AI" }
+          ]
         }
       ],
       "faq": [
@@ -1664,7 +1679,7 @@
         },
         {
           "question": "Phần này nối với mảng tích hợp LLM của các bạn ra sao?",
-          "answer": "SFT demonstration, preference ranking, và evaluation set là đầu vào; fine-tuning và retrieval-augmented generation, mô tả ở trang tích hợp LLM của chúng tôi, là nơi chúng chảy vào. Trên thực tế hai việc này thường là cùng một dự án nhìn từ hai đầu — dữ liệu xây ở đây, hệ thống huấn luyện và tích hợp xây ở đó."
+          "answer": "SFT demonstration, preference ranking, và evaluation set là đầu vào; fine-tuning và retrieval-augmented generation là nơi chúng chảy vào. Trên thực tế hai việc này thường là cùng một dự án nhìn từ hai đầu — dữ liệu xây ở đây, hệ thống huấn luyện và tích hợp xây ở đó."
         }
       ],
       "cta": {

@@ -1428,6 +1428,13 @@
             "Formats — container, codec, sample rate, resolution — fixed in the specification, not decided during export.",
             "Metadata schema built to match your existing training pipeline: field names, identifiers, and folder structure, so you ingest what we send rather than mapping it into your own format.",
             "A rejected-item report for anything that failed review, naming what failed and why, rather than a batch that is quietly smaller with no explanation."
+          ],
+          "links": [
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            },
+            { "href": "/services/ai-training-data", "label": "AI training data" }
           ]
         }
       ],
@@ -1500,7 +1507,10 @@
             "Per-session logs tying individual takes back to the script step and task variant they belong to.",
             "Annotation on the same footage when you want it — the labelling work described on our data annotation page runs directly against what this page captures."
           ],
-          "links": [{ "href": "/services/data-annotation", "label": "Data annotation" }]
+          "links": [
+            { "href": "/services/data-annotation", "label": "Data annotation" },
+            { "href": "/services/ai-training-data", "label": "AI training data" }
+          ]
         }
       ],
       "faq": [
@@ -1518,7 +1528,7 @@
         },
         {
           "question": "Can you annotate the footage you capture?",
-          "answer": "Yes — annotation on egocentric and exocentric footage is a service we run directly on what our own crews capture, described on our data annotation page. Hand pose, object tracking, and action segmentation across synchronised streams are easier to get right when the team labelling the footage understands how it was rigged and calibrated in the first place."
+          "answer": "Yes — annotation on egocentric and exocentric footage is a service we run directly on what our own crews capture. Hand pose, object tracking, and action segmentation across synchronised streams are easier to get right when the team labelling the footage understands how it was rigged and calibrated in the first place."
         }
       ],
       "cta": {
@@ -1585,13 +1595,20 @@
             "Guidelines rewritten against the disagreements the pilot actually surfaced, not against the disagreements we guessed at in advance.",
             "A small trained core, sized to guidelines that have stabilised rather than to the eventual project volume.",
             "Headcount added once the core is applying the guidelines consistently, with the core reviewing new annotators' output rather than a separate QA layer learning the project from zero."
+          ],
+          "links": [
+            { "href": "/services/ai-training-data", "label": "AI training data" },
+            {
+              "href": "/services/egocentric-data-collection",
+              "label": "Egocentric and exocentric capture"
+            }
           ]
         }
       ],
       "faq": [
         {
           "question": "What accuracy do you target, and how is it measured?",
-          "answer": "There is no fixed figure we quote before seeing the data, because the achievable target depends on what is being labelled — segmenting a cluttered scene and classifying a clean document are not the same task. The target is agreed per project against a gold set built from your data, using the same gold-set and inter-annotator agreement practice described on our AI training data page, and it is reported continuously through the project rather than promised once at the start."
+          "answer": "There is no fixed figure we quote before seeing the data, because the achievable target depends on what is being labelled — segmenting a cluttered scene and classifying a clean document are not the same task. The target is agreed per project against a gold set built from your data, with gold-standard items scored continuously and inter-annotator agreement reported as a number rather than asserted, and it stays visible through the project rather than being promised once at the start."
         },
         {
           "question": "What happens when the guidelines turn out to be ambiguous?",
@@ -1634,7 +1651,8 @@
         },
         {
           "heading": "Rubric-based evaluation",
-          "body": "Rubric-based evaluation asks the same question as preference ranking but produces a score rather than a comparison: does this specific output meet a stated bar, and by how much does it miss when it doesn't. We build the rubric to be applied the same way by every scorer, on every item, which is what makes a model change measurable rather than a matter of impression — the argument for treating evaluation as infrastructure rather than a one-off is the one we already make on our AI implementation page, where an evaluation set is the first thing we build before touching model choice. What we add here is the labour: the people who apply the rubric at the volume a real evaluation set requires, consistently enough that a score moving is evidence and not noise."
+          "body": "Rubric-based evaluation asks the same question as preference ranking but produces a score rather than a comparison: does this specific output meet a stated bar, and by how much does it miss when it doesn't. We build the rubric to be applied the same way by every scorer, on every item, which is what makes a model change measurable rather than a matter of impression — evaluation as infrastructure, not a one-off exercise. What we add here is the labour: the people who apply the rubric at the volume a real evaluation set requires, consistently enough that a score moving is evidence and not noise.",
+          "links": [{ "href": "/services/ai-implementation", "label": "AI implementation" }]
         },
         {
           "heading": "Red teaming",
@@ -1648,7 +1666,10 @@
         {
           "heading": "Vietnamese and English",
           "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on.",
-          "links": [{ "href": "/services/llm-integration", "label": "LLM integration and RAG" }]
+          "links": [
+            { "href": "/services/llm-integration", "label": "LLM integration and RAG" },
+            { "href": "/services/ai-training-data", "label": "AI training data" }
+          ]
         }
       ],
       "faq": [
@@ -1662,7 +1683,7 @@
         },
         {
           "question": "How does this connect to your LLM integration work?",
-          "answer": "SFT demonstrations, preference rankings, and evaluation sets are the inputs; fine-tuning and retrieval-augmented generation, described on our LLM integration page, are what they feed. In practice they are usually the same engagement seen from two ends — the data built here, the system trained and integrated there."
+          "answer": "SFT demonstrations, preference rankings, and evaluation sets are the inputs; fine-tuning and retrieval-augmented generation are what they feed. In practice they are usually the same engagement seen from two ends — the data built here, the system trained and integrated there."
         }
       ],
       "cta": {
