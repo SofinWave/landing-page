@@ -18,6 +18,7 @@ import { CaseStudies } from "./_components/case-studies";
 import { TechStack } from "./_components/tech-stack";
 import { Testimonials } from "./_components/testimonials";
 import { Team } from "./_components/team";
+import { Ecosystem } from "./_components/ecosystem";
 import { Faq } from "./_components/faq";
 import { Contact } from "./_components/contact";
 
@@ -91,6 +92,7 @@ export default async function HomePage({
         <TechStack />
         <Testimonials />
         <Team />
+        <Ecosystem />
         <Faq />
         <Contact />
       </main>

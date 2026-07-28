@@ -5,12 +5,14 @@ import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import type { SiteId } from "@/enums";
 import { breadcrumbTrail } from "@/lib/routes";
+import { isAbsoluteHref } from "@/lib/site";
 import { siteConfig } from "@/lib/sites";
 
 export interface ContentSection {
   heading: string;
   body: string;
   bullets?: string[];
+  /** Internal paths are locale-prefixed; absolute URLs are left untouched. */
   links?: { href: string; label: string }[];
 }
 
@@ -102,12 +104,24 @@ export async function ContentPage({
               <ul className="mt-4 space-y-2">
                 {section.links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
-                    >
-                      {link.label}
-                    </Link>
+                    {isAbsoluteHref(link.href) ? (
+                      // A different hostname — one of the sibling sites, or an
+                      // outside reference. The locale-aware Link would try to
+                      // prefix it with the current locale.
+                      <a
+                        href={link.href}
+                        className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

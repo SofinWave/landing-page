@@ -93,4 +93,38 @@ describe("ContentPage", () => {
     const section = screen.getByText("No links here").closest("section") as HTMLElement;
     expect(within(section).queryAllByRole("link")).toHaveLength(0);
   });
+
+  // The mocked next-intl Link echoes href verbatim, so this asserts on the
+  // element type: a cross-site URL must not go through the locale-aware Link,
+  // which would prefix it with the current locale.
+  it("leaves an absolute href untouched and outside the locale-aware Link", async () => {
+    const data = baseData({
+      sections: [
+        {
+          heading: "Our other businesses",
+          body: "Four sites, one team.",
+          links: [
+            { href: "https://media.sofinwave.com/en/home", label: "media.sofinwave.com" },
+            { href: "/ventures", label: "Ventures" },
+          ],
+        },
+      ],
+    });
+
+    const element = await ContentPage({
+      locale: "en",
+      path: "ventures",
+      data,
+      site: SiteId.Tech,
+    });
+    render(element);
+
+    const section = screen.getByText("Our other businesses").closest("section") as HTMLElement;
+
+    const external = within(section).getByRole("link", { name: "media.sofinwave.com" });
+    expect(external).toHaveAttribute("href", "https://media.sofinwave.com/en/home");
+
+    const internal = within(section).getByRole("link", { name: "Ventures" });
+    expect(internal).toHaveAttribute("href", "/ventures");
+  });
 });

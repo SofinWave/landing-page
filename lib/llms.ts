@@ -5,7 +5,7 @@ import vi from "@/messages/vi.json";
 import { routing } from "@/i18n/routing";
 import { HOME_PATH } from "@/lib/routes";
 import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
-import { SITE_EMAIL, pageUrl, siteUrl } from "@/lib/site";
+import { SITE_EMAIL, isAbsoluteHref, pageUrl, siteUrl } from "@/lib/site";
 
 /**
  * Generators for each site's `/llms.txt` and `/llms-full.txt`.
@@ -162,8 +162,10 @@ export function buildLlmsFullTxt(site: SiteId = DEFAULT_SITE.id): string {
 
         // Absolute, like every other URL in this file: a bare `/services/...`
         // means nothing to an engine reading this text away from the site.
+        // Cross-site links already carry their own origin.
         for (const link of section.links ?? []) {
-          lines.push(`- [${link.label}](${pageUrl(locale, link.href, site)})`);
+          const url = isAbsoluteHref(link.href) ? link.href : pageUrl(locale, link.href, site);
+          lines.push(`- [${link.label}](${url})`);
         }
         if (section.links?.length) lines.push("");
       }
