@@ -1375,6 +1375,72 @@
         "button": "Get in touch"
       }
     },
+    "dataCollection": {
+      "navLabel": "Data collection",
+      "title": "Data Collection for AI Training",
+      "metaTitle": "AI Data Collection Services — Video, Image, Audio, Document",
+      "metaDescription": "Video, image, audio, document, and scripted-scenario data collection for AI training, run from Vietnam with consent documented per item, not per batch.",
+      "lede": "The deliverable that decides whether a collection project succeeds is the specification, not the footage. A crew can execute almost any brief competently; what fails is a brief that never named the variable that mattered — the angle, the lighting, the accent, the background noise level. Data that matches an ambiguous spec is technically correct and practically useless, and the failure only shows up once a model has been trained on it. We write the specification with you before anyone picks up a camera.",
+      "sections": [
+        {
+          "heading": "Collection to a written specification",
+          "body": "Every modality has its own set of variables that a vague brief leaves to whoever is holding the camera that day. We pin each one down in writing before collection starts, so a crew working across ten sites executes one brief rather than ten interpretations of it.",
+          "bullets": [
+            "Video — camera angle, distance, framing, motion, and lighting condition, because a model trained on one angle does not generalise to another.",
+            "Still image — resolution, background, occlusion level, and lighting, specified per shot rather than left to the photographer's judgement.",
+            "Audio and speech — microphone distance, background noise level, speaker accent and demographics, and recording environment.",
+            "Document capture — scan resolution, page condition (handwritten, printed, damaged), and file format, so the dataset matches what the model will see in production rather than a clean sample.",
+            "Scripted scenarios — the script, the required variations (order, wording, interruption), and who plays which role, so the same scenario is not re-interpreted by every performer on set."
+          ]
+        },
+        {
+          "heading": "Consent and provenance",
+          "body": "This is the section an enterprise buyer reads before anything else, because it decides whether the dataset can be used at all. We describe what we actually do and stop there — no certification claims, no assurance beyond what is evidenced.",
+          "bullets": [
+            "Every person appearing in collected media signs a release before the footage is used for anything, including the pilot batch.",
+            "The release is filed against the individual item — the clip, the photograph, the recording — not against the batch it was collected in.",
+            "Chain of custody is documented per item, from the point of capture to the point of delivery, so provenance traces to a specific release rather than to an assertion.",
+            "Anything we cannot evidence — a release we cannot produce, a chain of custody with a gap in it — is not delivered, regardless of what it cost to produce."
+          ]
+        },
+        {
+          "heading": "Where our coverage is genuinely different",
+          "body": "Most training data collected for global models comes out of North America and Western Europe, and it shows: traffic patterns, kitchen layouts, market stalls, accents, and skin tones common across Southeast Asia are thin or absent in those datasets. We collect in Vietnam and the wider region because that is where our teams and networks already are, which means the scenes, faces, languages, and operating environments in what we deliver are ones a Western-sourced dataset typically lacks — not because we underprice the work, but because we are already standing where the gap is."
+        },
+        {
+          "heading": "Delivery",
+          "body": "Delivery is built around what your pipeline already expects, not around what is convenient for us to export.",
+          "bullets": [
+            "Formats — container, codec, sample rate, resolution — fixed in the specification, not decided during export.",
+            "Metadata schema built to match your existing training pipeline: field names, identifiers, and folder structure, so you ingest what we send rather than mapping it into your own format.",
+            "A rejected-item report for anything that failed review, naming what failed and why, rather than a batch that is quietly smaller with no explanation."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "How is consent evidenced?",
+          "answer": "Each item is linked to a signed release naming what the subject agreed to and for what use. We can produce the release for any item in a delivered batch on request; if we cannot produce it, the item was not delivered."
+        },
+        {
+          "question": "Do you capture minors?",
+          "answer": "Only with a guardian's signed consent and only when the specification explicitly calls for it. Most collection briefs do not, and we do not capture minors incidentally as background subjects."
+        },
+        {
+          "question": "Where is the data stored during collection?",
+          "answer": "In a project-specific environment, access limited to the people working on that collection, separated from other clients' data and from our own internal systems, for the duration of the collection."
+        },
+        {
+          "question": "What happens if the specification changes mid-collection?",
+          "answer": "Work already completed against the old specification is delivered and billed as scoped; the new specification becomes a change order for what is collected from that point forward. We do not retroactively reinterpret footage already shot against a brief that has since changed."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you need captured",
+        "body": "Describe what you need captured and where. We will tell you what the specification needs to say before anyone books a shoot.",
+        "button": "Get in touch"
+      }
+    },
     "ventures": {
       "navLabel": "Ventures",
       "title": "SofinWave Ventures",

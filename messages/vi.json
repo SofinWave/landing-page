@@ -1380,6 +1380,72 @@
         "button": "Liên hệ"
       }
     },
+    "dataCollection": {
+      "navLabel": "Thu thập dữ liệu",
+      "title": "Thu thập dữ liệu cho huấn luyện AI",
+      "metaTitle": "Dịch vụ thu thập dữ liệu AI — Video, hình ảnh, âm thanh, tài liệu",
+      "metaDescription": "Thu thập dữ liệu video, hình ảnh, âm thanh, tài liệu, và kịch bản dàn dựng cho huấn luyện AI, thực hiện tại Việt Nam với consent được lập hồ sơ theo từng item, không theo batch.",
+      "lede": "Yếu tố quyết định một dự án thu thập có thành công hay không là bản đặc tả, không phải là footage. Một đội quay có thể thực hiện gần như mọi brief một cách chỉn chu; thứ khiến dự án thất bại là một brief chưa từng gọi tên biến số quan trọng — góc máy, ánh sáng, giọng nói, mức ồn nền. Dữ liệu khớp với một đặc tả mơ hồ vẫn đúng về mặt kỹ thuật nhưng vô dụng trên thực tế, và lỗi đó chỉ lộ ra sau khi model đã được huấn luyện trên nó. Chúng tôi viết đặc tả cùng bạn trước khi ai đó cầm máy quay lên.",
+      "sections": [
+        {
+          "heading": "Thu thập theo đặc tả viết ra giấy",
+          "body": "Mỗi loại dữ liệu có một tập biến số riêng mà một brief mơ hồ sẽ để mặc cho người cầm máy hôm đó tự quyết. Chúng tôi chốt từng biến số bằng văn bản trước khi thu thập bắt đầu, để đội quay ở mười địa điểm khác nhau thực hiện đúng một brief, chứ không phải mười cách hiểu khác nhau về nó.",
+          "bullets": [
+            "Video — góc máy, khoảng cách, khung hình, chuyển động, và điều kiện ánh sáng, vì model huấn luyện trên một góc không tự generalize sang góc khác.",
+            "Hình ảnh tĩnh — độ phân giải, background, mức độ che khuất, và ánh sáng, quy định theo từng shot chứ không để tùy ý người chụp.",
+            "Âm thanh và giọng nói — khoảng cách micro, mức ồn nền, giọng vùng miền và nhân khẩu học của người nói, và môi trường thu.",
+            "Thu tài liệu — độ phân giải scan, tình trạng trang (viết tay, in, hư hỏng), và format file, để dataset khớp với thứ model sẽ gặp khi chạy thật chứ không phải một mẫu sạch sẽ.",
+            "Kịch bản dàn dựng — nội dung kịch bản, các biến thể bắt buộc (thứ tự, cách diễn đạt, gián đoạn), và ai đóng vai nào, để cùng một kịch bản không bị mỗi diễn viên diễn giải một kiểu."
+          ]
+        },
+        {
+          "heading": "Consent và nguồn gốc dữ liệu",
+          "body": "Đây là phần một khách hàng doanh nghiệp đọc trước tiên, vì nó quyết định dataset có dùng được hay không. Chúng tôi mô tả đúng những gì mình thực sự làm và dừng lại ở đó — không có tuyên bố chứng nhận nào, không có cam kết nào vượt quá những gì có thể chứng minh.",
+          "bullets": [
+            "Mọi người xuất hiện trong media thu thập đều ký release trước khi footage được dùng cho bất cứ việc gì, kể cả pilot batch.",
+            "Release được lập hồ sơ theo từng item — từng clip, từng ảnh, từng bản ghi âm — chứ không theo batch mà nó thuộc về.",
+            "Chain of custody được lập hồ sơ theo từng item, từ lúc thu đến lúc bàn giao, để nguồn gốc có thể truy về một release cụ thể chứ không phải một lời khẳng định suông.",
+            "Bất cứ thứ gì chúng tôi không thể chứng minh — một release không xuất trình được, một chain of custody có lỗ hổng — sẽ không được bàn giao, bất kể chi phí sản xuất đã bỏ ra."
+          ]
+        },
+        {
+          "heading": "Vùng phủ mà chúng tôi thực sự khác biệt",
+          "body": "Phần lớn dữ liệu huấn luyện cho các model toàn cầu được thu ở Bắc Mỹ và Tây Âu, và điều đó thể hiện rõ: cảnh giao thông, bố cục nhà bếp, sạp chợ, giọng nói, và tông da phổ biến ở Đông Nam Á rất mỏng hoặc gần như vắng mặt trong các dataset đó. Chúng tôi thu thập tại Việt Nam và khu vực lân cận vì đó là nơi đội ngũ và mạng lưới của chúng tôi đã sẵn có, nên những cảnh, khuôn mặt, ngôn ngữ, và môi trường vận hành trong dữ liệu chúng tôi bàn giao là những thứ một dataset nguồn gốc phương Tây thường không có — không phải vì chúng tôi định giá rẻ hơn, mà vì chúng tôi đã đứng sẵn ở đúng chỗ còn thiếu."
+        },
+        {
+          "heading": "Bàn giao",
+          "body": "Bàn giao được xây quanh những gì pipeline của bạn đã sẵn kỳ vọng, không phải quanh những gì thuận tiện cho chúng tôi export.",
+          "bullets": [
+            "Format — container, codec, sample rate, độ phân giải — chốt trong đặc tả trước khi thu thập bắt đầu, không quyết định lúc export.",
+            "Metadata schema được xây khớp với pipeline huấn luyện hiện có của bạn: tên field, identifier, và cấu trúc thư mục, để bạn nạp thẳng thứ chúng tôi gửi thay vì phải map lại vào format riêng.",
+            "Báo cáo item bị loại cho bất cứ thứ gì không qua review, nêu rõ lý do loại — không phải một batch tự nhiên nhỏ hơn mà không giải thích."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Consent được chứng minh bằng gì?",
+          "answer": "Mỗi item được gắn với một release đã ký, nêu rõ chủ thể đã đồng ý việc gì và cho mục đích nào. Chúng tôi có thể xuất trình release cho bất kỳ item nào trong một batch đã bàn giao khi được yêu cầu; nếu không xuất trình được, item đó đã không được bàn giao."
+        },
+        {
+          "question": "Các bạn có thu dữ liệu của trẻ em không?",
+          "answer": "Chỉ khi có consent đã ký của người giám hộ và chỉ khi đặc tả yêu cầu rõ ràng. Phần lớn brief thu thập không yêu cầu việc này, và chúng tôi không thu trẻ em một cách tình cờ như nhân vật nền."
+        },
+        {
+          "question": "Dữ liệu được lưu ở đâu trong lúc thu thập?",
+          "answer": "Trong một môi trường riêng theo từng dự án, giới hạn truy cập cho đúng những người đang làm việc trên đợt thu thập đó, tách biệt khỏi dữ liệu của khách hàng khác và khỏi hệ thống nội bộ của chúng tôi, trong suốt thời gian thu thập."
+        },
+        {
+          "question": "Nếu đặc tả thay đổi giữa chừng thì sao?",
+          "answer": "Phần đã thu thập theo đặc tả cũ được bàn giao và tính phí theo đúng phạm vi cũ; đặc tả mới trở thành một change order áp dụng cho phần thu thập từ thời điểm đó trở đi. Chúng tôi không diễn giải lại footage đã quay theo một brief đã hết hiệu lực."
+        }
+      ],
+      "cta": {
+        "title": "Cho chúng tôi biết bạn cần thu gì",
+        "body": "Mô tả bạn cần thu gì và ở đâu. Chúng tôi sẽ nói cho bạn biết đặc tả cần ghi rõ điều gì trước khi đặt lịch quay.",
+        "button": "Liên hệ"
+      }
+    },
     "ventures": {
       "navLabel": "Các mảng hoạt động",
       "title": "Các mảng hoạt động của SofinWave",
