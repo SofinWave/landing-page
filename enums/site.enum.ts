@@ -8,12 +8,12 @@
  * that pays the bills.
  */
 export enum SiteId {
-  /** sofinwave.org — IT consulting and system implementation, including AI. */
+  /** sofinwave.com — IT consulting and system implementation, including AI. */
   Tech = "tech",
-  /** media.sofinwave.org — video production, content, affiliate. */
+  /** media.sofinwave.com — video production, content, affiliate. */
   Media = "media",
-  /** finance.sofinwave.org — investing knowledge and tooling. YMYL. */
+  /** finance.sofinwave.com — investing knowledge and tooling. YMYL. */
   Finance = "finance",
-  /** academy.sofinwave.org — technical, investing, content, and K-12 education. */
+  /** academy.sofinwave.com — technical, investing, content, and K-12 education. */
   Academy = "academy",
 }

@@ -15,8 +15,8 @@ describe("resolveSite", () => {
   });
 
   it("ignores port, case, and a www prefix", () => {
-    expect(resolveSite("MEDIA.SofinWave.org:443").id).toBe(SiteId.Media);
-    expect(resolveSite("www.sofinwave.org").id).toBe(SiteId.Tech);
+    expect(resolveSite("MEDIA.SofinWave.com:443").id).toBe(SiteId.Media);
+    expect(resolveSite("www.sofinwave.com").id).toBe(SiteId.Tech);
   });
 
   it("matches a leading label so local and preview hosts work", () => {

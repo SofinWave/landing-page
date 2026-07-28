@@ -14,7 +14,7 @@ describe("pageMetadata", () => {
       description: "d",
     });
 
-    expect(meta.alternates?.canonical).toBe("https://sofinwave.org/en/services/dedicated-team");
+    expect(meta.alternates?.canonical).toBe("https://sofinwave.com/en/services/dedicated-team");
   });
 
   it("declares hreflang for the same path in every locale, plus x-default", () => {
@@ -22,14 +22,14 @@ describe("pageMetadata", () => {
     const langs = meta.alternates?.languages ?? {};
 
     for (const locale of routing.locales) {
-      expect(langs[locale]).toBe(`https://sofinwave.org/${locale}/about`);
+      expect(langs[locale]).toBe(`https://sofinwave.com/${locale}/about`);
     }
-    expect(langs["x-default"]).toBe("https://sofinwave.org/en/about");
+    expect(langs["x-default"]).toBe("https://sofinwave.com/en/about");
   });
 
   it("never canonicalises the landing page to the redirecting locale root", () => {
     const meta = pageMetadata({ locale: "en", path: HOME_PATH, title: "t", description: "d" });
-    expect(meta.alternates?.canonical).toBe("https://sofinwave.org/en/home");
+    expect(meta.alternates?.canonical).toBe("https://sofinwave.com/en/home");
   });
 
   it("declares a 1200x630 social card on both og and twitter", () => {
@@ -41,10 +41,10 @@ describe("pageMetadata", () => {
 
     expect(Array.isArray(images) && images.length).toBeTruthy();
     const image = (images as { url: string; width: number; height: number }[])[0];
-    expect(image.url).toBe("https://sofinwave.org/vi/opengraph-image");
+    expect(image.url).toBe("https://sofinwave.com/vi/opengraph-image");
     expect(image.width).toBe(1200);
     expect(image.height).toBe(630);
-    expect(meta.twitter?.images).toEqual(["https://sofinwave.org/vi/opengraph-image"]);
+    expect(meta.twitter?.images).toEqual(["https://sofinwave.com/vi/opengraph-image"]);
   });
 });
 
@@ -57,9 +57,9 @@ describe("webPageSchema", () => {
       description: "d",
     });
 
-    expect(node.url).toBe("https://sofinwave.org/en/about");
-    expect(node.isPartOf["@id"]).toBe("https://sofinwave.org/#website");
-    expect(node.about["@id"]).toBe("https://sofinwave.org/#organization");
+    expect(node.url).toBe("https://sofinwave.com/en/about");
+    expect(node.isPartOf["@id"]).toBe("https://sofinwave.com/#website");
+    expect(node.about["@id"]).toBe("https://sofinwave.com/#organization");
   });
 });
 
@@ -69,9 +69,9 @@ describe("breadcrumbSchema", () => {
 
     expect(node.itemListElement.map((i) => i.position)).toEqual([1, 2, 3]);
     expect(node.itemListElement.map((i) => i.item)).toEqual([
-      "https://sofinwave.org/en/home",
-      "https://sofinwave.org/en/services",
-      "https://sofinwave.org/en/services/dedicated-team",
+      "https://sofinwave.com/en/home",
+      "https://sofinwave.com/en/services",
+      "https://sofinwave.com/en/services/dedicated-team",
     ]);
   });
 });
@@ -86,7 +86,7 @@ describe("serviceSchema", () => {
       serviceType: "Offshore Software Development Services in Vietnam",
     });
 
-    expect(node.provider["@id"]).toBe("https://sofinwave.org/#organization");
+    expect(node.provider["@id"]).toBe("https://sofinwave.com/#organization");
     expect(node.areaServed.some((a) => a.name === "Vietnam")).toBe(true);
   });
 
@@ -107,7 +107,7 @@ describe("per-site metadata", () => {
       description: "d",
       site: SiteId.Media,
     });
-    expect(media.alternates?.canonical).toBe("https://media.sofinwave.org/en/about");
+    expect(media.alternates?.canonical).toBe("https://media.sofinwave.com/en/about");
 
     const finance = pageMetadata({
       locale: "vi",
@@ -116,7 +116,7 @@ describe("per-site metadata", () => {
       description: "d",
       site: SiteId.Finance,
     });
-    expect(finance.alternates?.canonical).toBe("https://finance.sofinwave.org/vi/disclaimer");
+    expect(finance.alternates?.canonical).toBe("https://finance.sofinwave.com/vi/disclaimer");
   });
 
   it("points each site's social card at its own origin", () => {
@@ -127,6 +127,6 @@ describe("per-site metadata", () => {
       description: "d",
       site: SiteId.Academy,
     });
-    expect(meta.twitter?.images).toEqual(["https://academy.sofinwave.org/en/opengraph-image"]);
+    expect(meta.twitter?.images).toEqual(["https://academy.sofinwave.com/en/opengraph-image"]);
   });
 });
