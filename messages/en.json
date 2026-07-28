@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "How we work with you",
-    "subtitle": "Three team models and three engineering services, across the full delivery lifecycle.",
+    "subtitle": "Team models and engineering services across the full delivery lifecycle, now including the data your models learn from.",
     "items": [
       {
         "icon": "compass",
@@ -65,6 +65,11 @@
         "icon": "shield",
         "title": "Maintenance & operations",
         "description": "Monitoring, support, and continuous improvement after go-live."
+      },
+      {
+        "icon": "database",
+        "title": "AI training data",
+        "description": "Collection, annotation, and post-training data — labelled by the team that trains on it."
       }
     ]
   },

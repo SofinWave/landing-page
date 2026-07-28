@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "Chúng tôi làm việc với bạn thế nào",
-    "subtitle": "Ba mô hình đội ngũ và ba dịch vụ kỹ thuật, phủ toàn bộ vòng đời bàn giao.",
+    "subtitle": "Các mô hình hợp tác và dịch vụ kỹ thuật xuyên suốt vòng đời dự án, nay có cả dữ liệu để model học.",
     "items": [
       {
         "icon": "compass",
@@ -65,6 +65,11 @@
         "icon": "shield",
         "title": "Bảo trì & vận hành",
         "description": "Giám sát, hỗ trợ và cải tiến liên tục sau khi go-live."
+      },
+      {
+        "icon": "database",
+        "title": "Dữ liệu huấn luyện AI",
+        "description": "Thu thập, gán nhãn và dữ liệu post-training — do chính đội sau đó huấn luyện model làm."
       }
     ]
   },

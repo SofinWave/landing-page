@@ -48,6 +48,7 @@ export const SITES: Record<SiteId, SiteConfig> = {
     nav: [
       { href: "/services", key: "services" },
       { href: "/services/ai-implementation", key: "aiImplementation" },
+      { href: "/services/ai-training-data", key: "aiTrainingData" },
       { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
       { href: "/engagement-models", key: "engagementModels" },
     ],
@@ -56,6 +57,7 @@ export const SITES: Record<SiteId, SiteConfig> = {
       { href: "/services/dedicated-team", key: "dedicatedTeam" },
       { href: "/services/ai-implementation", key: "aiImplementation" },
       { href: "/services/llm-integration", key: "llmIntegration" },
+      { href: "/services/ai-training-data", key: "aiTrainingData" },
     ],
     footerCompany: [
       { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },

@@ -16,5 +16,6 @@ describe("Services", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("Architecture consulting")).toBeInTheDocument();
     expect(screen.getByText("Maintenance & operations")).toBeInTheDocument();
+    expect(screen.getByText("AI training data")).toBeInTheDocument();
   });
 });
