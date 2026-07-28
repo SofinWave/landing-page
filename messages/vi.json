@@ -1602,6 +1602,64 @@
         "button": "Liên hệ"
       }
     },
+    "rlhfSftData": {
+      "navLabel": "Dữ liệu RLHF & SFT",
+      "title": "Dữ liệu RLHF và SFT cho Post-Training LLM",
+      "metaTitle": "Dịch vụ dữ liệu RLHF & SFT — Post-Training LLM",
+      "metaDescription": "SFT demonstration, preference ranking, đánh giá theo rubric, và red teaming cho post-training LLM, thực hiện bởi người làm được chính công việc đó — bằng tiếng Anh và tiếng Việt.",
+      "lede": "Dữ liệu post-training được viết ra, không phải gán nhãn. Một câu trả lời demonstration, một phán đoán preference giữa hai output của model, một prompt trong một phiên red teaming nhắm vào hành vi model đang chạy thật — mỗi thứ đều do một người viết ra, và trần năng lực model học được quyết định bởi việc người đó có thực sự làm được việc đang minh họa hay không, chứ không phải bởi họ mô tả nó trôi chảy ra sao. Một demonstration do người chỉ paraphrase lại xem một câu trả lời tốt trông như thế nào đọc giống hệt một demonstration do người thực sự làm được việc đó viết ra — cho tới khi model huấn luyện trên nó sai đúng kiểu dữ liệu của nó đã sai. Chúng tôi tuyển người làm được việc trước, rồi mới viết cho model sau.",
+      "sections": [
+        {
+          "heading": "Demonstration cho supervised fine-tuning",
+          "body": "Một demonstration cho supervised fine-tuning là một ví dụ làm mẫu: với input này, đây là response chúng tôi muốn model bắt chước. Ai cũng viết được một response nghe có vẻ đúng — trôi chảy, đúng văn phong, đúng định dạng. Viết một response thực sự đúng đòi hỏi đã từng làm chính công việc đó, hoặc đủ gần để nhận ra phiên bản chỉ nghe có vẻ đúng. Chúng tôi tuyển người làm SFT là người có kiến thức chuyên môn công việc đòi hỏi, không phải người viết chung chung đoán xem một câu trả lời tốt trông như thế nào, vì một demonstration trôi chảy mà sai không sai theo cách lộ liễu — nó dạy model trôi chảy mà sai, tự tin, theo đúng một kiểu, mỗi lần pattern đó lặp lại."
+        },
+        {
+          "heading": "Preference ranking",
+          "body": "Một preference ranking yêu cầu một người chọn giữa hai output của model cho cùng một prompt, và lựa chọn đó chỉ có ích nếu nó mang cùng một nghĩa mỗi lần được đưa ra. Gu thẩm mỹ không thành văn của một annotator không phải tín hiệu model học nhất quán được — nó trôi giữa các annotator, và trôi cả ở cùng một annotator qua từng phiên làm việc. Chúng tôi thay gu thẩm mỹ bằng một rubric.",
+          "bullets": [
+            "So sánh pairwise chấm theo một rubric viết thành văn bản, không phải một sở thích annotator ứng biến tại chỗ.",
+            "Rubric được version hóa như một artefact — mọi ranking đều truy được về đúng phiên bản rubric đã dùng, để một thay đổi rubric không âm thầm diễn giải lại những ranking đã làm trước đó.",
+            "Tỷ lệ disagreement được theo dõi và báo cáo, vì một rubric mà hai annotator không bao giờ bất đồng thường là một rubric không phân biệt được những case thực sự quan trọng."
+          ]
+        },
+        {
+          "heading": "Đánh giá theo rubric",
+          "body": "Đánh giá theo rubric hỏi cùng một câu hỏi như preference ranking nhưng cho ra một điểm số thay vì một phép so sánh: output cụ thể này có đạt một ngưỡng đã nêu không, và nếu không đạt thì thiếu bao nhiêu. Chúng tôi xây rubric để mọi người chấm áp dụng giống hệt nhau, trên mọi item, đó là thứ khiến một thay đổi model trở thành một sự kiện đo được thay vì một ấn tượng — lập luận về việc coi đánh giá là hạ tầng chứ không phải việc làm một lần đã được chúng tôi trình bày ở trang AI implementation, nơi một evaluation set là thứ đầu tiên chúng tôi xây trước khi đụng tới việc chọn model. Thứ chúng tôi thêm vào ở đây là nhân lực: những người áp rubric ở khối lượng một evaluation set thật sự cần, đủ nhất quán để một điểm số dịch chuyển là bằng chứng chứ không phải nhiễu."
+        },
+        {
+          "heading": "Red teaming",
+          "body": "Red teaming mang tính đối kháng: người cố tình làm model đang chạy thật thất bại, dùng đúng những chiến thuật một người dùng có chủ đích rồi cũng sẽ dùng — đặt lại câu hỏi theo khung khác, roleplay, mẹo encoding, leo thang dần qua một cuộc hội thoại. Một phiên red teaming chỉ để lại một báo cáo miệng về chuyện gì đã sai gần như vô dụng, vì không ai tái tạo lại được lỗi để kiểm tra một bản fix có thực sự đóng nó lại hay không.",
+          "bullets": [
+            "Prompting đối kháng nhắm thẳng vào hành vi thật của model đang chạy, không phải một checklist jailbreak chung chung chẳng liên quan tới sản phẩm của bạn.",
+            "Mọi phát hiện được viết thành một case tái tạo được: đúng chuỗi prompt, đúng output đã sai, đúng hành vi nó vi phạm.",
+            "Case được gộp vào evaluation set thay vì lưu thành một báo cáo dùng một lần, để một bản fix được kiểm lại đúng case đã làm nó vỡ, và một regression tự lộ ra thay vì đợi một người dùng thật phát hiện lại."
+          ]
+        },
+        {
+          "heading": "Tiếng Việt và tiếng Anh",
+          "body": "Phần lớn chương trình gán nhãn song ngữ thất bại ở khâu dịch thuật, không phải ở khâu gán nhãn. Guideline được viết một lần bằng tiếng Anh, dịch sang tiếng Việt, và từ đó hai nhóm annotator làm việc trên hai văn bản đọc khác nhau dù ý định là nói cùng một điều — một điểm mập mờ được giải quyết một kiểu trong guideline tiếng Anh và một kiểu khác trong bản dịch tiếng Việt, âm thầm, cho tới khi hai nửa ngôn ngữ của dataset bất đồng với nhau theo cách không ai truy ngược lại được về một quyết định cụ thể. Đó chính là chỗ phần lớn chương trình song ngữ thất bại. Chúng tôi tuyển annotator cho cả hai ngôn ngữ là người song ngữ thực sự, chứ không giao guideline đã dịch cho hai nhóm chỉ biết một ngôn ngữ, để một câu hỏi rubric chỉ cần giải quyết một lần, bởi người đọc được cả hai bản và xác nhận chúng vẫn cùng một nghĩa. Các demonstration, ranking, rubric, và case red teaming trang này mô tả chảy thẳng vào công việc fine-tuning và retrieval ở trang tích hợp LLM của chúng tôi — đây là dữ liệu; đó là nơi nó được huấn luyện trên."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Bất đồng giữa các annotator được giải quyết thế nào?",
+          "answer": "Được escalate lên, không lấy trung bình. Một reviewer cấp cao phân xử theo đúng rubric, và kết quả được viết vào phiên bản rubric tiếp theo kèm case đã gây ra nó, để cùng một điểm mập mờ không bị tranh cãi lại bởi annotator tiếp theo gặp phải nó — và tỷ lệ disagreement theo thời gian cho thấy rubric có thực sự đang hội tụ hay không."
+        },
+        {
+          "question": "Các bạn tìm được chuyên gia theo lĩnh vực không?",
+          "answer": "Có, ở những lĩnh vực mà viết đúng demonstration cần kiến thức chuyên môn — pháp lý, y tế, tài chính, hoặc các bài toán kỹ thuật mà một người viết chung chung không giả được. Cho chúng tôi biết lĩnh vực và khối lượng, chúng tôi sẽ nói thẳng nếu không đủ người để làm tốt, thay vì nhận rồi làm mỏng."
+        },
+        {
+          "question": "Phần này nối với mảng tích hợp LLM của các bạn ra sao?",
+          "answer": "SFT demonstration, preference ranking, và evaluation set là đầu vào; fine-tuning và retrieval-augmented generation, mô tả ở trang tích hợp LLM của chúng tôi, là nơi chúng chảy vào. Trên thực tế hai việc này thường là cùng một dự án nhìn từ hai đầu — dữ liệu xây ở đây, hệ thống huấn luyện và tích hợp xây ở đó."
+        }
+      ],
+      "cta": {
+        "title": "Trao đổi về một chương trình post-training",
+        "body": "Cho chúng tôi biết bạn đang ở giai đoạn post-training nào — demonstration, preference data, evaluation, hay red teaming — và bạn đã có sẵn những gì. Chúng tôi sẽ nói cho bạn biết còn thiếu gì trước khi bạn cam kết khối lượng.",
+        "button": "Liên hệ"
+      }
+    },
     "ventures": {
       "navLabel": "Các mảng hoạt động",
       "title": "Các mảng hoạt động của SofinWave",

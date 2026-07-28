@@ -146,6 +146,13 @@ const TECH_ROUTES: readonly RouteDef[] = [
     priority: 0.9,
     changeFrequency: "monthly",
   },
+  {
+    path: "services/rlhf-sft-data",
+    key: "rlhfSftData",
+    parent: "services",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
 
   {
     path: "engagement-models",

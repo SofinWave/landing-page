@@ -1597,6 +1597,64 @@
         "button": "Get in touch"
       }
     },
+    "rlhfSftData": {
+      "navLabel": "RLHF & SFT data",
+      "title": "RLHF and SFT Data for LLM Post-Training",
+      "metaTitle": "RLHF & SFT Data Services — LLM Post-Training",
+      "metaDescription": "SFT demonstrations, preference ranking, rubric-based evaluation, and red teaming for LLM post-training, staffed by people who can do the task — in English and Vietnamese.",
+      "lede": "Post-training data is written, not labelled. A demonstration answer, a preference judgement between two model outputs, a red-team prompt against deployed behaviour — each is authored by a person, and the ceiling on what the model can learn is set by whether that person could actually do the task being demonstrated, not by how fluently they can describe it. A demonstration written by someone paraphrasing what a good answer looks like reads exactly like a demonstration written by someone who could produce that answer, until the model trained on it fails the same way its data did. We staff this work with people who can do the task first and write for a model second.",
+      "sections": [
+        {
+          "heading": "Supervised fine-tuning demonstrations",
+          "body": "A supervised fine-tuning demonstration is a worked example: given this input, here is the response we want the model to imitate. Anyone can write a response that sounds right — reads smoothly, uses the right register, follows the format. Writing a response that is actually right requires having done the underlying task, or being close enough to it to catch the version that only sounds correct. We staff SFT work with people who hold the domain knowledge the task requires, not generalist writers producing what a good answer would probably look like, because a demonstration that is fluent and wrong does not fail visibly — it teaches the model to be fluent and wrong, confidently, in the same way, every time the pattern recurs."
+        },
+        {
+          "heading": "Preference ranking",
+          "body": "Preference ranking asks a person to choose between two model outputs for the same prompt, and that choice is only useful if it means the same thing every time it is made. An annotator's unstated taste is not a signal a model can learn from consistently — it drifts between annotators, and drifts for the same annotator across a session. We replace taste with a rubric.",
+          "bullets": [
+            "Pairwise comparison scored against a written rubric, not a preference the annotator improvises on the spot.",
+            "The rubric versioned as an artefact — every ranking traceable to the exact rubric version it was made under, so a rubric change does not silently reinterpret rankings made before it.",
+            "Disagreement rates tracked and reported, because a rubric two annotators never disagree on is usually not discriminating between the cases that actually matter."
+          ]
+        },
+        {
+          "heading": "Rubric-based evaluation",
+          "body": "Rubric-based evaluation asks the same question as preference ranking but produces a score rather than a comparison: does this specific output meet a stated bar, and by how much does it miss when it doesn't. We build the rubric to be applied the same way by every scorer, on every item, which is what makes a model change measurable rather than a matter of impression — the argument for treating evaluation as infrastructure rather than a one-off is the one we already make on our AI implementation page, where an evaluation set is the first thing we build before touching model choice. What we add here is the labour: the people who apply the rubric at the volume a real evaluation set requires, consistently enough that a score moving is evidence and not noise."
+        },
+        {
+          "heading": "Red teaming",
+          "body": "Red teaming is adversarial: people trying to make the deployed model fail, on purpose, using the same tactics a motivated user eventually will — reframed requests, roleplay, encoding tricks, gradual escalation across a conversation. A red-team session that produces a verbal report of what went wrong is close to useless, because nobody can reproduce the failure to check whether a fix actually closed it.",
+          "bullets": [
+            "Adversarial prompting run against the model's actual deployed behaviour, not a generic jailbreak checklist unrelated to your product.",
+            "Every finding written as a reproducible case: the exact prompt sequence, the exact failing output, the exact behaviour it violates.",
+            "Cases folded into the evaluation set rather than filed as a one-time report, so a fix is checked against the case that broke it and a regression surfaces automatically instead of waiting to be rediscovered by a real user."
+          ]
+        },
+        {
+          "heading": "Vietnamese and English",
+          "body": "Most bilingual annotation programmes fail at translation, not at annotation. Guidelines get written once in English, translated into Vietnamese, and from that point the two annotator pools are working from documents that read differently even when they were meant to say the same thing — an ambiguity resolved one way in the English guideline and a different way in its Vietnamese rendering, invisibly, until the two language halves of the dataset disagree with each other in ways nobody can trace back to a decision. That is where most bilingual programmes fail. We staff both languages with annotators who are genuinely bilingual rather than assigning translated guidelines to monolingual pools, so a rubric question gets resolved once, by someone who can read both versions and confirm they still mean the same thing. The demonstrations, rankings, rubrics, and red-team cases this page describes feed directly into the fine-tuning and retrieval work on our LLM integration page — this is the data; that is where it gets trained on."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How do you resolve disagreement between annotators?",
+          "answer": "It is escalated, not averaged. A senior reviewer adjudicates against the rubric, and the resolution is written into the next rubric version with the case that triggered it, so the same ambiguity is not re-litigated by the next annotator who hits it — and disagreement rates over time show whether the rubric is actually converging."
+        },
+        {
+          "question": "Can you source domain experts?",
+          "answer": "Yes, for the domains where writing the demonstration correctly requires domain knowledge — legal, medical, financial, or technical tasks a generalist writer cannot fake convincingly. Tell us the domain and the volume, and we will tell you plainly if we cannot staff it well rather than staffing it thin."
+        },
+        {
+          "question": "How does this connect to your LLM integration work?",
+          "answer": "SFT demonstrations, preference rankings, and evaluation sets are the inputs; fine-tuning and retrieval-augmented generation, described on our LLM integration page, are what they feed. In practice they are usually the same engagement seen from two ends — the data built here, the system trained and integrated there."
+        }
+      ],
+      "cta": {
+        "title": "Talk to us about a post-training programme",
+        "body": "Tell us what post-training stage you're at — demonstrations, preference data, evaluation, or red teaming — and what you already have. We will tell you what's missing before you commit to volume.",
+        "button": "Get in touch"
+      }
+    },
     "ventures": {
       "navLabel": "Ventures",
       "title": "SofinWave Ventures",
