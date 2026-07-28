@@ -34,7 +34,7 @@ export interface SiteConfig {
   footerCompany: readonly NavLink[];
 }
 
-const APEX = "sofinwave.org";
+const APEX = "sofinwave.com";
 
 export const SITES: Record<SiteId, SiteConfig> = {
   [SiteId.Tech]: {

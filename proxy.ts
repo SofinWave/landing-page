@@ -29,7 +29,7 @@ const SITE_SCOPED_FILES = new Map([
  * request into that site's route subtree.
  *
  * The rewrite is invisible to the client: public URLs stay
- * `media.sofinwave.org/en/about` while the app renders `/media/en/about`. That
+ * `media.sofinwave.com/en/about` while the app renders `/media/en/about`. That
  * keeps next-intl's locale handling untouched — it still sees the locale as the
  * first path segment — and keeps every page statically generatable, which
  * reading the `Host` header inside a page would not.

@@ -11,10 +11,10 @@ Router + React 19 + TypeScript (strict), styled with Tailwind v4 and shadcn/ui.
 
 | Hostname | `SiteId` | Vertical |
 | --- | --- | --- |
-| `sofinwave.org` | `tech` | IT consulting & implementation, including AI |
-| `media.sofinwave.org` | `media` | Video/content production, affiliate |
-| `finance.sofinwave.org` | `finance` | Investing knowledge & tooling (YMYL) |
-| `academy.sofinwave.org` | `academy` | Education |
+| `sofinwave.com` | `tech` | IT consulting & implementation, including AI |
+| `media.sofinwave.com` | `media` | Video/content production, affiliate |
+| `finance.sofinwave.com` | `finance` | Investing knowledge & tooling (YMYL) |
+| `academy.sofinwave.com` | `academy` | Education |
 
 They are separate sites rather than sections of one because a single domain
 covering all four would dilute topical authority in each, and because the
@@ -78,7 +78,7 @@ Everything is locale-scoped. `next-intl` drives routing, and the whole app lives
 ### Multi-site routing
 
 `proxy.ts` resolves the incoming `Host` header to a site via `resolveSite()` and
-**rewrites** the request into that site's subtree: `media.sofinwave.org/en/about`
+**rewrites** the request into that site's subtree: `media.sofinwave.com/en/about`
 renders `/media/en/about`. The rewrite is invisible to the client, keeps
 next-intl's locale handling untouched (the locale stays the first public path
 segment), and keeps every page statically generatable — reading `Host` inside a

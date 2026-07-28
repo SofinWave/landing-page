@@ -17,7 +17,7 @@ describe("site registry", () => {
 
   it("makes the apex the default", () => {
     expect(DEFAULT_SITE.id).toBe(SiteId.Tech);
-    expect(DEFAULT_SITE.host).toBe("sofinwave.org");
+    expect(DEFAULT_SITE.host).toBe("sofinwave.com");
   });
 
   it("declares the schema type each vertical actually is", () => {
@@ -40,16 +40,16 @@ describe("isSiteId", () => {
 
 describe("URL builders", () => {
   it("builds absolute URLs on each site's own origin", () => {
-    expect(siteUrl(SiteId.Tech)).toBe("https://sofinwave.org");
-    expect(siteUrl(SiteId.Media)).toBe("https://media.sofinwave.org");
-    expect(pageUrl("vi", "about", SiteId.Academy)).toBe("https://academy.sofinwave.org/vi/about");
+    expect(siteUrl(SiteId.Tech)).toBe("https://sofinwave.com");
+    expect(siteUrl(SiteId.Media)).toBe("https://media.sofinwave.com");
+    expect(pageUrl("vi", "about", SiteId.Academy)).toBe("https://academy.sofinwave.com/vi/about");
   });
 
   it("strips stray slashes from the path", () => {
-    expect(pageUrl("en", "/about/", SiteId.Media)).toBe("https://media.sofinwave.org/en/about");
+    expect(pageUrl("en", "/about/", SiteId.Media)).toBe("https://media.sofinwave.com/en/about");
   });
 
   it("defaults to the apex when no site is given", () => {
-    expect(pageUrl("en", "about")).toBe("https://sofinwave.org/en/about");
+    expect(pageUrl("en", "about")).toBe("https://sofinwave.com/en/about");
   });
 });

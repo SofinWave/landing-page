@@ -20,7 +20,7 @@ export const SITE_URL = (
 
 export const SITE_NAME = DEFAULT_SITE.name;
 
-/** Absolute origin for a site, e.g. `https://media.sofinwave.org`. */
+/** Absolute origin for a site, e.g. `https://media.sofinwave.com`. */
 export function siteUrl(site: SiteId): string {
   if (site === DEFAULT_SITE.id) return SITE_URL;
   return `${PROTOCOL}://${siteConfig(site).host}`;
