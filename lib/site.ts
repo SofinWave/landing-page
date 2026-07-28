@@ -32,50 +32,125 @@ export const OG_LOCALE: Record<string, string> = {
   [LocaleSupport.VI]: "vi_VN",
 };
 
-/** Locale-aware keywords for <meta name="keywords"> and GEO context. */
-export const SITE_KEYWORDS: Record<string, string[]> = {
-  [LocaleSupport.EN]: [
-    "software outsourcing Vietnam",
-    "offshore software development",
-    "AI implementation consulting",
-    "LLM integration services",
-    "dedicated development team",
-    "IT staff augmentation",
-    "custom software development",
-    "hire developers Vietnam",
-    "software outsourcing company",
-    "system integration",
-    "DevOps outsourcing",
-    "AI training data services",
-    "data annotation outsourcing",
-    "egocentric data collection",
-    "video annotation services",
-    "3D point cloud annotation",
-    "RLHF and SFT data",
-    "Next.js",
-    "TypeScript",
-  ],
-  [LocaleSupport.VI]: [
-    "thuê ngoài phát triển phần mềm",
-    "gia công phần mềm",
-    "triển khai hệ thống AI",
-    "tích hợp LLM",
-    "công ty gia công phần mềm",
-    "thuê đội ngũ lập trình",
-    "phát triển phần mềm theo yêu cầu",
-    "tăng cường nhân sự IT",
-    "tích hợp hệ thống",
-    "DevOps",
-    "dịch vụ gán nhãn dữ liệu",
-    "thu thập dữ liệu huấn luyện AI",
-    "gán nhãn hình ảnh và video",
-    "thu thập dữ liệu góc nhìn thứ nhất",
-    "gán nhãn point cloud 3D",
-    "dữ liệu RLHF và SFT",
-    "Next.js",
-    "TypeScript",
-  ],
+/**
+ * Keywords for `<meta name="keywords">` and GEO context, per site and locale.
+ *
+ * Scoped by site for the same reason the sites are separate at all: a finance
+ * page advertising "data annotation outsourcing" misdescribes the entity to
+ * answer engines, and the finance vertical is YMYL — borrowing the software
+ * business's terms is exactly the contamination the split exists to prevent.
+ */
+export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
+  [SiteId.Tech]: {
+    [LocaleSupport.EN]: [
+      "software outsourcing Vietnam",
+      "offshore software development",
+      "AI implementation consulting",
+      "LLM integration services",
+      "dedicated development team",
+      "IT staff augmentation",
+      "custom software development",
+      "hire developers Vietnam",
+      "software outsourcing company",
+      "system integration",
+      "DevOps outsourcing",
+      "AI training data services",
+      "data annotation outsourcing",
+      "egocentric data collection",
+      "video annotation services",
+      "3D point cloud annotation",
+      "RLHF and SFT data",
+      "Next.js",
+      "TypeScript",
+    ],
+    [LocaleSupport.VI]: [
+      "thuê ngoài phát triển phần mềm",
+      "gia công phần mềm",
+      "triển khai hệ thống AI",
+      "tích hợp LLM",
+      "công ty gia công phần mềm",
+      "thuê đội ngũ lập trình",
+      "phát triển phần mềm theo yêu cầu",
+      "tăng cường nhân sự IT",
+      "tích hợp hệ thống",
+      "DevOps",
+      "dịch vụ gán nhãn dữ liệu",
+      "thu thập dữ liệu huấn luyện AI",
+      "gán nhãn hình ảnh và video",
+      "thu thập dữ liệu góc nhìn thứ nhất",
+      "gán nhãn point cloud 3D",
+      "dữ liệu RLHF và SFT",
+      "Next.js",
+      "TypeScript",
+    ],
+  },
+  [SiteId.Media]: {
+    [LocaleSupport.EN]: [
+      "product video production",
+      "software explainer video",
+      "technical content writing",
+      "developer marketing content",
+      "video production Vietnam",
+      "affiliate content",
+    ],
+    [LocaleSupport.VI]: [
+      "sản xuất video sản phẩm",
+      "video giới thiệu phần mềm",
+      "viết nội dung kỹ thuật",
+      "nội dung marketing cho sản phẩm công nghệ",
+      "sản xuất video Việt Nam",
+      "tiếp thị liên kết",
+    ],
+  },
+  // Deliberately free of advisory vocabulary. This site publishes a record of a
+  // process and the tools behind it; it holds no licence, so terms implying
+  // advice or portfolio management would misstate what is on offer.
+  [SiteId.Finance]: {
+    [LocaleSupport.EN]: [
+      "investing notes",
+      "investing process",
+      "portfolio tracking tools",
+      "financial literacy",
+      "market data analysis",
+      "personal finance tooling",
+    ],
+    [LocaleSupport.VI]: [
+      "ghi chép đầu tư",
+      "quy trình đầu tư",
+      "công cụ theo dõi danh mục",
+      "kiến thức tài chính",
+      "phân tích dữ liệu thị trường",
+      "công cụ tài chính cá nhân",
+    ],
+  },
+  [SiteId.Academy]: {
+    [LocaleSupport.EN]: [
+      "software engineering courses",
+      "AI and programming training",
+      "investing literacy course",
+      "content production course",
+      "school tutoring grades 1-12",
+      "online learning Vietnam",
+    ],
+    [LocaleSupport.VI]: [
+      "khóa học kỹ thuật phần mềm",
+      "đào tạo lập trình và AI",
+      "khóa học kiến thức đầu tư",
+      "khóa học sản xuất nội dung",
+      "gia sư lớp 1 đến 12",
+      "học trực tuyến",
+    ],
+  },
 };
+
+/**
+ * Keywords for a site in a locale, falling back to English when the locale has
+ * no list of its own.
+ */
+export function siteKeywords(locale: string, site: SiteId = DEFAULT_SITE.id): string[] {
+  const bySite = SITE_KEYWORDS[site];
+  return bySite[locale] ?? bySite[LocaleSupport.EN];
+}
 
 /** Social / canonical profiles surfaced in structured data (sameAs). */
 export const SITE_SAME_AS: string[] = ["https://github.com/SofinWave"];

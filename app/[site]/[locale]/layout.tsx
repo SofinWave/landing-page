@@ -5,7 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SITE_KEYWORDS, siteUrl } from "@/lib/site";
+import { siteKeywords, siteUrl } from "@/lib/site";
 import { ALL_SITES, DEFAULT_SITE, isSiteId, siteConfig } from "@/lib/sites";
 import "../../globals.css";
 
@@ -41,7 +41,7 @@ export async function generateMetadata({
     },
     description: t("description"),
     applicationName: config.name,
-    keywords: SITE_KEYWORDS[locale] ?? SITE_KEYWORDS[routing.defaultLocale],
+    keywords: siteKeywords(locale, config.id),
     authors: [{ name: config.name, url: origin }],
     creator: config.name,
     publisher: config.name,
