@@ -11,7 +11,25 @@ describe("Team", () => {
         <Team />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByText("King Nguyen")).toBeInTheDocument();
+    expect(screen.getByText("Jesse")).toBeInTheDocument();
     expect(screen.getByText("Principal Consultant")).toBeInTheDocument();
+  });
+
+  it("renders a portrait for each member", () => {
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <Team />
+      </NextIntlClientProvider>,
+    );
+    for (const [name, file] of [
+      ["Jesse", "jesse"],
+      ["Alex", "anonymous-1"],
+      ["Brian", "anonymous-2"],
+    ]) {
+      expect(screen.getByAltText(name)).toHaveAttribute(
+        "src",
+        expect.stringContaining(`members%2F${file}.png`),
+      );
+    }
   });
 });
