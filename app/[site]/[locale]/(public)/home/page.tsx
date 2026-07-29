@@ -15,6 +15,7 @@ import { LogoStrip } from "./_components/logo-strip";
 import { Services } from "./_components/services";
 import { Process } from "./_components/process";
 import { CaseStudies } from "./_components/case-studies";
+import { Products } from "./_components/products";
 import { TechStack } from "./_components/tech-stack";
 import { Testimonials } from "./_components/testimonials";
 import { Team } from "./_components/team";
@@ -89,6 +90,7 @@ export default async function HomePage({
         <Services />
         <Process />
         <CaseStudies />
+        <Products />
         <TechStack />
         <Testimonials />
         <Team />

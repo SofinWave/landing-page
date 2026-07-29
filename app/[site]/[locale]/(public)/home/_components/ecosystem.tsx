@@ -26,7 +26,7 @@ export function Ecosystem() {
   const siblings = siblingSites(SiteId.Tech);
 
   return (
-    <Section index={7} label="Ecosystem">
+    <Section index={8} label="Ecosystem">
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("heading")}</h2>
         <p className="mt-3 text-muted-foreground">{t("lede")}</p>

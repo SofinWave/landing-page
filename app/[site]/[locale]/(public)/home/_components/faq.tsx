@@ -20,7 +20,7 @@ export function Faq() {
   const t = useTranslations("faq");
   const items = t.raw("items") as FaqItem[];
   return (
-    <Section className="max-w-3xl" index={8} label="FAQ">
+    <Section className="max-w-3xl" index={9} label="FAQ">
       <h2 className="mb-10 text-center text-3xl font-bold tracking-tight md:text-4xl">
         {t("title")}
       </h2>
