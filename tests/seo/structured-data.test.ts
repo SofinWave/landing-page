@@ -3,6 +3,7 @@ import {
   faqSchema,
   organizationSchema,
   serviceSchema,
+  softwareApplicationSchema,
   webPageSchema,
   websiteSchema,
 } from "@/lib/structured-data";
@@ -146,5 +147,48 @@ describe("faqSchema", () => {
     expect(schema.mainEntity).toHaveLength(faq.length);
     expect(schema.mainEntity[0].name).toBe(faq[0].question);
     expect(schema.mainEntity[0].acceptedAnswer.text).toBe(faq[0].answer);
+  });
+});
+
+describe("softwareApplicationSchema", () => {
+  const [smartFinTrack, tuViDauSo] = en.products.items.map((product) =>
+    softwareApplicationSchema({
+      key: product.key,
+      name: product.name,
+      description: product.blurb,
+      url: product.href,
+    }),
+  );
+
+  it("describes a free web application published by the consultancy", () => {
+    expect(smartFinTrack["@type"]).toBe("SoftwareApplication");
+    expect(smartFinTrack.name).toBe("SmartFinTrack");
+    expect(smartFinTrack.url).toBe("https://smartfintrack.kingnnt.org");
+    expect(smartFinTrack.operatingSystem).toBe("Web");
+    expect(smartFinTrack.offers).toEqual({
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "VND",
+    });
+    expect(smartFinTrack.publisher).toEqual({
+      "@id": "https://sofinwave.com/#organization",
+    });
+  });
+
+  it("categorises each product for its own audience", () => {
+    expect(smartFinTrack.applicationCategory).toBe("FinanceApplication");
+    expect(tuViDauSo.applicationCategory).toBe("LifestyleApplication");
+  });
+
+  it("declares the locales the routing config actually serves", () => {
+    expect(smartFinTrack.inLanguage).toEqual([...routing.locales]);
+  });
+
+  // The testimonials are not real yet, and neither are any ratings.
+  it("never claims a rating or a review", () => {
+    for (const node of [smartFinTrack, tuViDauSo]) {
+      expect(node.aggregateRating).toBeUndefined();
+      expect(node.review).toBeUndefined();
+    }
   });
 });
