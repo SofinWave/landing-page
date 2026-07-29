@@ -265,6 +265,29 @@
     "connect": "Connect",
     "servicesNav": "Services"
   },
+  "ecosystem": {
+    "navLabel": "Ecosystem",
+    "heading": "One team, four businesses",
+    "lede": "SofinWave runs four lines of work on four separate sites. Software consulting is the core; the other three grew out of work we were already doing for ourselves.",
+    "sites": {
+      "tech": {
+        "role": "Software & AI",
+        "blurb": "Offshore teams, dedicated teams, and AI implementation for companies in the US, Europe, and Asia."
+      },
+      "media": {
+        "role": "Media & Content",
+        "blurb": "Video production and product content, with affiliate distribution."
+      },
+      "finance": {
+        "role": "Investing Knowledge",
+        "blurb": "Notes on our own investing process and the tools we built for it. Published knowledge, not advice."
+      },
+      "academy": {
+        "role": "Education",
+        "blurb": "Teaching engineering, investing, and content production, plus general schooling."
+      }
+    }
+  },
   "pages": {
     "breadcrumbLabel": "Breadcrumb",
     "faqHeading": "Frequently asked questions",
@@ -1826,15 +1849,24 @@
         },
         {
           "heading": "Media & content production",
-          "body": "At media.sofinwave.com. Video production and content built around products, with affiliate distribution. It started as our own marketing and became a service once the process was repeatable."
+          "body": "At media.sofinwave.com. Video production and content built around products, with affiliate distribution. It started as our own marketing and became a service once the process was repeatable.",
+          "links": [
+            { "href": "https://media.sofinwave.com/en/home", "label": "media.sofinwave.com" }
+          ]
         },
         {
           "heading": "Investing knowledge & tooling",
-          "body": "At finance.sofinwave.com. Notes on our own investing process, and the tools we built to support it. This is published knowledge, not advice — we are not licensed to advise, we do not manage anyone's money, and the site says so plainly."
+          "body": "At finance.sofinwave.com. Notes on our own investing process, and the tools we built to support it. This is published knowledge, not advice — we are not licensed to advise, we do not manage anyone's money, and the site says so plainly.",
+          "links": [
+            { "href": "https://finance.sofinwave.com/en/home", "label": "finance.sofinwave.com" }
+          ]
         },
         {
           "heading": "Education",
-          "body": "At academy.sofinwave.com. Teaching across the areas we work in — engineering, investing, and content production — and general schooling. Much of it is the material we wrote to train our own people."
+          "body": "At academy.sofinwave.com. Teaching across the areas we work in — engineering, investing, and content production — and general schooling. Much of it is the material we wrote to train our own people.",
+          "links": [
+            { "href": "https://academy.sofinwave.com/en/home", "label": "academy.sofinwave.com" }
+          ]
         },
         {
           "heading": "Why separate sites",

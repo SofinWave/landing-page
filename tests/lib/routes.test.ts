@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { SiteId } from "@/enums";
 import { HOME_PATH, breadcrumbTrail, contentRoutesFor, findRoute, routesFor } from "@/lib/routes";
 import { ALL_SITES, siteConfig } from "@/lib/sites";
+import { isAbsoluteHref } from "@/lib/site";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
 
@@ -136,10 +137,42 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
 
       for (const section of sections as { links?: { href: string; label: string }[] }[]) {
         for (const link of section.links ?? []) {
+          // Cross-site links name another hostname and so have no entry in
+          // this site's registry. They are checked separately below.
+          if (isAbsoluteHref(link.href)) continue;
+
           expect(
             findRoute(siteId, link.href.replace(/^\//, "")),
             `${key} link ${link.href}`,
           ).toBeDefined();
+        }
+      }
+    }
+  });
+
+  it.each(
+    Object.keys(catalogs),
+  )("points every absolute section link at a real SofinWave landing page in %s", (locale) => {
+    const hosts = new Set(ALL_SITES.map((s) => s.host));
+    const pages = catalogs[locale][config.contentNamespace] as Record<
+      string,
+      Record<string, unknown>
+    >;
+
+    for (const [key, page] of Object.entries(pages)) {
+      if (typeof page !== "object" || page === null) continue;
+      const sections = (page as { sections?: unknown }).sections;
+      if (!Array.isArray(sections)) continue;
+
+      for (const section of sections as { links?: { href: string; label: string }[] }[]) {
+        for (const link of section.links ?? []) {
+          if (!isAbsoluteHref(link.href)) continue;
+
+          const url = new URL(link.href);
+          expect(hosts, `${key} link ${link.href}`).toContain(url.hostname);
+          // `/{locale}` only ever redirects, so cross-site links must name
+          // the landing page and must match the catalog they live in.
+          expect(url.pathname, `${key} link ${link.href}`).toBe(`/${locale}/${HOME_PATH}`);
         }
       }
     }

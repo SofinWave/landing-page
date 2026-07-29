@@ -3,6 +3,7 @@ import { SiteId } from "@/enums";
 import { buildLlmsTxt, buildLlmsFullTxt } from "@/lib/llms";
 import { HOME_PATH, contentRoutesFor } from "@/lib/routes";
 import { ALL_SITES, siteConfig } from "@/lib/sites";
+import { isAbsoluteHref } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
@@ -64,11 +65,19 @@ describe.each(ALL_SITES.map((s) => s.id))("llms-full.txt for %s", (siteId) => {
     for (const route of contentRoutesFor(siteId)) {
       for (const section of pages[route.key].sections) {
         for (const link of section.links ?? []) {
-          const url = `https://${config.host}/en${link.href}`;
+          // A cross-site link already carries its own origin; prefixing it
+          // would yield `https://sofinwave.com/enhttps://media...`.
+          const url = isAbsoluteHref(link.href)
+            ? link.href
+            : `https://${config.host}/en${link.href}`;
           expect(txt, `link ${link.href} on ${route.key}`).toContain(`[${link.label}](${url})`);
         }
       }
     }
+  });
+
+  it("never doubles an origin onto a cross-site link", () => {
+    expect(txt).not.toMatch(/\(https?:\/\/[^)]*\/[a-z]{2}https?:\/\//);
   });
 
   it("includes every FAQ answer, which is what answer engines quote", () => {

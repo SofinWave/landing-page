@@ -265,6 +265,29 @@
     "connect": "联系方式",
     "servicesNav": "服务"
   },
+  "ecosystem": {
+    "navLabel": "业务生态",
+    "heading": "一支团队，四项业务",
+    "lede": "SofinWave 在四个独立站点上运营四条业务线。软件咨询是核心；另外三条都是从我们本来就在为自己做的事情里长出来的。",
+    "sites": {
+      "tech": {
+        "role": "软件与 AI",
+        "blurb": "为美国、欧洲和亚洲的企业提供离岸团队、专属团队与 AI 落地服务。"
+      },
+      "media": {
+        "role": "媒体与内容",
+        "blurb": "视频制作与产品内容，配合联盟渠道分发。"
+      },
+      "finance": {
+        "role": "投资知识",
+        "blurb": "关于我们自身投资流程的笔记，以及为此构建的工具。公开的知识记录，不是投资建议。"
+      },
+      "academy": {
+        "role": "教育",
+        "blurb": "教授工程、投资与内容制作，另有基础学科教育。"
+      }
+    }
+  },
   "pages": {
     "breadcrumbLabel": "面包屑导航",
     "faqHeading": "常见问题",
@@ -1805,15 +1828,33 @@
         },
         {
           "heading": "媒体与内容制作",
-          "body": "位于 media.sofinwave.com。围绕产品展开的视频制作与内容创作，配合联盟分发。它最初只是我们自己的市场推广，等流程可复制之后，才变成了一项对外服务。"
+          "body": "位于 media.sofinwave.com。围绕产品展开的视频制作与内容创作，配合联盟分发。它最初只是我们自己的市场推广，等流程可复制之后，才变成了一项对外服务。",
+          "links": [
+            {
+              "href": "https://media.sofinwave.com/zh/home",
+              "label": "media.sofinwave.com"
+            }
+          ]
         },
         {
           "heading": "投资知识与工具",
-          "body": "位于 finance.sofinwave.com。记录我们自己的投资流程，以及为支撑它而构建的工具。这里发布的是知识，不是建议——我们没有投资顾问牌照，不为任何人管理资金，站点上对此也写得明明白白。"
+          "body": "位于 finance.sofinwave.com。记录我们自己的投资流程，以及为支撑它而构建的工具。这里发布的是知识，不是建议——我们没有投资顾问牌照，不为任何人管理资金，站点上对此也写得明明白白。",
+          "links": [
+            {
+              "href": "https://finance.sofinwave.com/zh/home",
+              "label": "finance.sofinwave.com"
+            }
+          ]
         },
         {
           "heading": "教育",
-          "body": "位于 academy.sofinwave.com。围绕我们所从事的领域展开教学——工程、投资与内容制作——以及基础学科辅导。其中很大一部分，本来就是我们为培训自己人而编写的材料。"
+          "body": "位于 academy.sofinwave.com。围绕我们所从事的领域展开教学——工程、投资与内容制作——以及基础学科辅导。其中很大一部分，本来就是我们为培训自己人而编写的材料。",
+          "links": [
+            {
+              "href": "https://academy.sofinwave.com/zh/home",
+              "label": "academy.sofinwave.com"
+            }
+          ]
         },
         {
           "heading": "为什么要分成不同站点",
