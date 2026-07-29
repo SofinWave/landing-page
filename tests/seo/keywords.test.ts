@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { routing } from "@/i18n/routing";
-import { SITE_KEYWORDS, siteKeywords } from "@/lib/site";
+import { PAGE_KEYWORDS, SITE_KEYWORDS, pageKeywords, siteKeywords } from "@/lib/site";
+import { routesFor } from "@/lib/routes";
+import { SiteId } from "@/enums";
 import { ALL_SITES } from "@/lib/sites";
 
 describe.each(ALL_SITES.map((s) => s.id))("keywords for %s", (siteId) => {
@@ -32,5 +34,37 @@ describe("keywords across sites", () => {
         expect(shared, `${site.id} and ${other.id} both claim ${shared.join(", ")}`).toEqual([]);
       }
     }
+  });
+});
+
+describe("page keywords", () => {
+  const entries = Object.entries(PAGE_KEYWORDS[SiteId.Tech] ?? {});
+
+  it("only names routes that exist", () => {
+    for (const [routeKey] of entries) {
+      const route = routesFor(SiteId.Tech).find((r) => r.key === routeKey);
+      expect(route, `PAGE_KEYWORDS names ${routeKey}, which is not a tech route`).toBeDefined();
+    }
+  });
+
+  it.each(entries)("%s has a non-empty, deduped list per locale", (_key, byLocale) => {
+    for (const locale of routing.locales) {
+      const list = byLocale[locale];
+      expect(list, `missing ${locale}`).toBeDefined();
+      expect(list.length).toBeGreaterThan(0);
+      expect(new Set(list).size, `duplicate term in ${locale}`).toBe(list.length);
+    }
+  });
+
+  // The point of the split: an annotation page that still advertises itself with
+  // the site's consulting vocabulary is the bug this replaced.
+  it.each(entries)("%s overrides the site list rather than inheriting it", (key) => {
+    for (const locale of routing.locales) {
+      expect(pageKeywords(locale, key, SiteId.Tech)).not.toEqual(siteKeywords(locale, SiteId.Tech));
+    }
+  });
+
+  it("falls back to the site list for a page with no entry of its own", () => {
+    expect(pageKeywords("en", "about", SiteId.Tech)).toEqual(siteKeywords("en", SiteId.Tech));
   });
 });

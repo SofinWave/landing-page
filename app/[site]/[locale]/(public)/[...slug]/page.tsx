@@ -54,6 +54,7 @@ export async function generateMetadata({
     path: page.route.path,
     title: page.data.metaTitle,
     description: page.data.metaDescription,
+    routeKey: page.route.key,
     site: page.site,
   });
 }

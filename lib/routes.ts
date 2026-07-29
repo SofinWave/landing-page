@@ -30,8 +30,8 @@ const TECH_ROUTES: readonly RouteDef[] = [
   home,
 
   {
-    path: "vietnam-software-outsourcing",
-    key: "vietnamSoftwareOutsourcing",
+    path: "vietnam-it-consulting",
+    key: "vietnamItConsulting",
     parent: HOME_PATH,
     priority: 0.9,
     changeFrequency: "monthly",
@@ -51,16 +51,23 @@ const TECH_ROUTES: readonly RouteDef[] = [
     priority: 0.9,
     changeFrequency: "monthly",
   },
+  // The advisory pillar, and the highest-priority service page: what to build,
+  // whether to build it, and how it should be shaped — across software and AI
+  // alike. AI advice lives here rather than on a page of its own, which would
+  // only restate `services/ai-implementation` at a thinner word count.
   {
-    path: "services/offshore-development",
-    key: "offshoreDevelopment",
+    path: "services/it-consulting",
+    key: "itConsulting",
     parent: "services",
-    priority: 0.8,
+    priority: 0.9,
     changeFrequency: "monthly",
   },
+  // One page for the ways a team can be shaped, not one page per way. Three
+  // near-identical pages for renting engineers read as a staffing catalogue,
+  // which is the opposite of what the rest of this site claims to be.
   {
-    path: "services/dedicated-team",
-    key: "dedicatedTeam",
+    path: "services/delivery-teams",
+    key: "deliveryTeams",
     parent: "services",
     priority: 0.8,
     changeFrequency: "monthly",
@@ -73,8 +80,8 @@ const TECH_ROUTES: readonly RouteDef[] = [
     changeFrequency: "monthly",
   },
   {
-    path: "services/custom-software-development",
-    key: "customSoftwareDevelopment",
+    path: "services/software-engineering",
+    key: "softwareEngineering",
     parent: "services",
     priority: 0.8,
     changeFrequency: "monthly",

@@ -5,11 +5,42 @@ import { ALL_SITES, siteConfig } from "@/lib/sites";
 import { isAbsoluteHref } from "@/lib/site";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
 
 const catalogs: Record<string, Record<string, unknown>> = {
   en: en as unknown as Record<string, unknown>,
   vi: vi as unknown as Record<string, unknown>,
+  zh: zh as unknown as Record<string, unknown>,
 };
+
+describe("navigation", () => {
+  // Renaming a route is the change most likely to strand a link: the registry
+  // moves, the nav keeps pointing at the old path, and nothing fails until a
+  // visitor hits the 404.
+  it.each(ALL_SITES.map((s) => s.id))("every %s nav and footer href is a real route", (siteId) => {
+    const config = siteConfig(siteId);
+    const items = [
+      ...config.nav,
+      ...(config.footerServices ?? []),
+      ...(config.footerCompany ?? []),
+    ];
+
+    const stranded = items
+      .filter((item) => !isAbsoluteHref(item.href))
+      .filter((item) => !findRoute(siteId, item.href.replace(/^\//, "")));
+
+    expect(stranded.map((i) => i.href)).toEqual([]);
+  });
+
+  it.each(ALL_SITES.map((s) => s.id))("every %s nav key matches its route key", (siteId) => {
+    const config = siteConfig(siteId);
+    for (const item of config.nav) {
+      if (isAbsoluteHref(item.href)) continue;
+      const route = findRoute(siteId, item.href.replace(/^\//, ""));
+      expect(route?.key, `nav ${item.href}`).toBe(item.key);
+    }
+  });
+});
 
 describe.each(ALL_SITES.map((s) => s.id))("route registry for %s", (siteId) => {
   const routes = routesFor(siteId);

@@ -23,9 +23,7 @@ describe("SiteFooter", () => {
         <SiteFooter />
       </NextIntlClientProvider>,
     );
-    expect(
-      screen.getByText("Software outsourcing and offshore development from Vietnam."),
-    ).toBeInTheDocument();
+    expect(screen.getByText(en.footer.tagline)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Work.KingNNT@gmail.com" })).toHaveAttribute(
       "href",
       "mailto:Work.KingNNT@gmail.com",

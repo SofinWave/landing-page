@@ -13,6 +13,9 @@ import "../../globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+/** Set in the deployment environment once the property is claimed on Baidu. */
+const BAIDU_VERIFICATION = process.env.NEXT_PUBLIC_BAIDU_SITE_VERIFICATION;
+
 export function generateStaticParams() {
   return ALL_SITES.flatMap((site) => routing.locales.map((locale) => ({ site: site.id, locale })));
 }
@@ -57,6 +60,17 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
+    /**
+     * Ownership token from Baidu's search resource platform (ziyuan.baidu.com),
+     * which is what unlocks sitemap submission and the URL push API.
+     *
+     * Read from the environment and emitted only when set: the token is
+     * per-property, and a placeholder committed here would fail verification
+     * while looking like it had been done.
+     */
+    ...(BAIDU_VERIFICATION
+      ? { verification: { other: { "baidu-site-verification": BAIDU_VERIFICATION } } }
+      : {}),
   };
 }
 

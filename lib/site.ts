@@ -43,63 +43,69 @@ export const OG_LOCALE: Record<string, string> = {
  */
 export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
   [SiteId.Tech]: {
+    // Advisory terms lead. The staffing vocabulary this list used to open with
+    // ("hire developers", "software outsourcing company") described what the
+    // delivery team sells, not what the business is, and it set the wrong
+    // expectation before a visitor reached the site.
     [LocaleSupport.EN]: [
-      "software outsourcing Vietnam",
-      "offshore software development",
+      "IT consulting",
+      "technology consulting",
+      "software consulting",
+      "solution architecture",
+      "AI consulting",
+      "AI strategy consulting",
+      "agentic AI consulting",
+      "AI integration for automation",
+      "technical due diligence",
+      "system integration consulting",
+      "legacy system modernisation",
       "AI implementation consulting",
       "LLM integration services",
-      "dedicated development team",
-      "IT staff augmentation",
-      "custom software development",
-      "hire developers Vietnam",
-      "software outsourcing company",
-      "system integration",
-      "DevOps outsourcing",
       "AI training data services",
-      "data annotation outsourcing",
+      "data annotation services",
       "egocentric data collection",
-      "video annotation services",
-      "3D point cloud annotation",
       "RLHF and SFT data",
       "Next.js",
       "TypeScript",
     ],
     [LocaleSupport.VI]: [
-      "thuê ngoài phát triển phần mềm",
-      "gia công phần mềm",
+      "tư vấn công nghệ thông tin",
+      "tư vấn giải pháp phần mềm",
+      "tư vấn kiến trúc hệ thống",
+      "tư vấn chuyển đổi số",
+      "tư vấn AI",
+      "tư vấn chiến lược AI",
+      "tư vấn AI agent",
+      "tích hợp AI tự động hoá quy trình",
+      "thẩm định kỹ thuật",
+      "tư vấn tích hợp hệ thống",
+      "hiện đại hoá hệ thống cũ",
       "triển khai hệ thống AI",
       "tích hợp LLM",
-      "công ty gia công phần mềm",
-      "thuê đội ngũ lập trình",
-      "phát triển phần mềm theo yêu cầu",
-      "tăng cường nhân sự IT",
-      "tích hợp hệ thống",
-      "DevOps",
       "dịch vụ gán nhãn dữ liệu",
       "thu thập dữ liệu huấn luyện AI",
-      "gán nhãn hình ảnh và video",
       "thu thập dữ liệu góc nhìn thứ nhất",
-      "gán nhãn point cloud 3D",
       "dữ liệu RLHF và SFT",
       "Next.js",
       "TypeScript",
     ],
     [LocaleSupport.ZH]: [
-      "越南软件外包",
-      "离岸软件开发",
-      "软件外包公司",
+      "IT 咨询",
+      "技术咨询",
+      "软件咨询",
+      "解决方案架构",
+      "AI 咨询",
+      "AI 战略咨询",
+      "AI 智能体咨询",
+      "AI 集成与流程自动化",
+      "技术尽职调查",
+      "系统集成咨询",
+      "遗留系统现代化改造",
       "AI 落地咨询",
       "大模型集成服务",
-      "定制软件开发",
-      "专属开发团队",
-      "IT 人力外包",
-      "系统集成",
-      "DevOps 外包",
       "AI 训练数据服务",
-      "数据标注外包",
+      "数据标注服务",
       "第一人称视角数据采集",
-      "视频标注服务",
-      "3D 点云标注",
       "RLHF 与 SFT 数据",
       "Next.js",
       "TypeScript",
@@ -197,6 +203,210 @@ export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
 export function siteKeywords(locale: string, site: SiteId = DEFAULT_SITE.id): string[] {
   const bySite = SITE_KEYWORDS[site];
   return bySite[locale] ?? bySite[LocaleSupport.EN];
+}
+
+/**
+ * Keywords for individual pages, keyed by route key.
+ *
+ * The site-level list is emitted from the root layout, which means it lands on
+ * every page: the data annotation page was describing itself with the same
+ * consulting terms as the home page and said nothing about annotation. These
+ * *replace* the site list rather than extending it, because a page that opens
+ * with the umbrella vocabulary buries the terms it actually competes on.
+ *
+ * Only pages whose subject differs sharply from the site's overall positioning
+ * need an entry. Everything else inherits, which is the correct default.
+ */
+export const PAGE_KEYWORDS: Partial<Record<SiteId, Record<string, Record<string, string[]>>>> = {
+  [SiteId.Tech]: {
+    aiTrainingData: {
+      [LocaleSupport.EN]: [
+        "AI training data services",
+        "training data provider",
+        "data collection and annotation",
+        "LLM training data",
+        "post-training data",
+        "machine learning data services",
+        "human-in-the-loop data",
+        "data labelling company",
+      ],
+      [LocaleSupport.VI]: [
+        "dịch vụ dữ liệu huấn luyện AI",
+        "nhà cung cấp dữ liệu huấn luyện",
+        "thu thập và gán nhãn dữ liệu",
+        "dữ liệu huấn luyện LLM",
+        "dữ liệu hậu huấn luyện",
+        "công ty gán nhãn dữ liệu",
+      ],
+      [LocaleSupport.ZH]: [
+        "AI 训练数据服务",
+        "训练数据供应商",
+        "数据采集与标注",
+        "大模型训练数据",
+        "后训练数据",
+        "数据标注公司",
+        "数据标注外包",
+        "数据众包",
+      ],
+    },
+    dataCollection: {
+      [LocaleSupport.EN]: [
+        "AI data collection services",
+        "video data collection",
+        "image data collection",
+        "speech data collection",
+        "audio data collection",
+        "document data collection",
+        "scripted scenario data",
+        "consented data collection",
+        "Southeast Asia data collection",
+      ],
+      [LocaleSupport.VI]: [
+        "dịch vụ thu thập dữ liệu AI",
+        "thu thập dữ liệu video",
+        "thu thập dữ liệu hình ảnh",
+        "thu thập dữ liệu giọng nói",
+        "thu thập dữ liệu tài liệu",
+        "dữ liệu kịch bản dàn dựng",
+        "thu thập dữ liệu có đồng thuận",
+      ],
+      [LocaleSupport.ZH]: [
+        "AI 数据采集服务",
+        "视频数据采集",
+        "图像数据采集",
+        "语音数据采集",
+        "音频数据采集",
+        "文档数据采集",
+        "场景数据采集",
+        "定制数据采集",
+        "东南亚数据采集",
+        "数据合规采集",
+      ],
+    },
+    egocentricDataCollection: {
+      [LocaleSupport.EN]: [
+        "egocentric data collection",
+        "exocentric capture",
+        "first-person video dataset",
+        "embodied AI data",
+        "robotics training data",
+        "teleoperation data collection",
+        "VLA training data",
+        "multi-view synchronised capture",
+      ],
+      [LocaleSupport.VI]: [
+        "thu thập dữ liệu góc nhìn thứ nhất",
+        "quay đa góc đồng bộ",
+        "dữ liệu AI hiện thân",
+        "dữ liệu huấn luyện robot",
+        "thu thập dữ liệu điều khiển từ xa",
+        "dữ liệu huấn luyện VLA",
+      ],
+      [LocaleSupport.ZH]: [
+        "第一人称视角数据采集",
+        "第一视角数据",
+        "具身智能数据采集",
+        "机器人训练数据",
+        "遥操作数据采集",
+        "VLA 训练数据",
+        "多视角同步采集",
+        "人形机器人数据采集",
+      ],
+    },
+    dataAnnotation: {
+      [LocaleSupport.EN]: [
+        "data annotation services",
+        "data labelling services",
+        "image annotation",
+        "video annotation",
+        "3D point cloud annotation",
+        "LiDAR annotation",
+        "semantic segmentation",
+        "bounding box annotation",
+        "keypoint annotation",
+        "OCR annotation",
+        "named entity recognition",
+        "speaker diarisation",
+      ],
+      [LocaleSupport.VI]: [
+        "dịch vụ gán nhãn dữ liệu",
+        "gán nhãn hình ảnh",
+        "gán nhãn video",
+        "gán nhãn point cloud 3D",
+        "gán nhãn LiDAR",
+        "phân đoạn ngữ nghĩa",
+        "gán nhãn bounding box",
+        "gán nhãn điểm khoá",
+        "gán nhãn OCR",
+        "nhận dạng thực thể có tên",
+      ],
+      // `拉框标注` is what the Chinese annotation industry actually calls
+      // bounding-box work; the textbook term alone misses the search.
+      [LocaleSupport.ZH]: [
+        "数据标注服务",
+        "图像标注",
+        "视频标注",
+        "3D 点云标注",
+        "激光雷达标注",
+        "语义分割标注",
+        "实例分割标注",
+        "拉框标注",
+        "关键点标注",
+        "OCR 标注",
+        "命名实体标注",
+        "说话人分离标注",
+        "自动驾驶数据标注",
+      ],
+    },
+    rlhfSftData: {
+      [LocaleSupport.EN]: [
+        "RLHF data services",
+        "SFT data",
+        "supervised fine-tuning data",
+        "preference ranking data",
+        "human preference data",
+        "LLM evaluation data",
+        "red teaming services",
+        "rubric-based evaluation",
+      ],
+      [LocaleSupport.VI]: [
+        "dịch vụ dữ liệu RLHF",
+        "dữ liệu SFT",
+        "dữ liệu tinh chỉnh có giám sát",
+        "dữ liệu xếp hạng ưu tiên",
+        "dữ liệu phản hồi con người",
+        "dữ liệu đánh giá mô hình ngôn ngữ",
+        "dịch vụ red teaming",
+      ],
+      [LocaleSupport.ZH]: [
+        "RLHF 数据服务",
+        "SFT 数据",
+        "监督微调数据",
+        "偏好排序数据",
+        "人类反馈数据",
+        "大模型评测数据",
+        "红队测试服务",
+        "对齐数据",
+        "大模型语料",
+      ],
+    },
+  },
+};
+
+/**
+ * Keywords for one page, falling back to the site list when the page has none.
+ *
+ * Locale falls back to English the same way `siteKeywords` does, so a page can
+ * gain a locale-specific list later without a code change here.
+ */
+export function pageKeywords(
+  locale: string,
+  routeKey: string,
+  site: SiteId = DEFAULT_SITE.id,
+): string[] {
+  const byPage = PAGE_KEYWORDS[site]?.[routeKey];
+  if (!byPage) return siteKeywords(locale, site);
+  return byPage[locale] ?? byPage[LocaleSupport.EN] ?? siteKeywords(locale, site);
 }
 
 /** Social / canonical profiles surfaced in structured data (sameAs). */

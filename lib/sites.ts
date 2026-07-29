@@ -45,22 +45,25 @@ export const SITES: Record<SiteId, SiteConfig> = {
     contentNamespace: "pages",
     schemaType: "ProfessionalService",
     routes: routesFor(SiteId.Tech),
+    // Advice first, then the AI work, then the team that executes it. The order
+    // is the positioning: a visitor should meet the consultancy before the
+    // delivery capacity, not the other way round.
     nav: [
-      { href: "/services", key: "services" },
+      { href: "/services/it-consulting", key: "itConsulting" },
       { href: "/services/ai-implementation", key: "aiImplementation" },
-      { href: "/services/ai-training-data", key: "aiTrainingData" },
-      { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
-      { href: "/engagement-models", key: "engagementModels" },
+      { href: "/services/delivery-teams", key: "deliveryTeams" },
+      { href: "/vietnam-it-consulting", key: "vietnamItConsulting" },
+      { href: "/services", key: "services" },
     ],
     footerServices: [
-      { href: "/services/offshore-development", key: "offshoreDevelopment" },
-      { href: "/services/dedicated-team", key: "dedicatedTeam" },
+      { href: "/services/it-consulting", key: "itConsulting" },
       { href: "/services/ai-implementation", key: "aiImplementation" },
-      { href: "/services/llm-integration", key: "llmIntegration" },
+      { href: "/services/ai-agents", key: "aiAgents" },
+      { href: "/services/delivery-teams", key: "deliveryTeams" },
       { href: "/services/ai-training-data", key: "aiTrainingData" },
     ],
     footerCompany: [
-      { href: "/vietnam-software-outsourcing", key: "vietnamSoftwareOutsourcing" },
+      { href: "/vietnam-it-consulting", key: "vietnamItConsulting" },
       { href: "/engagement-models", key: "engagementModels" },
       { href: "/ventures", key: "ventures" },
       { href: "/about", key: "about" },
