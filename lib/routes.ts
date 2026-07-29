@@ -19,10 +19,33 @@ export interface RouteDef {
   parent?: string;
   priority: number;
   changeFrequency: ChangeFrequency;
+  /**
+   * ISO date this page's copy last changed, when it differs from the site-wide
+   * `CONTENT_LAST_MODIFIED`. Most pages are edited together and can omit it.
+   */
+  lastModified?: string;
 }
 
 /** Landing page path, shared by every site. `/{locale}` redirects here. */
 export const HOME_PATH = "home";
+
+/**
+ * Date the site's copy last changed, feeding both `<lastmod>` in the sitemaps
+ * and `dateModified` in the page schema. **Bump it when you edit the message
+ * catalogs**, not when you deploy.
+ *
+ * It is a constant rather than the build clock because the build clock restamps
+ * every URL on every deploy: a page untouched for months would claim to have
+ * changed minutes ago. Search engines discount a `lastmod` that behaves that
+ * way, and answer engines weigh freshness when choosing what to cite — a signal
+ * only worth having if it is true.
+ */
+export const CONTENT_LAST_MODIFIED = "2026-07-29";
+
+/** A route's own modification date, falling back to the site-wide one. */
+export function routeLastModified(route: RouteDef): string {
+  return route.lastModified ?? CONTENT_LAST_MODIFIED;
+}
 
 const home: RouteDef = { path: HOME_PATH, key: "home", priority: 1, changeFrequency: "monthly" };
 

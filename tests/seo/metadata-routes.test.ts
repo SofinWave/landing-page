@@ -3,9 +3,7 @@ import { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
 import { buildSitemap } from "@/lib/sitemap";
 import { ALL_SITES, resolveSite, siteConfig } from "@/lib/sites";
-import { HOME_PATH } from "@/lib/routes";
-
-const LASTMOD = new Date("2026-07-28T00:00:00.000Z");
+import { CONTENT_LAST_MODIFIED, HOME_PATH, routeLastModified } from "@/lib/routes";
 
 describe("resolveSite", () => {
   it("maps each production hostname to its site", () => {
@@ -33,7 +31,7 @@ describe("resolveSite", () => {
 
 describe.each(ALL_SITES.map((s) => s.id))("sitemap for %s", (siteId) => {
   const config = siteConfig(siteId);
-  const xml = buildSitemap(siteId, LASTMOD);
+  const xml = buildSitemap(siteId);
 
   it("lists every route in every locale, on that site's own origin", () => {
     for (const locale of routing.locales) {
@@ -64,6 +62,13 @@ describe.each(ALL_SITES.map((s) => s.id))("sitemap for %s", (siteId) => {
     for (const other of ALL_SITES) {
       if (other.id === siteId) continue;
       expect(xml).not.toContain(`https://${other.host}/`);
+    }
+  });
+
+  it("dates every entry from the content registry, not the build clock", () => {
+    expect(xml).toContain(`<lastmod>${CONTENT_LAST_MODIFIED}</lastmod>`);
+    for (const route of config.routes) {
+      expect(xml).toContain(`<lastmod>${routeLastModified(route)}</lastmod>`);
     }
   });
 
