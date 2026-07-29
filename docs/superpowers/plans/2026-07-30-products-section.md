@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Every new message key must exist in **both** `messages/en.json` and `messages/vi.json` with identical structure. `tests/messages/parity.test.ts` fails otherwise.
+- Every new message key must exist in **all three** catalogs — `messages/en.json`, `messages/vi.json`, `messages/zh.json` — with identical structure. `tests/messages/parity.test.ts` checks every locale in `routing.locales` against English and fails otherwise. (The repo's CLAUDE.md still describes the site as bilingual; it is stale — `enums/locale.enum.ts` carries `EN`, `VI`, `ZH`.)
 - Everything a crawler must read has to be in the server-rendered HTML. No `CountUp`, no accordion, no text revealed only after hydration.
 - Never emit `aggregateRating` or `review` in any schema node.
 - The product catalog is tech-site only. It must not appear in media, finance, or academy schema or routes.
@@ -28,6 +28,7 @@
 **Files:**
 - Modify: `messages/en.json` (add top-level `products` key, after `ecosystem`)
 - Modify: `messages/vi.json` (same position)
+- Modify: `messages/zh.json` (same position)
 - Test: `tests/messages/products.test.ts` (create)
 
 **Interfaces:**
@@ -45,8 +46,9 @@ Create `tests/messages/products.test.ts`:
 import { describe, it, expect } from "vitest";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
 
-const catalogs = { en: en.products, vi: vi.products };
+const catalogs = { en: en.products, vi: vi.products, zh: zh.products };
 
 describe("products catalog", () => {
   for (const [locale, products] of Object.entries(catalogs)) {
@@ -176,16 +178,24 @@ In `messages/vi.json`, at the same position:
   },
 ```
 
-- [ ] **Step 5: Run the tests and verify they pass**
+- [ ] **Step 5: Add the Chinese copy**
+
+In `messages/zh.json`, at the same position. Translate the English faithfully.
+`key`, `href`, and `host` are identifiers, not copy — they stay byte-identical
+across all three catalogs. `languages` describes what the *products* support,
+which is Vietnamese and English regardless of what locale the visitor is
+reading in.
+
+- [ ] **Step 6: Run the tests and verify they pass**
 
 Run: `pnpm exec vitest run tests/messages/`
-Expected: PASS — both `products.test.ts` and `parity.test.ts` green. If parity fails, the two catalogs have drifted; diff the two blocks above key by key.
+Expected: PASS — both `products.test.ts` and `parity.test.ts` green. If parity fails, the catalogs have drifted; diff the blocks above key by key.
 
-- [ ] **Step 6: Format and commit**
+- [ ] **Step 7: Format and commit**
 
 ```bash
 pnpm format
-git add messages/en.json messages/vi.json tests/messages/products.test.ts
+git add messages/ tests/messages/products.test.ts
 git commit -m "feat(content): add product catalog copy for the tech site"
 ```
 
@@ -457,6 +467,8 @@ git commit -m "feat(home): add the products section to the tech landing page"
 - Modify: `lib/routes.ts` (add the route to `TECH_ROUTES`; bump `CONTENT_LAST_MODIFIED`)
 - Modify: `messages/en.json` (add `pages.products`)
 - Modify: `messages/vi.json` (add `pages.products`)
+- Modify: `messages/zh.json` (add `pages.products` — translate the English below; the
+  `href` and `label` values in `links` stay identical across all three catalogs)
 - Test: `tests/lib/routes.test.ts` (extend)
 
 **Interfaces:**
