@@ -8,7 +8,8 @@
   "nav": {
     "language": "Ngôn ngữ",
     "english": "English",
-    "vietnamese": "Tiếng Việt"
+    "vietnamese": "Tiếng Việt",
+    "chinese": "中文"
   },
   "header": {
     "brand": "SofinWave",
@@ -188,7 +189,7 @@
   },
   "team": {
     "title": "Chúng tôi là ai",
-    "about": "SofinWave là một đội nhỏ gồm kỹ sư và chuyên gia tư vấn có kinh nghiệm, đã đưa nhiều hệ thống lên production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như phần mở rộng của đội bạn, từ Việt Nam, bằng tiếng Anh và tiếng Việt.",
+    "about": "SofinWave là một đội nhỏ gồm kỹ sư và chuyên gia tư vấn có kinh nghiệm, đã đưa nhiều hệ thống lên production trong fintech, thương mại điện tử và doanh nghiệp. Chúng tôi làm việc như phần mở rộng của đội bạn, từ Việt Nam, bằng tiếng Anh, tiếng Việt và tiếng Trung.",
     "members": [
       {
         "name": "Jesse",
@@ -299,7 +300,7 @@
       "title": "Thuê ngoài phát triển phần mềm tại Việt Nam",
       "metaTitle": "Thuê ngoài phần mềm tại Việt Nam: chi phí, múi giờ và cách bắt đầu",
       "metaDescription": "Cách thuê ngoài phát triển phần mềm tại Việt Nam vận hành với doanh nghiệp Mỹ và châu Âu — mô hình hợp tác, độ trùng múi giờ, bảo vệ sở hữu trí tuệ, và so sánh Việt Nam với Ấn Độ, Philippines, Ba Lan.",
-      "lede": "Thuê ngoài phát triển phần mềm tại Việt Nam là việc giao công việc kỹ thuật cho một đội ngũ đặt tại Việt Nam, dưới dạng đội dự án trọn gói hoặc kỹ sư nhúng vào đội ngũ sẵn có của bạn. Với doanh nghiệp Mỹ và châu Âu, lựa chọn này thường đến từ ba yếu tố cộng lại: chi phí kỹ thuật thấp hơn, nguồn nhân lực lập trình dồi dào và đang mở rộng, cùng múi giờ tạo được độ trùng thật với buổi sáng châu Âu và buổi tối nước Mỹ. SofinWave là công ty phát triển phần mềm đặt tại Việt Nam, làm việc bằng cả tiếng Anh và tiếng Việt, từ khâu kiến trúc đến bàn giao và vận hành.",
+      "lede": "Thuê ngoài phát triển phần mềm tại Việt Nam là việc giao công việc kỹ thuật cho một đội ngũ đặt tại Việt Nam, dưới dạng đội dự án trọn gói hoặc kỹ sư nhúng vào đội ngũ sẵn có của bạn. Với doanh nghiệp Mỹ và châu Âu, lựa chọn này thường đến từ ba yếu tố cộng lại: chi phí kỹ thuật thấp hơn, nguồn nhân lực lập trình dồi dào và đang mở rộng, cùng múi giờ tạo được độ trùng thật với buổi sáng châu Âu và buổi tối nước Mỹ. SofinWave là công ty phát triển phần mềm đặt tại Việt Nam, làm việc bằng tiếng Anh, tiếng Việt và tiếng Trung, từ khâu kiến trúc đến bàn giao và vận hành.",
       "sections": [
         {
           "heading": "Thuê ngoài tại Việt Nam thực sự mang lại gì",
@@ -1132,7 +1133,7 @@
       "navLabel": "Về chúng tôi",
       "title": "Về SofinWave",
       "metaTitle": "Về SofinWave — thuê ngoài phần mềm từ Việt Nam",
-      "metaDescription": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam, làm việc với khách hàng Mỹ và châu Âu bằng tiếng Anh và tiếng Việt, từ kiến trúc đến bàn giao và vận hành.",
+      "metaDescription": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam, làm việc với khách hàng Mỹ và châu Âu bằng tiếng Anh, tiếng Việt và tiếng Trung, từ kiến trúc đến bàn giao và vận hành.",
       "lede": "SofinWave là công ty thuê ngoài phát triển phần mềm đặt tại Việt Nam. Chúng tôi làm việc với doanh nghiệp ở Mỹ, châu Âu và châu Á dưới hình thức đội offshore, đội chuyên trách nằm trong quy trình của họ, hoặc từng kỹ sư lấp đúng khoảng trống cụ thể. Công việc của chúng tôi phần lớn nằm trên các hệ thống đã tồn tại và đã có người dùng — loại việc ít hào nhoáng nhưng rủi ro cao.",
       "sections": [
         {
@@ -1172,7 +1173,7 @@
         },
         {
           "question": "Các bạn làm việc bằng ngôn ngữ nào?",
-          "answer": "Tiếng Anh và tiếng Việt. Các tài liệu bàn giao — đặc tả, code review, tài liệu kỹ thuật, demo — mặc định bằng tiếng Anh trừ khi bạn muốn khác."
+          "answer": "Tiếng Anh, tiếng Việt và tiếng Trung. Các tài liệu bàn giao — đặc tả, code review, tài liệu kỹ thuật, demo — mặc định bằng tiếng Anh trừ khi bạn muốn khác."
         },
         {
           "question": "Các bạn đặt ở đâu?",

@@ -6,8 +6,11 @@ import { ALL_SITES, siteConfig } from "@/lib/sites";
 import { isAbsoluteHref } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
+import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
 
 const catalog = en as unknown as Record<string, Record<string, never>>;
+const CATALOGS: Record<string, Record<string, unknown>> = { en, vi, zh };
 
 describe.each(ALL_SITES.map((s) => s.id))("llms.txt for %s", (siteId) => {
   const config = siteConfig(siteId);
@@ -107,5 +110,26 @@ describe("llms-full.txt content specifics", () => {
   it("carries the finance disclaimer, which must travel with the content", () => {
     const txt = buildLlmsFullTxt(SiteId.Finance);
     expect(txt).toContain("not a licensed investment adviser");
+  });
+
+  // The disclaimer is the reason the finance site can publish at all, so it has
+  // to survive translation into every locale, not just the English source.
+  it.each(routing.locales)("carries the finance disclaimer in %s", (locale) => {
+    const disclaimer = (
+      CATALOGS[locale].financePages as unknown as { disclaimer: { lede: string } }
+    ).disclaimer.lede;
+    expect(buildLlmsFullTxt(SiteId.Finance)).toContain(disclaimer);
+  });
+});
+
+describe("llms.txt locale coverage", () => {
+  // The languages line and the section headings were hardcoded to English and
+  // Vietnamese; a third locale used to appear in the URLs but nowhere in the prose.
+  it.each(ALL_SITES.map((s) => s.id))("names every routed locale on %s", (siteId) => {
+    const txt = buildLlmsTxt(siteId);
+    for (const locale of routing.locales) {
+      expect(txt, `section heading for ${locale}`).toContain(`(${locale})`);
+    }
+    expect(txt).toContain("- Languages: English, Vietnamese, Chinese");
   });
 });

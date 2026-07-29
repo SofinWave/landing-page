@@ -2,6 +2,7 @@ import type { ContentPageData } from "@/components/content-page";
 import type { SiteId } from "@/enums";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
 import { routing } from "@/i18n/routing";
 import { HOME_PATH } from "@/lib/routes";
 import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
@@ -20,6 +21,7 @@ type Catalog = Record<string, Record<string, unknown>>;
 const CATALOGS: Record<string, Catalog> = {
   en: en as unknown as Catalog,
   vi: vi as unknown as Catalog,
+  zh: zh as unknown as Catalog,
 };
 
 function catalog(locale: string): Catalog {
@@ -63,7 +65,25 @@ function contentPages(site: SiteId, locale: string) {
     .filter((entry) => Boolean(entry.page));
 }
 
-const LOCALE_LABEL: Record<string, string> = { en: "English", vi: "Tiếng Việt" };
+/**
+ * Two names per locale: the endonym heads its own section, so the heading reads
+ * in the language it introduces; the English name goes in the surrounding prose,
+ * which is English for the answer engines parsing it.
+ */
+const LOCALE_LABEL: Record<string, { native: string; english: string }> = {
+  en: { native: "English", english: "English" },
+  vi: { native: "Tiếng Việt", english: "Vietnamese" },
+  zh: { native: "中文", english: "Chinese" },
+};
+
+function localeLabel(locale: string): { native: string; english: string } {
+  return LOCALE_LABEL[locale] ?? { native: locale, english: locale };
+}
+
+/** The site's languages, named in English, in routing order. */
+function languageList(): string {
+  return routing.locales.map((l) => localeLabel(l).english).join(", ");
+}
 
 /**
  * The landing page's text.
@@ -100,7 +120,7 @@ export function buildLlmsTxt(site: SiteId = DEFAULT_SITE.id): string {
   ];
 
   for (const locale of routing.locales) {
-    lines.push(`### ${LOCALE_LABEL[locale] ?? locale} (${locale})`, "");
+    lines.push(`### ${localeLabel(locale).native} (${locale})`, "");
     lines.push(`- [${meta(site, locale).title}](${pageUrl(locale, HOME_PATH, site)})`);
 
     for (const { url, page } of contentPages(site, locale)) {
@@ -114,7 +134,7 @@ export function buildLlmsTxt(site: SiteId = DEFAULT_SITE.id): string {
     "",
     `- Website: ${siteUrl(site)}`,
     `- Email: ${SITE_EMAIL}`,
-    "- Languages: English, Vietnamese",
+    `- Languages: ${languageList()}`,
     "",
   );
 
@@ -130,7 +150,7 @@ export function buildLlmsFullTxt(site: SiteId = DEFAULT_SITE.id): string {
     `> ${meta(site, routing.defaultLocale).description}`,
     "",
     `Canonical site: ${siteUrl(site)}. Content below is the complete text of every page,`,
-    "in English first and Vietnamese second.",
+    `repeated per locale in this order: ${languageList()}.`,
     "",
   ];
 

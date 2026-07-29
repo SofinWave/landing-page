@@ -8,7 +8,8 @@
   "nav": {
     "language": "Language",
     "english": "English",
-    "vietnamese": "Tiếng Việt"
+    "vietnamese": "Tiếng Việt",
+    "chinese": "中文"
   },
   "header": {
     "brand": "SofinWave",
@@ -188,7 +189,7 @@
   },
   "team": {
     "title": "Who we are",
-    "about": "SofinWave is a small senior team of engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team, from Vietnam, in English and Vietnamese.",
+    "about": "SofinWave is a small senior team of engineers and consultants who have delivered production systems across fintech, e-commerce, and enterprise. We work as an extension of your team, from Vietnam, in English, Vietnamese, and Chinese.",
     "members": [
       {
         "name": "Jesse",
@@ -299,7 +300,7 @@
       "title": "Vietnam Software Outsourcing",
       "metaTitle": "Vietnam Software Outsourcing: Rates, Time Zones & How to Start",
       "metaDescription": "How software outsourcing to Vietnam works for US and European companies — engagement models, time-zone overlap, IP protection, and how Vietnam compares with India, the Philippines, and Poland.",
-      "lede": "Software outsourcing to Vietnam means contracting engineering work to a team based in Vietnam, either as a full project team or as engineers embedded in your own. For US and European companies it is most often chosen for the combination of lower engineering cost, a large and growing developer talent pool, and a time zone that gives real overlap with European mornings and US evenings. SofinWave is a Vietnam-based software outsourcing company that works in English and Vietnamese, from architecture through delivery and operations.",
+      "lede": "Software outsourcing to Vietnam means contracting engineering work to a team based in Vietnam, either as a full project team or as engineers embedded in your own. For US and European companies it is most often chosen for the combination of lower engineering cost, a large and growing developer talent pool, and a time zone that gives real overlap with European mornings and US evenings. SofinWave is a Vietnam-based software outsourcing company that works in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
       "sections": [
         {
           "heading": "What outsourcing to Vietnam actually gets you",
@@ -1127,7 +1128,7 @@
       "navLabel": "About",
       "title": "About SofinWave",
       "metaTitle": "About SofinWave — Software Outsourcing from Vietnam",
-      "metaDescription": "SofinWave is a Vietnam-based software outsourcing company working with US and European clients in English and Vietnamese, from architecture through delivery and operations.",
+      "metaDescription": "SofinWave is a Vietnam-based software outsourcing company working with US and European clients in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
       "lede": "SofinWave is a software outsourcing company based in Vietnam. We work with companies in the US, Europe, and Asia as an offshore team, a dedicated team inside their process, or individual engineers filling specific gaps. Our work is mostly on systems that already exist and already have users — the unglamorous, high-stakes kind.",
       "sections": [
         {
@@ -1167,7 +1168,7 @@
         },
         {
           "question": "What languages do you work in?",
-          "answer": "English and Vietnamese. Delivery artefacts — specs, code review, documentation, demos — default to English unless you prefer otherwise."
+          "answer": "English, Vietnamese, and Chinese. Delivery artefacts — specs, code review, documentation, demos — default to English unless you prefer otherwise."
         },
         {
           "question": "Where are you based?",

@@ -21,6 +21,7 @@ export function LanguageSwitcher() {
   const labels: Record<string, string> = {
     en: t("english"),
     vi: t("vietnamese"),
+    zh: t("chinese"),
   };
 
   return (

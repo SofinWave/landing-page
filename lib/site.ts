@@ -30,6 +30,7 @@ export function siteUrl(site: SiteId): string {
 export const OG_LOCALE: Record<string, string> = {
   [LocaleSupport.EN]: "en_US",
   [LocaleSupport.VI]: "vi_VN",
+  [LocaleSupport.ZH]: "zh_CN",
 };
 
 /**
@@ -83,6 +84,26 @@ export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
       "Next.js",
       "TypeScript",
     ],
+    [LocaleSupport.ZH]: [
+      "越南软件外包",
+      "离岸软件开发",
+      "软件外包公司",
+      "AI 落地咨询",
+      "大模型集成服务",
+      "定制软件开发",
+      "专属开发团队",
+      "IT 人力外包",
+      "系统集成",
+      "DevOps 外包",
+      "AI 训练数据服务",
+      "数据标注外包",
+      "第一人称视角数据采集",
+      "视频标注服务",
+      "3D 点云标注",
+      "RLHF 与 SFT 数据",
+      "Next.js",
+      "TypeScript",
+    ],
   },
   [SiteId.Media]: {
     [LocaleSupport.EN]: [
@@ -100,6 +121,14 @@ export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
       "nội dung marketing cho sản phẩm công nghệ",
       "sản xuất video Việt Nam",
       "tiếp thị liên kết",
+    ],
+    [LocaleSupport.ZH]: [
+      "产品视频制作",
+      "软件演示视频",
+      "技术内容写作",
+      "开发者营销内容",
+      "越南视频制作",
+      "联盟营销内容",
     ],
   },
   // Deliberately free of advisory vocabulary. This site publishes a record of a
@@ -122,6 +151,16 @@ export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
       "phân tích dữ liệu thị trường",
       "công cụ tài chính cá nhân",
     ],
+    // Same constraint as the other locales: nothing here may read as advice,
+    // stock picking, or asset management (投资建议 / 荐股 / 理财顾问).
+    [LocaleSupport.ZH]: [
+      "投资笔记",
+      "投资流程",
+      "投资组合跟踪工具",
+      "金融知识",
+      "市场数据分析",
+      "个人财务工具",
+    ],
   },
   [SiteId.Academy]: {
     [LocaleSupport.EN]: [
@@ -139,6 +178,14 @@ export const SITE_KEYWORDS: Record<SiteId, Record<string, string[]>> = {
       "khóa học sản xuất nội dung",
       "gia sư lớp 1 đến 12",
       "học trực tuyến",
+    ],
+    [LocaleSupport.ZH]: [
+      "软件工程课程",
+      "编程与 AI 培训",
+      "投资知识课程",
+      "内容制作课程",
+      "中小学 1-12 年级辅导",
+      "越南在线学习",
     ],
   },
 };
