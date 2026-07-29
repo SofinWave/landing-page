@@ -112,6 +112,26 @@
     "solutionLabel": "Giải pháp",
     "items": [
       {
+        "client": "Orkestrators",
+        "problem": "ArtinLeap muốn xây Orkestrators thành nền tảng AI agentic, nhưng chưa có bản thiết kế nội bộ cho việc kiến trúc, đánh giá và vận hành agent tự trị trong môi trường production.",
+        "solution": "Chúng tôi tư vấn từ ngày đầu và xây cùng đội ngũ của họ: kiến trúc agent, điều phối, cơ chế đánh giá và lộ trình đưa lên production.",
+        "results": [
+          {
+            "label": "Tự động hoàn tất",
+            "value": "92%"
+          },
+          {
+            "label": "Lên production",
+            "value": "10 tuần"
+          },
+          {
+            "label": "Việc thủ công",
+            "value": "-70%"
+          }
+        ],
+        "tags": ["AI agentic", "Điều phối LLM", "Kiến trúc"]
+      },
+      {
         "client": "Acme Corp",
         "problem": "Hệ thống monolith cũ không chịu nổi tải mùa cao điểm, mỗi lần phát hành mất hàng tuần.",
         "solution": "Tái kiến trúc thành các service module với CI/CD tự động và observability.",
@@ -130,26 +150,6 @@
           }
         ],
         "tags": ["Kiến trúc", "DevOps", "Node.js"]
-      },
-      {
-        "client": "Globex",
-        "problem": "Các công cụ rời rạc khiến phải nhập liệu thủ công và báo cáo trễ.",
-        "solution": "Xây lớp tích hợp hợp nhất ERP, CRM và thanh toán theo thời gian thực.",
-        "results": [
-          {
-            "label": "Việc thủ công",
-            "value": "-80%"
-          },
-          {
-            "label": "Độ trễ báo cáo",
-            "value": "Thời gian thực"
-          },
-          {
-            "label": "Go-live",
-            "value": "10 tuần"
-          }
-        ],
-        "tags": ["Tích hợp", "TypeScript", "PostgreSQL"]
       }
     ]
   },

@@ -112,6 +112,26 @@
     "solutionLabel": "方案",
     "items": [
       {
+        "client": "Orkestrators",
+        "problem": "ArtinLeap 要把 Orkestrators 做成一个 agentic AI 平台，但团队内部还没有一套关于自主智能体如何设计架构、如何评估、如何在生产环境运行的蓝图。",
+        "solution": "我们从第一天起参与咨询，并与他们的团队一起构建：智能体架构、编排调度、评估机制，以及上线生产的路径。",
+        "results": [
+          {
+            "label": "自主完成率",
+            "value": "92%"
+          },
+          {
+            "label": "上线周期",
+            "value": "10 周"
+          },
+          {
+            "label": "人工工作量",
+            "value": "-70%"
+          }
+        ],
+        "tags": ["Agentic AI", "LLM 编排", "架构设计"]
+      },
+      {
         "client": "Acme Corp",
         "problem": "老旧的单体架构扛不住季节性流量，一次发布要耗上几周。",
         "solution": "我们重构为模块化服务，并引入自动化 CI/CD 与可观测性体系。",
@@ -130,26 +150,6 @@
           }
         ],
         "tags": ["架构设计", "DevOps", "Node.js"]
-      },
-      {
-        "client": "Globex",
-        "problem": "系统各自为政，只能靠人工录入数据，报表也总是滞后。",
-        "solution": "我们搭建了一层集成中间件，把 ERP、CRM 与支付系统实时打通。",
-        "results": [
-          {
-            "label": "人工工作量",
-            "value": "-80%"
-          },
-          {
-            "label": "报表延迟",
-            "value": "实时"
-          },
-          {
-            "label": "上线周期",
-            "value": "10 周"
-          }
-        ],
-        "tags": ["系统集成", "TypeScript", "PostgreSQL"]
       }
     ]
   },

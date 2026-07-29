@@ -52,9 +52,10 @@ numbers, so all three animate.
 
 | File | Change |
 | --- | --- |
-| `messages/en.json` → `caseStudies.items` | Replace the Globex entry with Orkestrators; move it to index 0. |
+| `messages/en.json` → `caseStudies.items` | Drop the Globex entry; add Orkestrators at index 0. |
 | `messages/vi.json` → `caseStudies.items` | Same, translated. Key structure must stay identical — `tests/messages/parity.test.ts` enforces it. |
-| `tests/sections/case-studies.test.tsx` | Assert the Orkestrators card renders. Rework the non-numeric-metric regression test (below). |
+| `messages/zh.json` → `caseStudies.items` | Same again. `zh` is a live locale (`LocaleSupport.ZH`), and the parity test compares only key paths and array lengths — it would not have caught a stale Chinese catalog still advertising Globex. |
+| `tests/sections/case-studies.test.tsx` | Assert the Orkestrators card and its three metric labels render. Rework the non-numeric-metric regression test (below). |
 
 No other file references `caseStudies`. The section feeds no JSON-LD, sitemap,
 or `llms.txt` output, so this is a pure content change.
@@ -71,15 +72,25 @@ Rather than bend the content to fit the test, the regression test will render
 metric. That keeps the `parseMetric` regression covered while decoupling it from
 whatever copy the site happens to ship.
 
-## Content still needed from the client-facing owner
+## Shipped values, and where they came from
 
-Values are deliberately absent from this spec. Nothing ships until they arrive —
-no placeholder numbers get committed.
+| Field | Value | Source |
+| --- | --- | --- |
+| Autonomous completion | `92%` | Confirmed by the site owner |
+| Time to production | `10 weeks` | Confirmed by the site owner |
+| Manual work | `-70%` | Confirmed by the site owner |
+| Problem / Solution | see catalogs | Drafted from the owner's description of the engagement — agentic AI systems, advised from day zero — with no business specifics invented |
+| Tags | `Agentic AI`, `LLM Orchestration`, `Architecture` | Drafted, same basis |
 
-1. **Problem** — what ArtinLeap was facing before the engagement (1–2 sentences).
-2. **Solution** — what SofinWave advised and built (1–2 sentences).
-3. **Autonomous completion** — `__%`
-4. **Time to production** — `__ weeks` (kickoff → first agent on real traffic)
-5. **Manual work** — `-__%`
-6. **Tags** — three, matching the existing style (e.g. `Agentic AI`,
-   `LLM Orchestration`, `Python`).
+The three figures were first written as format illustrations in a preview and
+then confirmed for publication by the owner; they are not measurements this
+repository can verify. The prose is a draft standing in for detail only
+ArtinLeap and SofinWave hold — replacing it with the specific problem
+Orkestrators solves would make the card considerably stronger.
+
+## Left alone deliberately
+
+`testimonials.items` still carries "John Smith, Head of Engineering, Globex" —
+a quote attributed to a company that no longer appears anywhere else on the
+site. That is `CONTENT-TODO.md` item #2 and outside this change's scope, but the
+inconsistency is now visible and worth closing.

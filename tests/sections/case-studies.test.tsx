@@ -32,9 +32,21 @@ describe("CaseStudies", () => {
         <CaseStudies />
       </NextIntlClientProvider>,
     );
+    expect(screen.getByText("Orkestrators")).toBeInTheDocument();
     expect(screen.getByText("Acme Corp")).toBeInTheDocument();
     expect(screen.getAllByText("Problem").length).toBeGreaterThan(0);
     expect(screen.getByText("8x")).toBeInTheDocument();
+  });
+
+  it("leads with the Orkestrators metrics", () => {
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <CaseStudies />
+      </NextIntlClientProvider>,
+    );
+    expect(screen.getByText("Autonomous completion")).toBeInTheDocument();
+    expect(screen.getByText("Time to production")).toBeInTheDocument();
+    expect(screen.getByText("Manual work")).toBeInTheDocument();
   });
 
   it("renders non-numeric metric values as raw text without a trailing CountUp digit", () => {
