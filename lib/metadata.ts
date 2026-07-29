@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import type { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
 import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
-import { OG_LOCALE, languageAlternates, pageUrl, siteUrl } from "@/lib/site";
+import { OG_LOCALE, languageAlternates, pageKeywords, pageUrl, siteUrl } from "@/lib/site";
 
 interface PageMetadataArgs {
   locale: string;
-  /** Path after the locale prefix, e.g. `"services/dedicated-team"`. */
+  /** Path after the locale prefix, e.g. `"services/delivery-teams"`. */
   path: string;
   title: string;
   description: string;
+  /**
+   * Route key, used to look up page-specific keywords. Omitting it leaves the
+   * site-level list the layout already set, which is the right default for a
+   * page that is simply about what the site is about.
+   */
+  routeKey?: string;
   site?: SiteId;
 }
 
@@ -24,6 +30,7 @@ export function pageMetadata({
   path,
   title,
   description,
+  routeKey,
   site = DEFAULT_SITE.id,
 }: PageMetadataArgs): Metadata {
   const url = pageUrl(locale, path, site);
@@ -45,6 +52,9 @@ export function pageMetadata({
   return {
     title,
     description,
+    // Overrides the layout's site-level list for this page only. Next merges
+    // metadata child-over-parent, so pages without a routeKey keep the default.
+    ...(routeKey ? { keywords: pageKeywords(locale, routeKey, site) } : {}),
     alternates: {
       canonical: url,
       languages: {

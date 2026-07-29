@@ -23,6 +23,20 @@ const AI_CRAWLERS = [
   "Bytespider",
 ];
 
+/**
+ * Chinese search crawlers, named for the same reason the AI crawlers are.
+ *
+ * `User-Agent: *` already allows them, so this changes no behaviour. It is here
+ * because Baiduspider is the one crawler most often blocked by accident — it is
+ * absent from the allowlists people copy, and a later `Disallow` written for
+ * some other bot is easy to scope too widely. Naming it makes the intent
+ * survive the next edit to this file.
+ *
+ * Sogou powers WeChat's in-app search, which is a separate surface from Baidu
+ * and worth being crawlable on.
+ */
+const CHINESE_SEARCH_CRAWLERS = ["Baiduspider", "Sogou web spider", "360Spider"];
+
 export async function GET(_request: Request, { params }: { params: Promise<{ site: string }> }) {
   const { site } = await params;
   const id = isSiteId(site) ? site : DEFAULT_SITE.id;
@@ -34,6 +48,8 @@ export async function GET(_request: Request, { params }: { params: Promise<{ sit
     "Disallow: /api/",
     "",
     ...AI_CRAWLERS.flatMap((agent) => [`User-Agent: ${agent}`, "Allow: /", ""]),
+    ...CHINESE_SEARCH_CRAWLERS.flatMap((agent) => [`User-Agent: ${agent}`, "Allow: /", ""]),
+    // `Host` is read by Baidu and Yandex, and ignored by Google.
     `Host: ${origin}`,
     `Sitemap: ${origin}/sitemap.xml`,
     "",
