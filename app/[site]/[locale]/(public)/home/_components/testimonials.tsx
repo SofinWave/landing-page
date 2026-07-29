@@ -4,6 +4,7 @@ import { Section } from "@/components/section";
 import { HudCard } from "@/components/hud-card";
 import { CardContent } from "@/components/ui/card";
 import { Reveal } from "@/components/reveal";
+import { cn } from "@/lib/utils";
 
 type Testimonial = { quote: string; author: string; role: string; company: string };
 
@@ -15,7 +16,10 @@ export function Testimonials() {
       <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
         {t("title")}
       </h2>
-      <div className="grid gap-6 md:grid-cols-2">
+      {/* A lone quote in a two-column grid sits half-width against empty space. */}
+      <div
+        className={cn("grid gap-6", items.length === 1 ? "mx-auto max-w-2xl" : "md:grid-cols-2")}
+      >
         {items.map((item) => (
           <HudCard key={item.author}>
             <Reveal>
