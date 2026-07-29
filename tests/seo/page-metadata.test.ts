@@ -65,13 +65,13 @@ describe("webPageSchema", () => {
 
 describe("breadcrumbSchema", () => {
   it("emits a positioned trail matching the route hierarchy", () => {
-    const node = breadcrumbSchema("en", "services/dedicated-team", (r) => r.key, SiteId.Tech);
+    const node = breadcrumbSchema("en", "services/delivery-teams", (r) => r.key, SiteId.Tech);
 
     expect(node.itemListElement.map((i) => i.position)).toEqual([1, 2, 3]);
     expect(node.itemListElement.map((i) => i.item)).toEqual([
       "https://sofinwave.com/en/home",
       "https://sofinwave.com/en/services",
-      "https://sofinwave.com/en/services/dedicated-team",
+      "https://sofinwave.com/en/services/delivery-teams",
     ]);
   });
 });

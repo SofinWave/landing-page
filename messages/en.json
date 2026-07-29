@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "SofinWave — Software Outsourcing & Offshore Development in Vietnam",
-    "description": "SofinWave is a Vietnam-based software outsourcing company. Offshore development teams, dedicated teams, and IT staff augmentation for US and European businesses — from architecture through delivery and operations.",
-    "ogHeadline": "Software outsourcing from Vietnam",
-    "ogSubline": "Offshore teams, dedicated teams, and staff augmentation — from architecture through delivery."
+    "title": "SofinWave — IT & AI Consulting from Vietnam",
+    "description": "SofinWave is a Vietnam-based IT consulting firm. We advise on what to build across software systems and AI — architecture, integration, AI strategy — and deliver it with our own engineering team.",
+    "ogHeadline": "IT and AI consulting from Vietnam",
+    "ogSubline": "We advise on the system, then build it — architecture through delivery."
   },
   "nav": {
     "language": "Language",
@@ -23,9 +23,9 @@
     "status": "Available for work"
   },
   "hero": {
-    "eyebrow": "Software outsourcing & offshore development",
-    "title": "Your offshore engineering team in Vietnam",
-    "subtitle": "SofinWave builds and runs the software your business depends on — as a full offshore team, a dedicated team inside your process, or engineers filling the gaps. Architecture through delivery, in English, from UTC+7.",
+    "eyebrow": "IT & AI consulting",
+    "title": "We advise on the system, then build it",
+    "subtitle": "SofinWave is an IT consulting firm in Vietnam. We work out what your business should build — software systems, integrations, AI that automates real work — and then our own engineers deliver it. That second half is the point: advice from people who have to live with it. Architecture through operations, from UTC+7.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "View case studies"
   },
@@ -34,13 +34,13 @@
     "items": ["ArtInLeap", "SmartGoldFish", "Spinshell Inc", "Cloud Kinetics", "AWS Vietnam"]
   },
   "services": {
-    "title": "How we work with you",
-    "subtitle": "Team models, engineering services, AI delivery, and the data your models learn from — across the full delivery lifecycle.",
+    "title": "What we do",
+    "subtitle": "Advice on what to build, the AI work that usually follows, and the engineering team that delivers it — across the full lifecycle.",
     "items": [
       {
         "icon": "compass",
-        "title": "Architecture consulting",
-        "description": "System design, tech due diligence, and roadmaps that de-risk delivery."
+        "title": "IT & AI consulting",
+        "description": "Architecture, technical due diligence, and roadmaps — including whether AI belongs in the problem at all."
       },
       {
         "icon": "server",
@@ -49,7 +49,7 @@
       },
       {
         "icon": "code",
-        "title": "Custom software development",
+        "title": "Software engineering",
         "description": "Web, mobile, and backend engineering tailored to your business rules."
       },
       {
@@ -213,7 +213,7 @@
         "answer": "With a short discovery call to understand your goals, followed by a written proposal and plan. Estimates come after discovery, never from a brief alone."
       },
       {
-        "question": "What does outsourcing to Vietnam cost compared with hiring locally?",
+        "question": "What does working with a Vietnam-based partner cost compared with hiring locally?",
         "answer": "Per engineer it is generally lower than the US, UK, and Western Europe, though the saving is smaller than rate cards suggest once onboarding and management time are counted. Rates depend on role and seniority — tell us what you need and we will send a rate card for your actual situation."
       },
       {
@@ -257,7 +257,7 @@
   },
   "footer": {
     "brand": "SofinWave",
-    "tagline": "Software outsourcing and offshore development from Vietnam.",
+    "tagline": "IT and AI consulting from Vietnam — the advice, and the team that delivers it.",
     "status": "All systems operational",
     "email": "Work.KingNNT@gmail.com",
     "rights": "All rights reserved.",
@@ -295,16 +295,16 @@
       "navLabel": "Home",
       "title": "Home"
     },
-    "vietnamSoftwareOutsourcing": {
+    "vietnamItConsulting": {
       "navLabel": "Why Vietnam",
-      "title": "Vietnam Software Outsourcing",
-      "metaTitle": "Vietnam Software Outsourcing: Rates, Time Zones & How to Start",
-      "metaDescription": "How software outsourcing to Vietnam works for US and European companies — engagement models, time-zone overlap, IP protection, and how Vietnam compares with India, the Philippines, and Poland.",
-      "lede": "Software outsourcing to Vietnam means contracting engineering work to a team based in Vietnam, either as a full project team or as engineers embedded in your own. For US and European companies it is most often chosen for the combination of lower engineering cost, a large and growing developer talent pool, and a time zone that gives real overlap with European mornings and US evenings. SofinWave is a Vietnam-based software outsourcing company that works in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
+      "title": "IT Consulting from Vietnam",
+      "metaTitle": "IT Consulting from Vietnam: Rates, Time Zones & How to Start",
+      "metaDescription": "What it is like to work with a Vietnam-based IT consulting and engineering partner — engagement models, time-zone overlap, IP protection, and how Vietnam compares with India, the Philippines, and Poland.",
+      "lede": "Bringing in a partner from Vietnam usually starts with a decision you do not want to make alone — an architecture to commit to, a system to modernise, an AI project that has stalled somewhere between the demo and production. What Vietnam adds to that is a combination not many places offer at once: senior engineering judgement at a cost that leaves room to be wrong once, a deep talent pool in the stacks most product companies actually run, and a time zone with real overlap with European mornings and US evenings. SofinWave is a Vietnam-based IT consulting firm that works in English, Vietnamese, and Chinese, from the first architecture question through delivery and operations.",
       "sections": [
         {
-          "heading": "What outsourcing to Vietnam actually gets you",
-          "body": "The reason to outsource is rarely just cost. It is capacity you can add or remove without a hiring cycle, and access to skills you do not want to keep on permanent staff. Vietnam is attractive for that because the engineering market is deep in exactly the stacks most product companies run on.",
+          "heading": "What a Vietnam-based partner actually gets you",
+          "body": "The reason to bring in an outside partner is rarely just cost. It is judgement you do not have in the building, and capacity you can add or remove without a hiring cycle. Vietnam is attractive for that because the engineering market is deep in exactly the stacks most product companies run on.",
           "bullets": [
             "Lower blended engineering cost than hiring equivalent seniority in the US, UK, or Western Europe.",
             "A large pool of engineers working in JavaScript/TypeScript, Java, Python, Go, and mobile.",
@@ -328,7 +328,7 @@
         },
         {
           "heading": "Protecting your IP and your code",
-          "body": "This is the question that stops most outsourcing conversations, and it should be settled in the contract rather than assumed. Vietnam is a signatory to the Berne Convention and the WIPO Copyright Treaty, and standard work-for-hire assignment is enforceable in commercial contracts.",
+          "body": "This is the question that stops most conversations with an outside partner, and it should be settled in the contract rather than assumed. Vietnam is a signatory to the Berne Convention and the WIPO Copyright Treaty, and standard work-for-hire assignment is enforceable in commercial contracts.",
           "bullets": [
             "You own all source code, documentation, and IP produced under the engagement.",
             "NDAs are signed before any technical discovery begins.",
@@ -338,7 +338,7 @@
         },
         {
           "heading": "How to start without betting the project on it",
-          "body": "The lowest-risk way into an outsourcing relationship is a scoped piece of work with a real deliverable, not a trial period with vague goals. You learn more about a team from one shipped increment than from three months of interviews.",
+          "body": "The lowest-risk way into a working relationship is a scoped piece of work with a real deliverable, not a trial period with vague goals. A short paid discovery or one shipped increment tells you more about a team than three months of interviews.",
           "bullets": [
             "Start with a discovery call to map goals, constraints, and success criteria.",
             "Agree a first slice of work small enough to finish in weeks, not quarters.",
@@ -348,7 +348,7 @@
         }
       ],
       "table": {
-        "caption": "Vietnam compared with other outsourcing destinations",
+        "caption": "Vietnam compared with other engineering destinations",
         "columns": [
           "Destination",
           "Overlap with Europe",
@@ -384,7 +384,7 @@
       },
       "faq": [
         {
-          "question": "Is outsourcing to Vietnam cheaper than hiring locally?",
+          "question": "Is working with a Vietnam-based team cheaper than hiring locally?",
           "answer": "Per engineer, generally yes compared with the US, UK, and Western Europe — but the saving is smaller than headline rate cards suggest once you account for onboarding, overlap hours, and management time. The clearer benefit is that you can add or remove capacity on contract terms rather than through a hiring and redundancy cycle. Ask us for current rates for the roles you need."
         },
         {
@@ -406,65 +406,32 @@
       ],
       "cta": {
         "title": "Talk through whether Vietnam fits your situation",
-        "body": "A short call is usually enough to tell whether outsourcing helps you or just adds coordination overhead. We will say so either way.",
+        "body": "A short call is usually enough to tell whether an outside partner helps you or just adds coordination overhead. We will say so either way.",
         "button": "Book a consultation"
       }
     },
     "services": {
       "navLabel": "Services",
       "title": "Services",
-      "metaTitle": "Software Outsourcing Services",
-      "metaDescription": "Offshore development, dedicated teams, staff augmentation, custom software, system integration, DevOps, AI delivery, and AI training data — from Vietnam for US and European clients.",
-      "lede": "SofinWave works in four registers: team models, engineering services, AI delivery, and the training data underneath it. Which one fits depends on whether you need capacity, specific skills, someone to own an outcome, or the dataset a model will learn from. If you are not sure, describe the problem and we will tell you which we would propose and why.",
+      "metaTitle": "IT Consulting & Engineering Services",
+      "metaDescription": "Consulting on software and AI systems, AI implementation, engineering services, delivery teams, and AI training data — from Vietnam for US and European clients.",
+      "lede": "Everything here starts from the same place: a decision about what to build. Consulting answers that question; the rest of this list is what happens after it is answered. Some clients only ever buy the first thing. If you are not sure which applies, describe the problem and we will tell you which we would propose and why — including when the answer is that you do not need us.",
       "sections": [
         {
-          "heading": "Team models",
-          "body": "These three differ in who owns the outcome. Pick by how much of the delivery responsibility you want to keep.",
+          "heading": "Consulting",
+          "body": "The advisory work, and where most engagements begin. Architecture and system design, technical due diligence, build-versus-buy, roadmap sequencing, and whether a problem is an AI problem at all.",
           "bullets": [
-            "Offshore development — a complete team that owns delivery of a product or system, with its own process and reporting.",
-            "Dedicated team — engineers assigned to you long-term who work inside your process, your board, your standups.",
-            "IT staff augmentation — named individuals filling specific gaps in an existing team, managed by you."
+            "IT & AI consulting — independent advice on what to build and how it should be shaped, with a plan you own and can take anywhere."
           ],
           "links": [
             {
-              "href": "/services/offshore-development",
-              "label": "Offshore development"
-            },
-            {
-              "href": "/services/dedicated-team",
-              "label": "Dedicated team"
-            },
-            {
-              "href": "/services/staff-augmentation",
-              "label": "IT staff augmentation"
+              "href": "/services/it-consulting",
+              "label": "IT & AI consulting"
             }
           ]
         },
         {
-          "heading": "Engineering services",
-          "body": "These are scoped around a technical outcome rather than a team shape, and are usually delivered by one of the models above.",
-          "bullets": [
-            "Custom software development — web, mobile, and backend systems built to your business rules.",
-            "System integration — connecting ERP, CRM, payment, and third-party systems into one reliable flow.",
-            "DevOps & cloud — CI/CD, infrastructure as code, observability, and cloud cost work."
-          ],
-          "links": [
-            {
-              "href": "/services/custom-software-development",
-              "label": "Custom software development"
-            },
-            {
-              "href": "/services/system-integration",
-              "label": "System integration"
-            },
-            {
-              "href": "/services/devops-cloud",
-              "label": "DevOps & cloud"
-            }
-          ]
-        },
-        {
-          "heading": "AI delivery",
+          "heading": "AI systems",
           "body": "Three purchases that get conflated because they all involve a model. Each fails in a different way, so each has its own page.",
           "bullets": [
             "AI implementation — taking a model from a convincing demo to a system with evaluation, cost control, and a rollback path.",
@@ -483,6 +450,47 @@
             {
               "href": "/services/ai-agents",
               "label": "AI agents"
+            }
+          ]
+        },
+        {
+          "heading": "Engineering services",
+          "body": "Scoped around a technical outcome rather than a team shape, and usually delivered by one of the team shapes below.",
+          "bullets": [
+            "Software engineering — web, mobile, and backend systems built to your business rules.",
+            "System integration — connecting ERP, CRM, payment, and third-party systems into one reliable flow.",
+            "DevOps & cloud — CI/CD, infrastructure as code, observability, and cloud cost work."
+          ],
+          "links": [
+            {
+              "href": "/services/software-engineering",
+              "label": "Software engineering"
+            },
+            {
+              "href": "/services/system-integration",
+              "label": "System integration"
+            },
+            {
+              "href": "/services/devops-cloud",
+              "label": "DevOps & cloud"
+            }
+          ]
+        },
+        {
+          "heading": "Delivery teams",
+          "body": "The engineers who build what the consulting recommended. The two options differ in who is accountable when a date slips.",
+          "bullets": [
+            "Delivery teams — managed delivery where we own the outcome, or a dedicated team working inside your process.",
+            "IT staff augmentation — named individuals filling specific gaps in an existing team, managed by you."
+          ],
+          "links": [
+            {
+              "href": "/services/delivery-teams",
+              "label": "Delivery teams"
+            },
+            {
+              "href": "/services/staff-augmentation",
+              "label": "IT staff augmentation"
             }
           ]
         },
@@ -520,13 +528,17 @@
         },
         {
           "heading": "How to choose",
-          "body": "The practical test is who will be accountable when a deadline slips. If the answer has to be the vendor, you want offshore development. If your own engineering manager will own it, staff augmentation or a dedicated team is a better fit and usually cheaper."
+          "body": "If you do not yet know what should be built, start with consulting — everything downstream is cheaper once that is settled. If you do know, the practical test is who will be accountable when a deadline slips. If that has to be us, you want managed delivery. If your own engineering manager will own it, a dedicated team or staff augmentation fits better and usually costs less."
         }
       ],
       "faq": [
         {
-          "question": "Can we change model partway through?",
-          "answer": "Yes, and it is common. Engagements often start as a scoped project and move to a dedicated team once the direction is clear. Changing model is a contract amendment, not a restart."
+          "question": "Do we have to start with consulting?",
+          "answer": "No. If the decision is already made and you need it built, we can start at delivery. We would rather spend a short paid discovery first, because building the wrong thing well is the most expensive outcome available to either of us."
+        },
+        {
+          "question": "Can we change engagement shape partway through?",
+          "answer": "Yes, and it is common. Engagements often start as a scoped project and move to a dedicated team once the direction is clear. Changing shape is a contract amendment, not a restart."
         },
         {
           "question": "Do you take on work on an existing codebase?",
@@ -543,130 +555,170 @@
         "button": "Book a consultation"
       }
     },
-    "offshoreDevelopment": {
-      "navLabel": "Offshore development",
-      "title": "Offshore Software Development",
-      "metaTitle": "Offshore Software Development Services in Vietnam",
-      "metaDescription": "A complete offshore development team in Vietnam that owns delivery end to end — architecture, build, testing, release, and operations — for US and European companies.",
-      "lede": "Offshore software development means a vendor team, in another country, that owns delivery of a product or system rather than just supplying hands. SofinWave runs offshore teams from Vietnam for US and European clients: we take a defined outcome, staff the roles it needs, and are accountable for shipping it. You get progress you can verify — running software, not status decks.",
+    "itConsulting": {
+      "navLabel": "IT consulting",
+      "title": "IT & AI Consulting",
+      "metaTitle": "IT Consulting & Solution Architecture — Software and AI",
+      "metaDescription": "Independent advice on what to build, whether to build it, and how it should be shaped — across software systems and AI — from a team that also delivers what it recommends.",
+      "lede": "Most consulting engagements end at the document. Ours end at a system, because the same team that writes the recommendation is the one that has to make it work. That changes what gets recommended: nobody on our side proposes an architecture they would not want to be on call for. We advise across the whole range we build in — line-of-business software, integrations, platform and cloud, and AI systems from a single model call through to agents that act on your tools.",
       "sections": [
         {
-          "heading": "What the team looks like",
-          "body": "An offshore team is staffed to the work rather than to a template. A typical product team pairs engineers with the supporting roles that stop delivery from stalling.",
+          "heading": "What we advise on",
+          "body": "The work is scoped to a decision you are trying to make, not to a fixed number of weeks. Most engagements start because something is about to be committed to and the cost of being wrong has become obvious.",
           "bullets": [
-            "A technical lead accountable for architecture and code quality.",
-            "Backend, frontend, and mobile engineers sized to the scope.",
-            "QA embedded in the team rather than bolted on at the end.",
-            "A delivery lead who runs the cadence and is your single point of contact."
+            "Architecture and system design — how the thing should be shaped, and which constraints actually drive that shape.",
+            "Technical due diligence — reading a codebase, a team, and an infrastructure bill before an acquisition or an investment.",
+            "Build versus buy — whether the process is a differentiator worth building around or a cost worth paying someone else to carry.",
+            "Roadmap sequencing — what has to be true before the expensive part starts, and what can be deferred without painting you into a corner.",
+            "AI readiness — whether a problem is an AI problem at all, and if so which kind: retrieval, fine-tuning, agents, or a conventional system with better data.",
+            "Integration and platform strategy — how systems that were never designed together are going to have to work together."
           ]
         },
         {
-          "heading": "How delivery runs",
-          "body": "The process is deliberately boring, because predictability is the point. Work moves in short iterations with a demo at the end of each, so you never have to take progress on trust.",
+          "heading": "Advice from people who have to build it",
+          "body": "A consultancy that never ships is never corrected. It can recommend a service mesh for a team of four, hand over the deck, and never learn what that cost. We deliver, so our recommendations arrive attached to an estimate we would have to honour and an on-call rota we would have to sit on. That is a constraint on us, and it is the most useful thing we bring."
+        },
+        {
+          "heading": "AI, specifically",
+          "body": "AI advice is where the gap between confident and correct is widest right now, because the demos are easy and the production systems are not. What we look for first is whether the problem needs a model at all.",
           "bullets": [
-            "Discovery first: goals, constraints, and success metrics written down before code.",
-            "Iterations of one to two weeks, each ending in a demo of working software.",
-            "Automated tests and CI from the first commit, not retrofitted before launch.",
-            "Releases into your environment through a repeatable pipeline."
+            "Which of the four answers fits — retrieval fixes missing knowledge, fine-tuning fixes format and tone, agents fix multi-step work, a larger model fixes reasoning depth. They are routinely applied to the wrong one.",
+            "What evaluation would even look like, because without it no later change can be judged better or worse.",
+            "What the thing costs at real volume, which is where AI economics diverge from ordinary software.",
+            "Where a human has to stay in the loop, and what happens on the day the model is confidently wrong."
+          ],
+          "links": [
+            {
+              "href": "/services/ai-implementation",
+              "label": "AI implementation"
+            },
+            {
+              "href": "/services/ai-agents",
+              "label": "AI agents"
+            }
           ]
         },
         {
-          "heading": "What you keep control of",
-          "body": "Offshoring delivery does not mean giving up oversight. The artefacts that matter stay yours and stay visible throughout.",
+          "heading": "How an engagement starts",
+          "body": "Discovery is short, paid, and produces something you own. We charge for it deliberately: a free discovery produces a sales document, and a paid one produces a plan — architecture, scope, risks, and an estimate — that is yours to take to any vendor, including instead of us.",
           "bullets": [
-            "Your repositories, your cloud accounts, your CI — we work inside them.",
-            "Full commit history and code review visibility from day one.",
-            "Architecture decisions written down and approved by you before implementation.",
-            "Documentation maintained as part of the work, so handover is not a separate project."
+            "A first call to establish what decision is actually being made.",
+            "Discovery: reading the code, the infrastructure, and the constraints that are not written down.",
+            "A written recommendation with the reasoning, the options rejected, and what would change our mind.",
+            "Then your choice — we build it, your team builds it, or nobody does."
+          ],
+          "links": [
+            {
+              "href": "/services/delivery-teams",
+              "label": "Delivery teams"
+            },
+            {
+              "href": "/engagement-models",
+              "label": "Engagement models"
+            }
           ]
         },
         {
-          "heading": "When offshore development is the wrong choice",
-          "body": "If the requirements change faster than they can be written down, or the work depends on constant access to people inside your business, a vendor team will struggle regardless of quality. In that situation a dedicated team inside your own process, or staff augmentation, usually works better — and we will say so rather than sell you the larger engagement."
+          "heading": "When we tell you not to build",
+          "body": "Often enough that it is worth saying up front. Plenty of problems brought to us as engineering problems are process problems, data-quality problems, or a product that should be bought rather than built — and a well-chosen off-the-shelf tool beats a custom system that nobody has time to maintain. If that is what we find, that is what the recommendation says, even when the larger contract was the other answer."
         }
       ],
       "faq": [
         {
-          "question": "How is this different from a dedicated team?",
-          "answer": "Accountability. With offshore development we own the outcome and run our own process. With a dedicated team, your managers run the process and the engineers work inside it. Offshore development costs more per engineer and removes more management load from you."
+          "question": "Do we have to use you to build what you recommend?",
+          "answer": "No, and the engagement is structured so that is a real option. Discovery is paid precisely so the plan belongs to you — architecture, scope, and estimate in enough detail to hand to another vendor or to your own team. If we are the right ones to build it we would rather win that on the plan than on your not having one."
         },
         {
-          "question": "How do we track progress?",
-          "answer": "Through working software at the end of every iteration, plus direct access to the repository and issue tracker. If a progress report is the only evidence of progress, something has gone wrong."
+          "question": "How is this different from your AI implementation service?",
+          "answer": "This page is the decision; that one is the build. Consulting answers whether and what — whether a model belongs in the problem at all, which approach fits, what evaluation and cost would look like. AI implementation is the engineering that follows once those are settled. Small engagements are often only the first."
         },
         {
-          "question": "What if we want to bring the work in-house later?",
-          "answer": "That is a normal outcome, and the engagement is set up for it. Documentation and tests are produced throughout, and handover terms are agreed at the start rather than negotiated under pressure."
+          "question": "Can you advise on a system you did not build?",
+          "answer": "That is most of this work. We start by reading what exists — the code, the infrastructure, the incidents — because a recommendation made without that is a guess with a letterhead on it."
         },
         {
-          "question": "Do you work fixed-price or time-and-materials?",
-          "answer": "Both. Fixed-price suits well-defined scope; time-and-materials suits work that will evolve. See engagement models for how we decide which to propose."
+          "question": "How long does discovery take?",
+          "answer": "It depends on how much system there is to read and how settled the constraints are. We will give you a duration after the first call rather than quoting a standard package, because a fixed-length discovery tells you more about our billing than about your problem."
+        },
+        {
+          "question": "Do you sign an NDA first?",
+          "answer": "Yes, before any technical discovery begins. Send yours or ask for ours."
         }
       ],
       "cta": {
-        "title": "Tell us what you are building",
-        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "title": "Bring us the decision you are stuck on",
+        "body": "Describe the system and what is about to be committed to. We will tell you whether an outside read would help, and say so if it would not.",
         "button": "Book a consultation"
       }
     },
-    "dedicatedTeam": {
-      "navLabel": "Dedicated team",
-      "title": "Dedicated Development Team",
-      "metaTitle": "Dedicated Development Team in Vietnam",
-      "metaDescription": "Hire a dedicated development team in Vietnam that works inside your process, your tools, and your roadmap — long-term engineers without the hiring cycle.",
-      "lede": "A dedicated development team is a group of engineers assigned to you long-term who work inside your process rather than a vendor's. They join your standups, pull from your backlog, and are reviewed by your leads. You get the continuity of in-house staff without carrying the hiring cycle, and you can change the team's shape as the roadmap changes.",
+    "deliveryTeams": {
+      "navLabel": "Delivery teams",
+      "title": "Delivery Teams",
+      "metaTitle": "Software Delivery Teams — Managed Delivery or Dedicated Team",
+      "metaDescription": "The engineering team that builds what the consulting recommends: managed delivery where we own the outcome, or a dedicated team working inside your process.",
+      "lede": "Advice that nobody can execute is a document. This is the part of SofinWave that executes: engineers who build the systems we recommended, in whichever shape puts accountability where you want it. There are two shapes here — we own the outcome, or you do and we staff it — and the choice between them is not about seniority or price. It is about who you want answering when a date slips.",
       "sections": [
         {
-          "heading": "How it works in practice",
-          "body": "The team is yours to direct. We handle recruitment, employment, equipment, and retention; you handle what they work on.",
+          "heading": "Managed delivery — we own the outcome",
+          "body": "We take a defined outcome, staff the roles it needs, run our own process, and are accountable for shipping it. You get progress you can verify rather than progress you are told about.",
+          "bullets": [
+            "A technical lead accountable for architecture and code quality.",
+            "Backend, frontend, and mobile engineers sized to the scope rather than to a template.",
+            "QA embedded in the team, not bolted on before launch.",
+            "A delivery lead who runs the cadence and is your single point of contact."
+          ]
+        },
+        {
+          "heading": "Dedicated team — you own the outcome",
+          "body": "Engineers assigned to you long-term who work inside your process rather than ours. They join your standups, pull from your backlog, and are reviewed by your leads. You get the continuity of in-house staff without carrying the hiring cycle.",
           "bullets": [
             "You define the roles and interview the candidates before they join.",
-            "Engineers work in your repositories, your tracker, and your ceremonies.",
+            "Engineers work in your repositories, your tracker, your ceremonies.",
             "Your engineering manager sets priorities and reviews the work.",
             "We handle contracts, payroll, hardware, and replacement if someone leaves."
           ]
         },
         {
-          "heading": "Why continuity matters more than headcount",
-          "body": "The expensive part of any engineering team is context — knowing why the system is shaped the way it is. A dedicated team is worth more in month six than month one, which is why we structure these engagements for retention rather than churn. If an engineer has to be replaced, the handover happens with overlap, not a gap."
-        },
-        {
-          "heading": "Choosing between the three models",
-          "body": "The distinction that matters is who is accountable when something slips. Use this to decide which conversation to start."
+          "heading": "Choosing between the shapes",
+          "body": "The distinction that matters is who is accountable when something slips. Everything else — rates, seniority, team size — follows from that answer rather than driving it."
         }
       ],
       "table": {
-        "caption": "Dedicated team vs. staff augmentation vs. offshore development",
-        "columns": ["", "Dedicated team", "Staff augmentation", "Offshore development"],
+        "caption": "Managed delivery vs. dedicated team vs. staff augmentation",
+        "columns": ["", "Managed delivery", "Dedicated team", "Staff augmentation"],
         "rows": [
-          ["Who manages the work", "Your managers", "Your managers", "We do"],
-          ["Who owns the outcome", "You", "You", "We do"],
-          ["Typical duration", "Six months and up", "Weeks to months", "Length of the project"],
+          ["Who manages the work", "We do", "Your managers", "Your managers"],
+          ["Who owns the outcome", "We do", "You", "You"],
+          ["Typical duration", "Length of the project", "Six months and up", "Weeks to months"],
           [
             "Best when",
+            "You need someone accountable for shipping",
             "You need durable extra capacity",
-            "You need a specific skill now",
-            "You need someone accountable for shipping"
+            "You need a specific skill now"
           ],
-          ["Ramp-up cost", "Moderate, paid once", "Low", "Higher, includes discovery"]
+          ["Ramp-up cost", "Higher, includes discovery", "Moderate, paid once", "Low"]
         ]
       },
       "faq": [
         {
-          "question": "Can we interview the engineers?",
-          "answer": "Yes, and you should. You define the role, we shortlist, you interview and decide. Nobody joins your team without your approval."
+          "question": "How do we track progress?",
+          "answer": "Through working software at the end of every iteration, plus direct access to the repository and issue tracker. If a progress report is the only evidence of progress, something has gone wrong."
         },
         {
-          "question": "What is the minimum commitment?",
-          "answer": "Dedicated teams only make economic sense over a longer horizon, because the ramp-up is paid once and returned over time. For short or uncertain needs, staff augmentation is the cheaper answer."
+          "question": "Can we interview the engineers?",
+          "answer": "On a dedicated team, yes, and you should — you define the role, we shortlist, you interview and decide. On managed delivery we staff the team ourselves, because we are the ones accountable for the result."
         },
         {
           "question": "What happens if an engineer leaves?",
           "answer": "We replace them and run an overlap so context transfers rather than evaporates. Retention is our cost to bear, not yours."
         },
         {
-          "question": "Can the team grow or shrink?",
-          "answer": "Yes, with notice agreed in the contract. Scaling down is as much a part of the arrangement as scaling up — that flexibility is a large part of why teams outsource at all."
+          "question": "Can we change shape partway through?",
+          "answer": "Yes, and it is common. Engagements often start as managed delivery while the direction is uncertain and move to a dedicated team once your own leads can steer it. Changing shape is a contract amendment, not a restart."
+        },
+        {
+          "question": "What if we want to bring the work in-house later?",
+          "answer": "That is a normal outcome and the engagement is set up for it. Documentation and tests are produced throughout, and handover terms are agreed at the start rather than negotiated under pressure."
         }
       ],
       "cta": {
@@ -703,7 +755,7 @@
         },
         {
           "heading": "The honest limitation",
-          "body": "Augmented engineers work well when your team already has clear direction and a functioning review process. If the constraint is that nobody has time to direct the work, adding engineers makes it worse, not better. In that case a dedicated team with its own lead, or an offshore team that owns the outcome, is the better structure — say so early and we will propose accordingly."
+          "body": "Augmented engineers work well when your team already has clear direction and a functioning review process. If the constraint is that nobody has time to direct the work, adding engineers makes it worse, not better. In that case a dedicated team with its own lead, or managed delivery where we own the outcome, is the better structure — say so early and we will propose accordingly."
         }
       ],
       "faq": [
@@ -726,10 +778,10 @@
         "button": "Book a consultation"
       }
     },
-    "customSoftwareDevelopment": {
-      "navLabel": "Custom software",
-      "title": "Custom Software Development",
-      "metaTitle": "Custom Software Development Services",
+    "softwareEngineering": {
+      "navLabel": "Software engineering",
+      "title": "Software Engineering",
+      "metaTitle": "Custom Software Engineering Services",
       "metaDescription": "Custom web, mobile, and backend software built around your business rules — designed, built, tested, and operated by a Vietnam-based engineering team.",
       "lede": "Custom software development means building a system around your business rules instead of bending your business around a product you bought. It is worth doing when the process you run is the thing that makes you competitive, and worth avoiding when an off-the-shelf tool would do the job. We will tell you which situation you are in before quoting.",
       "sections": [
@@ -833,8 +885,8 @@
     "devopsCloud": {
       "navLabel": "DevOps & cloud",
       "title": "DevOps & Cloud",
-      "metaTitle": "DevOps Outsourcing & Cloud Migration Services",
-      "metaDescription": "CI/CD pipelines, infrastructure as code, observability, Kubernetes, and cloud cost work — DevOps outsourcing from Vietnam for teams that need releases to stop hurting.",
+      "metaTitle": "DevOps & Cloud Migration Services",
+      "metaDescription": "CI/CD pipelines, infrastructure as code, observability, Kubernetes, and cloud cost work — DevOps engineering from Vietnam for teams that need releases to stop hurting.",
       "lede": "DevOps work is what turns releasing software from an event into a routine. We build the pipelines, infrastructure definitions, and monitoring that let a team deploy on a Tuesday afternoon without anyone holding their breath. It is usually the highest-leverage work available to a team that is shipping slowly, because it compounds across every future release.",
       "sections": [
         {
@@ -880,8 +932,8 @@
       "navLabel": "Engagement models",
       "title": "Engagement Models & Pricing",
       "metaTitle": "Engagement Models: Fixed Price vs Time and Materials",
-      "metaDescription": "How SofinWave prices software outsourcing work — fixed price, time and materials, and dedicated capacity — and which one to choose for your project.",
-      "lede": "There are three ways to pay for software work, and the right one depends entirely on how well the scope is known. Fixed price suits work that can be fully specified in advance. Time and materials suits work that will change as you learn. Dedicated capacity suits ongoing work with no defined end. Choosing wrong is the most common reason outsourcing relationships turn adversarial.",
+      "metaDescription": "How SofinWave prices consulting and engineering work — fixed price, time and materials, and dedicated capacity — and which one to choose for your project.",
+      "lede": "There are three ways to pay for consulting and engineering work, and the right one depends entirely on how well the scope is known. Fixed price suits work that can be fully specified in advance. Time and materials suits work that will change as you learn. Dedicated capacity suits ongoing work with no defined end. Choosing wrong is the most common reason these relationships turn adversarial.",
       "sections": [
         {
           "heading": "Fixed price",
@@ -965,265 +1017,6 @@
       "cta": {
         "title": "Tell us what you are building",
         "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
-        "button": "Book a consultation"
-      }
-    },
-    "fintech": {
-      "navLabel": "Fintech",
-      "title": "Fintech Software Development",
-      "metaTitle": "Fintech Software Development Company",
-      "metaDescription": "Payments, ledgers, reconciliation, and regulated financial systems built by an engineering team that treats correctness and auditability as requirements, not features.",
-      "lede": "Fintech software has a property most software does not: being approximately right is the same as being wrong. A ledger that loses a cent, a payment that gets retried into a double charge, or a report that cannot be reconciled are not cosmetic bugs. We build financial systems with correctness, auditability, and failure handling designed in from the first commit rather than added after an incident.",
-      "sections": [
-        {
-          "heading": "What we build in this space",
-          "body": "The work concentrates around money movement and the records that prove it happened.",
-          "bullets": [
-            "Payment integrations and the reconciliation that proves they balance.",
-            "Double-entry ledgers and transaction records built to be audited.",
-            "Onboarding and KYC flows that respect both compliance and completion rates.",
-            "Reporting where the numbers have to survive scrutiny."
-          ]
-        },
-        {
-          "heading": "Correctness as an engineering discipline",
-          "body": "In financial systems the interesting cases are the ones that happen once in a million transactions, because at volume they happen daily. We design for them explicitly.",
-          "bullets": [
-            "Idempotency on every operation that moves money.",
-            "Immutable transaction records — corrections are new entries, never edits.",
-            "Reconciliation jobs that detect drift before a customer or auditor does.",
-            "Explicit handling of partial failure between systems and providers."
-          ]
-        },
-        {
-          "heading": "Working with regulated requirements",
-          "body": "We are engineers, not your compliance advisers, and we will not pretend otherwise. What we do is build systems that make compliance demonstrable — access controls, audit trails, data retention, and evidence that can be produced on request. Your legal and compliance function defines the obligation; we make sure the software can prove it was met."
-        }
-      ],
-      "faq": [
-        {
-          "question": "Have you worked on regulated financial systems?",
-          "answer": "Our team has delivered production systems handling payments and financial records. For specifics relevant to your situation, ask on a call — we would rather discuss real detail under NDA than publish vague claims."
-        },
-        {
-          "question": "Can you work with our existing payment provider?",
-          "answer": "Yes. Most fintech work is integration with providers already chosen. We start by reading their API semantics carefully, particularly around retries, webhooks, and settlement timing, since that is where most defects originate."
-        },
-        {
-          "question": "How do you handle sensitive financial data?",
-          "answer": "Least-privilege access, data minimisation, encryption in transit and at rest, and no production data in development environments. Specific controls are agreed with you before work starts."
-        }
-      ],
-      "cta": {
-        "title": "Tell us what you are building",
-        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
-        "button": "Book a consultation"
-      }
-    },
-    "ecommerce": {
-      "navLabel": "E-commerce",
-      "title": "E-commerce Development",
-      "metaTitle": "E-commerce Development & Platform Engineering",
-      "metaDescription": "Storefronts, checkout, inventory, and order systems engineered for peak traffic — e-commerce development outsourcing for teams whose revenue depends on uptime.",
-      "lede": "E-commerce engineering is judged on two days a year. A platform that is fast in March and falls over on Black Friday has failed, regardless of how well it performs on average. We build and re-architect commerce systems for the peak rather than the mean, and for the parts customers notice most: checkout, search, and whether the stock number is true.",
-      "sections": [
-        {
-          "heading": "Where commerce systems usually hurt",
-          "body": "The failure modes repeat across businesses, and they are rarely in the storefront itself.",
-          "bullets": [
-            "Checkout that degrades under load, precisely when it is most expensive to lose.",
-            "Inventory that drifts from reality, causing oversells and manual reconciliation.",
-            "Order flows tangled across a shop platform, an ERP, and a warehouse system.",
-            "Search and catalogue performance that quietly suppresses conversion."
-          ]
-        },
-        {
-          "heading": "Engineering for peak, not average",
-          "body": "Capacity planning based on average traffic guarantees a bad peak. We load-test against realistic peak profiles, find where the system actually breaks, and fix that rather than the part that looked risky.",
-          "bullets": [
-            "Load testing against realistic traffic shapes before the season, not after.",
-            "Caching strategies that stay correct when prices and stock change.",
-            "Graceful degradation, so a failing recommendation service never blocks a purchase.",
-            "Observability tight enough to diagnose during a peak rather than afterwards."
-          ]
-        },
-        {
-          "heading": "Replatforming without losing a season",
-          "body": "Full rewrites of commerce systems are risky because the deadline is set by the calendar, not by you. We prefer incremental replacement — moving one capability at a time behind a stable interface — so that at every point there is a working system and a way back."
-        }
-      ],
-      "faq": [
-        {
-          "question": "Do you work with existing commerce platforms?",
-          "answer": "Yes. Much of the work is extending or integrating platforms already in place rather than replacing them, and replacement is usually the more expensive answer to the wrong question."
-        },
-        {
-          "question": "Can you help before a peak season?",
-          "answer": "Yes, and the earlier the better. Load testing and remediation take time; work started weeks before a peak is far more useful than work started days before."
-        },
-        {
-          "question": "How do you handle inventory accuracy?",
-          "answer": "By deciding explicitly which system is authoritative for stock, then designing the flow so every other system reconciles against it. Most oversell problems are ownership problems rather than technical ones."
-        }
-      ],
-      "cta": {
-        "title": "Tell us what you are building",
-        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
-        "button": "Book a consultation"
-      }
-    },
-    "logistics": {
-      "navLabel": "Logistics",
-      "title": "Logistics Software Development",
-      "metaTitle": "Logistics & Supply Chain Software Development",
-      "metaDescription": "Warehouse, transport, and tracking systems that stay correct when the network does not — logistics software development for operations that run in the physical world.",
-      "lede": "Logistics software models a physical world that does not cooperate. Scanners lose connectivity, drivers go through tunnels, and a parcel exists whether or not the system knows where it is. Systems that assume reliable connectivity and tidy data fail in exactly the conditions they were built for. We design logistics systems around intermittency and correction rather than around the happy path.",
-      "sections": [
-        {
-          "heading": "What we build",
-          "body": "The work spans the warehouse floor, the road, and the reporting that ties them together.",
-          "bullets": [
-            "Warehouse and inventory systems, including handheld and offline-capable interfaces.",
-            "Transport and route planning, plus driver-facing applications.",
-            "Track-and-trace with event histories that survive out-of-order updates.",
-            "Integrations with carriers, customs, ERP, and customer portals."
-          ]
-        },
-        {
-          "heading": "Designing for intermittent connectivity",
-          "body": "Anything used in a warehouse or a vehicle will lose its connection. That is a design input, not an incident, and treating it as an incident is how these systems accumulate manual workarounds.",
-          "bullets": [
-            "Offline-first data capture that queues and syncs when connectivity returns.",
-            "Conflict resolution rules decided in advance rather than improvised.",
-            "Event models that tolerate updates arriving late or out of order.",
-            "Interfaces usable one-handed, wearing gloves, in poor light."
-          ]
-        },
-        {
-          "heading": "When the data and the world disagree",
-          "body": "In logistics they always eventually do. The question is whether the system makes the discrepancy visible and correctable, or hides it until a customer calls. We build in reconciliation and correction paths, with an audit trail, so that fixing reality is a normal operation rather than a database edit."
-        }
-      ],
-      "faq": [
-        {
-          "question": "Can you integrate with carrier systems?",
-          "answer": "Yes. Carrier integrations are a routine part of this work, and their quirks — inconsistent status vocabularies, delayed webhooks, out-of-order events — are exactly what the design has to absorb."
-        },
-        {
-          "question": "Do you build mobile apps for drivers and warehouse staff?",
-          "answer": "Yes, with offline capability where the environment demands it. Usability under real conditions matters more here than in most software: cold hands, gloves, and bad lighting are design constraints."
-        },
-        {
-          "question": "Can you work with our existing WMS or TMS?",
-          "answer": "Usually. Replacing a working warehouse or transport system is disruptive and rarely the cheapest route. We more often extend and integrate what is already running."
-        }
-      ],
-      "cta": {
-        "title": "Tell us what you are building",
-        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
-        "button": "Book a consultation"
-      }
-    },
-    "about": {
-      "navLabel": "About",
-      "title": "About SofinWave",
-      "metaTitle": "About SofinWave — Software Outsourcing from Vietnam",
-      "metaDescription": "SofinWave is a Vietnam-based software outsourcing company working with US and European clients in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
-      "lede": "SofinWave is a software outsourcing company based in Vietnam. We work with companies in the US, Europe, and Asia as an offshore team, a dedicated team inside their process, or individual engineers filling specific gaps. Our work is mostly on systems that already exist and already have users — the unglamorous, high-stakes kind.",
-      "sections": [
-        {
-          "heading": "How we work",
-          "body": "These are the commitments that shape every engagement, and the ones we would want from a vendor ourselves.",
-          "bullets": [
-            "We say what we think, including when the answer is that you should not hire us.",
-            "Estimates come after discovery, never from a brief alone.",
-            "Progress is demonstrated with running software rather than status reports.",
-            "Documentation and tests are part of the work, so handover is never a separate project.",
-            "You own all code and IP, and it lives in your repositories and accounts."
-          ]
-        },
-        {
-          "heading": "What we are good at",
-          "body": "We are a small senior team rather than a large mixed one, which shapes the work we take. We are strongest on backend and platform work — architecture, integration, performance, and the operational side of getting a system to behave in production.",
-          "bullets": [
-            "TypeScript and Node.js, React and Next.js on the front end.",
-            "Python and Go for services and data work.",
-            "PostgreSQL, Kubernetes, and AWS for the infrastructure underneath.",
-            "Fintech, e-commerce, logistics, SaaS platforms, and enterprise systems."
-          ]
-        },
-        {
-          "heading": "What we are not",
-          "body": "We are not a body shop that can staff forty engineers next month, and we are not a design studio. If you need very large scale, or brand and product design as the primary deliverable, another partner will serve you better and we will say so early rather than late."
-        },
-        {
-          "heading": "Working across time zones",
-          "body": "We are in Vietnam at UTC+7, which does not change with daylight saving. That gives roughly half a working day of live overlap with Europe and edge-of-day overlap with the US East Coast. We run written-first communication so that progress does not depend on being awake at the same moment, and we schedule the live hours that do matter deliberately."
-        }
-      ],
-      "faq": [
-        {
-          "question": "How big is the team?",
-          "answer": "We are deliberately a small senior team rather than a large mixed one. For the current size and the specific people who would work on your project, ask on a call — you should meet them before committing anyway."
-        },
-        {
-          "question": "What languages do you work in?",
-          "answer": "English, Vietnamese, and Chinese. Delivery artefacts — specs, code review, documentation, demos — default to English unless you prefer otherwise."
-        },
-        {
-          "question": "Where are you based?",
-          "answer": "Vietnam, working with clients internationally. We are remote-first with clients and coordinate in writing by default."
-        },
-        {
-          "question": "Can we talk to a reference?",
-          "answer": "Ask on a call. We will connect you with clients who have agreed to speak, rather than publishing names and quotes without their involvement."
-        }
-      ],
-      "cta": {
-        "title": "Start with a conversation",
-        "body": "Tell us what you are building and what is in the way. If we are not the right fit, we will tell you that too.",
-        "button": "Book a consultation"
-      }
-    },
-    "contact": {
-      "navLabel": "Contact",
-      "title": "Contact",
-      "metaTitle": "Contact SofinWave",
-      "metaDescription": "Get in touch about software outsourcing, an offshore development team, or staff augmentation. We reply within one business day.",
-      "lede": "Tell us what you are building and what is in the way. The most useful first message describes the system, the constraint you are hitting, and the outcome you need — that is usually enough for us to say whether we can help and which engagement model we would propose. We reply within one business day.",
-      "sections": [
-        {
-          "heading": "What happens after you get in touch",
-          "body": "No sales sequence, no drip campaign. The process is short by design.",
-          "bullets": [
-            "We reply within one business day, usually with questions.",
-            "A discovery call of about 45 minutes to understand goals and constraints.",
-            "A written proposal with scope, model, and an honest estimate.",
-            "If we are not the right fit, we say so — often with a suggestion of who is."
-          ]
-        },
-        {
-          "heading": "Before you send anything confidential",
-          "body": "Keep the first message at a level you are comfortable putting in email. We sign an NDA before any technical discovery, so detail can wait until that is in place."
-        }
-      ],
-      "faq": [
-        {
-          "question": "How quickly will you reply?",
-          "answer": "Within one business day. We are at UTC+7, so a message sent during the US afternoon is usually answered by the time you next start work."
-        },
-        {
-          "question": "Do I need a detailed specification first?",
-          "answer": "No. A clear description of the problem is more useful than a specification written before anyone has looked at the constraints."
-        },
-        {
-          "question": "Will you sign an NDA?",
-          "answer": "Yes, before any technical discovery. Send yours or ask for ours."
-        }
-      ],
-      "cta": {
-        "title": "Prefer email?",
-        "body": "Write to us directly and we will pick it up the same way. The form below reaches the same place.",
         "button": "Book a consultation"
       }
     },
@@ -1836,6 +1629,265 @@
         "button": "Get in touch"
       }
     },
+    "fintech": {
+      "navLabel": "Fintech",
+      "title": "Fintech Software Development",
+      "metaTitle": "Fintech Software Development Company",
+      "metaDescription": "Payments, ledgers, reconciliation, and regulated financial systems built by an engineering team that treats correctness and auditability as requirements, not features.",
+      "lede": "Fintech software has a property most software does not: being approximately right is the same as being wrong. A ledger that loses a cent, a payment that gets retried into a double charge, or a report that cannot be reconciled are not cosmetic bugs. We build financial systems with correctness, auditability, and failure handling designed in from the first commit rather than added after an incident.",
+      "sections": [
+        {
+          "heading": "What we build in this space",
+          "body": "The work concentrates around money movement and the records that prove it happened.",
+          "bullets": [
+            "Payment integrations and the reconciliation that proves they balance.",
+            "Double-entry ledgers and transaction records built to be audited.",
+            "Onboarding and KYC flows that respect both compliance and completion rates.",
+            "Reporting where the numbers have to survive scrutiny."
+          ]
+        },
+        {
+          "heading": "Correctness as an engineering discipline",
+          "body": "In financial systems the interesting cases are the ones that happen once in a million transactions, because at volume they happen daily. We design for them explicitly.",
+          "bullets": [
+            "Idempotency on every operation that moves money.",
+            "Immutable transaction records — corrections are new entries, never edits.",
+            "Reconciliation jobs that detect drift before a customer or auditor does.",
+            "Explicit handling of partial failure between systems and providers."
+          ]
+        },
+        {
+          "heading": "Working with regulated requirements",
+          "body": "We are engineers, not your compliance advisers, and we will not pretend otherwise. What we do is build systems that make compliance demonstrable — access controls, audit trails, data retention, and evidence that can be produced on request. Your legal and compliance function defines the obligation; we make sure the software can prove it was met."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Have you worked on regulated financial systems?",
+          "answer": "Our team has delivered production systems handling payments and financial records. For specifics relevant to your situation, ask on a call — we would rather discuss real detail under NDA than publish vague claims."
+        },
+        {
+          "question": "Can you work with our existing payment provider?",
+          "answer": "Yes. Most fintech work is integration with providers already chosen. We start by reading their API semantics carefully, particularly around retries, webhooks, and settlement timing, since that is where most defects originate."
+        },
+        {
+          "question": "How do you handle sensitive financial data?",
+          "answer": "Least-privilege access, data minimisation, encryption in transit and at rest, and no production data in development environments. Specific controls are agreed with you before work starts."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "ecommerce": {
+      "navLabel": "E-commerce",
+      "title": "E-commerce Development",
+      "metaTitle": "E-commerce Development & Platform Engineering",
+      "metaDescription": "Storefronts, checkout, inventory, and order systems engineered for peak traffic — e-commerce consulting and engineering for teams whose revenue depends on uptime.",
+      "lede": "E-commerce engineering is judged on two days a year. A platform that is fast in March and falls over on Black Friday has failed, regardless of how well it performs on average. We build and re-architect commerce systems for the peak rather than the mean, and for the parts customers notice most: checkout, search, and whether the stock number is true.",
+      "sections": [
+        {
+          "heading": "Where commerce systems usually hurt",
+          "body": "The failure modes repeat across businesses, and they are rarely in the storefront itself.",
+          "bullets": [
+            "Checkout that degrades under load, precisely when it is most expensive to lose.",
+            "Inventory that drifts from reality, causing oversells and manual reconciliation.",
+            "Order flows tangled across a shop platform, an ERP, and a warehouse system.",
+            "Search and catalogue performance that quietly suppresses conversion."
+          ]
+        },
+        {
+          "heading": "Engineering for peak, not average",
+          "body": "Capacity planning based on average traffic guarantees a bad peak. We load-test against realistic peak profiles, find where the system actually breaks, and fix that rather than the part that looked risky.",
+          "bullets": [
+            "Load testing against realistic traffic shapes before the season, not after.",
+            "Caching strategies that stay correct when prices and stock change.",
+            "Graceful degradation, so a failing recommendation service never blocks a purchase.",
+            "Observability tight enough to diagnose during a peak rather than afterwards."
+          ]
+        },
+        {
+          "heading": "Replatforming without losing a season",
+          "body": "Full rewrites of commerce systems are risky because the deadline is set by the calendar, not by you. We prefer incremental replacement — moving one capability at a time behind a stable interface — so that at every point there is a working system and a way back."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do you work with existing commerce platforms?",
+          "answer": "Yes. Much of the work is extending or integrating platforms already in place rather than replacing them, and replacement is usually the more expensive answer to the wrong question."
+        },
+        {
+          "question": "Can you help before a peak season?",
+          "answer": "Yes, and the earlier the better. Load testing and remediation take time; work started weeks before a peak is far more useful than work started days before."
+        },
+        {
+          "question": "How do you handle inventory accuracy?",
+          "answer": "By deciding explicitly which system is authoritative for stock, then designing the flow so every other system reconciles against it. Most oversell problems are ownership problems rather than technical ones."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "logistics": {
+      "navLabel": "Logistics",
+      "title": "Logistics Software Development",
+      "metaTitle": "Logistics & Supply Chain Software Development",
+      "metaDescription": "Warehouse, transport, and tracking systems that stay correct when the network does not — logistics software development for operations that run in the physical world.",
+      "lede": "Logistics software models a physical world that does not cooperate. Scanners lose connectivity, drivers go through tunnels, and a parcel exists whether or not the system knows where it is. Systems that assume reliable connectivity and tidy data fail in exactly the conditions they were built for. We design logistics systems around intermittency and correction rather than around the happy path.",
+      "sections": [
+        {
+          "heading": "What we build",
+          "body": "The work spans the warehouse floor, the road, and the reporting that ties them together.",
+          "bullets": [
+            "Warehouse and inventory systems, including handheld and offline-capable interfaces.",
+            "Transport and route planning, plus driver-facing applications.",
+            "Track-and-trace with event histories that survive out-of-order updates.",
+            "Integrations with carriers, customs, ERP, and customer portals."
+          ]
+        },
+        {
+          "heading": "Designing for intermittent connectivity",
+          "body": "Anything used in a warehouse or a vehicle will lose its connection. That is a design input, not an incident, and treating it as an incident is how these systems accumulate manual workarounds.",
+          "bullets": [
+            "Offline-first data capture that queues and syncs when connectivity returns.",
+            "Conflict resolution rules decided in advance rather than improvised.",
+            "Event models that tolerate updates arriving late or out of order.",
+            "Interfaces usable one-handed, wearing gloves, in poor light."
+          ]
+        },
+        {
+          "heading": "When the data and the world disagree",
+          "body": "In logistics they always eventually do. The question is whether the system makes the discrepancy visible and correctable, or hides it until a customer calls. We build in reconciliation and correction paths, with an audit trail, so that fixing reality is a normal operation rather than a database edit."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Can you integrate with carrier systems?",
+          "answer": "Yes. Carrier integrations are a routine part of this work, and their quirks — inconsistent status vocabularies, delayed webhooks, out-of-order events — are exactly what the design has to absorb."
+        },
+        {
+          "question": "Do you build mobile apps for drivers and warehouse staff?",
+          "answer": "Yes, with offline capability where the environment demands it. Usability under real conditions matters more here than in most software: cold hands, gloves, and bad lighting are design constraints."
+        },
+        {
+          "question": "Can you work with our existing WMS or TMS?",
+          "answer": "Usually. Replacing a working warehouse or transport system is disruptive and rarely the cheapest route. We more often extend and integrate what is already running."
+        }
+      ],
+      "cta": {
+        "title": "Tell us what you are building",
+        "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
+        "button": "Book a consultation"
+      }
+    },
+    "about": {
+      "navLabel": "About",
+      "title": "About SofinWave",
+      "metaTitle": "About SofinWave — IT Consulting from Vietnam",
+      "metaDescription": "SofinWave is a Vietnam-based IT consulting firm working with US and European clients in English, Vietnamese, and Chinese, from architecture through delivery and operations.",
+      "lede": "SofinWave is an IT consulting firm based in Vietnam. We advise companies in the US, Europe, and Asia on what to build — software systems, integrations, and AI — and then deliver it, either as a managed team that owns the outcome or as engineers working inside our clients' own process. Our work is mostly on systems that already exist and already have users — the unglamorous, high-stakes kind.",
+      "sections": [
+        {
+          "heading": "How we work",
+          "body": "These are the commitments that shape every engagement, and the ones we would want from a vendor ourselves.",
+          "bullets": [
+            "We say what we think, including when the answer is that you should not hire us.",
+            "Estimates come after discovery, never from a brief alone.",
+            "Progress is demonstrated with running software rather than status reports.",
+            "Documentation and tests are part of the work, so handover is never a separate project.",
+            "You own all code and IP, and it lives in your repositories and accounts."
+          ]
+        },
+        {
+          "heading": "What we are good at",
+          "body": "We are a small senior team rather than a large mixed one, which shapes the work we take. We are strongest on backend and platform work — architecture, integration, performance, and the operational side of getting a system to behave in production.",
+          "bullets": [
+            "TypeScript and Node.js, React and Next.js on the front end.",
+            "Python and Go for services and data work.",
+            "PostgreSQL, Kubernetes, and AWS for the infrastructure underneath.",
+            "Fintech, e-commerce, logistics, SaaS platforms, and enterprise systems."
+          ]
+        },
+        {
+          "heading": "What we are not",
+          "body": "We are not a body shop that can staff forty engineers next month, and we are not a design studio. If you need very large scale, or brand and product design as the primary deliverable, another partner will serve you better and we will say so early rather than late."
+        },
+        {
+          "heading": "Working across time zones",
+          "body": "We are in Vietnam at UTC+7, which does not change with daylight saving. That gives roughly half a working day of live overlap with Europe and edge-of-day overlap with the US East Coast. We run written-first communication so that progress does not depend on being awake at the same moment, and we schedule the live hours that do matter deliberately."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How big is the team?",
+          "answer": "We are deliberately a small senior team rather than a large mixed one. For the current size and the specific people who would work on your project, ask on a call — you should meet them before committing anyway."
+        },
+        {
+          "question": "What languages do you work in?",
+          "answer": "English, Vietnamese, and Chinese. Delivery artefacts — specs, code review, documentation, demos — default to English unless you prefer otherwise."
+        },
+        {
+          "question": "Where are you based?",
+          "answer": "Vietnam, working with clients internationally. We are remote-first with clients and coordinate in writing by default."
+        },
+        {
+          "question": "Can we talk to a reference?",
+          "answer": "Ask on a call. We will connect you with clients who have agreed to speak, rather than publishing names and quotes without their involvement."
+        }
+      ],
+      "cta": {
+        "title": "Start with a conversation",
+        "body": "Tell us what you are building and what is in the way. If we are not the right fit, we will tell you that too.",
+        "button": "Book a consultation"
+      }
+    },
+    "contact": {
+      "navLabel": "Contact",
+      "title": "Contact",
+      "metaTitle": "Contact SofinWave",
+      "metaDescription": "Get in touch about IT and AI consulting, an engineering engagement, or a delivery team. We reply within one business day.",
+      "lede": "Tell us what you are building and what is in the way. The most useful first message describes the system, the constraint you are hitting, and the outcome you need — that is usually enough for us to say whether we can help and which engagement model we would propose. We reply within one business day.",
+      "sections": [
+        {
+          "heading": "What happens after you get in touch",
+          "body": "No sales sequence, no drip campaign. The process is short by design.",
+          "bullets": [
+            "We reply within one business day, usually with questions.",
+            "A discovery call of about 45 minutes to understand goals and constraints.",
+            "A written proposal with scope, model, and an honest estimate.",
+            "If we are not the right fit, we say so — often with a suggestion of who is."
+          ]
+        },
+        {
+          "heading": "Before you send anything confidential",
+          "body": "Keep the first message at a level you are comfortable putting in email. We sign an NDA before any technical discovery, so detail can wait until that is in place."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How quickly will you reply?",
+          "answer": "Within one business day. We are at UTC+7, so a message sent during the US afternoon is usually answered by the time you next start work."
+        },
+        {
+          "question": "Do I need a detailed specification first?",
+          "answer": "No. A clear description of the problem is more useful than a specification written before anyone has looked at the constraints."
+        },
+        {
+          "question": "Will you sign an NDA?",
+          "answer": "Yes, before any technical discovery. Send yours or ask for ours."
+        }
+      ],
+      "cta": {
+        "title": "Prefer email?",
+        "body": "Write to us directly and we will pick it up the same way. The form below reaches the same place.",
+        "button": "Book a consultation"
+      }
+    },
     "ventures": {
       "navLabel": "Ventures",
       "title": "SofinWave Ventures",
@@ -1845,27 +1897,36 @@
       "sections": [
         {
           "heading": "Software consulting & AI implementation",
-          "body": "The core business, at sofinwave.com. Offshore teams, dedicated teams, and staff augmentation for companies in the US, Europe, and Asia — plus AI implementation for teams trying to get a prototype into production. This is where most of our people are."
+          "body": "The core business, at sofinwave.com. IT and AI consulting for companies in the US, Europe, and Asia — architecture, integration, and AI strategy — plus the delivery teams that build what we recommend. This is where most of our people are."
         },
         {
           "heading": "Media & content production",
           "body": "At media.sofinwave.com. Video production and content built around products, with affiliate distribution. It started as our own marketing and became a service once the process was repeatable.",
           "links": [
-            { "href": "https://media.sofinwave.com/en/home", "label": "media.sofinwave.com" }
+            {
+              "href": "https://media.sofinwave.com/en/home",
+              "label": "media.sofinwave.com"
+            }
           ]
         },
         {
           "heading": "Investing knowledge & tooling",
           "body": "At finance.sofinwave.com. Notes on our own investing process, and the tools we built to support it. This is published knowledge, not advice — we are not licensed to advise, we do not manage anyone's money, and the site says so plainly.",
           "links": [
-            { "href": "https://finance.sofinwave.com/en/home", "label": "finance.sofinwave.com" }
+            {
+              "href": "https://finance.sofinwave.com/en/home",
+              "label": "finance.sofinwave.com"
+            }
           ]
         },
         {
           "heading": "Education",
           "body": "At academy.sofinwave.com. Teaching across the areas we work in — engineering, investing, and content production — and general schooling. Much of it is the material we wrote to train our own people.",
           "links": [
-            { "href": "https://academy.sofinwave.com/en/home", "label": "academy.sofinwave.com" }
+            {
+              "href": "https://academy.sofinwave.com/en/home",
+              "label": "academy.sofinwave.com"
+            }
           ]
         },
         {

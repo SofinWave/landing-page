@@ -11,12 +11,11 @@ describe("Services", () => {
         <Services />
       </NextIntlClientProvider>,
     );
-    expect(
-      screen.getByRole("heading", { level: 2, name: "How we work with you" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Architecture consulting")).toBeInTheDocument();
-    expect(screen.getByText("Maintenance & operations")).toBeInTheDocument();
-    expect(screen.getByText("AI systems")).toBeInTheDocument();
-    expect(screen.getByText("AI training data")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: en.services.title })).toBeInTheDocument();
+    // Every card, by title, so a card dropped from the catalog fails here rather
+    // than silently shrinking the grid.
+    for (const item of en.services.items) {
+      expect(screen.getByText(item.title), item.title).toBeInTheDocument();
+    }
   });
 });

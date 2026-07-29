@@ -11,11 +11,11 @@ describe("Hero", () => {
         <Hero />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Your offshore engineering team in Vietnam",
-    );
-    expect(screen.getByText("Book a consultation")).toBeInTheDocument();
-    expect(screen.getByText("View case studies")).toBeInTheDocument();
+    // Read from the catalog rather than repeating the copy: this test exists to
+    // prove the h1 is wired to `hero.title`, not to freeze the wording.
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(en.hero.title);
+    expect(screen.getByText(en.hero.ctaPrimary)).toBeInTheDocument();
+    expect(screen.getByText(en.hero.ctaSecondary)).toBeInTheDocument();
   });
 
   it("renders the eyebrow in monospace style", () => {
