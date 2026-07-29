@@ -282,6 +282,43 @@
       }
     }
   },
+  "products": {
+    "heading": "Products we build and run",
+    "lede": "Two applications of our own, both free to use. We carry the cost of running them, which is the only honest way to show we can ship software and keep it alive.",
+    "ctaLabel": "More about our products",
+    "items": [
+      {
+        "key": "smartfintrack",
+        "name": "SmartFinTrack",
+        "blurb": "Personal finance management. Log income and expenses by category, set monthly budgets, track assets and investments, and read it all back as reports and charts.",
+        "price": "Free",
+        "languages": "Vietnamese / English",
+        "features": [
+          "Income and expenses by category",
+          "Monthly budgets and limits",
+          "Assets and investments",
+          "Reports and charts"
+        ],
+        "href": "https://smartfintrack.kingnnt.org",
+        "host": "smartfintrack.kingnnt.org"
+      },
+      {
+        "key": "tuvidauso",
+        "name": "Tử Vi Đẩu Số",
+        "blurb": "Casts a Zi Wei Dou Shu astrology chart from a birth date and time — solar or lunar calendar, leap months included — across the twelve palaces with major stars and five elements, then reads it back in detail with AI.",
+        "price": "Free to cast; sign in to save charts",
+        "languages": "Vietnamese / English",
+        "features": [
+          "Chart cast from birth date and time",
+          "Solar or lunar calendar, leap months included",
+          "Twelve palaces, major stars, five elements",
+          "Detailed AI interpretation"
+        ],
+        "href": "https://tuvidauso.kingnnt.org",
+        "host": "tuvidauso.kingnnt.org"
+      }
+    ]
+  },
   "pages": {
     "breadcrumbLabel": "Breadcrumb",
     "faqHeading": "Frequently asked questions",

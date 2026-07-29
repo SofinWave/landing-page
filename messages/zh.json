@@ -282,6 +282,38 @@
       }
     }
   },
+  "products": {
+    "heading": "我们自主开发和运营的产品",
+    "lede": "两款我们自己的应用程序，都是免费使用的。我们自己承担运营成本，这是展示我们能够交付软件并让它持续运营的唯一诚实的方式。",
+    "ctaLabel": "了解更多产品信息",
+    "items": [
+      {
+        "key": "smartfintrack",
+        "name": "SmartFinTrack",
+        "blurb": "个人财务管理系统。按分类记录收入和支出、制定每月预算、跟踪资产和投资，然后通过报告和图表回顾全部内容。",
+        "price": "免费",
+        "languages": "越南语 / 英语",
+        "features": ["按分类的收入和支出", "按月度的预算和限额", "资产和投资", "报告和图表"],
+        "href": "https://smartfintrack.kingnnt.org",
+        "host": "smartfintrack.kingnnt.org"
+      },
+      {
+        "key": "tuvidauso",
+        "name": "Tử Vi Đẩu Số",
+        "blurb": "从出生日期和时间生成紫微斗数星盘——支持公历或农历，包括闰月——跨越十二宫配合主星和五行，随后由 AI 提供详细解读。",
+        "price": "生成星盘免费；登录后可保存星盘",
+        "languages": "越南语 / 英语",
+        "features": [
+          "从出生日期和时间生成星盘",
+          "支持公历或农历，包括闰月",
+          "十二宫、主星、五行",
+          "AI 详细解读"
+        ],
+        "href": "https://tuvidauso.kingnnt.org",
+        "host": "tuvidauso.kingnnt.org"
+      }
+    ]
+  },
   "pages": {
     "breadcrumbLabel": "面包屑导航",
     "faqHeading": "常见问题",
