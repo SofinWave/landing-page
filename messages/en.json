@@ -1984,6 +1984,62 @@
         "body": "Send a short description of the system and the constraint you are hitting. We reply within one business day.",
         "button": "Book a consultation"
       }
+    },
+    "products": {
+      "navLabel": "Products",
+      "title": "Products",
+      "metaTitle": "Products — Software SofinWave Builds and Runs",
+      "metaDescription": "SofinWave builds and runs two products of its own: SmartFinTrack, a personal finance manager, and Tử Vi Đẩu Số, which casts and interprets Zi Wei Dou Shu astrology charts with AI. Both are free to use.",
+      "lede": "SofinWave builds and runs two products of its own, both free to use: SmartFinTrack, a personal finance manager, and Tử Vi Đẩu Số, which casts and interprets Zi Wei Dou Shu astrology charts with AI. They are built by the same team, to the same standards, as the software we build for clients.",
+      "sections": [
+        {
+          "heading": "SmartFinTrack — personal finance management",
+          "body": "A place to see where the money actually goes. You log income and expenses against categories, set what each category is allowed for the month, record the assets and investments you hold, and read the whole picture back as reports and charts. It is free, and the interface is available in Vietnamese and English.",
+          "bullets": [
+            "Income and expenses by category",
+            "Monthly budgets and limits",
+            "Assets and investments",
+            "Reports and charts"
+          ],
+          "links": [
+            { "href": "https://smartfintrack.kingnnt.org", "label": "smartfintrack.kingnnt.org" }
+          ]
+        },
+        {
+          "heading": "Tử Vi Đẩu Số — chart casting and AI interpretation",
+          "body": "Zi Wei Dou Shu, or Purple Star astrology, places stars into twelve palaces derived from a birth date and time. The tool does that casting automatically — solar or lunar calendar, leap months included — showing the twelve palaces with their major stars and five elements, then producing a detailed AI reading. Casting a chart is free; signing in saves your charts. Available in Vietnamese and English.",
+          "bullets": [
+            "Chart cast from birth date and time",
+            "Solar or lunar calendar, leap months included",
+            "Twelve palaces, major stars, five elements",
+            "Detailed AI interpretation"
+          ],
+          "links": [{ "href": "https://tuvidauso.kingnnt.org", "label": "tuvidauso.kingnnt.org" }]
+        },
+        {
+          "heading": "Why we build our own products",
+          "body": "Consulting advice is cheap to give and expensive to live with. Running our own applications means we carry the consequences of our own recommendations — the deployment, the bug reports, the cost of keeping something up long after launch. The products are built by the same engineers, on the same stack, under the same standards as client work, which is what makes them evidence rather than decoration."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Are SofinWave's products free?",
+          "answer": "Yes. SmartFinTrack is free to use, and casting a chart on Tử Vi Đẩu Số is free. Neither has a paid plan today."
+        },
+        {
+          "question": "Do I need an account?",
+          "answer": "SmartFinTrack requires an account, because it stores your own financial records. Tử Vi Đẩu Số casts a chart without one; signing in lets you save charts and read the detailed AI interpretation."
+        },
+        {
+          "question": "Can SofinWave build something like this for us?",
+          "answer": "Yes — that is the consulting business. Both products were built by the same team that takes on client work, using the same architecture and delivery process. Get in touch and describe what you have in mind."
+        }
+      ],
+      "cta": {
+        "title": "Want something like this built?",
+        "body": "The team that built these products takes on client work. Tell us what you are trying to build and we will tell you how we would approach it.",
+        "button": "Talk to us"
+      }
     }
   },
   "mediaMetadata": {

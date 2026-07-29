@@ -200,12 +200,35 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
           if (!isAbsoluteHref(link.href)) continue;
 
           const url = new URL(link.href);
-          expect(hosts, `${key} link ${link.href}`).toContain(url.hostname);
+          // A link to a non-SofinWave host (e.g. one of our own products, like
+          // smartfintrack.kingnnt.org) is a genuine outbound link, not a
+          // cross-site reference — it has no landing page in this registry to
+          // point at.
+          if (!hosts.has(url.hostname)) continue;
+
           // `/{locale}` only ever redirects, so cross-site links must name
           // the landing page and must match the catalog they live in.
           expect(url.pathname, `${key} link ${link.href}`).toBe(`/${locale}/${HOME_PATH}`);
         }
       }
+    }
+  });
+});
+
+describe("products route", () => {
+  it("is registered on the tech site under the home page", () => {
+    const route = findRoute(SiteId.Tech, "products");
+
+    expect(route).toBeDefined();
+    expect(route?.key).toBe("products");
+    expect(route?.parent).toBe(HOME_PATH);
+  });
+
+  // The product catalog belongs to the consultancy. A media or academy site
+  // advertising a personal-finance app would misdescribe the entity.
+  it("exists on no other site", () => {
+    for (const site of [SiteId.Media, SiteId.Finance, SiteId.Academy]) {
+      expect(findRoute(site, "products")).toBeUndefined();
     }
   });
 });
