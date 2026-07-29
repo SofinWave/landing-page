@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
 import en from "@/messages/en.json";
 import vi from "@/messages/vi.json";
+import zh from "@/messages/zh.json";
 
-const catalogs = { en: en.products, vi: vi.products };
+const catalogs = { en: en.products, vi: vi.products, zh: zh.products };
 
 describe("products catalog", () => {
   for (const [locale, products] of Object.entries(catalogs)) {
