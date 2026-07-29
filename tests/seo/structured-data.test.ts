@@ -1,7 +1,14 @@
 import { describe, it, expect } from "vitest";
-import { faqSchema, organizationSchema, serviceSchema, websiteSchema } from "@/lib/structured-data";
+import {
+  faqSchema,
+  organizationSchema,
+  serviceSchema,
+  webPageSchema,
+  websiteSchema,
+} from "@/lib/structured-data";
 import { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
+import { CONTENT_LAST_MODIFIED } from "@/lib/routes";
 import en from "@/messages/en.json";
 
 const services = en.services.items;
@@ -108,6 +115,27 @@ describe("websiteSchema", () => {
     expect(site["@type"]).toBe("WebSite");
     expect(site.url).toBe("https://sofinwave.com/vi/home");
     expect(site.publisher["@id"]).toBe("https://sofinwave.com/#organization");
+  });
+});
+
+describe("webPageSchema", () => {
+  const page = webPageSchema({
+    locale: "en",
+    path: "services/it-consulting",
+    title: "IT consulting",
+    description: "Consulting for teams shipping software.",
+  });
+
+  it("binds the page to the site and publisher entities", () => {
+    expect(page["@id"]).toBe("https://sofinwave.com/en/services/it-consulting#webpage");
+    expect(page.isPartOf["@id"]).toBe("https://sofinwave.com/#website");
+    expect(page.publisher["@id"]).toBe("https://sofinwave.com/#organization");
+  });
+
+  // Answer engines weigh freshness when choosing what to cite, and nothing
+  // else in the markup carried a date.
+  it("carries the registry's modification date", () => {
+    expect(page.dateModified).toBe(CONTENT_LAST_MODIFIED);
   });
 });
 

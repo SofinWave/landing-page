@@ -1,6 +1,7 @@
 import type { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/sites";
+import { routeLastModified } from "@/lib/routes";
 import { pageUrl } from "@/lib/site";
 
 /** Escapes the five XML entities. URLs are ours, but correctness is free here. */
@@ -21,10 +22,13 @@ function xml(value: string): string {
  * the alternate-language block explicit.
  *
  * Every URL points at a real page — never `/{locale}`, which only redirects.
+ *
+ * `lastmod` comes from the route registry rather than the build clock, so a
+ * page that has not been touched does not claim to have changed on every
+ * deploy. See `CONTENT_LAST_MODIFIED`.
  */
-export function buildSitemap(site: SiteId, lastModified: Date): string {
+export function buildSitemap(site: SiteId): string {
   const { routes } = siteConfig(site);
-  const lastmod = lastModified.toISOString();
 
   const urls = routing.locales.flatMap((locale) =>
     routes.map((route) => {
@@ -41,7 +45,7 @@ export function buildSitemap(site: SiteId, lastModified: Date): string {
       return [
         "  <url>",
         `    <loc>${xml(pageUrl(locale, route.path, site))}</loc>`,
-        `    <lastmod>${lastmod}</lastmod>`,
+        `    <lastmod>${routeLastModified(route)}</lastmod>`,
         `    <changefreq>${route.changeFrequency}</changefreq>`,
         `    <priority>${priority.toFixed(1)}</priority>`,
         alternates,

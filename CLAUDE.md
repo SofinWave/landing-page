@@ -151,11 +151,25 @@ The landing page lives at `/{locale}/home`; `/{locale}` only redirects there, so
   `generateMetadata` stops Next.js merging the `opengraph-image` file
   convention, which silently drops the card.
 - `lib/sitemap.ts` — hand-rolled XML with `xhtml:link` hreflang per URL.
+- `lib/robots.ts` — per-site robots.txt, naming every answer-engine crawler
+  explicitly. Each vendor runs separate agents for training, search indexing,
+  and live fetch; allowing only the training bot is the usual mistake.
 - `lib/structured-data.ts` + `components/structured-data.tsx` — JSON-LD. Each
   site emits only its own entity; the tech offer catalog, expertise list, and
   team roster must not leak into the other verticals.
 - `lib/llms.ts` — generates `llms.txt` and `llms-full.txt` from the route
   registry and catalogs, per site. Never hand-edit those files.
+
+`CONTENT_LAST_MODIFIED` in `lib/routes.ts` dates both `<lastmod>` and
+`dateModified`. **Bump it when the message catalogs change**, not on deploy —
+it is a constant precisely so an untouched page stops claiming to be fresh
+every time the site is rebuilt.
+
+Anything a crawler must read has to be in the server-rendered HTML: the
+answer-engine bots behind ChatGPT, Claude, and Perplexity do not execute
+JavaScript. Copy that only appears after hydration (a count-up animation, an
+unmounted accordion panel) is invisible to them, or worse — `CountUp` starts at
+the final value for exactly this reason.
 
 **Never emit `Review`/`AggregateRating`** until the testimonials are real — see
 `docs/CONTENT-TODO.md`. Placeholder team names are filtered out of `Person`

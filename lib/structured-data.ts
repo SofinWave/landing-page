@@ -2,7 +2,13 @@ import type { SiteId } from "@/enums";
 import { routing } from "@/i18n/routing";
 import { SITE_EMAIL, SITE_SAME_AS, localeUrl, pageUrl, siteUrl } from "@/lib/site";
 import { DEFAULT_SITE, type SiteConfig, siblingSites, siteConfig } from "@/lib/sites";
-import { type RouteDef, breadcrumbTrail } from "@/lib/routes";
+import {
+  CONTENT_LAST_MODIFIED,
+  type RouteDef,
+  breadcrumbTrail,
+  findRoute,
+  routeLastModified,
+} from "@/lib/routes";
 
 interface ServiceItem {
   title: string;
@@ -157,7 +163,13 @@ export function breadcrumbSchema(
   };
 }
 
-/** WebPage node binding a page to the site and publisher entities. */
+/**
+ * WebPage node binding a page to the site and publisher entities.
+ *
+ * `dateModified` comes from the route registry, the same source the sitemap
+ * reads. Answer engines weigh how current a page is when they decide what to
+ * cite, and nothing else in the markup carried a date.
+ */
 export function webPageSchema({
   locale,
   path,
@@ -173,6 +185,7 @@ export function webPageSchema({
 }) {
   const url = pageUrl(locale, path, site);
   const origin = siteUrl(site);
+  const route = findRoute(site, path);
 
   return {
     "@context": "https://schema.org",
@@ -182,6 +195,7 @@ export function webPageSchema({
     name: title,
     description,
     inLanguage: locale,
+    dateModified: route ? routeLastModified(route) : CONTENT_LAST_MODIFIED,
     isPartOf: { "@id": `${origin}/#website` },
     about: { "@id": `${origin}/#organization` },
     publisher: { "@id": `${origin}/#organization` },
