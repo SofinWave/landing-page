@@ -185,6 +185,14 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
     Object.keys(catalogs),
   )("points every absolute section link at a real SofinWave landing page in %s", (locale) => {
     const hosts = new Set(ALL_SITES.map((s) => s.host));
+    // Hosts of our own products (e.g. smartfintrack.kingnnt.org), sourced from
+    // the same catalog the home-page section component and its schema read —
+    // so this allowlist cannot drift from the copy it is checking.
+    const productHosts = new Set(
+      (en as unknown as { products: { items: { host: string }[] } }).products.items.map(
+        (p) => p.host,
+      ),
+    );
     const pages = catalogs[locale][config.contentNamespace] as Record<
       string,
       Record<string, unknown>
@@ -200,15 +208,22 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
           if (!isAbsoluteHref(link.href)) continue;
 
           const url = new URL(link.href);
-          // A link to a non-SofinWave host (e.g. one of our own products, like
-          // smartfintrack.kingnnt.org) is a genuine outbound link, not a
-          // cross-site reference — it has no landing page in this registry to
-          // point at.
-          if (!hosts.has(url.hostname)) continue;
 
-          // `/{locale}` only ever redirects, so cross-site links must name
-          // the landing page and must match the catalog they live in.
-          expect(url.pathname, `${key} link ${link.href}`).toBe(`/${locale}/${HOME_PATH}`);
+          if (hosts.has(url.hostname)) {
+            // `/{locale}` only ever redirects, so cross-site links must name
+            // the landing page and must match the catalog they live in.
+            expect(url.pathname, `${key} link ${link.href}`).toBe(`/${locale}/${HOME_PATH}`);
+            continue;
+          }
+
+          if (productHosts.has(url.hostname)) {
+            // A genuine outbound link to one of our own products, not a
+            // cross-site reference — it has no landing page in this registry
+            // to point at, so the pathname check above does not apply.
+            continue;
+          }
+
+          expect(hosts, `${key} link ${link.href}`).toContain(url.hostname);
         }
       }
     }
