@@ -88,9 +88,27 @@ repository can verify. The prose is a draft standing in for detail only
 ArtinLeap and SofinWave hold — replacing it with the specific problem
 Orkestrators solves would make the card considerably stronger.
 
-## Left alone deliberately
+## The Globex testimonial
 
-`testimonials.items` still carries "John Smith, Head of Engineering, Globex" —
-a quote attributed to a company that no longer appears anywhere else on the
-site. That is `CONTENT-TODO.md` item #2 and outside this change's scope, but the
-inconsistency is now visible and worth closing.
+Removing Globex from the case studies left `testimonials.items` quoting "John
+Smith, Head of Engineering, Globex" — an invented person at a company that
+appeared nowhere else on the site. The entry is deleted from all three catalogs.
+
+It is **not** replaced with an ArtinLeap quote. Writing a quote and attributing
+it to a named person at a real company is a different act from publishing a
+figure the site owner confirmed: it puts words in a third party's mouth without
+their consent, and `CONTENT-TODO.md` item #2 already explains why `Review` and
+`AggregateRating` schema stay switched off until the quotes are real and
+attributable with permission.
+
+`Testimonials` now centres a lone quote (`mx-auto max-w-2xl`) instead of leaving
+it half-width in a two-column grid. The two-column layout returns as soon as a
+second real quote exists.
+
+## Still open
+
+The remaining testimonial — "Jane Doe, CTO, Acme Corp" — is also invented, as is
+the Acme Corp case study beside it. Both are `CONTENT-TODO.md` items awaiting
+real material. A single genuine quote from ArtinLeap about Orkestrators, with
+permission to publish, would let the section stand entirely on real content and
+would unlock the `Review` schema.

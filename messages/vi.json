@@ -178,12 +178,6 @@
         "author": "Jane Doe",
         "role": "CTO",
         "company": "Acme Corp"
-      },
-      {
-        "quote": "Giao tiếp rõ ràng, triển khai kỷ luật. Phần tích hợp chạy đúng ngay ngày đầu tiên.",
-        "author": "John Smith",
-        "role": "Head of Engineering",
-        "company": "Globex"
       }
     ]
   },

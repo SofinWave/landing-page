@@ -178,12 +178,6 @@
         "author": "Jane Doe",
         "role": "首席技术官",
         "company": "Acme Corp"
-      },
-      {
-        "quote": "沟通清晰，交付有纪律。集成上线第一天就跑通了。",
-        "author": "John Smith",
-        "role": "工程负责人",
-        "company": "Globex"
       }
     ]
   },

@@ -178,12 +178,6 @@
         "author": "Jane Doe",
         "role": "CTO",
         "company": "Acme Corp"
-      },
-      {
-        "quote": "Clear communication, disciplined delivery. The integration just worked on day one.",
-        "author": "John Smith",
-        "role": "Head of Engineering",
-        "company": "Globex"
       }
     ]
   },
