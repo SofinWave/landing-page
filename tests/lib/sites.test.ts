@@ -53,3 +53,28 @@ describe("URL builders", () => {
     expect(pageUrl("en", "about")).toBe("https://sofinwave.com/en/about");
   });
 });
+
+describe("products in the footer", () => {
+  it("links the tech footer to the products page", () => {
+    const keys = siteConfig(SiteId.Tech).footerCompany.map((item) => item.href);
+
+    expect(keys).toContain("/products");
+  });
+
+  it("keeps it out of the header nav, which is services only", () => {
+    const hrefs = siteConfig(SiteId.Tech).nav.map((item) => item.href);
+
+    expect(hrefs).not.toContain("/products");
+  });
+
+  it("does not offer it on the other three sites", () => {
+    for (const site of [SiteId.Media, SiteId.Finance, SiteId.Academy]) {
+      const config = siteConfig(site);
+      const hrefs = [...config.nav, ...config.footerCompany, ...config.footerServices].map(
+        (item) => item.href,
+      );
+
+      expect(hrefs).not.toContain("/products");
+    }
+  });
+});

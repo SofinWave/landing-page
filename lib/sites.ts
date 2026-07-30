@@ -65,6 +65,7 @@ export const SITES: Record<SiteId, SiteConfig> = {
     footerCompany: [
       { href: "/vietnam-it-consulting", key: "vietnamItConsulting" },
       { href: "/engagement-models", key: "engagementModels" },
+      { href: "/products", key: "products" },
       { href: "/ventures", key: "ventures" },
       { href: "/about", key: "about" },
       { href: "/contact", key: "contact" },
