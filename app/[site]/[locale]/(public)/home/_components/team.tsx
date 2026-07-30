@@ -25,7 +25,7 @@ export function Team() {
   const t = useTranslations("team");
   const members = t.raw("members") as Member[];
   return (
-    <Section index={7} label="Team">
+    <Section index={6} label="Team">
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("title")}</h2>
         <p className="mt-3 text-muted-foreground">{t("about")}</p>

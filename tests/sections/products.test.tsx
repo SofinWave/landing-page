@@ -5,6 +5,7 @@ import en from "@/messages/en.json";
 // Aliased because `vi` is vitest's own export, which this file needs for the
 // mock below — `tests/sections/footer.test.tsx` aliases it the same way.
 import viMessages from "@/messages/vi.json";
+import zhMessages from "@/messages/zh.json";
 
 // Repo convention: the real `Link` needs the intl router, which does not exist
 // under jsdom. The locale prefixing it performs is covered by the routing tests.
@@ -18,9 +19,10 @@ vi.mock("@/i18n/navigation", () => ({
 
 import { Products } from "@/app/[site]/[locale]/(public)/home/_components/products";
 
-function renderAt(locale: "en" | "vi") {
+function renderAt(locale: "en" | "vi" | "zh") {
+  const messages = locale === "en" ? en : locale === "vi" ? viMessages : zhMessages;
   return render(
-    <NextIntlClientProvider locale={locale} messages={locale === "en" ? en : viMessages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <Products />
     </NextIntlClientProvider>,
   );
@@ -74,5 +76,12 @@ describe("Products section", () => {
 
     expect(screen.getByText(viMessages.products.heading)).toBeInTheDocument();
     expect(screen.getByText("Luận giải chi tiết bằng AI")).toBeInTheDocument();
+  });
+
+  it("renders the Chinese catalog under the zh locale", () => {
+    renderAt("zh");
+
+    expect(screen.getByText(zhMessages.products.heading)).toBeInTheDocument();
+    expect(screen.getByText("AI 详细解读")).toBeInTheDocument();
   });
 });

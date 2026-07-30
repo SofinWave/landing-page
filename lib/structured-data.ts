@@ -278,7 +278,7 @@ export function softwareApplicationSchema({
     name,
     description,
     url,
-    applicationCategory: PRODUCT_CATEGORIES[key] ?? "WebApplication",
+    applicationCategory: PRODUCT_CATEGORIES[key] ?? "UtilitiesApplication",
     operatingSystem: "Web",
     // Hardcoded to the languages the products actually support (both catalog
     // entries specify "languages": "Vietnamese / English"). Not derived from
