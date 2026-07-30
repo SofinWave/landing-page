@@ -734,8 +734,11 @@ describe("softwareApplicationSchema", () => {
     expect(tuViDauSo.applicationCategory).toBe("LifestyleApplication");
   });
 
-  it("declares the locales the routing config actually serves", () => {
-    expect(smartFinTrack.inLanguage).toEqual([...routing.locales]);
+  it("declares only the languages the products actually ship in", () => {
+    expect(smartFinTrack.inLanguage).toEqual(["vi", "en"]);
+    // The site serves zh; the products do not. A locale added to the routing
+    // config must not silently turn this into a false claim.
+    expect(smartFinTrack.inLanguage).not.toContain("zh");
   });
 
   // The testimonials are not real yet, and neither are any ratings.
@@ -800,9 +803,11 @@ export function softwareApplicationSchema({
     url,
     applicationCategory: PRODUCT_CATEGORIES[key] ?? "WebApplication",
     operatingSystem: "Web",
-    // Derived from the routing config so adding a locale cannot leave this
-    // claiming fewer languages than the products actually offer.
-    inLanguage: [...routing.locales],
+    // NOT derived from routing.locales. That config is the *site's* languages;
+    // this field is the *products'*, and they ship in Vietnamese and English
+    // only. Deriving it would make the schema claim Chinese support that the
+    // catalog copy on the same page explicitly denies.
+    inLanguage: ["vi", "en"],
     offers: {
       "@type": "Offer",
       price: "0",
