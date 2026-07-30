@@ -5,7 +5,7 @@ import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import type { SiteId } from "@/enums";
 import { breadcrumbTrail } from "@/lib/routes";
-import { isAbsoluteHref } from "@/lib/site";
+import { isAbsoluteHref, isExternalHref } from "@/lib/site";
 import { siteConfig } from "@/lib/sites";
 
 export interface ContentSection {
@@ -110,6 +110,11 @@ export async function ContentPage({
                       // prefix it with the current locale.
                       <a
                         href={link.href}
+                        // Only a link off our own network opens a new tab.
+                        // Moving between our four sites is not a departure.
+                        {...(isExternalHref(link.href)
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
                       >
                         {link.label}

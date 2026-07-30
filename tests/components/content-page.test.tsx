@@ -128,3 +128,52 @@ describe("ContentPage", () => {
     expect(internal).toHaveAttribute("href", "/ventures");
   });
 });
+
+describe("ContentPage outbound links", () => {
+  const data = baseData({
+    sections: [
+      {
+        heading: "Where our work lives",
+        body: "One network, plus the products we run on their own domains.",
+        links: [
+          { href: "https://media.sofinwave.com/en/home", label: "media.sofinwave.com" },
+          { href: "https://smartfintrack.kingnnt.org", label: "smartfintrack.kingnnt.org" },
+          { href: "/products", label: "Products" },
+        ],
+      },
+    ],
+  });
+
+  async function renderSection() {
+    const element = await ContentPage({ locale: "en", path: "products", data, site: SiteId.Tech });
+    render(element);
+
+    return screen.getByText("Where our work lives").closest("section") as HTMLElement;
+  }
+
+  it("opens a link off our network in a new tab", async () => {
+    const section = await renderSection();
+
+    const product = within(section).getByRole("link", { name: "smartfintrack.kingnnt.org" });
+
+    expect(product).toHaveAttribute("target", "_blank");
+    expect(product).toHaveAttribute("rel", expect.stringContaining("noopener"));
+  });
+
+  // Our four sites read as one network to a visitor, so moving between them is
+  // not a departure and should not spawn a tab.
+  it("keeps a sibling-site link in the current tab", async () => {
+    const section = await renderSection();
+
+    const sibling = within(section).getByRole("link", { name: "media.sofinwave.com" });
+
+    expect(sibling).toHaveAttribute("href", "https://media.sofinwave.com/en/home");
+    expect(sibling).not.toHaveAttribute("target");
+  });
+
+  it("keeps a relative link in the current tab", async () => {
+    const section = await renderSection();
+
+    expect(within(section).getByRole("link", { name: "Products" })).not.toHaveAttribute("target");
+  });
+});
