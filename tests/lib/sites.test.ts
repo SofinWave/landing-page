@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { SiteId } from "@/enums";
 import { ALL_SITES, DEFAULT_SITE, isSiteId, siteConfig } from "@/lib/sites";
-import { pageUrl, siteUrl } from "@/lib/site";
+import { isExternalHref, pageUrl, siteUrl } from "@/lib/site";
+import en from "@/messages/en.json";
 
 describe("site registry", () => {
   it("covers every SiteId exactly once", () => {
@@ -76,5 +77,33 @@ describe("products in the footer", () => {
 
       expect(hrefs).not.toContain("/products");
     }
+  });
+});
+
+describe("isExternalHref", () => {
+  it("treats every one of our own sites as internal", () => {
+    for (const site of ALL_SITES) {
+      expect(isExternalHref(`https://${site.host}/en/home`)).toBe(false);
+    }
+  });
+
+  it("treats the product domains as external", () => {
+    for (const product of en.products.items) {
+      expect(isExternalHref(product.href)).toBe(true);
+    }
+  });
+
+  it("treats a third-party URL as external", () => {
+    expect(isExternalHref("https://github.com/SofinWave")).toBe(true);
+  });
+
+  it("never calls a relative path external — it resolves against the current site", () => {
+    for (const href of ["/products", "/en/home", "services/it-consulting"]) {
+      expect(isExternalHref(href)).toBe(false);
+    }
+  });
+
+  it("does not throw on an unparseable href", () => {
+    expect(isExternalHref("https://")).toBe(false);
   });
 });

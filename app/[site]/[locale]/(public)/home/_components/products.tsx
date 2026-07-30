@@ -48,7 +48,16 @@ export function Products() {
           {items.map((product) => {
             const Icon = ICONS[product.key];
             return (
-              <a key={product.key} href={product.href} className="group block h-full">
+              <a
+                key={product.key}
+                href={product.href}
+                // The products live on their own domains, so this leaves the
+                // site. Open a new tab rather than navigating the visitor away
+                // from the page that just introduced them.
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full"
+              >
                 <HudCard className="flex h-full flex-col">
                   <CardHeader>
                     <div className="flex items-center gap-3">

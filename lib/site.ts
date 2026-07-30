@@ -1,6 +1,6 @@
 import { LocaleSupport, SiteId } from "@/enums";
 import { HOME_PATH } from "@/lib/routes";
-import { DEFAULT_SITE, siteConfig } from "@/lib/sites";
+import { ALL_SITES, DEFAULT_SITE, siteConfig } from "@/lib/sites";
 
 /**
  * Protocol used to build absolute URLs. Override with NEXT_PUBLIC_SITE_PROTOCOL
@@ -424,6 +424,28 @@ export const SITE_EMAIL = "Work.KingNNT@gmail.com";
  */
 export function isAbsoluteHref(href: string): boolean {
   return /^https?:\/\//i.test(href);
+}
+
+/**
+ * Whether a link leaves the SofinWave network entirely.
+ *
+ * Our four sites are one network as far as a visitor is concerned, so moving
+ * between them stays in the current tab. Somewhere we do not own — one of our
+ * own products on its own domain, or any third party — is a departure, and
+ * opens in a new one so the visitor does not lose the page they were reading.
+ *
+ * A relative href is never external: it resolves against the current site.
+ */
+export function isExternalHref(href: string): boolean {
+  if (!isAbsoluteHref(href)) return false;
+
+  try {
+    const { hostname } = new URL(href);
+    return !ALL_SITES.some((site) => site.host === hostname);
+  } catch {
+    // Not parseable as a URL, so it is not a link off our network either.
+    return false;
+  }
 }
 
 /**

@@ -85,3 +85,27 @@ describe("Products section", () => {
     expect(screen.getByText("AI 详细解读")).toBeInTheDocument();
   });
 });
+
+describe("Products section outbound links", () => {
+  // The products sit on their own domains. Losing the landing page to open one
+  // is a worse trade than a new tab.
+  it("opens each product in a new tab, with the reverse-tabnabbing guard", () => {
+    renderAt("en");
+
+    for (const product of en.products.items) {
+      const card = screen.getByRole("link", { name: new RegExp(product.name) });
+
+      expect(card).toHaveAttribute("href", product.href);
+      expect(card).toHaveAttribute("target", "_blank");
+      expect(card).toHaveAttribute("rel", expect.stringContaining("noopener"));
+    }
+  });
+
+  it("keeps the internal products link in the current tab", () => {
+    renderAt("en");
+
+    const internal = screen.getByRole("link", { name: en.products.ctaLabel });
+
+    expect(internal).not.toHaveAttribute("target");
+  });
+});
