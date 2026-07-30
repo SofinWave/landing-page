@@ -22,7 +22,7 @@ export function TechStack() {
   const technologies = t.raw("technologies") as string[];
   const domains = t.raw("domains") as string[];
   return (
-    <Section index={4} label="Tech Stack">
+    <Section index={5} label="Tech Stack">
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("title")}</h2>
         <p className="mt-3 text-muted-foreground">{t("subtitle")}</p>

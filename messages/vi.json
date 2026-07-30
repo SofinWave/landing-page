@@ -282,6 +282,43 @@
       }
     }
   },
+  "products": {
+    "heading": "Sản phẩm chúng tôi tự làm và tự vận hành",
+    "lede": "Hai ứng dụng của chính chúng tôi, đều miễn phí. Chúng tôi tự chịu chi phí vận hành chúng — cách trung thực nhất để cho thấy mình làm ra được sản phẩm và giữ nó sống.",
+    "ctaLabel": "Tìm hiểu thêm về sản phẩm",
+    "items": [
+      {
+        "key": "smartfintrack",
+        "name": "SmartFinTrack",
+        "blurb": "Hệ thống quản lý tài chính cá nhân. Ghi nhận thu chi theo danh mục, đặt ngân sách theo tháng, theo dõi tài sản và khoản đầu tư, rồi đọc lại tất cả bằng báo cáo và biểu đồ.",
+        "price": "Miễn phí",
+        "languages": "Tiếng Việt / English",
+        "features": [
+          "Thu chi theo danh mục",
+          "Ngân sách và hạn mức theo tháng",
+          "Tài sản và khoản đầu tư",
+          "Báo cáo và biểu đồ"
+        ],
+        "href": "https://smartfintrack.kingnnt.org",
+        "host": "smartfintrack.kingnnt.org"
+      },
+      {
+        "key": "tuvidauso",
+        "name": "Tử Vi Đẩu Số",
+        "blurb": "Lập lá số tử vi từ ngày giờ sinh — dương lịch hoặc âm lịch, có hỗ trợ tháng nhuận — an sao vào mười hai cung kèm chính tinh và ngũ hành, rồi luận giải chi tiết bằng AI.",
+        "price": "Lập lá số miễn phí; đăng nhập để lưu lá số",
+        "languages": "Tiếng Việt / English",
+        "features": [
+          "Lập lá số từ ngày giờ sinh",
+          "Dương lịch hoặc âm lịch, hỗ trợ tháng nhuận",
+          "Mười hai cung, chính tinh, ngũ hành",
+          "Luận giải chi tiết bằng AI"
+        ],
+        "href": "https://tuvidauso.kingnnt.org",
+        "host": "tuvidauso.kingnnt.org"
+      }
+    ]
+  },
   "pages": {
     "breadcrumbLabel": "Đường dẫn",
     "faqHeading": "Câu hỏi thường gặp",
@@ -1951,6 +1988,62 @@
         "title": "Cho chúng tôi biết bạn đang xây gì",
         "body": "Gửi mô tả ngắn về hệ thống và điểm nghẽn bạn đang gặp. Chúng tôi trả lời trong vòng một ngày làm việc.",
         "button": "Đặt lịch tư vấn"
+      }
+    },
+    "products": {
+      "navLabel": "Sản phẩm",
+      "title": "Sản phẩm",
+      "metaTitle": "Sản phẩm — Phần mềm do SofinWave tự làm và vận hành",
+      "metaDescription": "SofinWave tự làm và vận hành hai sản phẩm: SmartFinTrack — hệ thống quản lý tài chính cá nhân, và Tử Vi Đẩu Số — công cụ lập lá số và luận giải bằng AI. Cả hai đều miễn phí.",
+      "lede": "SofinWave tự làm và vận hành hai sản phẩm của chính mình, cả hai đều miễn phí: SmartFinTrack — hệ thống quản lý tài chính cá nhân, và Tử Vi Đẩu Số — công cụ lập lá số tử vi và luận giải bằng AI. Chúng do cùng đội ngũ làm ra, theo đúng tiêu chuẩn chúng tôi áp dụng cho phần mềm của khách hàng.",
+      "sections": [
+        {
+          "heading": "SmartFinTrack — quản lý tài chính cá nhân",
+          "body": "Một chỗ để nhìn rõ tiền thực sự đi đâu. Bạn ghi nhận thu chi theo danh mục, đặt hạn mức cho từng danh mục trong tháng, theo dõi tài sản và khoản đầu tư đang nắm, rồi đọc lại toàn cảnh bằng báo cáo và biểu đồ. Miễn phí, giao diện có tiếng Việt và tiếng Anh.",
+          "bullets": [
+            "Thu chi theo danh mục",
+            "Ngân sách và hạn mức theo tháng",
+            "Tài sản và khoản đầu tư",
+            "Báo cáo và biểu đồ"
+          ],
+          "links": [
+            { "href": "https://smartfintrack.kingnnt.org", "label": "smartfintrack.kingnnt.org" }
+          ]
+        },
+        {
+          "heading": "Tử Vi Đẩu Số — lập lá số và luận giải bằng AI",
+          "body": "Tử Vi Đẩu Số an sao vào mười hai cung dựa trên ngày giờ sinh. Công cụ lập lá số tự động — dương lịch hoặc âm lịch, có hỗ trợ tháng nhuận — hiển thị mười hai cung kèm chính tinh và ngũ hành, rồi đưa ra luận giải chi tiết bằng AI. Lập lá số hoàn toàn miễn phí; đăng nhập để lưu lá số và xem luận giải chi tiết bằng AI. Có tiếng Việt và tiếng Anh.",
+          "bullets": [
+            "Lập lá số từ ngày giờ sinh",
+            "Dương lịch hoặc âm lịch, hỗ trợ tháng nhuận",
+            "Mười hai cung, chính tinh, ngũ hành",
+            "Luận giải chi tiết bằng AI"
+          ],
+          "links": [{ "href": "https://tuvidauso.kingnnt.org", "label": "tuvidauso.kingnnt.org" }]
+        },
+        {
+          "heading": "Vì sao chúng tôi tự làm sản phẩm",
+          "body": "Lời khuyên tư vấn thì dễ đưa ra, nhưng sống chung với nó mới tốn kém. Tự vận hành ứng dụng của mình nghĩa là chúng tôi gánh đúng hệ quả của những gì mình khuyên khách — từ khâu triển khai, báo lỗi, đến chi phí duy trì lâu sau ngày ra mắt. Sản phẩm do chính đội ngũ đó làm, trên cùng nền tảng công nghệ và cùng tiêu chuẩn với dự án khách hàng — đó là lý do chúng là bằng chứng chứ không phải đồ trang trí."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Sản phẩm của SofinWave có miễn phí không?",
+          "answer": "Có. SmartFinTrack dùng miễn phí, và việc lập lá số trên Tử Vi Đẩu Số cũng miễn phí. Hiện chưa sản phẩm nào có gói trả phí."
+        },
+        {
+          "question": "Tôi có cần tài khoản không?",
+          "answer": "SmartFinTrack cần tài khoản, vì nó lưu chính dữ liệu tài chính của bạn. Tử Vi Đẩu Số lập được lá số mà không cần đăng nhập; đăng nhập để lưu lá số và xem luận giải chi tiết bằng AI."
+        },
+        {
+          "question": "SofinWave có nhận làm sản phẩm tương tự cho chúng tôi không?",
+          "answer": "Có — đó chính là mảng tư vấn và triển khai của chúng tôi. Cả hai sản phẩm đều do đội ngũ nhận dự án khách hàng làm ra, với cùng kiến trúc và quy trình. Hãy liên hệ và mô tả điều bạn đang muốn xây."
+        }
+      ],
+      "cta": {
+        "title": "Muốn xây một sản phẩm như vậy?",
+        "body": "Chính đội ngũ làm ra hai sản phẩm này nhận dự án khách hàng. Hãy nói cho chúng tôi biết bạn đang muốn xây gì, chúng tôi sẽ nói cách mình sẽ tiếp cận.",
+        "button": "Liên hệ với chúng tôi"
       }
     }
   },

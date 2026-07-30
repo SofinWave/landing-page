@@ -9,6 +9,7 @@ import {
   organizationSchema,
   personSchema,
   serviceSchema,
+  softwareApplicationSchema,
   webPageSchema,
   websiteSchema,
 } from "@/lib/structured-data";
@@ -118,6 +119,31 @@ export async function PageStructuredData({
         serviceType: data.metaTitle,
         site,
       }),
+    );
+  }
+
+  // Our own products, on our own page, on the consultancy's site only. The
+  // names and URLs are read from the same namespace the home section renders,
+  // so schema and visible copy cannot drift apart.
+  if (site === SiteId.Tech && path === "products") {
+    const tProducts = await getTranslations({ locale, namespace: "products" });
+    const products = tProducts.raw("items") as {
+      key: string;
+      name: string;
+      blurb: string;
+      href: string;
+    }[];
+
+    graph.push(
+      ...products.map((product) =>
+        softwareApplicationSchema({
+          key: product.key,
+          name: product.name,
+          description: product.blurb,
+          url: product.href,
+          site,
+        }),
+      ),
     );
   }
 

@@ -40,7 +40,7 @@ export const HOME_PATH = "home";
  * way, and answer engines weigh freshness when choosing what to cite — a signal
  * only worth having if it is true.
  */
-export const CONTENT_LAST_MODIFIED = "2026-07-29";
+export const CONTENT_LAST_MODIFIED = "2026-07-30";
 
 /** A route's own modification date, falling back to the site-wide one. */
 export function routeLastModified(route: RouteDef): string {
@@ -65,6 +65,16 @@ const TECH_ROUTES: readonly RouteDef[] = [
     parent: HOME_PATH,
     priority: 0.6,
     changeFrequency: "yearly",
+  },
+  // Our own software, not client work. Kept as one page: neither product has
+  // enough behind it to fill a page of its own without padding, and thin pages
+  // cost more topical authority than they earn.
+  {
+    path: "products",
+    key: "products",
+    parent: HOME_PATH,
+    priority: 0.8,
+    changeFrequency: "monthly",
   },
 
   {

@@ -160,7 +160,22 @@ sites, and competing head-on will not work. A narrow angle — a specific grade
 band, a specific subject, or the bilingual/technical angle the rest of the group
 already has — is far more likely to succeed than broad coverage.
 
-## 11. Facts the data services pages are missing
+## 11. Products live on a personal domain, not a SofinWave one
+
+**Where:** `messages/*.json` → `products.items[].href` / `.host`, and
+`pages.products.sections[].links[].href` / `.label`
+
+Both SmartFinTrack and Tử Vi Đẩu Số are hosted at `*.kingnnt.org` — a personal
+domain — while the tech site presents them as SofinWave's own products. That is
+true (they are built and run by the same team), but the mismatched domain is
+worth closing.
+
+If the products move to `smartfintrack.sofinwave.com` and
+`tuvidauso.sofinwave.com`, update the two URLs (and their display labels) in
+all three catalogs (`en.json`, `vi.json`, `zh.json`). Nothing else changes —
+`key` stays as-is, and no structural or code change is needed.
+
+## 12. Facts the data services pages are missing
 
 **Where:** `messages/en.json` and `messages/vi.json` → `pages.aiTrainingData`,
 `pages.dataCollection`, `pages.egocentricDataCollection`, `pages.dataAnnotation`,

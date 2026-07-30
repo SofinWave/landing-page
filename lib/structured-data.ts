@@ -241,6 +241,61 @@ export function serviceSchema({
 }
 
 /**
+ * schema.org application categories, keyed by the product's untranslated `key`
+ * in the message catalog. The category is a vocabulary term, not copy, so it
+ * does not belong in the catalogs.
+ */
+const PRODUCT_CATEGORIES: Record<string, string> = {
+  smartfintrack: "FinanceApplication",
+  tuvidauso: "LifestyleApplication",
+};
+
+/**
+ * SoftwareApplication node for one of our own products.
+ *
+ * Name, description, and URL come from the same catalog entry the page renders,
+ * so the schema cannot drift from the visible copy. No rating and no review —
+ * we have no real ones, and inventing them is a policy violation as well as a
+ * lie.
+ */
+export function softwareApplicationSchema({
+  key,
+  name,
+  description,
+  url,
+  site = DEFAULT_SITE.id,
+}: {
+  key: string;
+  name: string;
+  description: string;
+  url: string;
+  site?: SiteId;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${url}#software`,
+    name,
+    description,
+    url,
+    applicationCategory: PRODUCT_CATEGORIES[key] ?? "UtilitiesApplication",
+    operatingSystem: "Web",
+    // Hardcoded to the languages the products actually support (both catalog
+    // entries specify "languages": "Vietnamese / English"). Not derived from
+    // routing.locales — inLanguage describes this product's support, not the
+    // site's locales. Adding a new site locale (e.g., Chinese) cannot change
+    // what languages a product actually offers.
+    inLanguage: ["vi", "en"],
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "VND",
+    },
+    publisher: { "@id": `${siteUrl(site)}/#organization` },
+  };
+}
+
+/**
  * Person nodes for named team members.
  *
  * Only real, named people belong here — placeholder entries are filtered out by
