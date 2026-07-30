@@ -180,8 +180,9 @@ describe("softwareApplicationSchema", () => {
     expect(tuViDauSo.applicationCategory).toBe("LifestyleApplication");
   });
 
-  it("declares the locales the routing config actually serves", () => {
-    expect(smartFinTrack.inLanguage).toEqual([...routing.locales]);
+  it("declares the languages the products actually support", () => {
+    expect(smartFinTrack.inLanguage).toEqual(["vi", "en"]);
+    expect(smartFinTrack.inLanguage).not.toContain("zh");
   });
 
   // The testimonials are not real yet, and neither are any ratings.

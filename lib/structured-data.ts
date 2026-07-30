@@ -280,9 +280,12 @@ export function softwareApplicationSchema({
     url,
     applicationCategory: PRODUCT_CATEGORIES[key] ?? "WebApplication",
     operatingSystem: "Web",
-    // Derived from the routing config so adding a locale cannot leave this
-    // claiming fewer languages than the products actually offer.
-    inLanguage: [...routing.locales],
+    // Hardcoded to the languages the products actually support (both catalog
+    // entries specify "languages": "Vietnamese / English"). Not derived from
+    // routing.locales — inLanguage describes this product's support, not the
+    // site's locales. Adding a new site locale (e.g., Chinese) cannot change
+    // what languages a product actually offers.
+    inLanguage: ["vi", "en"],
     offers: {
       "@type": "Offer",
       price: "0",
