@@ -40,6 +40,22 @@ describe("app route naming", () => {
   });
 });
 
+/**
+ * Google's favicon crawler, Bing, Slack and every browser's zero-config default
+ * probe `/favicon.ico` before reading any `<link>`. `icon.png` alone leaves that
+ * a 404, which is how the search result ends up with a generic placeholder.
+ * All three are derived — regenerate with `scripts/build-brand-assets.py`.
+ */
+describe("brand icon files", () => {
+  it.each(["favicon.ico", "icon.png", "apple-icon.png"])("ships app/%s", (name) => {
+    expect(statSync(join(APP_DIR, name)).size).toBeGreaterThan(0);
+  });
+
+  it("keeps favicon.ico out of the proxy matcher, so it is served verbatim", () => {
+    expect(readFileSync(PROXY_FILE, "utf8")).toContain("favicon.ico");
+  });
+});
+
 describe("proxy site-scoped file map", () => {
   const source = readFileSync(PROXY_FILE, "utf8");
   const block = source.slice(
