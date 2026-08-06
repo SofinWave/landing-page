@@ -30,6 +30,16 @@ ICON_SIZE = 500  # app/manifest.ts declares icons at 500x500
 MONOGRAM_PAD = 0.10  # breathing room around the S inside the square
 DARK_FLOOR = 0.52  # brightness floor for the dark-theme variant
 
+# Google's favicon crawler, Bing, Slack, and every browser's zero-config default
+# probe `/favicon.ico` before reading any <link>. `app/icon.png` alone leaves that
+# 404, so the multi-resolution .ico is generated too. 48px is the largest size
+# Google renders a favicon at; 16/32 are the browser tab sizes.
+FAVICON_SIZES = ((16, 16), (32, 32), (48, 48))
+APPLE_ICON_SIZE = 180  # iOS home-screen tile; also a favicon rel Google accepts
+# iOS composites an apple-touch-icon onto black, which would swallow the navy
+# monogram, so that one variant ships flattened onto white.
+APPLE_ICON_BG = (255, 255, 255, 255)
+
 
 def to_transparent(rgb: Image.Image) -> Image.Image:
     """Knock out the near-white background, un-premultiplying anti-aliased edges."""
@@ -72,6 +82,20 @@ def save(img: Image.Image, path: str) -> None:
     print(path, Image.open(path).size)
 
 
+def save_ico(img: Image.Image, path: str) -> None:
+    """Write a multi-resolution .ico. Unlike `save`, this keeps true RGBA — the
+    ICO container has no palette+alpha form that every consumer decodes."""
+    img.convert("RGBA").save(path, format="ICO", sizes=list(FAVICON_SIZES))
+    print(path, sorted(Image.open(path).ico.sizes()))
+
+
+def on_white(img: Image.Image, size: int) -> Image.Image:
+    flat = Image.new("RGBA", (size, size), APPLE_ICON_BG)
+    scaled = img.resize((size, size), Image.LANCZOS)
+    flat.paste(scaled, (0, 0), scaled)
+    return flat
+
+
 def scaled_to_height(img: Image.Image, height: int) -> Image.Image:
     return img.resize((max(1, round(img.width * height / img.height)), height), Image.LANCZOS)
 
@@ -99,6 +123,8 @@ def main() -> None:
 
     save(square, "public/images/logo-mark.png")
     save(square, "app/icon.png")
+    save_ico(square, "app/favicon.ico")
+    save(on_white(square, APPLE_ICON_SIZE), "app/apple-icon.png")
 
 
 if __name__ == "__main__":
