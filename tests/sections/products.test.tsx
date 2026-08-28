@@ -41,7 +41,7 @@ describe("Products section", () => {
 
     const hrefs = screen.getAllByRole("link").map((link) => link.getAttribute("href"));
 
-    expect(hrefs).toContain("https://smartfintrack.kingnnt.org");
+    expect(hrefs).toContain("https://smartfintrack.com");
     expect(hrefs).toContain("https://tuvidauso.kingnnt.org");
   });
 

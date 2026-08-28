@@ -20,7 +20,7 @@ describe("products catalog", () => {
 
       it("points at the live product hosts over https", () => {
         expect(products.items.map((p) => p.href)).toEqual([
-          "https://smartfintrack.kingnnt.org",
+          "https://smartfintrack.com",
           "https://tuvidauso.kingnnt.org",
         ]);
       });

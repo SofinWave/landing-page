@@ -40,7 +40,7 @@ export const HOME_PATH = "home";
  * way, and answer engines weigh freshness when choosing what to cite — a signal
  * only worth having if it is true.
  */
-export const CONTENT_LAST_MODIFIED = "2026-07-30";
+export const CONTENT_LAST_MODIFIED = "2026-08-29";
 
 /** A route's own modification date, falling back to the site-wide one. */
 export function routeLastModified(route: RouteDef): string {

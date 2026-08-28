@@ -137,7 +137,7 @@ describe("ContentPage outbound links", () => {
         body: "One network, plus the products we run on their own domains.",
         links: [
           { href: "https://media.sofinwave.com/en/home", label: "media.sofinwave.com" },
-          { href: "https://smartfintrack.kingnnt.org", label: "smartfintrack.kingnnt.org" },
+          { href: "https://smartfintrack.com", label: "smartfintrack.com" },
           { href: "/products", label: "Products" },
         ],
       },
@@ -154,7 +154,7 @@ describe("ContentPage outbound links", () => {
   it("opens a link off our network in a new tab", async () => {
     const section = await renderSection();
 
-    const product = within(section).getByRole("link", { name: "smartfintrack.kingnnt.org" });
+    const product = within(section).getByRole("link", { name: "smartfintrack.com" });
 
     expect(product).toHaveAttribute("target", "_blank");
     expect(product).toHaveAttribute("rel", expect.stringContaining("noopener"));

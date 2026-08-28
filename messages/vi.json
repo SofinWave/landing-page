@@ -299,8 +299,8 @@
           "Tài sản và khoản đầu tư",
           "Báo cáo và biểu đồ"
         ],
-        "href": "https://smartfintrack.kingnnt.org",
-        "host": "smartfintrack.kingnnt.org"
+        "href": "https://smartfintrack.com",
+        "host": "smartfintrack.com"
       },
       {
         "key": "tuvidauso",
@@ -2006,9 +2006,7 @@
             "Tài sản và khoản đầu tư",
             "Báo cáo và biểu đồ"
           ],
-          "links": [
-            { "href": "https://smartfintrack.kingnnt.org", "label": "smartfintrack.kingnnt.org" }
-          ]
+          "links": [{ "href": "https://smartfintrack.com", "label": "smartfintrack.com" }]
         },
         {
           "heading": "Tử Vi Đẩu Số — lập lá số và luận giải bằng AI",

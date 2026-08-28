@@ -185,7 +185,7 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
     Object.keys(catalogs),
   )("points every absolute section link at a real SofinWave landing page in %s", (locale) => {
     const hosts = new Set(ALL_SITES.map((s) => s.host));
-    // Hosts of our own products (e.g. smartfintrack.kingnnt.org), sourced from
+    // Hosts of our own products (e.g. smartfintrack.com), sourced from
     // the same catalog the home-page section component and its schema read —
     // so this allowlist cannot drift from the copy it is checking.
     const productHosts = new Set(

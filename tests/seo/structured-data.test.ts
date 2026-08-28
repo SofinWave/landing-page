@@ -163,7 +163,7 @@ describe("softwareApplicationSchema", () => {
   it("describes a free web application published by the consultancy", () => {
     expect(smartFinTrack["@type"]).toBe("SoftwareApplication");
     expect(smartFinTrack.name).toBe("SmartFinTrack");
-    expect(smartFinTrack.url).toBe("https://smartfintrack.kingnnt.org");
+    expect(smartFinTrack.url).toBe("https://smartfintrack.com");
     expect(smartFinTrack.operatingSystem).toBe("Web");
     expect(smartFinTrack.offers).toEqual({
       "@type": "Offer",
