@@ -294,8 +294,8 @@
         "price": "免费",
         "languages": "越南语 / 英语",
         "features": ["分类收支", "每月预算与限额", "资产和投资", "报告和图表"],
-        "href": "https://smartfintrack.kingnnt.org",
-        "host": "smartfintrack.kingnnt.org"
+        "href": "https://smartfintrack.com",
+        "host": "smartfintrack.com"
       },
       {
         "key": "tuvidauso",
@@ -1970,9 +1970,7 @@
           "heading": "SmartFinTrack——个人财务管理",
           "body": "一个能看清钱究竟花到哪里去的地方。你按分类记录收入和支出，为每个分类设定当月额度，记录持有的资产和投资，然后通过报告和图表回顾全貌。免费使用，界面提供越南语和英语。",
           "bullets": ["按分类的收入和支出", "按月度的预算和限额", "资产和投资", "报告和图表"],
-          "links": [
-            { "href": "https://smartfintrack.kingnnt.org", "label": "smartfintrack.kingnnt.org" }
-          ]
+          "links": [{ "href": "https://smartfintrack.com", "label": "smartfintrack.com" }]
         },
         {
           "heading": "Tử Vi Đẩu Số——排盘与 AI 解读",
