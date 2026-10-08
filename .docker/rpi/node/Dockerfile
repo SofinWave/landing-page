@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 # Multi-stage production image for Raspberry Pi (arm64), Next.js standalone output.
-# Built natively on the Pi. Uses pnpm (the project's source-of-truth lockfile),
-# not yarn like the older dev/prod images.
+# Built natively on the Pi. Installs with pnpm via corepack, pinned to the
+# version in package.json.
 
 FROM node:22-bookworm-slim AS base
 ENV PNPM_HOME=/pnpm

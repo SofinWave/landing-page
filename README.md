@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SofinWave landing page
 
-## Getting Started
+Multilingual (English / Vietnamese / Chinese) marketing site for SofinWave, built with
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, shadcn/ui, and next-intl.
 
-First, run the development server:
+One app serves four hostnames, one per business vertical:
+
+| Hostname                | Vertical                                     |
+| ----------------------- | -------------------------------------------- |
+| `sofinwave.com`         | IT consulting & implementation, including AI |
+| `media.sofinwave.com`   | Video/content production, affiliate          |
+| `finance.sofinwave.com` | Investing knowledge & tooling                |
+| `academy.sofinwave.com` | Education                                    |
+
+`proxy.ts` maps the `Host` header to a site and rewrites the request into `app/[site]/[locale]/`.
+
+## Getting started
+
+Requires Node.js 22 and pnpm (enable it with `corepack enable`; the version is pinned in
+`package.json`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:3000 — serves the apex (tech) site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pages live under a locale prefix: open <http://localhost:3000/en/home>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command             | Purpose                                  |
+| ------------------- | ---------------------------------------- |
+| `pnpm dev`          | Dev server (Turbopack)                   |
+| `pnpm build`        | Production build                         |
+| `pnpm start`        | Serve the production build               |
+| `pnpm test`         | Run the Vitest suite once                |
+| `pnpm lint`         | ESLint                                   |
+| `pnpm format`       | Format with Biome                        |
+| `pnpm format:check` | Verify formatting (what CI runs)         |
 
-## Learn More
+Docker workflows are wrapped as [mise](https://mise.jdx.dev) tasks — list them with
+`mise tasks ls` (`local:*`, `prod:*`, `rpi:*`).
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Branch off and open PRs against **`develop`**, the integration branch.
+- Commits follow [Conventional Commits](https://www.conventionalcommits.org/) (enforced by
+  commitlint); the pre-commit hook formats and lints staged files.
+- Every message key must exist in all of `messages/en.json`, `vi.json`, and `zh.json`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Architecture, SEO rules, and other conventions are documented in [`AGENTS.md`](AGENTS.md).
