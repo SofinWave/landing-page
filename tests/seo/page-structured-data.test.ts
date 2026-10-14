@@ -25,11 +25,20 @@ async function graphFor(path: string, data: unknown, site = SiteId.Tech) {
 }
 
 describe("PageStructuredData on /products", () => {
-  it("emits one SoftwareApplication per catalogued product", async () => {
+  it("emits one node per catalogued product", async () => {
     const graph = await graphFor("products", en.pages.products);
-    const apps = graph.filter((node) => node["@type"] === "SoftwareApplication");
+    const products = graph.filter((node) =>
+      ["SoftwareApplication", "Blog"].includes(node["@type"] as string),
+    );
 
-    expect(apps.map((app) => app.name)).toEqual(en.products.items.map((p) => p.name));
+    expect(products.map((node) => node.name)).toEqual(en.products.items.map((p) => p.name));
+  });
+
+  it("emits the blog as a Blog, not a SoftwareApplication", async () => {
+    const graph = await graphFor("products", en.pages.products);
+    const blog = graph.find((node) => node.name === "KingNNT Blog");
+
+    expect(blog?.["@type"]).toBe("Blog");
   });
 
   it("emits none on a page that is not /products", async () => {

@@ -304,6 +304,31 @@ export function softwareApplicationSchema({
   };
 }
 
+type ProductSchemaInput = Parameters<typeof softwareApplicationSchema>[0];
+
+/**
+ * Blog node for KingNNT Blog. It sits in the products catalog but is a
+ * publication, not software, so it carries no application category or Offer.
+ */
+export function blogSchema({ name, description, url, site = DEFAULT_SITE.id }: ProductSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${url}#blog`,
+    name,
+    description,
+    url,
+    inLanguage: ["vi", "en"],
+    isAccessibleForFree: true,
+    publisher: { "@id": `${siteUrl(site)}/#organization` },
+  };
+}
+
+/** The schema node for one catalog product, picked by what the product is. */
+export function productSchema(product: ProductSchemaInput) {
+  return product.key === "blog" ? blogSchema(product) : softwareApplicationSchema(product);
+}
+
 /**
  * Person nodes for named team members.
  *

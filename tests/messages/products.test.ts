@@ -9,7 +9,12 @@ describe("products catalog", () => {
   for (const [locale, products] of Object.entries(catalogs)) {
     describe(locale, () => {
       it("lists every product in a stable order", () => {
-        expect(products.items.map((p) => p.key)).toEqual(["smartfintrack", "tuvidauso", "course"]);
+        expect(products.items.map((p) => p.key)).toEqual([
+          "smartfintrack",
+          "tuvidauso",
+          "course",
+          "blog",
+        ]);
       });
 
       it("gives each product exactly four features", () => {
@@ -23,6 +28,7 @@ describe("products catalog", () => {
           "https://smartfintrack.com",
           "https://tuvidauso.kingnnt.org",
           "https://course.kingnnt.org",
+          "https://cms.kingnnt.org",
         ]);
       });
 

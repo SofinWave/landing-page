@@ -9,7 +9,7 @@ import {
   organizationSchema,
   personSchema,
   serviceSchema,
-  softwareApplicationSchema,
+  productSchema,
   webPageSchema,
   websiteSchema,
 } from "@/lib/structured-data";
@@ -136,7 +136,7 @@ export async function PageStructuredData({
 
     graph.push(
       ...products.map((product) =>
-        softwareApplicationSchema({
+        productSchema({
           key: product.key,
           name: product.name,
           description: product.blurb,

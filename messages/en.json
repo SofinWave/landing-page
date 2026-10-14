@@ -284,7 +284,7 @@
   },
   "products": {
     "heading": "Products we build and run",
-    "lede": "Three applications of our own. We carry the cost of running them, which is the only honest way to show we can ship software and keep it alive.",
+    "lede": "Three applications and an engineering blog of our own. We carry the cost of running them, which is the only honest way to show we can ship software and keep it alive.",
     "ctaLabel": "More about our products",
     "items": [
       {
@@ -331,6 +331,21 @@
         ],
         "href": "https://course.kingnnt.org",
         "host": "course.kingnnt.org"
+      },
+      {
+        "key": "blog",
+        "name": "KingNNT Blog",
+        "blurb": "An engineering notebook on backend architecture, infrastructure, and AI agent tooling — the technical decisions that cost something, written up for teams running systems in production.",
+        "price": "Free to read",
+        "languages": "Vietnamese / English",
+        "features": [
+          "In-depth articles on backend and AI agent systems",
+          "Published in Vietnamese and English",
+          "A separate RSS feed for each language",
+          "An llms.txt index for AI tools and answer engines"
+        ],
+        "href": "https://cms.kingnnt.org",
+        "host": "cms.kingnnt.org"
       }
     ]
   },
@@ -2004,8 +2019,8 @@
       "navLabel": "Products",
       "title": "Products",
       "metaTitle": "Products — Software SofinWave Builds and Runs",
-      "metaDescription": "SofinWave builds and runs three products of its own: SmartFinTrack, a personal finance manager; Tử Vi Đẩu Số, which casts and interprets Zi Wei Dou Shu astrology charts with AI; and KingNNT Course, an e-learning platform for applied AI and programming.",
-      "lede": "SofinWave builds and runs three products of its own: SmartFinTrack, a free personal finance manager; Tử Vi Đẩu Số, which casts and interprets Zi Wei Dou Shu astrology charts with AI; and KingNNT Course, an e-learning platform for hands-on AI and programming courses. They are built by the same team, to the same standards, as the software we build for clients.",
+      "metaDescription": "SofinWave builds and runs four products of its own: SmartFinTrack, a personal finance manager; Tử Vi Đẩu Số, AI-interpreted Zi Wei Dou Shu astrology charts; KingNNT Course, an e-learning platform for applied AI and programming; and KingNNT Blog, an engineering notebook on backend systems.",
+      "lede": "SofinWave builds and runs four products of its own: SmartFinTrack, a free personal finance manager; Tử Vi Đẩu Số, which casts and interprets Zi Wei Dou Shu astrology charts with AI; KingNNT Course, an e-learning platform for hands-on AI and programming courses; and KingNNT Blog, where our engineers write about backend and AI agent systems. They are built by the same team, to the same standards, as the software we build for clients.",
       "sections": [
         {
           "heading": "SmartFinTrack — personal finance management",
@@ -2041,6 +2056,17 @@
           "links": [{ "href": "https://course.kingnnt.org", "label": "course.kingnnt.org" }]
         },
         {
+          "heading": "KingNNT Blog — a backend engineering notebook",
+          "body": "Where our engineers write up what they learn running systems in production: backend architecture, infrastructure, and the tooling around AI agents — protocol changes, framework migrations, observability, and the costs that only show up after launch. The articles are long-form and practical, written for engineers who have to make the same decisions. It is free to read with no account, published in Vietnamese and English with a separate RSS feed for each, and exposes an llms.txt index so AI tools can read it too.",
+          "bullets": [
+            "In-depth articles on backend and AI agent systems",
+            "Published in Vietnamese and English",
+            "A separate RSS feed for each language",
+            "An llms.txt index for AI tools and answer engines"
+          ],
+          "links": [{ "href": "https://cms.kingnnt.org", "label": "cms.kingnnt.org" }]
+        },
+        {
           "heading": "Why we build our own products",
           "body": "Consulting advice is cheap to give and expensive to live with. Running our own applications means we carry the consequences of our own recommendations — the deployment, the bug reports, the cost of keeping something up long after launch. The products are built by the same engineers, on the same stack, under the same standards as client work, which is what makes them evidence rather than decoration."
         }
@@ -2048,15 +2074,15 @@
       "faq": [
         {
           "question": "Are SofinWave's products free?",
-          "answer": "SmartFinTrack is free to use, and casting a chart on Tử Vi Đẩu Số is free. On KingNNT Course the open lessons are free to try; each full course is a one-time purchase with lifetime access."
+          "answer": "SmartFinTrack is free to use, and casting a chart on Tử Vi Đẩu Số is free. On KingNNT Course the open lessons are free to try; each full course is a one-time purchase with lifetime access. KingNNT Blog is free to read."
         },
         {
           "question": "Do I need an account?",
-          "answer": "SmartFinTrack requires an account, because it stores your own financial records. Tử Vi Đẩu Số casts a chart without one; signing in lets you save charts and read the detailed AI interpretation. KingNNT Course needs one to enrol in a course and pick up where you left off."
+          "answer": "SmartFinTrack requires an account, because it stores your own financial records. Tử Vi Đẩu Số casts a chart without one; signing in lets you save charts and read the detailed AI interpretation. KingNNT Course needs one to enrol in a course and pick up where you left off. KingNNT Blog can be read without one."
         },
         {
           "question": "Can SofinWave build something like this for us?",
-          "answer": "Yes — that is the consulting business. All three products were built by the same team that takes on client work, using the same architecture and delivery process. Get in touch and describe what you have in mind."
+          "answer": "Yes — that is the consulting business. All of them were built by the same team that takes on client work, using the same architecture and delivery process. Get in touch and describe what you have in mind."
         }
       ],
       "cta": {
