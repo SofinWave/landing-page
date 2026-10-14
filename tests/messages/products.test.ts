@@ -8,8 +8,8 @@ const catalogs = { en: en.products, vi: vi.products, zh: zh.products };
 describe("products catalog", () => {
   for (const [locale, products] of Object.entries(catalogs)) {
     describe(locale, () => {
-      it("lists both products in a stable order", () => {
-        expect(products.items.map((p) => p.key)).toEqual(["smartfintrack", "tuvidauso"]);
+      it("lists every product in a stable order", () => {
+        expect(products.items.map((p) => p.key)).toEqual(["smartfintrack", "tuvidauso", "course"]);
       });
 
       it("gives each product exactly four features", () => {
@@ -22,6 +22,7 @@ describe("products catalog", () => {
         expect(products.items.map((p) => p.href)).toEqual([
           "https://smartfintrack.com",
           "https://tuvidauso.kingnnt.org",
+          "https://course.kingnnt.org",
         ]);
       });
 

@@ -183,7 +183,7 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
 
   it.each(
     Object.keys(catalogs),
-  )("points every absolute section link at a real SofinWave landing page in %s", (locale) => {
+  )("points every absolute section link at a SofinWave site, product, or partner in %s", (locale) => {
     const hosts = new Set(ALL_SITES.map((s) => s.host));
     // Hosts of our own products (e.g. smartfintrack.com), sourced from
     // the same catalog the home-page section component and its schema read —
@@ -193,6 +193,9 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
         (p) => p.host,
       ),
     );
+    // Partner organisations the copy links to by name. Not ours, so they live
+    // neither in the site registry nor in the products catalog.
+    const partnerHosts = new Set(["tritueviet.org"]);
     const pages = catalogs[locale][config.contentNamespace] as Record<
       string,
       Record<string, unknown>
@@ -222,6 +225,8 @@ describe.each(ALL_SITES.map((s) => s.id))("content for %s", (siteId) => {
             // to point at, so the pathname check above does not apply.
             continue;
           }
+
+          if (partnerHosts.has(url.hostname)) continue;
 
           expect(hosts, `${key} link ${link.href}`).toContain(url.hostname);
         }

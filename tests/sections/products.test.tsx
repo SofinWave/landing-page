@@ -29,11 +29,12 @@ function renderAt(locale: "en" | "vi" | "zh") {
 }
 
 describe("Products section", () => {
-  it("names both products", () => {
+  it("names every product", () => {
     renderAt("en");
 
     expect(screen.getByText("SmartFinTrack")).toBeInTheDocument();
     expect(screen.getByText("Tử Vi Đẩu Số")).toBeInTheDocument();
+    expect(screen.getByText("KingNNT Course")).toBeInTheDocument();
   });
 
   it("links each card out to the live product", () => {
@@ -43,6 +44,7 @@ describe("Products section", () => {
 
     expect(hrefs).toContain("https://smartfintrack.com");
     expect(hrefs).toContain("https://tuvidauso.kingnnt.org");
+    expect(hrefs).toContain("https://course.kingnnt.org");
   });
 
   it("links through to the products page", () => {
