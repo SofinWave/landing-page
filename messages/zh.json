@@ -284,7 +284,7 @@
   },
   "products": {
     "heading": "我们自主开发和运营的产品",
-    "lede": "两款我们自己的应用程序，都是免费使用的。我们自己承担运营成本，这是展示我们能够交付软件并让它持续运营的唯一诚实的方式。",
+    "lede": "三款我们自己的应用程序。我们自己承担运营成本，这是展示我们能够交付软件并让它持续运营的唯一诚实的方式。",
     "ctaLabel": "了解更多产品信息",
     "items": [
       {
@@ -311,6 +311,21 @@
         ],
         "href": "https://tuvidauso.kingnnt.org",
         "host": "tuvidauso.kingnnt.org"
+      },
+      {
+        "key": "course",
+        "name": "KingNNT Course",
+        "blurb": "一个关于应用 AI、编程和数据的在线学习平台。围绕真实项目的自学课程，一次购买、终身访问，付款前可先试学公开课时。",
+        "price": "免费试学；课程一次性购买",
+        "languages": "越南语 / 英语",
+        "features": [
+          "围绕真实项目的实践课程",
+          "购买前可试学公开课时",
+          "一次购买，终身访问",
+          "VietQR 付款，自动确认"
+        ],
+        "href": "https://course.kingnnt.org",
+        "host": "course.kingnnt.org"
       }
     ]
   },
@@ -1963,8 +1978,8 @@
       "navLabel": "产品",
       "title": "产品",
       "metaTitle": "产品——SofinWave 自主开发和运营的软件",
-      "metaDescription": "SofinWave 自主开发和运营两款产品：SmartFinTrack——个人财务管理工具，以及 Tử Vi Đẩu Số——通过 AI 生成并解读紫微斗数命盘。两者均可免费使用。",
-      "lede": "SofinWave 自主开发和运营两款产品，两者均可免费使用：SmartFinTrack，一款个人财务管理工具；以及 Tử Vi Đẩu Số，通过 AI 生成并解读紫微斗数命盘。它们由同一支团队打造，遵循我们为客户开发软件时所用的同一套标准。",
+      "metaDescription": "SofinWave 自主开发和运营三款产品：SmartFinTrack——个人财务管理工具；Tử Vi Đẩu Số——通过 AI 生成并解读紫微斗数命盘；以及 KingNNT Course——应用 AI 与编程的在线学习平台。",
+      "lede": "SofinWave 自主开发和运营三款产品：SmartFinTrack，一款免费的个人财务管理工具；Tử Vi Đẩu Số，通过 AI 生成并解读紫微斗数命盘；以及 KingNNT Course，一个提供 AI 与编程实践课程的在线学习平台。它们由同一支团队打造，遵循我们为客户开发软件时所用的同一套标准。",
       "sections": [
         {
           "heading": "SmartFinTrack——个人财务管理",
@@ -1984,6 +1999,17 @@
           "links": [{ "href": "https://tuvidauso.kingnnt.org", "label": "tuvidauso.kingnnt.org" }]
         },
         {
+          "heading": "KingNNT Course——AI 与编程实践课程",
+          "body": "一个在线学习平台，面向想在实际工作中用上 AI 和编程、而不只是阅读相关内容的人。课程涵盖应用 AI——提示词、AI 智能体、工作流自动化——以及编程和数据，每门课都围绕真实项目展开。你可以在任何设备上按自己的节奏学习：每门课都有可在购买前试学的公开课时，课程一次购买即可终身学习，通过 VietQR 或 payOS 银行转账付款并自动确认。界面提供越南语和英语。",
+          "bullets": [
+            "围绕真实项目的实践课程",
+            "购买前可试学公开课时",
+            "一次购买，终身访问",
+            "VietQR 付款，自动确认"
+          ],
+          "links": [{ "href": "https://course.kingnnt.org", "label": "course.kingnnt.org" }]
+        },
+        {
           "heading": "为什么我们要自主开发产品",
           "body": "咨询建议提出容易，承受后果却代价高昂。自主运营应用意味着我们要承担自己建议的后果——部署、缺陷报告，以及产品上线很久之后持续维护的成本。这些产品由承接客户项目的同一批工程师，在同一套技术栈上，按照同样的标准打造，这正是它们成为证据而非摆设的原因。"
         }
@@ -1991,15 +2017,15 @@
       "faq": [
         {
           "question": "SofinWave 的产品免费吗？",
-          "answer": "是的。SmartFinTrack 免费使用，Tử Vi Đẩu Số 排盘也是免费的。目前两款产品都没有付费方案。"
+          "answer": "SmartFinTrack 免费使用，Tử Vi Đẩu Số 排盘也是免费的。KingNNT Course 的公开课时可以免费试学；每门完整课程一次购买，终身访问。"
         },
         {
           "question": "我需要账号吗？",
-          "answer": "SmartFinTrack 需要账号，因为它存储的是你自己的财务记录。Tử Vi Đẩu Số 无需登录即可排盘；登录后可以保存命盘并查看详细的 AI 解读。"
+          "answer": "SmartFinTrack 需要账号，因为它存储的是你自己的财务记录。Tử Vi Đẩu Số 无需登录即可排盘；登录后可以保存命盘并查看详细的 AI 解读。KingNNT Course 需要账号才能报名课程并随时回来继续学习。"
         },
         {
           "question": "SofinWave 能为我们开发类似的产品吗？",
-          "answer": "可以——这正是我们咨询业务的内容。这两款产品都是由承接客户项目的同一支团队，使用相同的架构和交付流程打造的。欢迎联系我们，说说你的想法。"
+          "answer": "可以——这正是我们咨询业务的内容。这三款产品都是由承接客户项目的同一支团队，使用相同的架构和交付流程打造的。欢迎联系我们，说说你的想法。"
         }
       ],
       "cta": {
@@ -2338,6 +2364,11 @@
             "课程录像与书面材料，方便课后复习。",
             "以越南语或英语授课。"
           ]
+        },
+        {
+          "heading": "在线自学课程",
+          "body": "并不是每门课都需要教室。我们的应用 AI 与编程内容也以基于项目的自学课程形式发布在 KingNNT Course 上——这是我们自己开发和运营的在线学习平台：可先试学公开课时，一次购买，终身访问。",
+          "links": [{ "href": "https://course.kingnnt.org", "label": "course.kingnnt.org" }]
         },
         {
           "heading": "关于投资类课程",

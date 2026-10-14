@@ -248,7 +248,14 @@ export function serviceSchema({
 const PRODUCT_CATEGORIES: Record<string, string> = {
   smartfintrack: "FinanceApplication",
   tuvidauso: "LifestyleApplication",
+  course: "EducationalApplication",
 };
+
+/**
+ * Products that cost nothing to use. Only these get a zero-price `Offer` —
+ * KingNNT Course sells its courses, and a price of 0 there would be false.
+ */
+const FREE_PRODUCTS = new Set(["smartfintrack", "tuvidauso"]);
 
 /**
  * SoftwareApplication node for one of our own products.
@@ -280,17 +287,19 @@ export function softwareApplicationSchema({
     url,
     applicationCategory: PRODUCT_CATEGORIES[key] ?? "UtilitiesApplication",
     operatingSystem: "Web",
-    // Hardcoded to the languages the products actually support (both catalog
-    // entries specify "languages": "Vietnamese / English"). Not derived from
+    // Hardcoded to the languages the products actually support (every catalog
+    // entry specifies "languages": "Vietnamese / English"). Not derived from
     // routing.locales — inLanguage describes this product's support, not the
     // site's locales. Adding a new site locale (e.g., Chinese) cannot change
     // what languages a product actually offers.
     inLanguage: ["vi", "en"],
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "VND",
-    },
+    ...(FREE_PRODUCTS.has(key) && {
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "VND",
+      },
+    }),
     publisher: { "@id": `${siteUrl(site)}/#organization` },
   };
 }
