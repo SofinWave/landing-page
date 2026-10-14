@@ -3,6 +3,7 @@ import {
   faqSchema,
   organizationSchema,
   serviceSchema,
+  productSchema,
   softwareApplicationSchema,
   webPageSchema,
   websiteSchema,
@@ -199,5 +200,30 @@ describe("softwareApplicationSchema", () => {
       expect(node.aggregateRating).toBeUndefined();
       expect(node.review).toBeUndefined();
     }
+  });
+});
+
+describe("productSchema", () => {
+  const [smartFinTrack, , , blog] = en.products.items.map((product) =>
+    productSchema({
+      key: product.key,
+      name: product.name,
+      description: product.blurb,
+      url: product.href,
+    }),
+  );
+
+  it("keeps applications as SoftwareApplication", () => {
+    expect(smartFinTrack["@type"]).toBe("SoftwareApplication");
+  });
+
+  // A blog is a publication; an application category or Offer would misstate it.
+  it("describes the blog as a free Blog, not an application", () => {
+    expect(blog["@type"]).toBe("Blog");
+    expect(blog.url).toBe("https://cms.kingnnt.org");
+    expect(blog).toHaveProperty("isAccessibleForFree", true);
+    expect(blog).not.toHaveProperty("applicationCategory");
+    expect(blog).not.toHaveProperty("offers");
+    expect(blog.publisher).toEqual({ "@id": "https://sofinwave.com/#organization" });
   });
 });

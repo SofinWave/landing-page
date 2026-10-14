@@ -35,6 +35,7 @@ describe("Products section", () => {
     expect(screen.getByText("SmartFinTrack")).toBeInTheDocument();
     expect(screen.getByText("Tử Vi Đẩu Số")).toBeInTheDocument();
     expect(screen.getByText("KingNNT Course")).toBeInTheDocument();
+    expect(screen.getByText("KingNNT Blog")).toBeInTheDocument();
   });
 
   it("links each card out to the live product", () => {
@@ -45,6 +46,7 @@ describe("Products section", () => {
     expect(hrefs).toContain("https://smartfintrack.com");
     expect(hrefs).toContain("https://tuvidauso.kingnnt.org");
     expect(hrefs).toContain("https://course.kingnnt.org");
+    expect(hrefs).toContain("https://cms.kingnnt.org");
   });
 
   it("links through to the products page", () => {

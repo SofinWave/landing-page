@@ -284,7 +284,7 @@
   },
   "products": {
     "heading": "Sản phẩm chúng tôi tự làm và tự vận hành",
-    "lede": "Ba ứng dụng của chính chúng tôi. Chúng tôi tự chịu chi phí vận hành chúng — cách trung thực nhất để cho thấy mình làm ra được sản phẩm và giữ nó sống.",
+    "lede": "Ba ứng dụng và một blog kỹ thuật của chính chúng tôi. Chúng tôi tự chịu chi phí vận hành chúng — cách trung thực nhất để cho thấy mình làm ra được sản phẩm và giữ nó sống.",
     "ctaLabel": "Tìm hiểu thêm về sản phẩm",
     "items": [
       {
@@ -331,6 +331,21 @@
         ],
         "href": "https://course.kingnnt.org",
         "host": "course.kingnnt.org"
+      },
+      {
+        "key": "blog",
+        "name": "KingNNT Blog",
+        "blurb": "Sổ tay kỹ thuật về kiến trúc backend, hạ tầng và công cụ cho AI agent — những quyết định kỹ thuật phải trả giá, viết cho các đội đang vận hành hệ thống thật.",
+        "price": "Đọc miễn phí",
+        "languages": "Tiếng Việt / English",
+        "features": [
+          "Bài viết chuyên sâu về backend và hệ thống AI agent",
+          "Xuất bản bằng tiếng Việt và tiếng Anh",
+          "RSS riêng cho từng ngôn ngữ",
+          "Chỉ mục llms.txt cho công cụ AI và answer engine"
+        ],
+        "href": "https://cms.kingnnt.org",
+        "host": "cms.kingnnt.org"
       }
     ]
   },
@@ -2009,8 +2024,8 @@
       "navLabel": "Sản phẩm",
       "title": "Sản phẩm",
       "metaTitle": "Sản phẩm — Phần mềm do SofinWave tự làm và vận hành",
-      "metaDescription": "SofinWave tự làm và vận hành ba sản phẩm: SmartFinTrack — hệ thống quản lý tài chính cá nhân, Tử Vi Đẩu Số — công cụ lập lá số và luận giải bằng AI, và KingNNT Course — nền tảng học AI và lập trình trực tuyến.",
-      "lede": "SofinWave tự làm và vận hành ba sản phẩm của chính mình: SmartFinTrack — hệ thống quản lý tài chính cá nhân miễn phí, Tử Vi Đẩu Số — công cụ lập lá số tử vi và luận giải bằng AI, và KingNNT Course — nền tảng học trực tuyến với các khóa AI và lập trình thực hành. Chúng do cùng đội ngũ làm ra, theo đúng tiêu chuẩn chúng tôi áp dụng cho phần mềm của khách hàng.",
+      "metaDescription": "SofinWave tự làm và vận hành bốn sản phẩm: SmartFinTrack — hệ thống quản lý tài chính cá nhân, Tử Vi Đẩu Số — công cụ lập lá số và luận giải bằng AI, KingNNT Course — nền tảng học AI và lập trình trực tuyến, và KingNNT Blog — sổ tay kỹ thuật về hệ thống backend.",
+      "lede": "SofinWave tự làm và vận hành bốn sản phẩm của chính mình: SmartFinTrack — hệ thống quản lý tài chính cá nhân miễn phí, Tử Vi Đẩu Số — công cụ lập lá số tử vi và luận giải bằng AI, KingNNT Course — nền tảng học trực tuyến với các khóa AI và lập trình thực hành, và KingNNT Blog — nơi kỹ sư của chúng tôi viết về backend và hệ thống AI agent. Chúng do cùng đội ngũ làm ra, theo đúng tiêu chuẩn chúng tôi áp dụng cho phần mềm của khách hàng.",
       "sections": [
         {
           "heading": "SmartFinTrack — quản lý tài chính cá nhân",
@@ -2046,6 +2061,17 @@
           "links": [{ "href": "https://course.kingnnt.org", "label": "course.kingnnt.org" }]
         },
         {
+          "heading": "KingNNT Blog — sổ tay kỹ thuật backend",
+          "body": "Nơi các kỹ sư của chúng tôi ghi lại những gì học được khi vận hành hệ thống thật: kiến trúc backend, hạ tầng, và công cụ quanh AI agent — thay đổi giao thức, chuyển đổi framework, observability, và những chi phí chỉ lộ ra sau ngày ra mắt. Bài viết dài, thực dụng, dành cho kỹ sư đang phải đưa ra đúng những quyết định đó. Đọc miễn phí, không cần tài khoản, xuất bản bằng tiếng Việt và tiếng Anh với RSS riêng cho từng ngôn ngữ, và có chỉ mục llms.txt để công cụ AI cũng đọc được.",
+          "bullets": [
+            "Bài viết chuyên sâu về backend và hệ thống AI agent",
+            "Xuất bản bằng tiếng Việt và tiếng Anh",
+            "RSS riêng cho từng ngôn ngữ",
+            "Chỉ mục llms.txt cho công cụ AI và answer engine"
+          ],
+          "links": [{ "href": "https://cms.kingnnt.org", "label": "cms.kingnnt.org" }]
+        },
+        {
           "heading": "Vì sao chúng tôi tự làm sản phẩm",
           "body": "Lời khuyên tư vấn thì dễ đưa ra, nhưng sống chung với nó mới tốn kém. Tự vận hành ứng dụng của mình nghĩa là chúng tôi gánh đúng hệ quả của những gì mình khuyên khách — từ khâu triển khai, báo lỗi, đến chi phí duy trì lâu sau ngày ra mắt. Sản phẩm do chính đội ngũ đó làm, trên cùng nền tảng công nghệ và cùng tiêu chuẩn với dự án khách hàng — đó là lý do chúng là bằng chứng chứ không phải đồ trang trí."
         }
@@ -2053,15 +2079,15 @@
       "faq": [
         {
           "question": "Sản phẩm của SofinWave có miễn phí không?",
-          "answer": "SmartFinTrack dùng miễn phí, và việc lập lá số trên Tử Vi Đẩu Số cũng miễn phí. Trên KingNNT Course, các bài học mở được học thử miễn phí; mỗi khóa học đầy đủ mua một lần và học trọn đời."
+          "answer": "SmartFinTrack dùng miễn phí, và việc lập lá số trên Tử Vi Đẩu Số cũng miễn phí. Trên KingNNT Course, các bài học mở được học thử miễn phí; mỗi khóa học đầy đủ mua một lần và học trọn đời. KingNNT Blog đọc miễn phí."
         },
         {
           "question": "Tôi có cần tài khoản không?",
-          "answer": "SmartFinTrack cần tài khoản, vì nó lưu chính dữ liệu tài chính của bạn. Tử Vi Đẩu Số lập được lá số mà không cần đăng nhập; đăng nhập để lưu lá số và xem luận giải chi tiết bằng AI. KingNNT Course cần tài khoản để đăng ký khóa học và quay lại học tiếp."
+          "answer": "SmartFinTrack cần tài khoản, vì nó lưu chính dữ liệu tài chính của bạn. Tử Vi Đẩu Số lập được lá số mà không cần đăng nhập; đăng nhập để lưu lá số và xem luận giải chi tiết bằng AI. KingNNT Course cần tài khoản để đăng ký khóa học và quay lại học tiếp. KingNNT Blog đọc được mà không cần tài khoản."
         },
         {
           "question": "SofinWave có nhận làm sản phẩm tương tự cho chúng tôi không?",
-          "answer": "Có — đó chính là mảng tư vấn và triển khai của chúng tôi. Cả ba sản phẩm đều do đội ngũ nhận dự án khách hàng làm ra, với cùng kiến trúc và quy trình. Hãy liên hệ và mô tả điều bạn đang muốn xây."
+          "answer": "Có — đó chính là mảng tư vấn và triển khai của chúng tôi. Tất cả đều do đội ngũ nhận dự án khách hàng làm ra, với cùng kiến trúc và quy trình. Hãy liên hệ và mô tả điều bạn đang muốn xây."
         }
       ],
       "cta": {
