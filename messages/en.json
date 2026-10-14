@@ -2373,7 +2373,7 @@
       "title": "SofinWave Academy",
       "metaTitle": "SofinWave Academy — Engineering, Investing & School Tutoring",
       "metaDescription": "Courses and tutoring in software engineering and AI, investing literacy, content production, and school subjects for grades 1-12.",
-      "lede": "SofinWave Academy teaches what our team does for a living, plus school tutoring for grades 1 to 12. The engineering material started as our internal onboarding — the documents we wrote to bring new engineers up to speed — and the rest grew from the same habit of writing things down properly. Small groups, working examples, and instructors who still do the work.",
+      "lede": "SofinWave Academy teaches what our team does for a living, plus school tutoring for grades 1 to 12, delivered with our partner Trí Tuệ Việt. The engineering material started as our internal onboarding — the documents we wrote to bring new engineers up to speed — and the rest grew from the same habit of writing things down properly. Small groups, working examples, and instructors who still do the work.",
       "sections": [
         {
           "heading": "What we teach",
@@ -2383,7 +2383,7 @@
             "AI in practice: building and evaluating LLM applications rather than theory.",
             "Investing literacy: how to read a company and think about risk. Not advice.",
             "Content production: filming, editing, and writing that holds attention.",
-            "School subjects, grades 1-12: maths, sciences, and English."
+            "School subjects, grades 1-12, with our partner Trí Tuệ Việt: every school subject, plus programming."
           ]
         },
         {
@@ -2407,13 +2407,18 @@
         },
         {
           "heading": "On school tutoring",
-          "body": "For grades 1 to 12 we teach maths, sciences, and English, and we are honest about the scope: this is small-group tutoring built around understanding rather than a full curriculum replacement, and it works best alongside school rather than instead of it."
+          "body": "For grades 1 to 12 we work with Trí Tuệ Việt, a tutoring centre that delivers this part of the Academy. They cover every school subject — maths and the natural sciences, literature and the social sciences, English — plus programming from first steps to competitive contests, taught one-to-one, in small groups of three to six, online, or at home. The first lesson is a free trial, and parents receive regular progress reports. We are honest about the scope: it is tutoring built around understanding, not a full curriculum replacement, and it works best alongside school rather than instead of it.",
+          "links": [{ "href": "https://tritueviet.org", "label": "tritueviet.org" }]
         }
       ],
       "faq": [
         {
           "question": "Who teaches the courses?",
           "answer": "Practising engineers and consultants from SofinWave. The people teaching the engineering material are the same people writing production code that week."
+        },
+        {
+          "question": "Who teaches the school tutoring?",
+          "answer": "Tutors from Trí Tuệ Việt, the tutoring centre we partner with for grades 1 to 12. Every tutor passes a subject interview and a trial lesson before taking a class."
         },
         {
           "question": "What languages are classes in?",
@@ -2443,7 +2448,7 @@
       "sections": [
         {
           "heading": "Practitioners, not career instructors",
-          "body": "Everyone who teaches here works in the field they teach. That has a cost — we run fewer cohorts than a dedicated school would — and a benefit, which is that the examples are current and the answers to \"does this happen in real projects\" are first-hand."
+          "body": "Everyone who teaches our courses works in the field they teach; school tutoring for grades 1 to 12 is taught by tutors from our partner Trí Tuệ Việt. That has a cost — we run fewer cohorts than a dedicated school would — and a benefit, which is that the examples are current and the answers to \"does this happen in real projects\" are first-hand."
         },
         {
           "heading": "What we do not claim",

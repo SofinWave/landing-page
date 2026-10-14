@@ -2378,7 +2378,7 @@
       "title": "SofinWave Academy",
       "metaTitle": "SofinWave Academy — Kỹ thuật, đầu tư và gia sư phổ thông",
       "metaDescription": "Khóa học và gia sư về kỹ thuật phần mềm và AI, kiến thức đầu tư, sản xuất nội dung, và các môn phổ thông lớp 1-12.",
-      "lede": "SofinWave Academy dạy chính những gì đội ngũ chúng tôi làm để kiếm sống, cộng thêm gia sư phổ thông lớp 1 đến 12. Tài liệu kỹ thuật vốn là bộ onboarding nội bộ — những văn bản chúng tôi viết để kỹ sư mới bắt nhịp — và phần còn lại lớn lên từ cùng thói quen ghi chép tử tế. Lớp nhỏ, ví dụ chạy được, và người dạy vẫn đang trực tiếp làm nghề.",
+      "lede": "SofinWave Academy dạy chính những gì đội ngũ chúng tôi làm để kiếm sống, cộng thêm gia sư phổ thông lớp 1 đến 12 cùng đơn vị đối tác Trí Tuệ Việt. Tài liệu kỹ thuật vốn là bộ onboarding nội bộ — những văn bản chúng tôi viết để kỹ sư mới bắt nhịp — và phần còn lại lớn lên từ cùng thói quen ghi chép tử tế. Lớp nhỏ, ví dụ chạy được, và người dạy vẫn đang trực tiếp làm nghề.",
       "sections": [
         {
           "heading": "Chúng tôi dạy gì",
@@ -2388,7 +2388,7 @@
             "AI trong thực tế: xây và đánh giá ứng dụng LLM thay vì học lý thuyết.",
             "Kiến thức đầu tư: cách đọc một doanh nghiệp và cách nghĩ về rủi ro. Không phải tư vấn.",
             "Sản xuất nội dung: quay, dựng, và viết sao cho giữ được sự chú ý.",
-            "Các môn phổ thông lớp 1-12: toán, khoa học tự nhiên và tiếng Anh."
+            "Các môn phổ thông lớp 1-12, cùng đối tác Trí Tuệ Việt: mọi môn văn hoá, cùng lập trình."
           ]
         },
         {
@@ -2412,13 +2412,18 @@
         },
         {
           "heading": "Về phần gia sư phổ thông",
-          "body": "Với lớp 1 đến 12, chúng tôi dạy toán, khoa học tự nhiên và tiếng Anh, và nói thẳng về phạm vi: đây là gia sư nhóm nhỏ xây quanh việc hiểu bản chất, không phải thứ thay thế toàn bộ chương trình, và phát huy tốt nhất khi đi song song với trường chứ không thay cho trường."
+          "body": "Với lớp 1 đến 12, chúng tôi hợp tác cùng Trí Tuệ Việt — trung tâm gia sư trực tiếp triển khai mảng này của Academy. Trí Tuệ Việt dạy mọi môn văn hoá — toán và khoa học tự nhiên, ngữ văn và khoa học xã hội, tiếng Anh — cùng lập trình từ căn bản đến thi đấu, theo hình thức kèm 1-1, nhóm nhỏ 3-6 bạn, học online hoặc gia sư tại nhà. Buổi đầu tiên là buổi học thử miễn phí, và phụ huynh nhận báo cáo tiến độ định kỳ. Chúng tôi nói thẳng về phạm vi: đây là gia sư xây quanh việc hiểu bản chất, không phải thứ thay thế toàn bộ chương trình, và phát huy tốt nhất khi đi song song với trường chứ không thay cho trường.",
+          "links": [{ "href": "https://tritueviet.org", "label": "tritueviet.org" }]
         }
       ],
       "faq": [
         {
           "question": "Ai đứng lớp?",
           "answer": "Các kỹ sư và chuyên gia tư vấn đang hành nghề tại SofinWave. Người dạy phần kỹ thuật cũng chính là người đang viết mã production trong tuần đó."
+        },
+        {
+          "question": "Ai dạy phần gia sư phổ thông?",
+          "answer": "Các gia sư của Trí Tuệ Việt, trung tâm gia sư chúng tôi hợp tác cho lớp 1 đến 12. Mỗi gia sư đều qua vòng phỏng vấn chuyên môn và dạy thử trước khi đứng lớp."
         },
         {
           "question": "Lớp học bằng ngôn ngữ nào?",
@@ -2448,7 +2453,7 @@
       "sections": [
         {
           "heading": "Người hành nghề, không phải giảng viên chuyên nghiệp",
-          "body": "Tất cả những người dạy ở đây đều đang làm việc trong lĩnh vực mình dạy. Điều đó có cái giá — chúng tôi mở ít lớp hơn một trung tâm chuyên đào tạo — và có cái lợi, là các ví dụ luôn cập nhật và câu trả lời cho \"điều này có xảy ra trong dự án thật không\" đến từ người trong cuộc."
+          "body": "Tất cả những người dạy các khóa học của chúng tôi đều đang làm việc trong lĩnh vực mình dạy; riêng gia sư phổ thông lớp 1 đến 12 do các gia sư của đối tác Trí Tuệ Việt đảm nhận. Điều đó có cái giá — chúng tôi mở ít lớp hơn một trung tâm chuyên đào tạo — và có cái lợi, là các ví dụ luôn cập nhật và câu trả lời cho \"điều này có xảy ra trong dự án thật không\" đến từ người trong cuộc."
         },
         {
           "heading": "Những gì chúng tôi không tự nhận",
